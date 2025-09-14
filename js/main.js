@@ -87,11 +87,7 @@ const cartCount = document.querySelector('.cart-count');
 const cartItems = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
 const visitCount = document.getElementById('visit-count');
-
-// Inicialización
-document.addEventListener('DOMContentLoaded', function() {
-});
-
+// Inicialización de la aplicación
 function initializeApp() {
     renderProductos();
     setupEventListeners();
