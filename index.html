@@ -3,32 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Cats tienda online</title>
+    <title>Urban Cats - Moda Juvenil Urbana</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="nav-inicio">
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <h1>🐱 Urban Cats</h1>
+                <img src="images/logo_5.png" alt="Urban Cats" class="logo-img">
             </div>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#carrito">Carrito (0)</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#login">Login</a></li>
-            </ul>
-        </nav>
+            <nav class="nav-menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#mujer">Mujer</a>
+                <a href="#hombre">Hombre</a>
+                <a href="#accesorios">Accesorios</a>
+                <a href="#ofertas">Ofertas</a>
+            </nav>
+            <div class="nav-utilities">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <a href="#account"><i class="fas fa-user"></i></a>
+                <a href="#wishlist"><i class="fas fa-heart"></i></a>
+                <a href="#cart" class="cart-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="inicio" class="hero">
-            <h2>Urban Cats tendencias de la moda</h2>
-            <p>Descubre las últimas tendencias en ropa juvenil</p>
-            <button class="cta-button">Ver Productos</button>
-        </section>
-    </main>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Nueva Colección Urbana</h1>
+                        <p>Descubre las últimas tendencias en moda juvenil que definen tu estilo único</p>
+                        <div class="hero-buttons">
+                            <button class="cta-primary" onclick="scrollToSection('productos')">Ver Colección</button>
+                            <button class="cta-secondary">Lookbook 2024</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                   <div class="product-slider">
+                      <div class="slider-container">
+                <div class="slide active">
+                <img src="images/hoddie_1.jpg" alt="Hoodie Urban Cats">
+                        </div>
+                 <div class="slide">
+                 <img src="images/hoddie_2.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_3.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_4.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_5.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_6.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_7.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_8.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_9.jpg" alt="Hoodie Urban Cats">
+            </div>
+            <div class="slide">
+                <img src="images/hoddie_10.jpg" alt="Hoodie Urban Cats">
+            </div>
+        </div>
+
+        <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+            <span class="dot" data-slide="4"></span>
+            <span class="dot" data-slide="5"></span>
+            <span class="dot" data-slide="6"></span>
+            <span class="dot" data-slide="7"></span>
+            <span class="dot" data-slide="8"></span>
+            <span class="dot" data-slide="9"></span>
+        </div>
+    </div>
+</div>
+        
+        <!-- Category Cards -->
+        <div class="category-preview">
+            <div class="category-card" data-category="mujer">
+                <img src="images/mujer_1.jpg" alt="Mujer">
+                <div class="category-overlay">
+                    <h3>Mujer</h3>
+                    <p>Estilo urbano femenino</p>
+                    <button class="category-btn">Explorar</button>
+                </div>
+            </div>
+            <div class="category-card" data-category="hombre">
+                <img src="images/hombre_1.jpg" alt="Hombre">
+                <div class="category-overlay">
+                    <h3>Hombre</h3>
+                    <p>Moda masculina moderna</p>
+                    <button class="category-btn">Explorar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Colección</h2>
+                <p>Encuentra tu estilo perfecto</p>
+            </div>
+            
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="mujer">Mujer</button>
+                <button class="filter-btn" data-filter="hombre">Hombre</button>
+                <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+                <button class="filter-btn" data-filter="nuevo">Nuevo</button>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Productos se generarán dinámicamente -->
+            </div>
+            
+            <div class="load-more">
+                <button class="load-more-btn">Ver Más Productos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="featured-collections">
+        <div class="container">
+            <h2>Colecciones Destacadas</h2>
+            <div class="collections-grid">
+                <div class="collection-card large">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop" alt="Colección Street">
+                    <div class="collection-info">
+                        <h3>Street Style</h3>
+                        <p>La esencia urbana en cada prenda</p>
+                        <button class="collection-btn">Ver Colección</button>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=300&fit=crop" alt="Casual Chic">
+                    <div class="collection-info">
+                        <h3>Casual Chic</h3>
+                        <p>Comodidad con estilo</p>
+                        <button class="collection-btn">Explorar</button>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=300&fit=crop" alt="Urban Night">
+                    <div class="collection-info">
+                        <h3>Urban Night</h3>
+                        <p>Para tus noches de ciudad</p>
+                        <button class="collection-btn">Descubrir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Únete a la Comunidad Urban Cats</h2>
+                <p>Sé el primero en conocer nuestras nuevas colecciones y ofertas exclusivas</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand">
+                    <h3>Urban Cats</h3>
+                    <p>Moda urbana que define tu personalidad. Únete a nuestra comunidad y descubre tu estilo único.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="#mujer">Mujer</a></li>
+                        <li><a href="#hombre">Hombre</a></li>
+                        <li><a href="#accesorios">Accesorios</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#historia">Nuestra Historia</a></li>
+                        <li><a href="#mision">Misión y Visión</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#trabajo">Trabaja con Nosotros</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="#envios">Envíos</a></li>
+                        <li><a href="#devoluciones">Devoluciones</a></li>
+                        <li><a href="#guia-tallas">Guía de Tallas</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Urban Cats. Todos los derechos reservados.</p>
+                    <div class="visit-counter">
+                        <span>Visitas: <span id="visit-count">1,234</span></span>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#privacidad">Privacidad</a>
+                        <a href="#terminos">Términos</a>
+                        <a href="#cookies">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carrito lateral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+                <button class="continue-shopping">Seguir Comprando</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: $<span id="cart-total">0</span></span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <script src="js/main.js"></script>
 </body>
