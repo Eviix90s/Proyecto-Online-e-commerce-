@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lookbook 2024 - Urban Cats</title>
+    <meta name="description" content="Descubre la inspiración detrás de Urban Cats con nuestro Lookbook 2024. Outfits urbanos con estilo japonés contemporáneo.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lookbook.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar lookbook-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="logo-img">
+                    <span class="logo-text">Urban Cats</span>
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="index.html#productos" class="nav-link">Tienda</a>
+                <a href="#" class="nav-link active">Lookbook</a>
+                <a href="index.html#newsletter" class="nav-link">Contacto</a>
+            </nav>
+            <div class="nav-utilities">
+                <button class="search-btn" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="index.html#cart" aria-label="Carrito">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menú móvil">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section con video -->
+<section class="lookbook-hero">
+    <!-- Video de fondo -->
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="images/video_look_book.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
+    
+    <!-- Overlay para mejor legibilidad -->
+    <div class="hero-video-overlay"></div>
+    
+    <!-- Contenido del hero -->
+    <div class="hero-content">
+        <div class="hero-badge">Lookbook 2025</div>
+        <h1>
+            <span class="hero-title-line">Estilo Urbano</span>
+            <span class="hero-title-line hero-title-accent">Japonés</span>
+        </h1>
+        <p>Descubre la perfecta fusión entre minimalismo japonés y moda urbana contemporánea</p>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Filter Navigation -->
+    <section class="lookbook-filters">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">
+                    <span>Todos los Looks</span>
+                    <span class="tab-count">24</span>
+                </button>
+                <button class="filter-tab" data-category="street">
+                    <span>Street Essential</span>
+                    <span class="tab-count">8</span>
+                </button>
+                <button class="filter-tab" data-category="minimal">
+                    <span>Minimalist Vibes</span>
+                    <span class="tab-count">7</span>
+                </button>
+                <button class="filter-tab" data-category="night">
+                    <span>Night City</span>
+                    <span class="tab-count">6</span>
+                </button>
+                <button class="filter-tab" data-category="mix">
+                    <span>Mix & Match</span>
+                    <span class="tab-count">3</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Gallery -->
+    <section class="lookbook-gallery">
+        <div class="container">
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Look 1 - Street Essential -->
+                <div class="look-card" data-category="street" data-look="1">
+                    <div class="look-image-container">
+                        <img src="images/look_1.jpg" alt="Street Look 1" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Urban Explorer</h3>
+                                <p>Hoodie + Jeans + Sneakers</p>
+                                <div class="look-tags">
+                                    <span class="tag">Casual</span>
+                                    <span class="tag">Urbano</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(1)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 2 - Minimalist -->
+                <div class="look-card" data-category="minimal" data-look="2">
+                    <div class="look-image-container">
+                        <img src="images/look_2.jpg" alt="Minimal Look 1" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Zen Mode</h3>
+                                <p>Camiseta básica + Pantalón recto</p>
+                                <div class="look-tags">
+                                    <span class="tag">Minimal</span>
+                                    <span class="tag">Clean</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(2)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 3 - Street Essential -->
+                <div class="look-card large" data-category="street" data-look="3">
+                    <div class="look-image-container">
+                        <img src="images/look_14.jpg" alt="Street Look Featured" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Tokyo Vibes</h3>
+                                <p>Chaqueta oversized + Crop top + Joggers</p>
+                                <div class="look-tags">
+                                    <span class="tag">Destacado</span>
+                                    <span class="tag">Street</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(3)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 4 - Night City -->
+                <div class="look-card" data-category="night" data-look="4">
+                    <div class="look-image-container">
+                        <img src="images/look_6.jpg" alt="Night Look 1" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Midnight Runner</h3>
+                                <p>Sudadera negra + Jeans oscuros</p>
+                                <div class="look-tags">
+                                    <span class="tag">Night</span>
+                                    <span class="tag">Dark</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(4)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 5 - Mix & Match -->
+                <div class="look-card" data-category="mix" data-look="5">
+                    <div class="look-image-container">
+                        <img src="images/look_7.jpg" alt="Mix Look 1" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Layer Master</h3>
+                                <p>Camiseta + Camisa + Chaqueta</p>
+                                <div class="look-tags">
+                                    <span class="tag">Capas</span>
+                                    <span class="tag">Versátil</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(5)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 6 - Minimalist -->
+                <div class="look-card" data-category="minimal" data-look="6">
+                    <div class="look-image-container">
+                        <img src="images/look_8.jpg" alt="Minimal Look 2" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Pure Lines</h3>
+                                <p>Vestido simple + Accesorios mínimos</p>
+                                <div class="look-tags">
+                                    <span class="tag">Elegante</span>
+                                    <span class="tag">Simple</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(6)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 7 - Street Essential -->
+                <div class="look-card" data-category="street" data-look="7">
+                    <div class="look-image-container">
+                        <img src="images/look_10.jpg" alt="Street Look 2" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Skate Culture</h3>
+                                <p>Camiseta gráfica + Shorts + High tops</p>
+                                <div class="look-tags">
+                                    <span class="tag">Skate</span>
+                                    <span class="tag">Juvenil</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(7)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Look 8 - Night City -->
+                <div class="look-card" data-category="night" data-look="8">
+                    <div class="look-image-container">
+                        <img src="images/look_11.jpg" alt="Night Look 2" loading="lazy">
+                        <div class="look-overlay">
+                            <div class="look-details">
+                                <h3>Neon Nights</h3>
+                                <p>Bomber jacket + Camiseta + Jeans</p>
+                                <div class="look-tags">
+                                    <span class="tag">Futurista</span>
+                                    <span class="tag">Urbano</span>
+                                </div>
+                            </div>
+                            <button class="view-look-btn" onclick="openLookModal(8)">
+                                <i class="fas fa-eye"></i>
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <span>Cargar Más Looks</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="container">
+            <div class="inspiration-content">
+                <div class="inspiration-text">
+                    <h2>Nuestra Inspiración</h2>
+                    <p>La moda urbana japonesa se caracteriza por su enfoque minimalista y funcional. Cada look en nuestro Lookbook está cuidadosamente curado para reflejar la esencia del estilo contemporáneo de Tokio.</p>
+                    <div class="inspiration-features">
+                        <div class="feature-item">
+                            <i class="fas fa-yin-yang"></i>
+                            <h4>Equilibrio</h4>
+                            <p>Balance perfecto entre comodidad y estilo</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Simplicidad</h4>
+                            <p>Menos es más en cada combinación</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-city"></i>
+                            <h4>Urbanidad</h4>
+                            <p>Diseñado para la vida en la ciudad</p>
+                        </div>
+                    </div>
+                    <a href="index.html#productos" class="shop-collection-btn">
+                        <span>Comprar Colección</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="inspiration-image">
+                    <img src="images/inspi_1.png" alt="Urbans cats logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer lookbook-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand">
+                    <div class="footer-logo">
+                        <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
+                        <h3>Urban Cats</h3>
+                    </div>
+                    <p>Moda urbana que define tu personalidad con la elegancia del minimalismo japonés contemporáneo.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="TikTok" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#productos">Tienda</a></li>
+                        <li><a href="#" class="active">Lookbook</a></li>
+                        <li><a href="index.html#newsletter">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <ul>
+                        <li><a href="#">urbancats@gmail.com</a></li>
+                        <li><a href="#">#urbancatsstyle</a></li>
+                        <li><a href="#">#lookbook2025</a></li>
+                        <li><a href="#">#streetstyle</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
+                    <div class="footer-links">
+                        <a href="index.html">Volver a la tienda</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Look Detail Modal -->
+    <div id="look-modal" class="look-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeLookModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image">
+                <img id="modal-image" src="" alt="Look Detail">
+            </div>
+            <div class="modal-info">
+                <h2 id="modal-title">Look Title</h2>
+                <p id="modal-description">Look description</p>
+                <div class="modal-products" id="modal-products">
+                    <!-- Products will be populated here -->
+                </div>
+                <div class="modal-actions">
+                    <button class="share-look-btn" onclick="shareLook()">
+                        <i class="fas fa-share"></i>
+                        Compartir Look
+                    </button>
+                    <button class="shop-look-btn" onclick="shopLook()">
+                        <i class="fas fa-shopping-bag"></i>
+                        Comprar Look Completo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Scripts -->
+    <script src="js/lookbook.js"></script>
+</body>
+</html>

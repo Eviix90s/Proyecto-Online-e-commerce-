@@ -1018,7 +1018,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Preload critical images
     const criticalImages = [
-        'images/logo_5.png',
+        'images/logo_para_video-removebg-preview.png',
         'images/mujer_1.jpg',
         'images/hombre_1.jpg'
     ];
