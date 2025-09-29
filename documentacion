@@ -1,0 +1,251 @@
+# Documentación Proyecto Urban Cats - Negocios electronicos 
+
+**Nombre del Proyecto:** Urban Cats  
+**Tipo:** E-commerce de moda urbana  
+**Repositorio:** https://github.com/Eviix90s/Proyecto-Online-e-commerce-  
+**URL en vivo:** https://eviix90s.github.io/Proyecto-Online-e-commerce-/  
+**Desarrollador:** ELIAS ALEJANDRO RAMIREZ FRANCO / JESUS EMANUEL NIETO ARVIZU / JUAN CARLOS GONZALES HERVET
+
+## Descripción del Proyecto
+
+Urban Cats es una tienda online de ropa urbana inspirada en el diseño minimalista de Pull & Bear. El proyecto se enfoca en ofrecer una experiencia de compra moderna y responsiva, con especial atención al diseño mobile-first.
+
+## Arquitectura del Proyecto
+
+### Estructura de Archivos
+```
+Proyecto-Online-e-commerce-/
+├── index.html              # Página principal
+├── lookbook.html           # Sección de looks/outfits
+├── css/
+│   ├── styles.css          # Estilos principales
+│   └── lookbook.css        # Estilos del lookbook
+├── js/
+│   ├── main.js             # Funcionalidad principal
+│   └── lookbook.js         # Funcionalidad del lookbook
+├── images/                 # Recursos gráficos
+│   ├── productos/          # Imágenes de productos
+│   ├── look_*.jpg          # Imágenes de looks
+│   └── videos/             # Videos promocionales
+└── README.md
+```
+
+## Funcionalidades Implementadas
+
+### 1. **Interfaz Principal**
+- Diseño minimalista inspirado en Pull & Bear
+- Navbar responsiva con animaciones suaves
+- Slider automático de productos destacados
+- Footer completo con información de la empresa
+
+### 2. **Sistema de Productos**
+- Catálogo de productos con imágenes de alta calidad
+- Filtros por categorías (hoodies, camisetas, accesorios)
+- Vista de detalles de producto
+- Integración con carrito de compras
+
+### 3. **Carrito de Compras Funcional**
+- Agregar/eliminar productos
+- Persistencia de datos con localStorage
+- Cálculo automático de totales
+- Interfaz intuitiva para modificar cantidades
+
+### 4. **Lookbook/Galería**
+- Sección dedicada a mostrar outfits completos
+- Diseño tipo galería con imágenes de alta resolución
+- Navegación fluida entre diferentes looks
+- Integración con JavaScript para interactividad
+
+### 5. **Características Técnicas**
+- **Responsive Design:** Mobile-first approach
+- **Navegación Inteligente:** Recuerda la última pestaña visitada
+- **Contador de Visitas:** Implementado con localStorage
+- **Newsletter:** Sistema de suscripción
+- **Optimización:** Carga rápida y animaciones suaves
+
+## 🔧 Configuración Técnica
+
+### Control de Versiones (Git)
+- **Repositorio:** GitHub público
+- **Ramas:** main (rama principal)
+- **Hosting:** GitHub Pages activado
+- **Comandos utilizados:**
+  ```bash
+  git clone https://github.com/Eviix90s/Proyecto-Online-e-commerce-.git
+  git add .
+  git commit -m "descripción"
+  git push origin main
+  ```
+
+### Tecnologías Utilizadas
+- **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
+- **Hosting:** GitHub Pages
+- **Control de versiones:** Git/GitHub
+- **Diseño:** CSS Grid, Flexbox, Media Queries
+- **Almacenamiento:** localStorage para persistencia del carrito
+
+##  Requerimientos Académicos
+
+###  Completados
+- [x] Diseño responsive
+- [x] Carrito funcional
+- [x] Sistema de productos
+- [x] Navegación intuitiva
+- [x] Hosting en línea
+- [x] Control de versiones
+- [x] Lookbook/galería
+
+###  Pendientes de Implementar
+- [ ] Sistema de registro/login de usuarios
+- [ ] Base de datos (planificada con Supabase)
+- [ ] Backend con Node.js
+- [ ] Chat en vivo para atención al cliente
+- [ ] Páginas institucionales (Historia, Misión/Visión/Valores)
+- [ ] Sistema de pagos
+- [ ] Panel de administración
+
+## Proceso de Desarrollo Documentado
+
+### Configuración Inicial
+1. **Creación del repositorio en GitHub**
+2. **Clonación local del proyecto**
+3. **Configuración de GitHub Pages para hosting**
+4. **Estructura inicial de archivos**
+
+### Desarrollo Frontend
+1. **Diseño de la interfaz principal (index.html)**
+   - Navbar responsiva
+   - Slider de productos
+   - Secciones de contenido
+   - Footer informativo
+
+2. **Implementación del sistema de productos**
+   - Catálogo dinámico
+   - Filtros por categoría
+   - Integración con carrito
+
+3. **Desarrollo del carrito de compras**
+   - Funcionalidad CRUD (agregar, eliminar, modificar)
+   - Persistencia con localStorage
+   - Cálculos automáticos
+
+4. **Creación del lookbook**
+   - Galería de imágenes
+   - Navegación fluida
+   - Diseño atractivo
+
+### Optimización y Ajustes
+1. **Mejora de la calidad de imágenes**
+   - Reemplazo de imágenes borrosas
+   - Optimización de tamaños
+   - Configuración de CSS para mejor visualización
+
+2. **Resolución de problemas técnicos**
+   - Manejo de caché del navegador
+   - Corrección de rutas de archivos
+   - Optimización del rendimiento
+
+##  Aspectos de Diseño
+
+### Paleta de Colores
+- **Primary Black:** #000000
+- **Pure White:** #ffffff
+- **Accent Colors:** Definidos en variables CSS
+
+### Tipografía
+- Fuentes modernas y legibles
+- Jerarquía clara de títulos
+- Responsive text sizing
+
+### UX/UI
+- **Mobile-first approach**
+- **Animaciones suaves** con CSS transitions
+- **Navegación intuitiva**
+- **Feedback visual** en interacciones
+
+## 📊 Métricas y Funcionalidades Especiales
+
+### Contador de Visitas
+- Implementado con localStorage
+- Muestra estadísticas de acceso
+
+### Newsletter
+- Sistema de suscripción integrado
+- Validación de email
+
+### Almacenamiento Local
+- Carrito persistente
+- Preferencias del usuario
+- Historial de navegación
+
+##  Problemas Resueltos Durante el Desarrollo
+
+### 1. **Problema con Comandos Git**
+- **Issue:** El usuario no recordaba los comandos básicos de Git
+- **Solución:** Documentación completa de comandos esenciales
+- **Resultado:** Configuración exitosa del repositorio
+
+### 2. **Error de Directorio No Encontrado**
+- **Issue:** `bash: cd: Proyecto-Online-e-commerce: No such file or directory`
+- **Solución:** Clonación correcta del repositorio con la URL exacta
+- **Comando:** `git clone https://github.com/Eviix90s/Proyecto-Online-e-commerce-.git`
+
+### 3. **Advertencia de Archivos Grandes**
+- **Issue:** Video de 61.80 MB excedía límite recomendado de GitHub
+- **Status:** Archivo subido exitosamente con advertencia
+- **Recomendación:** Considerar Git LFS para versiones futuras
+
+### 4. **Problema de Calidad de Imágenes**
+- **Issue:** Imágenes del lookbook aparecían borrosas
+- **Solución:** Reemplazo de imágenes por versiones de alta resolución
+- **Fuentes recomendadas:** Unsplash, Pinterest (street fashion)
+
+##  Siguientes Pasos
+
+### Fase 2: Backend Development
+1. **Configuración de Supabase**
+   - Base de datos PostgreSQL
+   - Autenticación de usuarios
+   - API REST
+
+2. **Sistema de Usuarios**
+   - Registro e inicio de sesión
+   - Perfiles de usuario
+   - Historial de compras
+
+### Fase 3: Funcionalidades Avanzadas
+1. **Chat en Vivo**
+   - Integración de servicio de chat
+   - Soporte al cliente en tiempo real
+
+2. **Páginas Institucionales**
+   - Historia de la empresa
+   - Misión, visión y valores
+   - Términos y condiciones
+
+##  Soporte y Mantenimiento
+
+### Comandos de Mantenimiento
+```bash
+# Sincronizar con repositorio remoto
+git pull origin main
+
+# Verificar estado del proyecto
+git status
+
+# Subir nuevos cambios
+git add .
+git commit -m "descripción del cambio"
+git push origin main
+```
+
+### Monitoreo
+- **URL del proyecto:** https://eviix90s.github.io/Proyecto-Online-e-commerce-/
+- **Repositorio:** https://github.com/Eviix90s/Proyecto-Online-e-commerce-
+- **Status:**  Activo y funcional
+
+---
+
+**Última actualización:** Septiembre 2025  
+**Desarrollado por:** ELIAS ALEJANDRO RAMIREZ FRANCO / JESUS EMANUEL NIETO ARVIZU / JUAN CARLOS GONZALES HERVET 
+**Tecnología:** HTML5, CSS3, JavaScript, Git/GitHub
