@@ -1,0 +1,17 @@
+Comandos git hub 
+
+cd "Documents/Proyecto/Proyecto-Online-e-commerce-"   ->Para entrar al repositorio 
+
+ls --> Ver el contenido 
+
+ls css/ --> Ver lo que hay en cada carpeta en especifico 
+
+ls js/ ---> Igual lo mismo ks es importante para ver que hay en cada carpeta 
+
+git status ---> Ver todas las modificaciones que hay 
+
+git add. --> Para agregar las nuevas modificaciones 
+
+git commit -m " lo que quieras poner es para un mensaje" --> Envias un commit a git sobre lo que vas a subir 
+
+git push origin main ---> Donde se va agregar directamente en GitHub en el main 
