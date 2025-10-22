@@ -32,8 +32,9 @@
             <nav class="nav-menu" id="nav-menu">
                 <a href="#inicio" class="nav-link">Inicio</a>
                 <a href="about.html" class="nav-link">Nosotros</a>
-                <a href="#productos" class="nav-link">Mujer</a>
-                <a href="#productos" class="nav-link">Hombre</a>
+                <!-- ✨ ACTUALIZADO: Enlaces a páginas de categorías -->
+                <a href="women.html" class="nav-link">Mujer</a>
+                <a href="men.html" class="nav-link">Hombre</a>
                 <a href="#productos" class="nav-link">Accesorios</a>
                 <a href="#ofertas" class="nav-link ofertas-special">Ofertas</a>
             </nav>
@@ -64,9 +65,10 @@
         <div class="mobile-menu" id="mobile-menu">
             <nav class="mobile-nav">
                 <a href="#inicio" class="mobile-nav-link">Inicio</a>
-                <a href="about.html" class="nav-link">Nosotros</a>
-                <a href="#productos" class="mobile-nav-link">Mujer</a>
-                <a href="#productos" class="mobile-nav-link">Hombre</a>
+                <a href="about.html" class="mobile-nav-link">Nosotros</a>
+                <!-- ✨ ACTUALIZADO: Enlaces móviles -->
+                <a href="women.html" class="mobile-nav-link">Mujer</a>
+                <a href="men.html" class="mobile-nav-link">Hombre</a>
                 <a href="#productos" class="mobile-nav-link">Accesorios</a>
                 <a href="#ofertas" class="mobile-nav-link">Ofertas</a>
             </nav>
@@ -82,6 +84,24 @@
             </div>
         </div>
     </header>
+
+    <div id="userDropdown" class="user-dropdown">
+       <div class="user-info">
+         <i class="fas fa-user-circle"></i>
+         <span id="userNameNav">Usuario</span>
+       </div>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item">
+           <i class="fas fa-box"></i> Mis Pedidos
+        </a>
+        <a href="#" class="dropdown-item">
+            <i class="fas fa-cog"></i> Configuración
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" id="logoutBtn" class="dropdown-item logout">
+           <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </a>
+    </div>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
@@ -247,8 +267,9 @@
             </div>
         </div>
         
-        <!-- Category Cards -->
+        <!-- ✨ ACTUALIZADO: Category Cards con enlaces completos -->
         <div class="category-preview">
+            <!-- Card Mujer - Toda clickeable -->
             <div class="category-card" data-category="mujer">
                 <img src="images/mujer_1.jpg" alt="Moda Urbana para Mujer" loading="lazy">
                 <div class="category-overlay">
@@ -266,6 +287,8 @@
                     </button>
                 </div>
             </div>
+            
+            <!-- Card Hombre - Toda clickeable -->
             <div class="category-card" data-category="hombre">
                 <img src="images/hombre_1.jpg" alt="Moda Urbana para Hombre" loading="lazy">
                 <div class="category-overlay">
@@ -303,16 +326,17 @@
                 <p>Encuentra tu estilo perfecto en nuestra selección curada de moda urbana contemporánea</p>
             </div>
             
+            <!-- ✨ ACTUALIZADO: Filtros con enlaces a páginas específicas -->
             <div class="product-filters">
                 <button class="filter-btn active" data-filter="all">
                     <span>Todos</span>
                     <span class="filter-count">50</span>
                 </button>
-                <button class="filter-btn" data-filter="mujer">
+                <button class="filter-btn" data-filter="mujer" onclick="window.location.href='women.html';">
                     <span>Mujer</span>
                     <span class="filter-count">25</span>
                 </button>
-                <button class="filter-btn" data-filter="hombre">
+                <button class="filter-btn" data-filter="hombre" onclick="window.location.href='men.html';">
                     <span>Hombre</span>
                     <span class="filter-count">30</span>
                 </button>
@@ -500,8 +524,9 @@
                 <div class="footer-section">
                     <h4>Tienda</h4>
                     <ul>
-                        <li><a href="#productos">Mujer</a></li>
-                        <li><a href="#productos">Hombre</a></li>
+                        <!-- ✨ ACTUALIZADO: Enlaces del footer -->
+                        <li><a href="women.html">Mujer</a></li>
+                        <li><a href="men.html">Hombre</a></li>
                         <li><a href="#productos">Accesorios</a></li>
                         <li><a href="#ofertas">Ofertas</a></li>
                         <li><a href="#nuevos">Nuevos Productos</a></li>
@@ -626,5 +651,4 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
-</body>
-</html>
+    <script type="module" src="js/auth-state.js"></script>

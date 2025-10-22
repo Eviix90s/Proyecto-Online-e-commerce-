@@ -678,6 +678,12 @@ body {
     margin-top: 120px;  /*60*/
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 10;
+}
+.scroll-indicator {
+    z-index: 5;
+    pointer-events: none; 
 }
 
 .category-card {
@@ -686,6 +692,7 @@ body {
     height: 520px;
     border-radius: 25px;
     overflow: hidden;
+    z-index: 11;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -2385,4 +2392,75 @@ input:focus {
 img {
     max-width: 100%;
     height: auto;
+}
+
+/* User Dropdown - Flotante */
+.user-dropdown {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    min-width: 220px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.user-info i {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f5f5f5;
+}
+
+.dropdown-item i {
+    width: 20px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.dropdown-item.logout {
+    color: #dc3545;
+}
+
+.dropdown-item.logout i {
+    color: #dc3545;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 8px 0;
 }

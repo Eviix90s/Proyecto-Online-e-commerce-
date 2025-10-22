@@ -185,6 +185,7 @@ class UrbanCatsApp {
         this.initializeSlider();
         this.setupScrollAnimations();
         this.setupIntersectionObserver();
+        this.setupCategoryCards();
     }
 
     showLoadingScreen() {
@@ -255,6 +256,88 @@ class UrbanCatsApp {
         document.querySelector('.slider-next')?.addEventListener('click', () => this.nextSlide());
     }
 
+    setupCategoryCards() {
+    const categoryCards = document.querySelectorAll('.category-card');
+    
+    categoryCards.forEach(card => {
+        const category = card.dataset.category;
+        
+        
+        // Determinar la página destino
+        let targetPage = '';
+        if (category === 'mujer') {
+            targetPage = 'women.html';
+        } else if (category === 'hombre') {
+            targetPage = 'men.html';
+        }
+        
+        if (targetPage) {
+            // Hacer toda la card clickeable
+            card.style.cursor = 'pointer';
+            card.style.position = 'relative';
+            card.style.zIndex = '10';
+            card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Click en toda la card
+            card.addEventListener('click', () => {
+                window.location.href = targetPage;
+            });
+            
+            // Efecto hover mejorado
+            card.addEventListener('mouseenter', () => {
+      // Sombra elegante con glow sutil
+                card.style.boxShadow = `
+                    0 35px 70px rgba(0, 0, 0, 0.5),
+                    0 0 50px rgba(0, 255, 255, 0.2),
+                    inset 0 0 60px rgba(0, 255, 255, 0.1)
+                `;
+                card.style.transform = 'translateY(-25px) scale(1.04)';
+                
+                // Brillo sutil en la imagen
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.filter = 'brightness(1.15) contrast(1.1)';
+                }
+                
+                // Resaltar el texto
+                const overlay = card.querySelector('.category-overlay');
+                if (overlay) {
+                    overlay.style.background = 'linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.88) 70%, transparent 100%)';
+                }
+                
+                const title = card.querySelector('h3');
+                if (title) {
+                    title.style.textShadow = '0 0 20px rgba(0, 255, 255, 0.8)';
+                    title.style.transform = 'scale(1.05)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '';
+                card.style.transform = '';
+                
+                const img = card.querySelector('img');
+                if (img) {
+                    img.style.filter = '';
+                }
+                
+                const overlay = card.querySelector('.category-overlay');
+                if (overlay) {
+                    overlay.style.background = '';
+                }
+                
+                const title = card.querySelector('h3');
+                if (title) {
+                    title.style.textShadow = '';
+                    title.style.transform = '';
+                }
+            });
+        }
+    });
+    
+    console.log('Category cards initialized!'); // Para debug
+}
+
     handleFilterClick(e) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
@@ -315,6 +398,8 @@ class UrbanCatsApp {
         setTimeout(() => {
             this.elements.productosGrid.innerHTML = productos.map(producto => this.createProductCard(producto)).join('');
             this.animateProductCards();
+            // ✨ NUEVO: Hacer cards clickeables
+            this.makeProductCardsClickable();
         }, 300);
     }
 
@@ -323,8 +408,18 @@ class UrbanCatsApp {
         const discountPercentage = producto.originalPrice ? 
             Math.round(((producto.originalPrice - producto.price) / producto.originalPrice) * 100) : 0;
 
+        // ✨ NUEVO: Determinar página destino según categoría
+        let targetPage = 'women.html';
+        if (producto.category.includes('hombre') && !producto.category.includes('mujer')) {
+            targetPage = 'men.html';
+        } else if (producto.category === 'accesorios') {
+            targetPage = `women.html?product=${producto.id}`;
+        } else if (producto.category.includes('mujer')) {
+            targetPage = 'women.html';
+        }
+
         return `
-            <div class="product-card" data-id="${producto.id}" data-category="${producto.category}">
+            <div class="product-card" data-id="${producto.id}" data-category="${producto.category}" data-target="${targetPage}">
                 <div class="product-image-container">
                     <img src="${producto.image}" alt="${producto.name}" class="product-image" loading="lazy">
                     <div class="product-overlay">
@@ -361,13 +456,38 @@ class UrbanCatsApp {
                     <div class="product-sizes">
                         ${producto.sizes.map(size => `
                             <button class="size-option ${!producto.inStock ? 'disabled' : ''}" 
-                                    onclick="app.addToCart(${producto.id}, '${size}')" 
+                                    onclick="event.stopPropagation(); app.addToCart(${producto.id}, '${size}')" 
                                     ${!producto.inStock ? 'disabled' : ''}>${size}</button>
                         `).join('')}
                     </div>
                 </div>
             </div>
         `;
+    }
+
+    // ✨ NUEVA FUNCIÓN: Hacer que las cards sean clickeables
+    makeProductCardsClickable() {
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            
+            card.addEventListener('click', (e) => {
+                // No redirigir si se hace click en botones de acción o tallas
+                if (e.target.closest('.action-btn') || e.target.closest('.size-option')) {
+                    return;
+                }
+                
+                const productId = card.dataset.id;
+                const targetPage = card.dataset.target;
+                
+                // Determinar la página correcta
+                let url = targetPage;
+                if (!targetPage.includes('?')) {
+                    url = `${targetPage}?product=${productId}`;
+                }
+                
+                window.location.href = url;
+            });
+        });
     }
 
     getColorCode(colorName) {
