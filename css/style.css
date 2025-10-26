@@ -1325,7 +1325,7 @@ body {
 .footer-section.brand p {
     font-size: 16px;
     line-height: 1.6;
-    opacity: 0.8;
+    opacity: 100.100;
     margin-bottom: 25px;
 }
 
@@ -1392,12 +1392,12 @@ body {
     color: var(--pure-white);
     text-decoration: none;
     font-size: 15px;
-    opacity: 0.8;
+    opacity: 100.100;
     transition: var(--transition);
 }
 
 .footer-section a:hover {
-    opacity: 1;
+    opacity: 100;
     color: var(--pure-white);
     transform: translateX(5px);
 }
@@ -1416,8 +1416,8 @@ body {
 }
 
 .copyright p {
-    font-size: 14px;
-    opacity: 0.7;
+    font-size: 15px;
+    opacity: 100.100;
 }
 
 .footer-center {
@@ -1431,8 +1431,8 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
-    opacity: 0.7;
+    font-size: 25px; /*14*/
+    opacity: 100.100;
 }
 
 .footer-links {
@@ -1444,12 +1444,12 @@ body {
     font-size: 14px;
     color: var(--pure-white);
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 100.100;
     transition: var(--transition);
 }
 
 .footer-links a:hover {
-    opacity: 1;
+    opacity: 100;
 }
 
 /* Cart Sidebar */
