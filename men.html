@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hombre - Urban Cats | Moda Urbana Masculina</title>
+    <meta name="description" content="Descubre la colección de moda urbana para hombre en Urban Cats. Estilo japonés contemporáneo, minimalista y moderno.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/men.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="logo-img">
+                    <span class="logo-text">Urban Cats</span>
+                </a>
+            </div>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Nosotros</a>
+                <a href="women.html" class="nav-link">Mujer</a>
+                <a href="men.html" class="nav-link active">Hombre</a>
+                <a href="index.html#productos" class="nav-link">Accesorios</a>
+                <a href="index.html#ofertas" class="nav-link ofertas-special">Ofertas</a>
+            </nav>
+            <div class="nav-utilities">
+                <button class="search-btn" aria-label="Buscar productos">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="#account" aria-label="Mi cuenta">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#wishlist" aria-label="Lista de deseos">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </a>
+                <a href="#cart" class="cart-link" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menú móvil">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="men-hero">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">Colección Hombre 2025</div>
+            <h1>
+                <span class="hero-title-line">Estilo</span>
+                <span class="hero-title-line hero-title-accent">Masculino</span>
+                <span class="hero-title-line">Urbano</span>
+            </h1>
+            <p>Descubre prendas que expresan tu actitud única con la elegancia del minimalismo japonés</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <span class="stat-label">Productos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Categorías</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">New</span>
+                    <span class="stat-label">Temporada</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="images/men_3.jpg" alt="Moda Urbana Hombre" loading="eager">
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="category-navigation">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">
+                    <i class="fas fa-th"></i>
+                    <span>Todo</span>
+                </button>
+                <button class="category-tab" data-category="tops">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Camisetas & Polos</span>
+                </button>
+                <button class="category-tab" data-category="bottoms">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Pantalones</span>
+                </button>
+                <button class="category-tab" data-category="hoodies">
+                    <i class="fas fa-vest"></i>
+                    <span>Hoodies</span>
+                </button>
+                <button class="category-tab" data-category="outerwear">
+                    <i class="fas fa-user-ninja"></i>
+                    <span>Abrigos</span>
+                </button>
+                <button class="category-tab" data-category="sets">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Conjuntos</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters & Sort -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-header">
+                <div class="results-info">
+                    <span class="results-count">Mostrando <strong id="products-count">30</strong> productos</span>
+                </div>
+                
+                <div class="filters-controls">
+                    <button class="filter-toggle-btn" id="filterToggle">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>Filtros</span>
+                    </button>
+                    
+                    <div class="sort-dropdown">
+                        <button class="sort-btn" id="sortBtn">
+                            <i class="fas fa-sort"></i>
+                            <span>Ordenar</span>
+                        </button>
+                        <div class="sort-menu" id="sortMenu">
+                            <button class="sort-option active" data-sort="default">Destacados</button>
+                            <button class="sort-option" data-sort="price-low">Precio: Menor a Mayor</button>
+                            <button class="sort-option" data-sort="price-high">Precio: Mayor a Menor</button>
+                            <button class="sort-option" data-sort="newest">Más Recientes</button>
+                            <button class="sort-option" data-sort="name">Nombre A-Z</button>
+                        </div>
+                    </div>
+                    
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filter Panel -->
+            <div class="filter-panel" id="filterPanel">
+                <div class="filter-group">
+                    <h4 class="filter-title">Precio</h4>
+                    <div class="price-range">
+                        <input type="range" min="0" max="3000" value="3000" class="price-slider" id="priceSlider">
+                        <div class="price-labels">
+                            <span>$0</span>
+                            <span id="maxPrice">$3,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Talla</h4>
+                    <div class="filter-options">
+                        <button class="filter-option" data-size="s">S</button>
+                        <button class="filter-option" data-size="m">M</button>
+                        <button class="filter-option" data-size="l">L</button>
+                        <button class="filter-option" data-size="xl">XL</button>
+                        <button class="filter-option" data-size="xxl">XXL</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Color</h4>
+                    <div class="color-filters">
+                        <button class="color-filter" data-color="negro" style="background: #000000;" title="Negro"></button>
+                        <button class="color-filter" data-color="blanco" style="background: #FFFFFF; border: 1px solid #ddd;" title="Blanco"></button>
+                        <button class="color-filter" data-color="gris" style="background: #808080;" title="Gris"></button>
+                        <button class="color-filter" data-color="azul" style="background: #2563EB;" title="Azul"></button>
+                        <button class="color-filter" data-color="verde" style="background: #10B981;" title="Verde"></button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h4 class="filter-title">Características</h4>
+                    <label class="checkbox-label">
+                        <input type="checkbox" data-filter="nuevo">
+                        <span>Nuevo</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" data-filter="oferta">
+                        <span>En Oferta</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" data-filter="stock">
+                        <span>En Stock</span>
+                    </label>
+                </div>
+                
+                <button class="clear-filters-btn" id="clearFilters">
+                    <i class="fas fa-redo"></i>
+                    Limpiar Filtros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="men-products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se generarán dinámicamente aquí -->
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="pagination-btn" data-page="prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active" data-page="1">1</button>
+                <button class="pagination-btn" data-page="2">2</button>
+                <button class="pagination-btn" data-page="3">3</button>
+                <button class="pagination-btn" data-page="next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Banner -->
+    <section class="featured-banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2>Nueva Colección Primavera</h2>
+                    <p>Descubre las últimas tendencias en moda urbana masculina con influencia japonesa</p>
+                    <button class="banner-btn">
+                        <span>Ver Colección</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="banner-image">
+                    <img src="images/men_1.jpg" alt="Nueva Colección" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Guide -->
+    <section class="style-guide-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Guía de Estilo</h2>
+                <p>Consejos para combinar tus prendas favoritas</p>
+            </div>
+            
+            <div class="style-grid">
+                <div class="style-card">
+                    <img src="images/look_1.jpg" alt="Estilo Casual" loading="lazy">
+                    <div class="style-info">
+                        <h3>Casual Urbano</h3>
+                        <p>Perfecto para el día a día</p>
+                    </div>
+                </div>
+                
+                <div class="style-card">
+                    <img src="images/look_6.jpg" alt="Estilo Street" loading="lazy">
+                    <div class="style-info">
+                        <h3>Street Style</h3>
+                        <p>Actitud urbana moderna</p>
+                    </div>
+                </div>
+                
+                <div class="style-card">
+                    <img src="images/look_11.jpg" alt="Estilo Night" loading="lazy">
+                    <div class="style-info">
+                        <h3>Night City</h3>
+                        <p>Para noches urbanas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h2>Suscríbete y Recibe Ofertas Exclusivas</h2>
+                <p>Sé el primero en conocer nuevos lanzamientos y promociones especiales</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Tu dirección de email" required>
+                        <button type="submit">
+                            <span>Suscribirse</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand">
+                    <div class="footer-logo">
+                        <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
+                        <h3>Urban Cats</h3>
+                    </div>
+                    <p>Moda urbana que define tu personalidad. Únete a nuestra comunidad y descubre tu estilo único.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" aria-label="TikTok" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok</span>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="women.html">Mujer</a></li>
+                        <li><a href="men.html">Hombre</a></li>
+                        <li><a href="index.html#productos">Accesorios</a></li>
+                        <li><a href="index.html#ofertas">Ofertas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="#guia-tallas">Guía de Tallas</a></li>
+                        <li><a href="#envios">Envíos</a></li>
+                        <li><a href="#devoluciones">Devoluciones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
+                    <div class="footer-links">
+                        <a href="#privacidad">Privacidad</a>
+                        <a href="#terminos">Términos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carrito lateral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>
+                <i class="fas fa-shopping-bag"></i>
+                Tu Carrito
+            </h3>
+            <button class="close-cart" aria-label="Cerrar carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h4>Tu carrito está vacío</h4>
+                <p>Agrega algunos productos increíbles a tu carrito</p>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span>$<span id="cart-total">0</span></span>
+                </div>
+            </div>
+            <button class="checkout-btn">
+                <span>Finalizar Compra</span>
+                <i class="fas fa-credit-card"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/men.js"></script>
+</body>
+</html>

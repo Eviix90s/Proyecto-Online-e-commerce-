@@ -27,12 +27,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--off-white) 0%, #f0f0f0 100%);
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Overlay para mejorar legibilidad */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(0px);
+            z-index: 1;
         }
 
         .auth-container {
-            background: var(--pure-white);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             max-width: 450px;
@@ -40,6 +77,7 @@
             padding: 50px 40px;
             position: relative;
             overflow: hidden;
+            z-index: 2;
         }
 
         .auth-container::before {
@@ -216,62 +254,63 @@
             color: var(--primary-black);
             gap: 12px;
         }
-              .social-login {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    animation: fadeInUp 0.6s ease 0.5s backwards;
-}
 
-.btn-social {
-    flex: 1;
-    padding: 14px;
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: var(--pure-white);
-}
+        .social-login {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease 0.5s backwards;
+        }
 
-.btn-google {
-    color: #4285F4;
-}
+        .btn-social {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--pure-white);
+        }
 
-.btn-google:hover {
-    background: #4285F4;
-    color: white;
-    border-color: #4285F4;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
-}
+        .btn-google {
+            color: #4285F4;
+        }
 
-.btn-facebook {
-    color: #1877F2;
-}
+        .btn-google:hover {
+            background: #4285F4;
+            color: white;
+            border-color: #4285F4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
 
-.btn-facebook:hover {
-    background: #1877F2;
-    color: white;
-    border-color: #1877F2;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.3);
-}
+        .btn-facebook {
+            color: #1877F2;
+        }
 
-.btn-social i {
-    font-size: 18px;
-}
+        .btn-facebook:hover {
+            background: #1877F2;
+            color: white;
+            border-color: #1877F2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(24, 119, 242, 0.3);
+        }
 
-@media (max-width: 480px) {
-    .social-login {
-        flex-direction: column;
-    }
-}
+        .btn-social i {
+            font-size: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .social-login {
+                flex-direction: column;
+            }
+        }
 
         @keyframes fadeInDown {
             from {
@@ -327,6 +366,16 @@
     </style>
 </head>
 <body>
+    <!-- Video de Fondo -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="images/login_1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Overlay semi-transparente -->
+    <div class="video-overlay"></div>
+
     <div class="auth-container">
         <div class="logo-container">
             <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="logo-img">
@@ -359,6 +408,7 @@
         <div class="divider">
             <span>o continuar con</span>
         </div>
+
         <!-- Botones de Social Login -->
         <div class="social-login">
             <button type="button" id="googleLoginBtn" class="btn-social btn-google">
@@ -369,7 +419,6 @@
                <i class="fab fa-facebook-f"></i>
                Facebook
             </button>
-            
         </div>
 
         <div class="auth-links">
