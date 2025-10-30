@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/chatbot-urban-cats.css">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -638,6 +639,86 @@
         </div>
     </div>
 
+
+    <!-- Botón flotante del chat -->
+<div id="chat-button" class="chat-button" aria-label="Abrir chat">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span class="chat-notification-badge">1</span>
+</div>
+
+<!-- Ventana del chat -->
+<div id="chat-window" class="chat-window">
+    <!-- Header -->
+    <div class="chat-header">
+        <div class="chat-header-info">
+            <div class="chat-avatar">🐱</div>
+            <div class="chat-header-text">
+                <h3>Urban Cats</h3>
+                <div class="chat-status">En línea</div>
+            </div>
+        </div>
+        <button id="chat-close-button" class="chat-close-button" aria-label="Cerrar chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mensajes -->
+    <div id="chat-messages" class="chat-messages">
+        <div class="chat-message bot-message">
+            <div class="chat-message-avatar">🐱</div>
+            <div class="chat-message-content">
+                <div class="chat-message-bubble">
+                    ¡Hola! 👋 Soy tu asistente virtual de Urban Cats. ¿En qué puedo ayudarte hoy?
+                </div>
+                <div class="chat-message-time">Ahora</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicador de escritura -->
+    <div id="chat-typing-indicator" class="chat-typing-indicator">
+        <span>Escribiendo</span>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    </div>
+
+    <!-- Input -->
+    <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+            <input 
+                type="text" 
+                id="chat-input" 
+                class="chat-input" 
+                placeholder="Escribe tu mensaje..."
+                autocomplete="off"
+                aria-label="Mensaje"
+            >
+            <button id="chat-send-button" class="chat-send-button" aria-label="Enviar mensaje">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Respuestas rápidas -->
+    <div class="chat-quick-replies">
+        <button class="chat-quick-reply" data-message="Horarios">🕐 Horarios</button>
+        <button class="chat-quick-reply" data-message="Ubicación">📍 Ubicación</button>
+        <button class="chat-quick-reply" data-message="Servicios">🛍️ Servicios</button>
+        <button class="chat-quick-reply" data-message="Contacto">💬 Contacto</button>
+    </div>
+</div>
+
+
+
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
@@ -652,3 +733,6 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script type="module" src="js/auth-state.js"></script>
+     <script src="js/chatbot-urban-cats.js"></script>  ← AGREGAR AQUÍ SOLO EL JS
+</body>
+</html>

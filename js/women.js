@@ -318,173 +318,22 @@ class WomenApp {
         this.elements.categoryTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
 
+        // Update state
         this.state.currentCategory = category;
         this.state.currentPage = 1;
+
+        // Filter and render
         this.applyFilters();
+        this.animateProducts();
     }
 
-    // Filter toggle
+    // Filter handling
     toggleFilters() {
-        this.elements.filterPanel.classList.toggle('active');
-        this.elements.filterToggle.classList.toggle('active');
+        this.elements.filterPanel.classList.toggle('open');
+        this.elements.filterToggle?.classList.toggle('active');
     }
 
-    // Sort menu
-    toggleSortMenu() {
-        this.elements.sortMenu.classList.toggle('active');
-    }
-
-    handleSortChange(e) {
-        const sortType = e.target.dataset.sort;
-        
-        // Update active state
-        this.elements.sortOptions.forEach(opt => opt.classList.remove('active'));
-        e.target.classList.add('active');
-
-        this.state.currentSort = sortType;
-        this.sortProducts();
-        this.elements.sortMenu.classList.remove('active');
-    }
-
-    sortProducts() {
-        const products = [...this.state.filteredProducts];
-
-        switch(this.state.currentSort) {
-            case 'price-low':
-                products.sort((a, b) => a.price - b.price);
-                break;
-            case 'price-high':
-                products.sort((a, b) => b.price - a.price);
-                break;
-            case 'newest':
-                products.sort((a, b) => b.isNew - a.isNew);
-                break;
-            case 'name':
-                products.sort((a, b) => a.name.localeCompare(b.name));
-                break;
-            default:
-                // Keep default order
-                break;
-        }
-
-        this.state.filteredProducts = products;
-        this.renderProducts();
-    }
-
-    // View change
-    handleViewChange(e) {
-        const view = e.currentTarget.dataset.view;
-        
-        this.elements.viewBtns.forEach(btn => btn.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-
-        this.state.currentView = view;
-        
-        if (view === 'list') {
-            this.elements.productsGrid.classList.add('list-view');
-        } else {
-            this.elements.productsGrid.classList.remove('list-view');
-        }
-    }
-
-    // Price filter
-    handlePriceChange(e) {
-        const value = e.target.value;
-        this.state.filters.priceMax = parseInt(value);
-        this.elements.maxPrice.textContent = `$${parseInt(value).toLocaleString()}`;
-        this.applyFilters();
-    }
-
-    // Size filter
-    handleSizeFilter(e) {
-        const option = e.currentTarget;
-        const size = option.dataset.size.toUpperCase();
-        
-        option.classList.toggle('active');
-        
-        if (this.state.filters.sizes.includes(size)) {
-            this.state.filters.sizes = this.state.filters.sizes.filter(s => s !== size);
-        } else {
-            this.state.filters.sizes.push(size);
-        }
-        
-        this.applyFilters();
-    }
-
-    // Color filter
-    handleColorFilter(e) {
-        const filter = e.currentTarget;
-        const color = filter.dataset.color;
-        
-        filter.classList.toggle('active');
-        
-        if (this.state.filters.colors.includes(color)) {
-            this.state.filters.colors = this.state.filters.colors.filter(c => c !== color);
-        } else {
-            this.state.filters.colors.push(color);
-        }
-        
-        this.applyFilters();
-    }
-
-    // Feature filter
-    handleFeatureFilter(e) {
-        const feature = e.target.dataset.filter;
-        
-        if (e.target.checked) {
-            this.state.filters.features.push(feature);
-        } else {
-            this.state.filters.features = this.state.filters.features.filter(f => f !== feature);
-        }
-        
-        this.applyFilters();
-    }
-
-    // Apply all filters
-    applyFilters() {
-        let products = [...womenProducts];
-
-        // Category filter
-        if (this.state.currentCategory !== 'all') {
-            products = products.filter(p => p.category === this.state.currentCategory);
-        }
-
-        // Price filter
-        products = products.filter(p => p.price <= this.state.filters.priceMax);
-
-        // Size filter
-        if (this.state.filters.sizes.length > 0) {
-            products = products.filter(p => 
-                p.sizes.some(size => this.state.filters.sizes.includes(size))
-            );
-        }
-
-        // Color filter
-        if (this.state.filters.colors.length > 0) {
-            products = products.filter(p => 
-                p.colors.some(color => this.state.filters.colors.includes(color.toLowerCase()))
-            );
-        }
-
-        // Feature filters
-        if (this.state.filters.features.includes('nuevo')) {
-            products = products.filter(p => p.isNew);
-        }
-        if (this.state.filters.features.includes('oferta')) {
-            products = products.filter(p => p.originalPrice);
-        }
-        if (this.state.filters.features.includes('stock')) {
-            products = products.filter(p => p.inStock);
-        }
-
-        this.state.filteredProducts = products;
-        this.sortProducts();
-        this.updateProductsCount();
-    }
-
-    // Clear all filters
     clearAllFilters() {
-        // Reset state
         this.state.filters = {
             priceMax: 3000,
             sizes: [],
@@ -493,9 +342,11 @@ class WomenApp {
         };
 
         // Reset UI
-        this.elements.priceSlider.value = 3000;
-        this.elements.maxPrice.textContent = '$3,000';
-        
+        if (this.elements.priceSlider) {
+            this.elements.priceSlider.value = 3000;
+            this.elements.maxPrice.textContent = '$3,000';
+        }
+
         this.elements.filterOptions.forEach(opt => opt.classList.remove('active'));
         this.elements.colorFilters.forEach(filter => filter.classList.remove('active'));
         this.elements.checkboxes.forEach(checkbox => checkbox.checked = false);
@@ -504,334 +355,450 @@ class WomenApp {
         this.showToast('Filtros limpiados', 'info');
     }
 
-    // Update products count
-    updateProductsCount() {
-        if (this.elements.productsCount) {
-            this.elements.productsCount.textContent = this.state.filteredProducts.length;
+    handlePriceChange(e) {
+        const value = e.target.value;
+        this.state.filters.priceMax = parseInt(value);
+        this.elements.maxPrice.textContent = `$${parseInt(value).toLocaleString()}`;
+        this.applyFilters();
+    }
+
+    handleSizeFilter(e) {
+        const size = e.currentTarget.dataset.size;
+        const index = this.state.filters.sizes.indexOf(size);
+
+        if (index === -1) {
+            this.state.filters.sizes.push(size);
+            e.currentTarget.classList.add('active');
+        } else {
+            this.state.filters.sizes.splice(index, 1);
+            e.currentTarget.classList.remove('active');
+        }
+
+        this.applyFilters();
+    }
+
+    handleColorFilter(e) {
+        const color = e.currentTarget.dataset.color;
+        const index = this.state.filters.colors.indexOf(color);
+
+        if (index === -1) {
+            this.state.filters.colors.push(color);
+            e.currentTarget.classList.add('active');
+        } else {
+            this.state.filters.colors.splice(index, 1);
+            e.currentTarget.classList.remove('active');
+        }
+
+        this.applyFilters();
+    }
+
+    handleFeatureFilter(e) {
+        const feature = e.target.value;
+        const index = this.state.filters.features.indexOf(feature);
+
+        if (e.target.checked && index === -1) {
+            this.state.filters.features.push(feature);
+        } else if (!e.target.checked && index !== -1) {
+            this.state.filters.features.splice(index, 1);
+        }
+
+        this.applyFilters();
+    }
+
+    // Sort handling
+    toggleSortMenu() {
+        this.elements.sortMenu?.classList.toggle('show');
+    }
+
+    handleSortChange(e) {
+        const sortType = e.currentTarget.dataset.sort;
+        
+        this.elements.sortOptions.forEach(opt => opt.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        
+        this.state.currentSort = sortType;
+        this.sortProducts();
+        this.renderProducts();
+        this.toggleSortMenu();
+    }
+
+    sortProducts() {
+        switch(this.state.currentSort) {
+            case 'price-low':
+                this.state.filteredProducts.sort((a, b) => a.price - b.price);
+                break;
+            case 'price-high':
+                this.state.filteredProducts.sort((a, b) => b.price - a.price);
+                break;
+            case 'name':
+                this.state.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case 'new':
+                this.state.filteredProducts.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+                break;
+            default:
+                this.state.filteredProducts = [...womenProducts];
         }
     }
 
-    // Render products
+    // View handling
+    handleViewChange(e) {
+        const view = e.currentTarget.dataset.view;
+        
+        this.elements.viewBtns.forEach(btn => btn.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        
+        this.state.currentView = view;
+        this.elements.productsGrid.className = `products-grid ${view}-view`;
+    }
+
+    // Filter application
+    applyFilters() {
+        let filtered = [...womenProducts];
+
+        // Category filter
+        if (this.state.currentCategory !== 'all') {
+            filtered = filtered.filter(p => p.category === this.state.currentCategory);
+        }
+
+        // Price filter
+        filtered = filtered.filter(p => p.price <= this.state.filters.priceMax);
+
+        // Size filter
+        if (this.state.filters.sizes.length > 0) {
+            filtered = filtered.filter(p => 
+                this.state.filters.sizes.some(size => p.sizes.includes(size))
+            );
+        }
+
+        // Color filter
+        if (this.state.filters.colors.length > 0) {
+            filtered = filtered.filter(p => 
+                this.state.filters.colors.some(color => p.colors.includes(color))
+            );
+        }
+
+        // Feature filters
+        if (this.state.filters.features.includes('new')) {
+            filtered = filtered.filter(p => p.isNew);
+        }
+        if (this.state.filters.features.includes('sale')) {
+            filtered = filtered.filter(p => p.originalPrice);
+        }
+        if (this.state.filters.features.includes('stock')) {
+            filtered = filtered.filter(p => p.inStock);
+        }
+
+        this.state.filteredProducts = filtered;
+        this.sortProducts();
+        this.renderProducts();
+    }
+
+    // Product rendering
     renderProducts() {
         if (!this.elements.productsGrid) return;
 
-        const startIndex = (this.state.currentPage - 1) * WOMEN_CONFIG.productsPerPage;
-        const endIndex = startIndex + WOMEN_CONFIG.productsPerPage;
-        const productsToShow = this.state.filteredProducts.slice(startIndex, endIndex);
+        const start = (this.state.currentPage - 1) * WOMEN_CONFIG.productsPerPage;
+        const end = start + WOMEN_CONFIG.productsPerPage;
+        const pageProducts = this.state.filteredProducts.slice(start, end);
 
-        if (productsToShow.length === 0) {
+        if (pageProducts.length === 0) {
             this.elements.productsGrid.innerHTML = `
                 <div class="no-products">
-                    <i class="fas fa-search" style="font-size: 64px; color: var(--gray-medium); opacity: 0.3; margin-bottom: 20px;"></i>
-                    <h3>No se encontraron productos</h3>
-                    <p>Intenta ajustar los filtros para ver más resultados</p>
+                    <h3>No hay productos disponibles</h3>
+                    <p>Intenta ajustar tus filtros</p>
                 </div>
             `;
             return;
         }
 
-        this.elements.productsGrid.innerHTML = productsToShow.map(product => 
-            this.createProductCard(product)
-        ).join('');
-
-        this.animateProductCards();
-    }
-
-    createProductCard(product) {
-        const isInWishlist = this.state.wishlist.some(item => item.id === product.id);
-        const discount = product.originalPrice ? 
-            Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
-
-        return `
-            <div class="product-card" data-id="${product.id}">
+        this.elements.productsGrid.innerHTML = pageProducts.map(product => `
+            <article class="product-card" data-product-id="${product.id}">
                 <div class="product-image-container">
-                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
-                    <div class="product-overlay">
-                        <div class="product-actions">
-                            <button class="action-btn quick-view-btn" onclick="womenApp.quickView(${product.id})" title="Vista rápida">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="action-btn wishlist-btn ${isInWishlist ? 'active' : ''}" 
-                                    onclick="womenApp.toggleWishlist(${product.id})" title="Agregar a favoritos">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn share-btn" onclick="womenApp.shareProduct(${product.id})" title="Compartir">
-                                <i class="fas fa-share"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
                     ${product.isNew ? '<span class="product-badge new">Nuevo</span>' : ''}
-                    ${discount > 0 ? `<span class="product-badge discount">-${discount}%</span>` : ''}
+                    ${product.originalPrice ? '<span class="product-badge sale">Oferta</span>' : ''}
                     ${!product.inStock ? '<span class="product-badge out-of-stock">Agotado</span>' : ''}
+                    
+                    <div class="product-actions">
+                        <button class="action-btn wishlist-btn" onclick="app.toggleWishlist(${product.id})" 
+                                aria-label="Agregar a favoritos">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn quick-view-btn" onclick="app.quickView(${product.id})"
+                                aria-label="Vista rápida">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <button class="add-to-cart-overlay" onclick="app.addToCart(${product.id})"
+                            ${!product.inStock ? 'disabled' : ''}>
+                        <i class="fas fa-shopping-bag"></i>
+                        ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+                    </button>
                 </div>
+                
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-description">${product.description}</p>
+                    
                     <div class="product-pricing">
                         <span class="product-price">$${product.price.toLocaleString()}</span>
-                        ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                        ${product.originalPrice ? 
+                            `<span class="original-price">$${product.originalPrice.toLocaleString()}</span>` : ''}
                     </div>
+                    
                     <div class="product-colors">
                         ${product.colors.map(color => `
-                            <span class="color-option" style="background-color: ${this.getColorCode(color)}" 
+                            <span class="color-option" 
+                                  style="background-color: ${this.getColorValue(color)}"
                                   title="${color}"></span>
                         `).join('')}
                     </div>
+                    
                     <div class="product-sizes">
-                        ${product.sizes.map(size => `
-                            <button class="size-option ${!product.inStock ? 'disabled' : ''}" 
-                                    onclick="womenApp.addToCart(${product.id}, '${size}')" 
-                                    ${!product.inStock ? 'disabled' : ''}>${size}</button>
+                        ${product.sizes.slice(0, 4).map(size => `
+                            <span class="size-option">${size}</span>
                         `).join('')}
                     </div>
                 </div>
-            </div>
-        `;
+            </article>
+        `).join('');
+
+        this.updateProductsCount();
+        this.renderPagination();
     }
 
-    getColorCode(colorName) {
-        const colorMap = {
-            'Negro': '#000000',
-            'Blanco': '#FFFFFF',
-            'Gris': '#808080',
-            'Beige': '#F5F5DC',
-            'Azul': '#2563EB'
-        };
-        return colorMap[colorName] || '#CCCCCC';
+    updateProductsCount() {
+        if (this.elements.productsCount) {
+            this.elements.productsCount.textContent = 
+                `${this.state.filteredProducts.length} producto${this.state.filteredProducts.length !== 1 ? 's' : ''}`;
+        }
     }
 
-    animateProductCards() {
-        const cards = document.querySelectorAll('.product-card');
-        cards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'all 0.6s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * WOMEN_CONFIG.animationDelay);
-        });
-    }
+    // Pagination
+    renderPagination() {
+        if (!this.elements.pagination) return;
 
-    // Cart functions
-    addToCart(productId, size) {
-        const product = womenProducts.find(p => p.id === productId);
-        if (!product || !product.inStock) {
-            this.showToast('Producto no disponible', 'error');
+        const totalPages = Math.ceil(this.state.filteredProducts.length / WOMEN_CONFIG.productsPerPage);
+        
+        if (totalPages <= 1) {
+            this.elements.pagination.innerHTML = '';
             return;
         }
 
-        const existingItem = this.state.cart.find(item => item.id === productId && item.size === size);
+        let html = '';
         
-        if (existingItem) {
-            existingItem.quantity += 1;
+        // Previous button
+        html += `
+            <button class="page-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
+                    onclick="app.goToPage(${this.state.currentPage - 1})">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        `;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
+                html += `
+                    <button class="page-btn ${i === this.state.currentPage ? 'active' : ''}" 
+                            onclick="app.goToPage(${i})">
+                        ${i}
+                    </button>
+                `;
+            } else if (i === this.state.currentPage - 2 || i === this.state.currentPage + 2) {
+                html += '<span class="page-dots">...</span>';
+            }
+        }
+
+        // Next button
+        html += `
+            <button class="page-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
+                    onclick="app.goToPage(${this.state.currentPage + 1})">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        `;
+
+        this.elements.pagination.innerHTML = html;
+    }
+
+    goToPage(page) {
+        this.state.currentPage = page;
+        this.renderProducts();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Cart functionality
+    addToCart(productId) {
+        const product = womenProducts.find(p => p.id === productId);
+        if (!product || !product.inStock) return;
+
+        const cartItem = this.state.cart.find(item => item.id === productId);
+        
+        if (cartItem) {
+            cartItem.quantity++;
         } else {
             this.state.cart.push({
-                id: productId,
-                name: product.name,
-                price: product.price,
-                image: product.image,
-                size: size,
+                ...product,
                 quantity: 1,
-                color: product.colors[0]
+                selectedSize: product.sizes[0],
+                selectedColor: product.colors[0]
             });
         }
 
         this.state.saveCart();
         this.updateCartUI();
-        this.showToast('Producto agregado al carrito', 'success');
-        this.animateCartIcon();
+        this.showToast(`${product.name} agregado al carrito`, 'success');
     }
 
-    removeFromCart(productId, size) {
-        this.state.cart = this.state.cart.filter(item => !(item.id === productId && item.size === size));
-        this.state.saveCart();
-        this.updateCartUI();
+    removeFromCart(productId) {
+        const index = this.state.cart.findIndex(item => item.id === productId);
+        if (index !== -1) {
+            const product = this.state.cart[index];
+            this.state.cart.splice(index, 1);
+            this.state.saveCart();
+            this.updateCartUI();
+            this.showToast(`${product.name} eliminado del carrito`, 'info');
+        }
     }
 
-    updateCartUI() {
-        const totalItems = this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
-        const totalPrice = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    updateQuantity(productId, change) {
+        const cartItem = this.state.cart.find(item => item.id === productId);
+        if (!cartItem) return;
 
-        if (this.elements.cartCount) {
-            this.elements.cartCount.textContent = totalItems;
-            this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        }
+        cartItem.quantity += change;
 
-        if (this.elements.cartTotal) {
-            this.elements.cartTotal.textContent = totalPrice.toLocaleString();
-        }
-
-        this.renderCartItems();
-    }
-
-    renderCartItems() {
-        if (!this.elements.cartItems) return;
-
-        if (this.state.cart.length === 0) {
-            this.elements.cartItems.innerHTML = `
-                <div class="empty-cart">
-                    <div class="empty-cart-icon">
-                        <i class="fas fa-shopping-bag"></i>
-                    </div>
-                    <h4>Tu carrito está vacío</h4>
-                    <p>Agrega algunos productos increíbles</p>
-                </div>
-            `;
-            return;
-        }
-
-        this.elements.cartItems.innerHTML = this.state.cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <div class="cart-item-details">
-                        <span>Talla: ${item.size}</span>
-                        <span>Color: ${item.color}</span>
-                    </div>
-                    <div class="cart-item-price">$${item.price.toLocaleString()}</div>
-                    <div class="quantity-controls">
-                        <button onclick="womenApp.updateQuantity(${item.id}, '${item.size}', ${item.quantity - 1})" 
-                                class="qty-btn">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button onclick="womenApp.updateQuantity(${item.id}, '${item.size}', ${item.quantity + 1})" 
-                                class="qty-btn">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-                <button onclick="womenApp.removeFromCart(${item.id}, '${item.size}')" 
-                        class="remove-item" title="Eliminar">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-        `).join('');
-    }
-
-    updateQuantity(productId, size, newQuantity) {
-        if (newQuantity <= 0) {
-            this.removeFromCart(productId, size);
-            return;
-        }
-
-        const item = this.state.cart.find(item => item.id === productId && item.size === size);
-        if (item) {
-            item.quantity = newQuantity;
+        if (cartItem.quantity <= 0) {
+            this.removeFromCart(productId);
+        } else {
             this.state.saveCart();
             this.updateCartUI();
         }
     }
 
     toggleCart() {
-        this.elements.cartSidebar.classList.toggle('open');
-        this.elements.overlay.classList.toggle('active');
-        document.body.style.overflow = this.elements.cartSidebar.classList.contains('open') ? 'hidden' : '';
+        this.elements.cartSidebar?.classList.toggle('open');
+        this.elements.overlay?.classList.toggle('show');
+        document.body.style.overflow = this.elements.cartSidebar?.classList.contains('open') ? 'hidden' : '';
     }
 
     closeCart() {
-        this.elements.cartSidebar.classList.remove('open');
-        this.elements.overlay.classList.remove('active');
+        this.elements.cartSidebar?.classList.remove('open');
+        this.elements.overlay?.classList.remove('show');
         document.body.style.overflow = '';
     }
 
-    animateCartIcon() {
-        const cartIcon = document.querySelector('.cart-link i');
-        if (cartIcon) {
-            cartIcon.style.transform = 'scale(1.3)';
-            cartIcon.style.color = 'var(--accent-red)';
-            
-            setTimeout(() => {
-                cartIcon.style.transform = 'scale(1)';
-                cartIcon.style.color = '';
-            }, 300);
+    updateCartUI() {
+        // Update cart count
+        const totalItems = this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (this.elements.cartCount) {
+            this.elements.cartCount.textContent = totalItems;
+            this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+        }
+
+        // Update cart items
+        if (this.elements.cartItems) {
+            if (this.state.cart.length === 0) {
+                this.elements.cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <p>Tu carrito está vacío</p>
+                    </div>
+                `;
+            } else {
+                this.elements.cartItems.innerHTML = this.state.cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-details">
+                                <span>Talla: ${item.selectedSize}</span>
+                                <span>Color: ${item.selectedColor}</span>
+                            </div>
+                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+                            <div class="quantity-controls">
+                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, -1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="remove-item" onclick="app.removeFromCart(${item.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Update cart total
+        const total = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        if (this.elements.cartTotal) {
+            this.elements.cartTotal.textContent = `$${total.toLocaleString()}`;
         }
     }
 
-    // Wishlist functions
+    // Wishlist functionality
     toggleWishlist(productId) {
+        const index = this.state.wishlist.indexOf(productId);
         const product = womenProducts.find(p => p.id === productId);
-        const existingIndex = this.state.wishlist.findIndex(item => item.id === productId);
 
-        if (existingIndex > -1) {
-            this.state.wishlist.splice(existingIndex, 1);
-            this.showToast('Removido de favoritos', 'info');
+        if (index === -1) {
+            this.state.wishlist.push(productId);
+            this.showToast(`${product.name} agregado a favoritos`, 'success');
         } else {
-            this.state.wishlist.push({
-                id: productId,
-                name: product.name,
-                price: product.price,
-                image: product.image
-            });
-            this.showToast('Agregado a favoritos', 'success');
+            this.state.wishlist.splice(index, 1);
+            this.showToast(`${product.name} eliminado de favoritos`, 'info');
         }
 
         this.state.saveWishlist();
         this.updateWishlistUI();
-        this.renderProducts();
     }
 
     updateWishlistUI() {
         if (this.elements.wishlistCount) {
-            const count = this.state.wishlist.length;
-            this.elements.wishlistCount.textContent = count;
-            this.elements.wishlistCount.style.display = count > 0 ? 'flex' : 'none';
+            this.elements.wishlistCount.textContent = this.state.wishlist.length;
+            this.elements.wishlistCount.style.display = this.state.wishlist.length > 0 ? 'flex' : 'none';
         }
     }
 
-    // Quick view (simplificado)
+    // Quick view
     quickView(productId) {
         const product = womenProducts.find(p => p.id === productId);
         if (!product) return;
-        
-        this.showToast(`Vista rápida: ${product.name}`, 'info');
-    }
 
-    // Share product
-    shareProduct(productId) {
-        const product = womenProducts.find(p => p.id === productId);
-        if (!product) return;
-
-        if (navigator.share) {
-            navigator.share({
-                title: product.name,
-                text: product.description,
-                url: window.location.href
-            });
-        } else {
-            navigator.clipboard.writeText(window.location.href);
-            this.showToast('Enlace copiado', 'success');
-        }
+        // Aquí puedes implementar un modal de vista rápida
+        this.showToast('Vista rápida disponible próximamente', 'info');
     }
 
     // Mobile menu
     toggleMobileMenu() {
-        this.elements.mobileMenuToggle.classList.toggle('active');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        if (mobileMenu) {
-            mobileMenu.classList.toggle('active');
-        }
+        const nav = document.querySelector('.nav-links');
+        nav?.classList.toggle('active');
+        this.elements.mobileMenuToggle?.classList.toggle('active');
     }
 
     // Scroll handling
     handleScroll() {
-        const scrollTop = window.pageYOffset;
-
-        // Navbar
+        // Sticky navbar
         if (this.elements.navbar) {
-            if (scrollTop > 100) {
+            if (window.scrollY > 100) {
                 this.elements.navbar.classList.add('scrolled');
             } else {
                 this.elements.navbar.classList.remove('scrolled');
             }
         }
 
-        // Back to top
+        // Back to top button
         if (this.elements.backToTop) {
-            this.elements.backToTop.classList.toggle('visible', scrollTop > 300);
+            if (window.scrollY > 500) {
+                this.elements.backToTop.classList.add('show');
+            } else {
+                this.elements.backToTop.classList.remove('show');
+            }
         }
     }
 
@@ -842,63 +809,45 @@ class WomenApp {
         });
     }
 
-    // Click outside handling
-    handleClickOutside(e) {
-        // Close sort menu
-        if (!e.target.closest('.sort-dropdown') && this.elements.sortMenu) {
-            this.elements.sortMenu.classList.remove('active');
-        }
-    }
-
-    // Keyboard navigation
-    handleKeyboard(e) {
-        if (e.key === 'Escape') {
-            this.closeCart();
-            if (this.elements.sortMenu) {
-                this.elements.sortMenu.classList.remove('active');
-            }
-        }
-    }
-
-    // Scroll animations
+    // Animations
     setupScrollAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-animation');
+                    entry.target.classList.add('animate-in');
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.1
+        });
 
-        document.querySelectorAll(`
-            .style-card,
-            .stat-item,
-            .category-tab,
-            .banner-content
-        `).forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.product-card').forEach(card => {
+            observer.observe(card);
         });
     }
 
-    // Animate on load
     animateOnLoad() {
-        // Animate hero elements
-        const heroElements = document.querySelectorAll('.hero-badge, .hero-title-line, .women-hero p, .hero-stats');
-        heroElements.forEach((el, index) => {
+        const cards = document.querySelectorAll('.product-card');
+        cards.forEach((card, index) => {
             setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }, 100 + (index * 150));
+                card.classList.add('fade-in');
+            }, index * WOMEN_CONFIG.animationDelay);
         });
+    }
+
+    animateProducts() {
+        this.elements.productsGrid.style.opacity = '0';
+        
+        setTimeout(() => {
+            this.renderProducts();
+            this.elements.productsGrid.style.opacity = '1';
+        }, WOMEN_CONFIG.filterTransition);
     }
 
     // Toast notifications
-    showToast(message, type = 'info', duration = WOMEN_CONFIG.notificationDuration) {
+    showToast(message, type = 'info') {
+        const toastContainer = document.getElementById('toast-container') || this.createToastContainer();
+        
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         toast.innerHTML = `
@@ -911,21 +860,27 @@ class WomenApp {
             </button>
         `;
 
-        let container = document.getElementById('toast-container');
-        if (!container) {
-            container = document.createElement('div');
-            container.id = 'toast-container';
-            container.className = 'toast-container';
-            document.body.appendChild(container);
-        }
+        toastContainer.appendChild(toast);
 
-        container.appendChild(toast);
+        setTimeout(() => toast.classList.add('show'), 10);
 
-        setTimeout(() => toast.classList.add('show'), 100);
         setTimeout(() => {
             toast.classList.remove('show');
-            setTimeout(() => toast.remove(), 300);
-        }, duration);
+            setTimeout(() => toast.remove(), 400);
+        }, WOMEN_CONFIG.notificationDuration);
+    }
+
+    createToastContainer() {
+        const container = document.createElement('div');
+        container.id = 'toast-container';
+        container.style.cssText = `
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 10000;
+        `;
+        document.body.appendChild(container);
+        return container;
     }
 
     getToastIcon(type) {
@@ -935,97 +890,197 @@ class WomenApp {
             warning: 'exclamation-triangle',
             info: 'info-circle'
         };
-        return icons[type] || 'info-circle';
+        return icons[type] || icons.info;
     }
 
-    // Utilities
-    throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
+    // Utility functions
+    getColorValue(colorName) {
+        const colors = {
+            'Negro': '#000000',
+            'Blanco': '#FFFFFF',
+            'Gris': '#808080',
+            'Beige': '#F5F5DC',
+            'Azul': '#4A90E2',
+            'Verde': '#2ECC71',
+            'Rosa': '#E91E63',
+            'Morado': '#9C27B0'
+        };
+        return colors[colorName] || '#000000';
+    }
+
+    handleClickOutside(e) {
+        if (this.elements.sortMenu?.classList.contains('show')) {
+            if (!e.target.closest('.sort-wrapper')) {
+                this.elements.sortMenu.classList.remove('show');
+            }
+        }
+
+        if (this.elements.filterPanel?.classList.contains('open')) {
+            if (!e.target.closest('.filter-section') && !e.target.closest('.filter-toggle')) {
+                this.elements.filterPanel.classList.remove('open');
+                this.elements.filterToggle?.classList.remove('active');
             }
         }
     }
+
+    handleKeyboard(e) {
+        if (e.key === 'Escape') {
+            this.closeCart();
+            this.elements.sortMenu?.classList.remove('show');
+            this.elements.filterPanel?.classList.remove('open');
+        }
+    }
+
+    throttle(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
 }
 
-// Inicializar app cuando el DOM esté listo
-let womenApp;
-
-document.addEventListener('DOMContentLoaded', function() {
-    womenApp = new WomenApp();
-
-    // Detectar mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    document.body.classList.toggle('mobile', isMobile);
-
-    // Newsletter form
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            womenApp.showToast('¡Gracias por suscribirte!', 'success');
-            newsletterForm.reset();
-        });
-    }
+// Initialize app
+let app;
+document.addEventListener('DOMContentLoaded', () => {
+    app = new WomenApp();
 });
 
-// CSS dinámico para componentes
+// Inyectar estilos específicos para Women
 const womenStyles = `
 <style>
-/* Product Card Styles */
+/* Women Section Specific Styles */
+:root {
+    --primary-black: #0A0A0A;
+    --primary-white: #FFFFFF;
+    --pure-white: #FFFFFF;
+    --gray-light: #E5E5E5;
+    --gray-medium: #999999;
+    --gray-dark: #333333;
+    --accent-gold: #D4AF37;
+    --accent-red: #E74C3C;
+    --accent-pink: #E91E63;
+    --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--primary-black);
+    background: var(--primary-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Product Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+/* Product Card */
 .product-card {
     background: var(--pure-white);
     border-radius: 20px;
     overflow: hidden;
     transition: var(--transition);
+    cursor: pointer;
     box-shadow: var(--shadow-light);
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
 }
 
 .product-image-container {
     position: relative;
-    overflow: hidden;
     aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--gray-light);
 }
 
 .product-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: transform 0.6s ease;
 }
 
 .product-card:hover .product-image {
     transform: scale(1.1);
 }
 
-.product-overlay {
+.product-badge {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition);
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
-.product-card:hover .product-overlay {
-    opacity: 1;
+.product-badge.new {
+    background: var(--accent-gold);
+    color: var(--primary-black);
+}
+
+.product-badge.sale {
+    background: var(--accent-red);
+    color: var(--pure-white);
+    top: 50px;
+}
+
+.product-badge.out-of-stock {
+    background: var(--gray-medium);
+    color: var(--pure-white);
 }
 
 .product-actions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     display: flex;
+    flex-direction: column;
     gap: 10px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .action-btn {
@@ -1036,50 +1091,52 @@ const womenStyles = `
     background: var(--pure-white);
     color: var(--primary-black);
     cursor: pointer;
-    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-medium);
 }
 
 .action-btn:hover {
+    background: var(--primary-black);
+    color: var(--pure-white);
     transform: scale(1.1);
-    background: var(--accent-red);
-    color: var(--pure-white);
 }
 
-.action-btn.active {
-    background: var(--accent-red);
-    color: var(--pure-white);
-}
-
-.product-badge {
+.add-to-cart-overlay {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 11px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary-black);
+    color: var(--pure-white);
+    border: none;
+    padding: 18px;
+    font-size: 14px;
     font-weight: 600;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
-    z-index: 1;
+    cursor: pointer;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    z-index: 2;
 }
 
-.product-badge.new {
-    background: var(--accent-red);
-    color: var(--pure-white);
+.product-card:hover .add-to-cart-overlay {
+    transform: translateY(0);
 }
 
-.product-badge.discount {
-    background: #10B981;
-    color: var(--pure-white);
-    top: 50px;
+.add-to-cart-overlay:hover:not(:disabled) {
+    background: var(--gray-dark);
 }
 
-.product-badge.out-of-stock {
+.add-to-cart-overlay:disabled {
     background: var(--gray-medium);
-    color: var(--pure-white);
+    cursor: not-allowed;
 }
 
 .product-info {

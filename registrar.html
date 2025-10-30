@@ -28,12 +28,50 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--off-white) 0%, #f0f0f0 100%);
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Overlay mejorado - MÁS CLARO y SIN BLUR */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(0px);
+            z-index: 1;
+        }
+
+        /* Formulario con efecto glass elegante */
         .auth-container {
-            background: var(--pure-white);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             max-width: 450px;
@@ -41,6 +79,7 @@
             padding: 50px 40px;
             position: relative;
             overflow: hidden;
+            z-index: 2;
         }
 
         .auth-container::before {
@@ -294,6 +333,16 @@
     </style>
 </head>
 <body>
+    <!-- Video de Fondo -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="images/registrar_1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Overlay semi-transparente -->
+    <div class="video-overlay"></div>
+
     <div class="auth-container">
         <div class="logo-container">
             <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="logo-img">
