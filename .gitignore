@@ -144,6 +144,12 @@ service-account.json
 *.key.json
 *-key.json
 
+# Imágenes del proyecto (peso elevado, no subir a git)
+images/
+
+# VS Code settings locales
+.vscode/
+
 # Firebase Functions
 functions/node_modules/
 

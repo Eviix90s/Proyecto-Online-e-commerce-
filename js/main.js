@@ -166,10 +166,10 @@ class UrbanCatsApp {
     async initializeApp() {
         // Mostrar loading screen
         this.showLoadingScreen();
-        
+
         // Inicializar componentes
         await this.loadComponents();
-        
+
         // Ocultar loading screen
         setTimeout(() => {
             this.hideLoadingScreen();
@@ -183,8 +183,6 @@ class UrbanCatsApp {
         this.updateWishlistUI();
         this.updateVisitCounter();
         this.initializeSlider();
-        this.setupScrollAnimations();
-        this.setupIntersectionObserver();
         this.setupCategoryCards();
     }
 
@@ -257,97 +255,106 @@ class UrbanCatsApp {
     }
 
     setupCategoryCards() {
-    const categoryCards = document.querySelectorAll('.category-card');
-    
-    categoryCards.forEach(card => {
-        const category = card.dataset.category;
-        
-        
-        // Determinar la página destino
-        let targetPage = '';
-        if (category === 'mujer') {
-            targetPage = 'women.html';
-        } else if (category === 'hombre') {
-            targetPage = 'men.html';
-        }
-        
-        if (targetPage) {
-            // Hacer toda la card clickeable
-            card.style.cursor = 'pointer';
-            card.style.position = 'relative';
-            card.style.zIndex = '10';
-            card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            
-            // Click en toda la card
-            card.addEventListener('click', () => {
-                window.location.href = targetPage;
-            });
-            
-            // Efecto hover mejorado
-            card.addEventListener('mouseenter', () => {
-      // Sombra elegante con glow sutil
-                card.style.boxShadow = `
+        const categoryCards = document.querySelectorAll('.category-card');
+
+        categoryCards.forEach(card => {
+            const category = card.dataset.category;
+
+
+            // Determinar la página destino
+            let targetPage = '';
+            if (category === 'mujer') {
+                targetPage = 'women.html';
+            } else if (category === 'hombre') {
+                targetPage = 'men.html';
+            }
+
+            if (targetPage) {
+                // Hacer toda la card clickeable
+                card.style.cursor = 'pointer';
+                card.style.position = 'relative';
+                card.style.zIndex = '10';
+                card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+
+                // Click en toda la card
+                card.addEventListener('click', () => {
+                    window.location.href = targetPage;
+                });
+
+                // Efecto hover mejorado
+                card.addEventListener('mouseenter', () => {
+                    // Sombra elegante con glow sutil
+                    card.style.boxShadow = `
                     0 35px 70px rgba(0, 0, 0, 0.5),
                     0 0 50px rgba(0, 255, 255, 0.2),
                     inset 0 0 60px rgba(0, 255, 255, 0.1)
                 `;
-                card.style.transform = 'translateY(-25px) scale(1.04)';
-                
-                // Brillo sutil en la imagen
-                const img = card.querySelector('img');
-                if (img) {
-                    img.style.filter = 'brightness(1.15) contrast(1.1)';
-                }
-                
-                // Resaltar el texto
-                const overlay = card.querySelector('.category-overlay');
-                if (overlay) {
-                    overlay.style.background = 'linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.88) 70%, transparent 100%)';
-                }
-                
-                const title = card.querySelector('h3');
-                if (title) {
-                    title.style.textShadow = '0 0 20px rgba(0, 255, 255, 0.8)';
-                    title.style.transform = 'scale(1.05)';
-                }
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.boxShadow = '';
-                card.style.transform = '';
-                
-                const img = card.querySelector('img');
-                if (img) {
-                    img.style.filter = '';
-                }
-                
-                const overlay = card.querySelector('.category-overlay');
-                if (overlay) {
-                    overlay.style.background = '';
-                }
-                
-                const title = card.querySelector('h3');
-                if (title) {
-                    title.style.textShadow = '';
-                    title.style.transform = '';
-                }
-            });
-        }
-    });
-    
-    console.log('Category cards initialized!'); // Para debug
-}
+                    card.style.transform = 'translateY(-25px) scale(1.04)';
+
+                    // Brillo sutil en la imagen
+                    const img = card.querySelector('img');
+                    if (img) {
+                        img.style.filter = 'brightness(1.15) contrast(1.1)';
+                    }
+
+                    // Resaltar el texto
+                    const overlay = card.querySelector('.category-overlay');
+                    if (overlay) {
+                        overlay.style.background = 'linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.88) 70%, transparent 100%)';
+                    }
+
+                    const title = card.querySelector('h3');
+                    if (title) {
+                        title.style.textShadow = '0 0 20px rgba(0, 255, 255, 0.8)';
+                        title.style.transform = 'scale(1.05)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '';
+                    card.style.transform = '';
+
+                    const img = card.querySelector('img');
+                    if (img) {
+                        img.style.filter = '';
+                    }
+
+                    const overlay = card.querySelector('.category-overlay');
+                    if (overlay) {
+                        overlay.style.background = '';
+                    }
+
+                    const title = card.querySelector('h3');
+                    if (title) {
+                        title.style.textShadow = '';
+                        title.style.transform = '';
+                    }
+                });
+            }
+        });
+
+        console.log('Category cards initialized!'); // Para debug
+    }
 
     handleFilterClick(e) {
+        const btn = e.target.closest('.filter-btn');
+        const filter = btn.dataset.filter;
+
+        // ✨ Si es accesorios, redirigir a la página
+        if (filter === 'accesorios') {
+            window.location.href = 'accessories.html';
+            return;
+        }
+
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        appState.filtroActivo = e.target.dataset.filter;
+        btn.classList.add('active');
+        appState.filtroActivo = filter;
         this.filterProducts();
     }
 
     filterProducts() {
         let productosFiltrados = productos;
-        
+
         if (appState.filtroActivo !== 'all') {
             if (appState.filtroActivo === 'nuevo') {
                 productosFiltrados = productos.filter(p => p.isNew);
@@ -355,7 +362,7 @@ class UrbanCatsApp {
                 productosFiltrados = productos.filter(p => p.category === appState.filtroActivo);
             }
         }
-        
+
         appState.productosVisibles = productosFiltrados.slice(0, 4);
         this.renderProductos();
     }
@@ -363,7 +370,7 @@ class UrbanCatsApp {
     loadMoreProducts() {
         const currentLength = appState.productosVisibles.length;
         let productosFiltrados = productos;
-        
+
         if (appState.filtroActivo !== 'all') {
             if (appState.filtroActivo === 'nuevo') {
                 productosFiltrados = productos.filter(p => p.isNew);
@@ -371,21 +378,21 @@ class UrbanCatsApp {
                 productosFiltrados = productos.filter(p => p.category === appState.filtroActivo);
             }
         }
-        
+
         const nextProducts = productosFiltrados.slice(currentLength, currentLength + 4);
         appState.productosVisibles = [...appState.productosVisibles, ...nextProducts];
-        
+
         if (appState.productosVisibles.length >= productosFiltrados.length) {
             const loadMoreBtn = document.querySelector('.load-more-btn');
             if (loadMoreBtn) loadMoreBtn.style.display = 'none';
         }
-        
+
         this.renderProductos();
     }
 
     renderProductos(productos = appState.productosVisibles) {
         if (!this.elements.productosGrid) return;
-        
+
         // Mostrar loading de productos
         this.elements.productosGrid.innerHTML = `
             <div class="products-loading">
@@ -405,7 +412,7 @@ class UrbanCatsApp {
 
     createProductCard(producto) {
         const isInWishlist = appState.wishlistItems.some(item => item.id === producto.id);
-        const discountPercentage = producto.originalPrice ? 
+        const discountPercentage = producto.originalPrice ?
             Math.round(((producto.originalPrice - producto.price) / producto.originalPrice) * 100) : 0;
 
         // ✨ NUEVO: Determinar página destino según categoría
@@ -469,22 +476,22 @@ class UrbanCatsApp {
     makeProductCardsClickable() {
         document.querySelectorAll('.product-card').forEach(card => {
             card.style.cursor = 'pointer';
-            
+
             card.addEventListener('click', (e) => {
                 // No redirigir si se hace click en botones de acción o tallas
                 if (e.target.closest('.action-btn') || e.target.closest('.size-option')) {
                     return;
                 }
-                
+
                 const productId = card.dataset.id;
                 const targetPage = card.dataset.target;
-                
+
                 // Determinar la página correcta
                 let url = targetPage;
                 if (!targetPage.includes('?')) {
                     url = `${targetPage}?product=${productId}`;
                 }
-                
+
                 window.location.href = url;
             });
         });
@@ -517,9 +524,9 @@ class UrbanCatsApp {
             this.showToast('Producto no disponible', 'error');
             return;
         }
-        
+
         const existingItem = appState.carritoItems.find(item => item.id === productId && item.size === size);
-        
+
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
@@ -533,11 +540,11 @@ class UrbanCatsApp {
                 color: producto.colors[0] // Default al primer color
             });
         }
-        
+
         appState.saveCart();
         this.updateCartUI();
         this.showToast('Producto agregado al carrito', 'success');
-        
+
         // Efecto visual en el botón
         this.animateAddToCart();
     }
@@ -554,7 +561,7 @@ class UrbanCatsApp {
             this.removeFromCart(productId, size);
             return;
         }
-        
+
         const item = appState.carritoItems.find(item => item.id === productId && item.size === size);
         if (item) {
             item.quantity = newQuantity;
@@ -567,26 +574,26 @@ class UrbanCatsApp {
     updateCartUI() {
         const totalItems = appState.carritoItems.reduce((sum, item) => sum + item.quantity, 0);
         const totalPrice = appState.carritoItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        
+
         if (this.elements.cartCount) {
             this.elements.cartCount.textContent = totalItems;
             this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
         }
-        
+
         if (this.elements.cartTotal) {
             this.elements.cartTotal.textContent = totalPrice.toLocaleString();
         }
-        
+
         if (this.elements.cartSubtotal) {
             this.elements.cartSubtotal.textContent = totalPrice.toLocaleString();
         }
-        
+
         this.renderCartItems();
     }
 
     renderCartItems() {
         if (!this.elements.cartItems) return;
-        
+
         if (appState.carritoItems.length === 0) {
             this.elements.cartItems.innerHTML = `
                 <div class="empty-cart">
@@ -603,7 +610,7 @@ class UrbanCatsApp {
             `;
             return;
         }
-        
+
         this.elements.cartItems.innerHTML = appState.carritoItems.map(item => `
             <div class="cart-item">
                 <img src="${item.image}" alt="${item.name}" class="cart-item-image">
@@ -650,7 +657,7 @@ class UrbanCatsApp {
     toggleWishlist(productId) {
         const producto = productos.find(p => p.id === productId);
         const existingIndex = appState.wishlistItems.findIndex(item => item.id === productId);
-        
+
         if (existingIndex > -1) {
             appState.wishlistItems.splice(existingIndex, 1);
             this.showToast('Producto removido de favoritos', 'info');
@@ -663,7 +670,7 @@ class UrbanCatsApp {
             });
             this.showToast('Producto agregado a favoritos', 'success');
         }
-        
+
         appState.saveWishlist();
         this.updateWishlistUI();
         this.renderProductos(); // Re-render para actualizar iconos
@@ -686,15 +693,15 @@ class UrbanCatsApp {
     // Slider functionality mejorado
     initializeSlider() {
         const dots = document.querySelectorAll('.dot');
-        
+
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 this.goToSlide(index);
             });
         });
-        
+
         this.startAutoSlide();
-        
+
         // Pause on hover
         const sliderContainer = document.querySelector('.product-slider');
         if (sliderContainer) {
@@ -706,22 +713,22 @@ class UrbanCatsApp {
     goToSlide(slideIndex) {
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
-        
+
         if (!slides.length) return;
-        
+
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
-        
+
         slides[slideIndex].classList.add('active');
         if (dots[slideIndex]) dots[slideIndex].classList.add('active');
-        
+
         appState.currentSlide = slideIndex;
     }
 
     nextSlide() {
         const slides = document.querySelectorAll('.slide');
         if (!slides.length) return;
-        
+
         const nextIndex = (appState.currentSlide + 1) % slides.length;
         this.goToSlide(nextIndex);
     }
@@ -729,7 +736,7 @@ class UrbanCatsApp {
     previousSlide() {
         const slides = document.querySelectorAll('.slide');
         if (!slides.length) return;
-        
+
         const prevIndex = appState.currentSlide === 0 ? slides.length - 1 : appState.currentSlide - 1;
         this.goToSlide(prevIndex);
     }
@@ -750,11 +757,11 @@ class UrbanCatsApp {
     quickView(productId) {
         const producto = productos.find(p => p.id === productId);
         if (!producto) return;
-        
+
         // Crear modal de vista rápida
         const modal = this.createQuickViewModal(producto);
         document.body.appendChild(modal);
-        
+
         setTimeout(() => modal.classList.add('show'), 10);
         this.showToast(`Vista rápida: ${producto.name}`, 'info');
     }
@@ -784,18 +791,18 @@ class UrbanCatsApp {
                 </div>
             </div>
         `;
-        
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) modal.remove();
         });
-        
+
         return modal;
     }
 
     shareProduct(productId) {
         const producto = productos.find(p => p.id === productId);
         if (!producto) return;
-        
+
         if (navigator.share) {
             navigator.share({
                 title: producto.name,
@@ -822,7 +829,7 @@ class UrbanCatsApp {
                 <i class="fas fa-times"></i>
             </button>
         `;
-        
+
         if (!this.elements.toastContainer) {
             const container = document.createElement('div');
             container.id = 'toast-container';
@@ -830,9 +837,9 @@ class UrbanCatsApp {
             document.body.appendChild(container);
             this.elements.toastContainer = container;
         }
-        
+
         this.elements.toastContainer.appendChild(toast);
-        
+
         setTimeout(() => toast.classList.add('show'), 100);
         setTimeout(() => {
             toast.classList.remove('show');
@@ -855,19 +862,19 @@ class UrbanCatsApp {
         e.preventDefault();
         const formData = new FormData(e.target);
         const email = formData.get('email');
-        
+
         if (!this.isValidEmail(email)) {
             this.showToast('Por favor ingresa un email válido', 'error');
             return;
         }
-        
+
         // Simular envío
         const submitBtn = e.target.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
-        
+
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
         submitBtn.disabled = true;
-        
+
         setTimeout(() => {
             this.showToast('¡Gracias por suscribirte! Pronto recibirás nuestras novedades.', 'success');
             e.target.reset();
@@ -886,7 +893,7 @@ class UrbanCatsApp {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
             const offsetTop = targetElement.offsetTop - 80; // Ajuste por navbar
             window.scrollTo({
@@ -898,7 +905,7 @@ class UrbanCatsApp {
 
     handleScroll() {
         const scrollTop = window.pageYOffset;
-        
+
         // Navbar hide/show
         if (this.elements.navbar) {
             if (scrollTop > this.lastScrollTop && scrollTop > CONFIG.scrollThreshold) {
@@ -908,12 +915,12 @@ class UrbanCatsApp {
                 this.elements.navbar.classList.toggle('scrolled', scrollTop > 50);
             }
         }
-        
+
         // Back to top button
         if (this.elements.backToTop) {
             this.elements.backToTop.classList.toggle('visible', scrollTop > 300);
         }
-        
+
         this.lastScrollTop = scrollTop;
     }
 
@@ -933,7 +940,7 @@ class UrbanCatsApp {
             this.elements.mobileMenuToggle?.classList.remove('active');
             document.querySelector('.quick-view-modal')?.remove();
         }
-        
+
         // Arrow keys para slider
         if (e.key === 'ArrowLeft') {
             this.previousSlide();
@@ -948,12 +955,12 @@ class UrbanCatsApp {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('reveal-animation');
-                    
+
                     // Números animados
                     if (entry.target.classList.contains('stat-number')) {
                         this.animateNumber(entry.target);
@@ -961,7 +968,7 @@ class UrbanCatsApp {
                 }
             });
         }, observerOptions);
-        
+
         // Observar elementos que necesitan animación
         document.querySelectorAll(`
             .product-card, 
@@ -1017,7 +1024,7 @@ class UrbanCatsApp {
         if (cartIcon) {
             cartIcon.style.transform = 'scale(1.3)';
             cartIcon.style.color = 'var(--accent-red)';
-            
+
             setTimeout(() => {
                 cartIcon.style.transform = 'scale(1)';
                 cartIcon.style.color = '';
@@ -1030,7 +1037,7 @@ class UrbanCatsApp {
         let visits = localStorage.getItem('urbanCatsVisits') || 0;
         visits = parseInt(visits) + 1;
         localStorage.setItem('urbanCatsVisits', visits);
-        
+
         if (this.elements.visitCount) {
             // Animar el contador
             this.animateCounter(this.elements.visitCount, 0, visits, 2000);
@@ -1088,7 +1095,7 @@ class UrbanCatsApp {
 // Función throttle para optimizar scroll
 function throttle(func, limit) {
     let inThrottle;
-    return function() {
+    return function () {
         const args = arguments;
         const context = this;
         if (!inThrottle) {
@@ -1121,28 +1128,28 @@ window.scrollToSection = (sectionId) => {
 // Inicialización cuando el DOM esté listo
 let app;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Inicializar aplicación
     app = new UrbanCatsApp();
-    
+
     // Configurar PWA (Service Worker preparado)
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js')
             .then(registration => console.log('SW registered'))
             .catch(error => console.log('SW registration failed'));
     }
-    
+
     // Detectar si es mobile
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     document.body.classList.toggle('mobile', isMobile);
-    
+
     // Preload critical images
     const criticalImages = [
         'images/logo_para_video-removebg-preview.png',
         'images/mujer_1.jpg',
         'images/hombre_1.jpg'
     ];
-    
+
     criticalImages.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -1150,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Event listeners adicionales para mejorar UX
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     // Ocultar loading si aún está visible
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen && !loadingScreen.classList.contains('fade-out')) {
@@ -1159,14 +1166,14 @@ window.addEventListener('load', function() {
             setTimeout(() => loadingScreen.style.display = 'none', 500);
         }, 500);
     }
-    
+
     // Optimizar imágenes
     if (app) {
         app.optimizeImages();
     }
 });
 
-window.addEventListener('beforeunload', function() {
+window.addEventListener('beforeunload', function () {
     // Limpiar intervalos antes de salir
     if (appState.slideInterval) {
         clearInterval(appState.slideInterval);
@@ -1174,7 +1181,7 @@ window.addEventListener('beforeunload', function() {
 });
 
 // Error handling global
-window.addEventListener('error', function(e) {
+window.addEventListener('error', function (e) {
     console.error('Error capturado:', e.error);
     if (app) {
         app.showToast('Ha ocurrido un error. Por favor recarga la página.', 'error');
@@ -1182,15 +1189,157 @@ window.addEventListener('error', function(e) {
 });
 
 // Handle online/offline status
-window.addEventListener('online', function() {
+window.addEventListener('online', function () {
     if (app) {
         app.showToast('Conexión restaurada', 'success');
     }
 });
 
-window.addEventListener('offline', function() {
+window.addEventListener('offline', function () {
     if (app) {
         app.showToast('Sin conexión a internet', 'warning');
+    }
+});
+
+
+// Conectar botón de checkout
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutBtn = document.querySelector('.checkout-btn');
+
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', goToCheckout);
+    }
+});
+
+function goToCheckout(e) {
+    e?.preventDefault();
+
+    const cart = JSON.parse(localStorage.getItem('urbanCats_cart') || '[]');
+
+    if (cart.length === 0) {
+        alert('Tu carrito está vacío');
+        return;
+    }
+
+    // Cerrar carrito sidebar
+    document.getElementById('cart-sidebar')?.classList.remove('active');
+    document.getElementById('overlay')?.classList.remove('active');
+
+    // Ir a checkout
+    setTimeout(() => {
+        window.location.href = 'checkout.html';
+    }, 300);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // User Dropdown Toggle
+    const userBtn = document.getElementById('user-btn');
+    const dropdownMenu = document.getElementById('user-dropdown-menu');
+
+    if (userBtn && dropdownMenu) {
+        // Toggle dropdown al hacer click
+        userBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('active');
+        });
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!dropdownMenu.contains(e.target) && e.target !== userBtn) {
+                dropdownMenu.classList.remove('active');
+            }
+        });
+
+        // No cerrar al hacer click dentro del dropdown
+        dropdownMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Logout Functionality
+    const logoutLink = document.getElementById('logout-link');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const confirmed = confirm('¿Estás seguro de que quieres cerrar sesión?');
+            if (confirmed) {
+                // Limpiar datos del usuario
+                localStorage.removeItem('urbanCats_user');
+                localStorage.removeItem('urbanCats_activeCoupon');
+
+                // Opcional: mostrar mensaje
+                alert('Sesión cerrada exitosamente');
+
+                // Redirigir al index
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
+    // Actualizar UI según estado de login (opcional)
+    updateUserUI();
+});
+
+// Función para actualizar UI según si el usuario está logueado
+function updateUserUI() {
+    const user = localStorage.getItem('urbanCats_user');
+    const loginLink = document.querySelector('.dropdown-item[href="login.html"]');
+    const registerLink = document.querySelector('.dropdown-item[href="registrar.html"]');
+    const logoutLink = document.getElementById('logout-link');
+
+    if (user) {
+        // Usuario logueado - ocultar login/registro
+        if (loginLink) loginLink.style.display = 'none';
+        if (registerLink) registerLink.style.display = 'none';
+        if (logoutLink) logoutLink.style.display = 'flex';
+    } else {
+        // Usuario NO logueado - mostrar login/registro
+        if (loginLink) loginLink.style.display = 'flex';
+        if (registerLink) registerLink.style.display = 'flex';
+        if (logoutLink) logoutLink.style.display = 'none';
+    }
+}
+
+// ============================================
+// FUNCIÓN PARA CONECTAR CARRITO CON CHECKOUT
+// (También debes tener esto en tu main.js)
+// ============================================
+
+function goToCheckout(e) {
+    if (e) e.preventDefault();
+
+    // Verificar si hay productos en el carrito
+    const cart = JSON.parse(localStorage.getItem('urbanCats_cart') || '[]');
+
+    if (cart.length === 0) {
+        alert('Tu carrito está vacío. Agrega productos antes de continuar.');
+        return;
+    }
+
+    // Cerrar el carrito sidebar
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const overlay = document.getElementById('overlay');
+
+    if (cartSidebar) {
+        cartSidebar.classList.remove('active');
+    }
+    if (overlay) {
+        overlay.classList.remove('active');
+    }
+
+    // Pequeño delay para animación
+    setTimeout(() => {
+        window.location.href = 'checkout.html';
+    }, 300);
+}
+
+// Asignar función al botón de checkout
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.removeEventListener('click', goToCheckout);
+        checkoutBtn.addEventListener('click', goToCheckout);
     }
 });
 

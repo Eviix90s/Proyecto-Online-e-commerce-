@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Urban Cats</title>
+    <meta name="description" content="Completa tu compra en Urban Cats. Moda urbana con estilo japonÃ©s minimalista.">
+    
+    <!-- Preconnect para optimizaciÃ³n -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">
+            <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="loading-logo-img">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="logo" href="index.html">
+                <a href="index.html">
+                    <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats - Moda Urbana" class="logo-img">
+                    <span class="logo-text">Urban Cats</span>
+                </a>
+            </div>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Nosotros</a>
+                <a href="women.html" class="nav-link">Mujer</a>
+                <a href="men.html" class="nav-link">Hombre</a>
+                <a href="accessories.html" class="nav-link">Accesorios</a>
+                <a href="offers.html" class="nav-link ofertas-special">Ofertas</a>
+            </nav>
+            <div class="nav-utilities">
+                <button class="search-btn" aria-label="Buscar productos">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="#account" aria-label="Mi cuenta">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#wishlist" aria-label="Lista de deseos">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </a>
+                <a href="#cart" class="cart-link" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="MenÃº mÃ³vil">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Checkout Page -->
+    <main class="checkout-page">
+        <div class="container">
+            <!-- Progress Steps -->
+            <div class="checkout-progress">
+                <div class="progress-step active">
+                    <div class="progress-step-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <span class="progress-step-label">Carrito</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <div class="progress-step-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <span class="progress-step-label">EnvÃ­o</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="progress-step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span class="progress-step-label">ConfirmaciÃ³n</span>
+                </div>
+            </div>
+
+            <div class="checkout-grid">
+                <!-- Columna Izquierda: Formulario -->
+                <div class="checkout-form">
+                    <div class="checkout-header">
+                        <h1>Finalizar Compra</h1>
+                        <p>Completa tu informaciÃ³n para recibir tu pedido</p>
+                    </div>
+                    
+                    <!-- Paso 1: InformaciÃ³n de EnvÃ­o -->
+                    <section class="checkout-section" id="shipping-section">
+                        <div class="section-header">
+                            <div class="section-number">1</div>
+                            <h2>InformaciÃ³n de EnvÃ­o</h2>
+                        </div>
+
+                        <!-- Direcciones Guardadas -->
+                        <div class="saved-addresses" id="saved-addresses">
+                            <!-- Se llenarÃ¡n dinÃ¡micamente -->
+                        </div>
+
+                        <form id="shipping-form" class="shipping-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="shipping-name">
+                                        <i class="fas fa-user"></i>
+                                        Nombre Completo
+                                    </label>
+                                    <input type="text" id="shipping-name" placeholder="Juan PÃ©rez" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="shipping-email">
+                                        <i class="fas fa-envelope"></i>
+                                        Email
+                                    </label>
+                                    <input type="email" id="shipping-email" placeholder="tu@email.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="shipping-phone">
+                                    <i class="fas fa-phone"></i>
+                                    TelÃ©fono
+                                </label>
+                                <input type="tel" id="shipping-phone" placeholder="+52 555 123 4567" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="shipping-address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    DirecciÃ³n
+                                </label>
+                                <input type="text" id="shipping-address" placeholder="Calle Principal 123" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="shipping-city">
+                                        <i class="fas fa-city"></i>
+                                        Ciudad
+                                    </label>
+                                    <input type="text" id="shipping-city" placeholder="Ciudad de MÃ©xico" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="shipping-postal">
+                                        <i class="fas fa-mail-bulk"></i>
+                                        CÃ³digo Postal
+                                    </label>
+                                    <input type="text" id="shipping-postal" placeholder="06000" required maxlength="5">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="shipping-notes">
+                                    <i class="fas fa-comment"></i>
+                                    Notas de Entrega (Opcional)
+                                </label>
+                                <textarea id="shipping-notes" rows="3" placeholder="Ej: Dejar con el portero"></textarea>
+                            </div>
+                        </form>
+                    </section>
+                    
+                    <!-- Paso 2: MÃ©todo de Pago -->
+                    <section class="checkout-section" id="payment-section">
+                        <div class="section-header">
+                            <div class="section-number">2</div>
+                            <h2>MÃ©todo de Pago</h2>
+                        </div>
+
+                        <div class="payment-methods">
+                            <label class="payment-method active">
+                                <input type="radio" name="payment" value="card" checked>
+                                <div class="payment-method-content">
+                                    <div class="payment-method-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="payment-method-info">
+                                        <h3>Tarjeta de CrÃ©dito/DÃ©bito</h3>
+                                        <p>Pago seguro con tarjeta</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="paypal">
+                                <div class="payment-method-content">
+                                    <div class="payment-method-icon">
+                                        <i class="fab fa-paypal"></i>
+                                    </div>
+                                    <div class="payment-method-info">
+                                        <h3>PayPal</h3>
+                                        <p>Pago rÃ¡pido y seguro</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="oxxo">
+                                <div class="payment-method-content">
+                                    <div class="payment-method-icon">
+                                        <i class="fas fa-store"></i>
+                                    </div>
+                                    <div class="payment-method-info">
+                                        <h3>OXXO</h3>
+                                        <p>Pago en efectivo</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Card Details (Solo visible si payment = card) -->
+                        <div class="card-details" id="card-details">
+                            <div class="form-group">
+                                <label for="card-number">
+                                    <i class="fas fa-credit-card"></i>
+                                    NÃºmero de Tarjeta
+                                </label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="card-expiry">
+                                        <i class="fas fa-calendar"></i>
+                                        Vencimiento
+                                    </label>
+                                    <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-cvv">
+                                        <i class="fas fa-lock"></i>
+                                        CVV
+                                    </label>
+                                    <input type="text" id="card-cvv" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Paso 3: CupÃ³n de Descuento -->
+                    <section class="checkout-section" id="coupon-section">
+                        <div class="section-header">
+                            <div class="section-number">3</div>
+                            <h2>CupÃ³n de Descuento</h2>
+                        </div>
+
+                        <div class="coupon-form">
+                            <div class="coupon-input-group">
+                                <input type="text" id="coupon-input" placeholder="Ingresa tu cupÃ³n">
+                                <button type="button" class="coupon-apply-btn" id="coupon-apply-btn">
+                                    <i class="fas fa-tag"></i>
+                                    Aplicar
+                                </button>
+                            </div>
+                            <div class="coupon-message" id="coupon-message"></div>
+                        </div>
+                    </section>
+                    
+                    <button class="checkout-btn" id="checkout-btn">
+                        <i class="fas fa-lock"></i>
+                        Confirmar Pedido
+                    </button>
+
+                    <div class="secure-payment">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Pago 100% seguro y encriptado</span>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Resumen -->
+                <div class="order-summary">
+                    <div class="summary-header">
+                        <h2>Resumen del Pedido</h2>
+                        <span class="summary-items-count" id="summary-items-count">0 productos</span>
+                    </div>
+
+                    <div class="summary-items" id="summary-items">
+                        <!-- Los items se cargarÃ¡n aquÃ­ -->
+                    </div>
+
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>EnvÃ­o</span>
+                            <span class="free-shipping" id="shipping-cost">Gratis</span>
+                        </div>
+                        <div class="summary-row discount" id="discount-row" style="display: none;">
+                            <span>
+                                <i class="fas fa-tag"></i>
+                                Descuento <span id="coupon-code"></span>
+                            </span>
+                            <span id="discount-amount">-$0</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-amex"></i>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>EnvÃ­o Gratis</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-undo"></i>
+                            <span>Devoluciones Gratis</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>Compra Segura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand">
+                    <div class="footer-logo">
+                        <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
+                        <h3>Urban Cats</h3>
+                    </div>
+                    <p>Moda urbana que define tu personalidad.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="women.html">Mujer</a></li>
+                        <li><a href="men.html">Hombre</a></li>
+                        <li><a href="accessories.html">Accesorios</a></li>
+                        <li><a href="offers.html">Ofertas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="#envios">EnvÃ­os</a></li>
+                        <li><a href="#devoluciones">Devoluciones</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
+

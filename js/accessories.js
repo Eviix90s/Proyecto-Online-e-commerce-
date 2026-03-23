@@ -1,190 +1,202 @@
-// Urban Cats - Men Section JavaScript
+// Urban Cats - Accessories Section JavaScript
 'use strict';
 
 // Configuración
-const MEN_CONFIG = {
+const ACCESSORIES_CONFIG = {
     productsPerPage: 12,
     animationDelay: 100,
     filterTransition: 400,
     notificationDuration: 3000
 };
 
-// Datos de productos de hombre
-const menProducts = [
+// Datos de productos de accesorios
+const accessoriesProducts = [
     {
         id: 201,
-        name: "Camiseta Oversized",
-        price: 599,
-        originalPrice: 799,
-        image: "images/camiseta_oversized.jpg",
-        category: "tops",
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["Negro", "Blanco"],
+        name: "Mochila Urban Black",
+        price: 899,
+        originalPrice: 1199,
+        image: "images/backpack_1.jpg",
+        category: "bags",
+        sizes: ["Único"],
+        colors: ["Negro", "Gris"],
+        materials: ["Textil"],
         isNew: true,
         inStock: true,
-        description: "Camiseta oversized minimalista con diseño japonés"
+        description: "Mochila urbana minimalista con compartimentos inteligentes"
     },
     {
         id: 202,
-        name: "Chaqueta Bomber",
-        price: 1899,
+        name: "Gorra Snapback Street",
+        price: 399,
         originalPrice: null,
-        image: "images/bomber_1.jpg",
-        category: "outerwear",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Verde Oliva"],
+        image: "images/snackers_1.jpg",
+        category: "caps",
+        sizes: ["Único"],
+        colors: ["Negro", "Blanco"],
+        materials: ["Textil"],
         isNew: true,
         inStock: true,
-        description: "Chaqueta bomber con inspiración urbana"
+        description: "Gorra ajustable con estilo urbano japonés"
     },
     {
         id: 203,
-        name: "Sudadera Oversized",
-        price: 899,
-        originalPrice: 1199,
-        image: "images/sudadera_hombre.jpg",
-        category: "tops",
-        sizes: ["M", "L", "XL", "XXL"],
-        colors: ["Negro", "Gris", "Beige"],
+        name: "Reloj Minimal Digital",
+        price: 1599,
+        originalPrice: 1999,
+        image: "images/look_1.jpg",
+        category: "watches",
+        sizes: ["Único"],
+        colors: ["Negro", "Gris"],
+        materials: ["Metal"],
         isNew: false,
         inStock: true,
-        description: "Sudadera oversized perfecta para el día a día"
+        description: "Reloj digital con diseño minimalista contemporáneo"
     },
     {
         id: 204,
-        name: "Jeans Slim Fit",
-        price: 1299,
+        name: "Sneakers Urban White",
+        price: 1899,
         originalPrice: null,
-        image: "images/jeans_hombre.jpg",
-        category: "bottoms",
-        sizes: ["30", "32", "34", "36"],
-        colors: ["Azul", "Negro"],
-        isNew: false,
+        image: "images/snackers_1.jpg",
+        category: "shoes",
+        sizes: ["36", "37", "38", "39", "40", "41", "42"],
+        colors: ["Blanco", "Negro"],
+        materials: ["Sintético"],
+        isNew: true,
         inStock: true,
-        description: "Jeans con corte slim fit y estilo urbano"
+        description: "Zapatillas urbanas con diseño contemporáneo"
     },
     {
         id: 205,
-        name: "Chaqueta Denim",
-        price: 1799,
-        originalPrice: 2299,
-        image: "images/chaqueta_denim.jpg",
-        category: "outerwear",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Azul", "Negro"],
-        isNew: true,
+        name: "Lentes de Sol Classic",
+        price: 699,
+        originalPrice: 899,
+        image: "images/look_2.jpg",
+        category: "sunglasses",
+        sizes: ["Único"],
+        colors: ["Negro"],
+        materials: ["Metal"],
+        isNew: false,
         inStock: true,
-        description: "Chaqueta de mezclilla con líneas limpias"
+        description: "Lentes de sol con protección UV y estilo minimalista"
     },
     {
         id: 206,
-        name: "Pantalón Cargo",
-        price: 1099,
+        name: "Collar Chain Minimal",
+        price: 499,
         originalPrice: null,
-        image: "images/cargo_1.jpg",
-        category: "bottoms",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Verde Militar"],
-        isNew: false,
+        image: "images/look_7.jpg",
+        category: "jewelry",
+        sizes: ["Único"],
+        colors: ["Gris"],
+        materials: ["Metal"],
+        isNew: true,
         inStock: true,
-        description: "Pantalón cargo con inspiración japonesa"
+        description: "Collar minimalista con cadena urbana"
     },
     {
         id: 207,
-        name: "Camiseta Básica",
-        price: 499,
+        name: "Bolso Crossbody Urban",
+        price: 799,
         originalPrice: null,
-        image: "images/basic_tee.jpg",
-        category: "tops",
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["Blanco", "Negro", "Gris", "Beige"],
+        image: "images/look_8.jpg",
+        category: "bags",
+        sizes: ["Único"],
+        colors: ["Negro", "Marrón"],
+        materials: ["Cuero"],
         isNew: false,
         inStock: true,
-        description: "Camiseta básica esencial de alta calidad"
+        description: "Bolso cruzado con estilo urbano versátil"
     },
     {
         id: 208,
-        name: "Conjunto Deportivo",
-        price: 1599,
-        originalPrice: 1999,
-        image: "images/conjunto_deportivo.jpg",
-        category: "sets",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Gris"],
-        isNew: true,
+        name: "Gorra Dad Hat Clean",
+        price: 349,
+        originalPrice: 449,
+        image: "images/look_10.jpg",
+        category: "caps",
+        sizes: ["Único"],
+        colors: ["Blanco", "Negro", "Gris"],
+        materials: ["Textil"],
+        isNew: false,
         inStock: true,
-        description: "Set completo deportivo urbano"
+        description: "Gorra dad hat con diseño limpio y minimalista"
     },
     {
         id: 209,
-        name: "Chamarra Larga",
-        price: 2299,
+        name: "Reloj Análogo Leather",
+        price: 2199,
         originalPrice: null,
-        image: "images/chamarra_larga.jpg",
-        category: "outerwear",
-        sizes: ["M", "L", "XL"],
-        colors: ["Negro", "Beige"],
+        image: "images/look_14.jpg",
+        category: "watches",
+        sizes: ["Único"],
+        colors: ["Marrón", "Negro"],
+        materials: ["Cuero", "Metal"],
         isNew: true,
         inStock: true,
-        description: "Chamarra larga con estilo minimalista"
+        description: "Reloj análogo con correa de cuero premium"
     },
     {
         id: 210,
-        name: "Pantalón Wide Leg",
-        price: 1199,
-        originalPrice: null,
-        image: "images/wide_leg.jpg",
-        category: "bottoms",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Beige"],
-        isNew: false,
+        name: "Sneakers High Top Black",
+        price: 2099,
+        originalPrice: 2599,
+        image: "images/casual_2.jpg",
+        category: "shoes",
+        sizes: ["37", "38", "39", "40", "41", "42"],
+        colors: ["Negro"],
+        materials: ["Textil", "Sintético"],
+        isNew: true,
         inStock: true,
-        description: "Pantalón ancho con caída perfecta"
+        description: "Zapatillas botín urbanas con diseño contemporáneo"
     },
     {
         id: 211,
-        name: "Polo Slim",
-        price: 699,
-        originalPrice: 899,
-        image: "images/polo_1.jpg",
-        category: "tops",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Blanco"],
+        name: "Anillo Urban Minimal",
+        price: 299,
+        originalPrice: null,
+        image: "images/coleccion_1.jpg",
+        category: "jewelry",
+        sizes: ["S", "M", "L"],
+        colors: ["Gris"],
+        materials: ["Metal"],
         isNew: false,
         inStock: true,
-        description: "Polo con diseño moderno"
+        description: "Anillo minimalista con acabado mate"
     },
     {
         id: 212,
-        name: "Chamarra Bomber Premium",
-        price: 2499,
+        name: "Lentes Clear Frame",
+        price: 599,
         originalPrice: null,
-        image: "images/bomber_premium.jpg",
-        category: "outerwear",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Azul Marino"],
+        image: "images/coleccion_3.jpg",
+        category: "sunglasses",
+        sizes: ["Único"],
+        colors: ["Negro", "Blanco"],
+        materials: ["Metal"],
         isNew: true,
         inStock: true,
-        description: "Chamarra bomber elegante y versátil"
+        description: "Lentes con montura transparente y estilo urbano"
     }
 ];
 
 // Estado de la aplicación
-class MenState {
+class AccessoriesState {
     constructor() {
         this.currentCategory = 'all';
         this.currentSort = 'default';
         this.currentView = 'grid';
         this.currentPage = 1;
         this.filters = {
-            priceMax: 3000,
-            sizes: [],
+            priceMax: 5000,
+            materials: [],
             colors: [],
             features: []
         };
         this.cart = JSON.parse(localStorage.getItem('urbanCatsCart')) || [];
         this.wishlist = JSON.parse(localStorage.getItem('urbanCatsWishlist')) || [];
-        this.filteredProducts = [...menProducts];
+        this.filteredProducts = [...accessoriesProducts];
     }
 
     saveCart() {
@@ -197,9 +209,9 @@ class MenState {
 }
 
 // Clase principal
-class MenApp {
+class AccessoriesApp {
     constructor() {
-        this.state = new MenState();
+        this.state = new AccessoriesState();
         this.elements = this.initializeElements();
         this.initializeApp();
     }
@@ -269,9 +281,9 @@ class MenApp {
         // Price slider
         this.elements.priceSlider?.addEventListener('input', (e) => this.handlePriceChange(e));
 
-        // Size filters
+        // Material filters
         this.elements.filterOptions.forEach(option => {
-            option.addEventListener('click', (e) => this.handleSizeFilter(e));
+            option.addEventListener('click', (e) => this.handleMaterialFilter(e));
         });
 
         // Color filters
@@ -329,22 +341,22 @@ class MenApp {
 
     // Filter handling
     toggleFilters() {
-        this.elements.filterPanel.classList.toggle('open');
+        this.elements.filterPanel.classList.toggle('active');
         this.elements.filterToggle?.classList.toggle('active');
     }
 
     clearAllFilters() {
         this.state.filters = {
-            priceMax: 3000,
-            sizes: [],
+            priceMax: 5000,
+            materials: [],
             colors: [],
             features: []
         };
 
         // Reset UI
         if (this.elements.priceSlider) {
-            this.elements.priceSlider.value = 3000;
-            this.elements.maxPrice.textContent = '$3,000';
+            this.elements.priceSlider.value = 5000;
+            this.elements.maxPrice.textContent = '$5,000';
         }
 
         this.elements.filterOptions.forEach(opt => opt.classList.remove('active'));
@@ -362,15 +374,15 @@ class MenApp {
         this.applyFilters();
     }
 
-    handleSizeFilter(e) {
-        const size = e.currentTarget.dataset.size;
-        const index = this.state.filters.sizes.indexOf(size);
+    handleMaterialFilter(e) {
+        const material = e.currentTarget.dataset.material;
+        const index = this.state.filters.materials.indexOf(material);
 
         if (index === -1) {
-            this.state.filters.sizes.push(size);
+            this.state.filters.materials.push(material);
             e.currentTarget.classList.add('active');
         } else {
-            this.state.filters.sizes.splice(index, 1);
+            this.state.filters.materials.splice(index, 1);
             e.currentTarget.classList.remove('active');
         }
 
@@ -393,7 +405,7 @@ class MenApp {
     }
 
     handleFeatureFilter(e) {
-        const feature = e.target.value;
+        const feature = e.target.dataset.filter;
         const index = this.state.filters.features.indexOf(feature);
 
         if (e.target.checked && index === -1) {
@@ -407,7 +419,7 @@ class MenApp {
 
     // Sort handling
     toggleSortMenu() {
-        this.elements.sortMenu?.classList.toggle('show');
+        this.elements.sortMenu?.classList.toggle('active');
     }
 
     handleSortChange(e) {
@@ -433,11 +445,11 @@ class MenApp {
             case 'name':
                 this.state.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
                 break;
-            case 'new':
+            case 'newest':
                 this.state.filteredProducts.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
                 break;
             default:
-                this.state.filteredProducts = [...menProducts];
+                this.state.filteredProducts = [...accessoriesProducts];
         }
     }
 
@@ -454,7 +466,7 @@ class MenApp {
 
     // Filter application
     applyFilters() {
-        let filtered = [...menProducts];
+        let filtered = [...accessoriesProducts];
 
         // Category filter
         if (this.state.currentCategory !== 'all') {
@@ -464,10 +476,10 @@ class MenApp {
         // Price filter
         filtered = filtered.filter(p => p.price <= this.state.filters.priceMax);
 
-        // Size filter
-        if (this.state.filters.sizes.length > 0) {
+        // Material filter
+        if (this.state.filters.materials.length > 0) {
             filtered = filtered.filter(p => 
-                this.state.filters.sizes.some(size => p.sizes.includes(size))
+                this.state.filters.materials.some(material => p.materials.includes(material))
             );
         }
 
@@ -479,10 +491,10 @@ class MenApp {
         }
 
         // Feature filters
-        if (this.state.filters.features.includes('new')) {
+        if (this.state.filters.features.includes('nuevo')) {
             filtered = filtered.filter(p => p.isNew);
         }
-        if (this.state.filters.features.includes('sale')) {
+        if (this.state.filters.features.includes('oferta')) {
             filtered = filtered.filter(p => p.originalPrice);
         }
         if (this.state.filters.features.includes('stock')) {
@@ -498,8 +510,8 @@ class MenApp {
     renderProducts() {
         if (!this.elements.productsGrid) return;
 
-        const start = (this.state.currentPage - 1) * MEN_CONFIG.productsPerPage;
-        const end = start + MEN_CONFIG.productsPerPage;
+        const start = (this.state.currentPage - 1) * ACCESSORIES_CONFIG.productsPerPage;
+        const end = start + ACCESSORIES_CONFIG.productsPerPage;
         const pageProducts = this.state.filteredProducts.slice(start, end);
 
         if (pageProducts.length === 0) {
@@ -571,8 +583,7 @@ class MenApp {
 
     updateProductsCount() {
         if (this.elements.productsCount) {
-            this.elements.productsCount.textContent = 
-                `${this.state.filteredProducts.length} producto${this.state.filteredProducts.length !== 1 ? 's' : ''}`;
+            this.elements.productsCount.textContent = this.state.filteredProducts.length;
         }
     }
 
@@ -580,7 +591,7 @@ class MenApp {
     renderPagination() {
         if (!this.elements.pagination) return;
 
-        const totalPages = Math.ceil(this.state.filteredProducts.length / MEN_CONFIG.productsPerPage);
+        const totalPages = Math.ceil(this.state.filteredProducts.length / ACCESSORIES_CONFIG.productsPerPage);
         
         if (totalPages <= 1) {
             this.elements.pagination.innerHTML = '';
@@ -591,7 +602,7 @@ class MenApp {
         
         // Previous button
         html += `
-            <button class="page-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
+            <button class="pagination-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
                     onclick="app.goToPage(${this.state.currentPage - 1})">
                 <i class="fas fa-chevron-left"></i>
             </button>
@@ -601,7 +612,7 @@ class MenApp {
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
                 html += `
-                    <button class="page-btn ${i === this.state.currentPage ? 'active' : ''}" 
+                    <button class="pagination-btn ${i === this.state.currentPage ? 'active' : ''}" 
                             onclick="app.goToPage(${i})">
                         ${i}
                     </button>
@@ -613,7 +624,7 @@ class MenApp {
 
         // Next button
         html += `
-            <button class="page-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
+            <button class="pagination-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
                     onclick="app.goToPage(${this.state.currentPage + 1})">
                 <i class="fas fa-chevron-right"></i>
             </button>
@@ -630,7 +641,7 @@ class MenApp {
 
     // Cart functionality
     addToCart(productId) {
-        const product = menProducts.find(p => p.id === productId);
+        const product = accessoriesProducts.find(p => p.id === productId);
         if (!product || !product.inStock) return;
 
         const cartItem = this.state.cart.find(item => item.id === productId);
@@ -701,8 +712,11 @@ class MenApp {
             if (this.state.cart.length === 0) {
                 this.elements.cartItems.innerHTML = `
                     <div class="empty-cart">
-                        <i class="fas fa-shopping-bag"></i>
-                        <p>Tu carrito está vacío</p>
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h4>Tu carrito está vacío</h4>
+                        <p>Agrega algunos productos increíbles a tu carrito</p>
                     </div>
                 `;
             } else {
@@ -737,14 +751,14 @@ class MenApp {
         // Update cart total
         const total = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         if (this.elements.cartTotal) {
-            this.elements.cartTotal.textContent = `$${total.toLocaleString()}`;
+            this.elements.cartTotal.textContent = total.toLocaleString();
         }
     }
 
     // Wishlist functionality
     toggleWishlist(productId) {
         const index = this.state.wishlist.indexOf(productId);
-        const product = menProducts.find(p => p.id === productId);
+        const product = accessoriesProducts.find(p => p.id === productId);
 
         if (index === -1) {
             this.state.wishlist.push(productId);
@@ -767,16 +781,15 @@ class MenApp {
 
     // Quick view
     quickView(productId) {
-        const product = menProducts.find(p => p.id === productId);
+        const product = accessoriesProducts.find(p => p.id === productId);
         if (!product) return;
 
-        // Aquí puedes implementar un modal de vista rápida
         this.showToast('Vista rápida disponible próximamente', 'info');
     }
 
     // Mobile menu
     toggleMobileMenu() {
-        const nav = document.querySelector('.nav-links');
+        const nav = document.querySelector('.nav-menu');
         nav?.classList.toggle('active');
         this.elements.mobileMenuToggle?.classList.toggle('active');
     }
@@ -795,9 +808,9 @@ class MenApp {
         // Back to top button
         if (this.elements.backToTop) {
             if (window.scrollY > 500) {
-                this.elements.backToTop.classList.add('show');
+                this.elements.backToTop.classList.add('visible');
             } else {
-                this.elements.backToTop.classList.remove('show');
+                this.elements.backToTop.classList.remove('visible');
             }
         }
     }
@@ -831,7 +844,7 @@ class MenApp {
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.classList.add('fade-in');
-            }, index * MEN_CONFIG.animationDelay);
+            }, index * ACCESSORIES_CONFIG.animationDelay);
         });
     }
 
@@ -841,7 +854,7 @@ class MenApp {
         setTimeout(() => {
             this.renderProducts();
             this.elements.productsGrid.style.opacity = '1';
-        }, MEN_CONFIG.filterTransition);
+        }, ACCESSORIES_CONFIG.filterTransition);
     }
 
     // Toast notifications
@@ -867,7 +880,7 @@ class MenApp {
         setTimeout(() => {
             toast.classList.remove('show');
             setTimeout(() => toast.remove(), 400);
-        }, MEN_CONFIG.notificationDuration);
+        }, ACCESSORIES_CONFIG.notificationDuration);
     }
 
     createToastContainer() {
@@ -899,25 +912,22 @@ class MenApp {
             'Negro': '#000000',
             'Blanco': '#FFFFFF',
             'Gris': '#808080',
-            'Beige': '#F5F5DC',
-            'Azul': '#4A90E2',
-            'Verde Oliva': '#556B2F',
-            'Verde Militar': '#4B5320',
-            'Azul Marino': '#001F3F'
+            'Marrón': '#8B4513',
+            'Azul': '#2563EB'
         };
         return colors[colorName] || '#000000';
     }
 
     handleClickOutside(e) {
-        if (this.elements.sortMenu?.classList.contains('show')) {
-            if (!e.target.closest('.sort-wrapper')) {
-                this.elements.sortMenu.classList.remove('show');
+        if (this.elements.sortMenu?.classList.contains('active')) {
+            if (!e.target.closest('.sort-dropdown')) {
+                this.elements.sortMenu.classList.remove('active');
             }
         }
 
-        if (this.elements.filterPanel?.classList.contains('open')) {
-            if (!e.target.closest('.filter-section') && !e.target.closest('.filter-toggle')) {
-                this.elements.filterPanel.classList.remove('open');
+        if (this.elements.filterPanel?.classList.contains('active')) {
+            if (!e.target.closest('.filters-section') && !e.target.closest('.filter-toggle-btn')) {
+                this.elements.filterPanel.classList.remove('active');
                 this.elements.filterToggle?.classList.remove('active');
             }
         }
@@ -926,8 +936,8 @@ class MenApp {
     handleKeyboard(e) {
         if (e.key === 'Escape') {
             this.closeCart();
-            this.elements.sortMenu?.classList.remove('show');
-            this.elements.filterPanel?.classList.remove('open');
+            this.elements.sortMenu?.classList.remove('active');
+            this.elements.filterPanel?.classList.remove('active');
         }
     }
 
@@ -947,8 +957,10 @@ class MenApp {
 // Initialize app
 let app;
 document.addEventListener('DOMContentLoaded', () => {
-    app = new MenApp();
+    app = new AccessoriesApp();
 });
+
+
 
 // ============================================
 // USER DROPDOWN - Toggle flotante
@@ -991,10 +1003,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Inyectar estilos específicos para Men
-const menStyles = `
+// Inyectar estilos específicos para Accessories
+const accessoriesStyles = `
 <style>
-/* Men Section Specific Styles */
+/* Accessories Section Specific Styles */
 :root {
     --primary-black: #0A0A0A;
     --primary-white: #FFFFFF;
@@ -1250,19 +1262,6 @@ body {
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.size-option:hover:not(.disabled) {
-    background: var(--primary-black);
-    color: var(--pure-white);
-    border-color: var(--primary-black);
-}
-
-.size-option.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
 }
 
 /* Cart Item Styles */
@@ -1426,23 +1425,6 @@ body {
     font-size: 16px;
 }
 
-/* List View Styles */
-.products-grid.list-view .product-card {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 30px;
-}
-
-.products-grid.list-view .product-image-container {
-    aspect-ratio: 1;
-}
-
-.products-grid.list-view .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .cart-item {
@@ -1496,4 +1478,4 @@ body {
 `;
 
 // Inyectar estilos
-document.head.insertAdjacentHTML('beforeend', menStyles);
+document.head.insertAdjacentHTML('beforeend', accessoriesStyles);

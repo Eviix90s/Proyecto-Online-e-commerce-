@@ -16,7 +16,7 @@ const womenProducts = [
         name: "Crop Top Minimal",
         price: 599,
         originalPrice: 799,
-        image: "images/crop_top_1.jpg",
+        image: "images/tops_cami_1.jpg",
         category: "tops",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Blanco"],
@@ -29,8 +29,8 @@ const womenProducts = [
         name: "Vestido Urban Chic",
         price: 1099,
         originalPrice: null,
-        image: "images/vestido_1.jpg",
-        category: "dresses",
+        image: "images/tops_cami_2.jpg",
+        category: "tops",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Gris"],
         isNew: true,
@@ -42,7 +42,7 @@ const womenProducts = [
         name: "Sudadera Oversized",
         price: 899,
         originalPrice: 1199,
-        image: "images/sudadera_1.jpg",
+        image: "images/tops_cami_3.jpg",
         category: "tops",
         sizes: ["S", "M", "L", "XL"],
         colors: ["Negro", "Gris", "Beige"],
@@ -55,8 +55,8 @@ const womenProducts = [
         name: "Jeans Mom Fit",
         price: 1299,
         originalPrice: null,
-        image: "images/jeans_1.jpg",
-        category: "bottoms",
+        image: "images/tops_cami_4.jpg",
+        category: "tops",
         sizes: ["26", "28", "30", "32"],
         colors: ["Azul", "Negro"],
         isNew: false,
@@ -68,8 +68,8 @@ const womenProducts = [
         name: "Blazer Minimal",
         price: 1799,
         originalPrice: 2299,
-        image: "images/mujer_1.jpg",
-        category: "outerwear",
+        image: "images/tops_cami_5.jpg",
+        category: "tops",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Beige"],
         isNew: true,
@@ -77,11 +77,39 @@ const womenProducts = [
         description: "Blazer minimalista con líneas limpias"
     },
     {
-        id: 106,
+        id: 111,
+        name: "Blazer Minimal",
+        price: 1799,
+        originalPrice: 2299,
+        image: "images/tops_cami_11.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Beige"],
+        isNew: true,
+        inStock: true,
+        description: "Blazer minimalista con líneas limpias"
+    },
+
+    {
+        id: 112,
+        name: "Blazer Minimal",
+        price: 1799,
+        originalPrice: 2299,
+        image: "images/tops_cami_12.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Beige"],
+        isNew: true,
+        inStock: true,
+        description: "Blazer minimalista con líneas limpias"
+    },
+
+    {
+        id: 201,
         name: "Falda Plisada",
         price: 799,
         originalPrice: null,
-        image: "images/look_2.jpg",
+        image: "images/pantalones_1.jpg",
         category: "bottoms",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Gris"],
@@ -90,12 +118,12 @@ const womenProducts = [
         description: "Falda plisada con inspiración japonesa"
     },
     {
-        id: 107,
+        id: 202,
         name: "Camiseta Básica",
         price: 499,
         originalPrice: null,
-        image: "images/look_8.jpg",
-        category: "tops",
+        image: "images/pantalones_2.jpg",
+        category: "bottoms",
         sizes: ["XS", "S", "M", "L", "XL"],
         colors: ["Blanco", "Negro", "Gris", "Beige"],
         isNew: false,
@@ -103,12 +131,12 @@ const womenProducts = [
         description: "Camiseta básica esencial de alta calidad"
     },
     {
-        id: 108,
+        id: 203,
         name: "Conjunto Deportivo",
         price: 1599,
         originalPrice: 1999,
-        image: "images/look_14.jpg",
-        category: "sets",
+        image: "images/pantalones_3.jpg",
+        category: "bottoms",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Gris"],
         isNew: true,
@@ -116,12 +144,12 @@ const womenProducts = [
         description: "Set completo deportivo urbano"
     },
     {
-        id: 109,
+        id: 204,
         name: "Abrigo Largo",
         price: 2299,
         originalPrice: null,
-        image: "images/chaqueta_denim_1.jpg",
-        category: "outerwear",
+        image: "images/pantalones_4.jpg",
+        category: "bottoms",
         sizes: ["S", "M", "L"],
         colors: ["Negro", "Beige"],
         isNew: true,
@@ -129,11 +157,11 @@ const womenProducts = [
         description: "Abrigo largo con estilo minimalista"
     },
     {
-        id: 110,
+        id: 205,
         name: "Pantalón Wide Leg",
         price: 1199,
         originalPrice: null,
-        image: "images/look_1.jpg",
+        image: "images/pantalones_5.jpg",
         category: "bottoms",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Beige"],
@@ -142,11 +170,11 @@ const womenProducts = [
         description: "Pantalón ancho con caída perfecta"
     },
     {
-        id: 111,
+        id: 401,
         name: "Top Halter",
         price: 699,
         originalPrice: 899,
-        image: "images/look_7.jpg",
+        image: "images/vestidos_1.jpg",
         category: "tops",
         sizes: ["XS", "S", "M"],
         colors: ["Negro", "Blanco"],
@@ -155,17 +183,212 @@ const womenProducts = [
         description: "Top halter con diseño moderno"
     },
     {
-        id: 112,
+        id: 402,
         name: "Vestido Midi",
         price: 1299,
         originalPrice: null,
-        image: "images/look_10.jpg",
+        image: "images/vestidos_2.jpg",
         category: "dresses",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Gris"],
         isNew: true,
         inStock: true,
         description: "Vestido midi elegante y versátil"
+    },
+    {
+        id: 403,
+        name: "Vestido Floral Minimal",
+        price: 1199,
+        originalPrice: 1599,
+        image: "images/vestidos_3.jpg",
+        category: "dresses",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Blanco"],
+        isNew: true,
+        inStock: true,
+        description: "Vestido floral con estética minimalista urbana"
+    },
+    {
+        id: 404,
+        name: "Vestido Wrap Urban",
+        price: 1099,
+        originalPrice: null,
+        image: "images/vestidos_4.jpg",
+        category: "dresses",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Gris"],
+        isNew: true,
+        inStock: true,
+        description: "Corte envolvente que abraza la silueta con elegancia"
+    },
+    {
+        id: 405,
+        name: "Vestido Slip Chic",
+        price: 899,
+        originalPrice: 1199,
+        image: "images/vestidos_5.jpg",
+        category: "dresses",
+        sizes: ["XS", "S", "M"],
+        colors: ["Negro", "Beige"],
+        isNew: false,
+        inStock: true,
+        description: "Slip dress con caída perfecta para el día y la noche"
+    },
+    {
+        id: 501,
+        name: "Abrigo Clásico Urban",
+        price: 2499,
+        originalPrice: 3199,
+        image: "images/abrigos_1.jpg",
+        category: "outerwear",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Beige"],
+        isNew: true,
+        inStock: true,
+        description: "Abrigo clásico con corte moderno para la ciudad"
+    },
+    {
+        id: 502,
+        name: "Abrigo Oversize Chic",
+        price: 2199,
+        originalPrice: null,
+        image: "images/abrigos_2.jpg",
+        category: "outerwear",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro", "Gris"],
+        isNew: true,
+        inStock: true,
+        description: "Silueta oversized que redefine la elegancia urbana"
+    },
+    {
+        id: 503,
+        name: "Trench Minimal",
+        price: 1899,
+        originalPrice: 2499,
+        image: "images/abrigos_3.jpg",
+        category: "outerwear",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Beige", "Negro"],
+        isNew: false,
+        inStock: true,
+        description: "Trench minimalista atemporal para cualquier temporada"
+    },
+    {
+        id: 504,
+        name: "Abrigo Corto Urbano",
+        price: 1699,
+        originalPrice: null,
+        image: "images/abrigos_4.jpg",
+        category: "outerwear",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Gris", "Beige"],
+        isNew: false,
+        inStock: true,
+        description: "Abrigo corto con energía urbana y máxima versatilidad"
+    },
+    {
+        id: 505,
+        name: "Abrigo Premium Noir",
+        price: 2899,
+        originalPrice: 3599,
+        image: "images/abrigos_5.jpg",
+        category: "outerwear",
+        sizes: ["S", "M", "L"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "El negro absoluto. Abrigo premium para quien domina la noche"
+    },
+    {
+        id: 404,
+        name: "Vestido Maxi Flow",
+        price: 1399,
+        originalPrice: null,
+        image: "images/vestidos_4.jpg",
+        category: "dresses",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro", "Gris"],
+        isNew: true,
+        inStock: true,
+        description: "Maxi vestido fluido con actitud urbana y femenina"
+    },
+    {
+        id: 405,
+        name: "Vestido Mini Street",
+        price: 799,
+        originalPrice: 999,
+        image: "images/vestidos_5.jpg",
+        category: "dresses",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Blanco", "Gris"],
+        isNew: false,
+        inStock: true,
+        description: "Mini vestido con energía callejera y versatilidad total"
+    },
+    {
+        id: 106,
+        name: "Top Urbano Clean",
+        price: 699,
+        originalPrice: null,
+        image: "images/tops_cami_6.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Blanco", "Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Líneas limpias que hablan por sí solas. El blanco como manifesto urbano."
+    },
+    {
+        id: 107,
+        name: "Camiseta Minimal Tokyo",
+        price: 599,
+        originalPrice: 799,
+        image: "images/tops_cami_7.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Negro", "Gris"],
+        isNew: true,
+        inStock: true,
+        description: "Inspirada en las calles de Shibuya. Simple, directa, auténtica."
+    },
+    {
+        id: 108,
+        name: "Top Oversized Zen",
+        price: 799,
+        originalPrice: null,
+        image: "images/tops_cami_8.jpg",
+        category: "tops",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Beige", "Blanco"],
+        isNew: false,
+        inStock: true,
+        description: "El oversize no es una talla, es una actitud. Llévala con intención."
+    },
+    {
+        id: 109,
+        name: "Camiseta Street Core",
+        price: 649,
+        originalPrice: 899,
+        image: "images/tops_cami_9.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Negro", "Azul"],
+        isNew: false,
+        inStock: true,
+        description: "Cultura urbana tejida en cada fibra. Para quien no sigue tendencias, las crea."
+    },
+    {
+        id: 110,
+        name: "Top Esencial Chic",
+        price: 549,
+        originalPrice: null,
+        image: "images/tops_cami_10.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M"],
+        colors: ["Blanco", "Gris", "Beige"],
+        isNew: true,
+        inStock: true,
+        description: "Lo esencial nunca pasa de moda. La base perfecta de cualquier look."
     }
 ];
 
@@ -412,10 +635,10 @@ class WomenApp {
 
     handleSortChange(e) {
         const sortType = e.currentTarget.dataset.sort;
-        
+
         this.elements.sortOptions.forEach(opt => opt.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
+
         this.state.currentSort = sortType;
         this.sortProducts();
         this.renderProducts();
@@ -423,7 +646,7 @@ class WomenApp {
     }
 
     sortProducts() {
-        switch(this.state.currentSort) {
+        switch (this.state.currentSort) {
             case 'price-low':
                 this.state.filteredProducts.sort((a, b) => a.price - b.price);
                 break;
@@ -437,17 +660,17 @@ class WomenApp {
                 this.state.filteredProducts.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
                 break;
             default:
-                this.state.filteredProducts = [...womenProducts];
+                break;
         }
     }
 
     // View handling
     handleViewChange(e) {
         const view = e.currentTarget.dataset.view;
-        
+
         this.elements.viewBtns.forEach(btn => btn.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
+
         this.state.currentView = view;
         this.elements.productsGrid.className = `products-grid ${view}-view`;
     }
@@ -456,9 +679,18 @@ class WomenApp {
     applyFilters() {
         let filtered = [...womenProducts];
 
-        // Category filter
-        if (this.state.currentCategory !== 'all') {
-            filtered = filtered.filter(p => p.category === this.state.currentCategory);
+        // Category filter — each section has an exclusive ID range
+        const categoryIdRanges = {
+            'all':       { min: 1,   max: 99  },
+            'tops':      { min: 101, max: 199 },
+            'bottoms':   { min: 201, max: 299 },
+            'dresses':   { min: 401, max: 499 },
+            'outerwear': { min: 501, max: 599 },
+            'sets':      { min: 601, max: 699 }
+        };
+        const range = categoryIdRanges[this.state.currentCategory];
+        if (range) {
+            filtered = filtered.filter(p => p.id >= range.min && p.id <= range.max);
         }
 
         // Price filter
@@ -466,14 +698,14 @@ class WomenApp {
 
         // Size filter
         if (this.state.filters.sizes.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 this.state.filters.sizes.some(size => p.sizes.includes(size))
             );
         }
 
         // Color filter
         if (this.state.filters.colors.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 this.state.filters.colors.some(color => p.colors.includes(color))
             );
         }
@@ -512,54 +744,31 @@ class WomenApp {
             return;
         }
 
-        this.elements.productsGrid.innerHTML = pageProducts.map(product => `
+        this.elements.productsGrid.innerHTML = pageProducts.map((product) => `
             <article class="product-card" data-product-id="${product.id}">
                 <div class="product-image-container">
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     ${product.isNew ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.originalPrice ? '<span class="product-badge sale">Oferta</span>' : ''}
                     ${!product.inStock ? '<span class="product-badge out-of-stock">Agotado</span>' : ''}
-                    
-                    <div class="product-actions">
-                        <button class="action-btn wishlist-btn" onclick="app.toggleWishlist(${product.id})" 
-                                aria-label="Agregar a favoritos">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="action-btn quick-view-btn" onclick="app.quickView(${product.id})"
-                                aria-label="Vista rápida">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    
-                    <button class="add-to-cart-overlay" onclick="app.addToCart(${product.id})"
-                            ${!product.inStock ? 'disabled' : ''}>
-                        <i class="fas fa-shopping-bag"></i>
-                        ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+
+                    <button class="product-wishlist-btn" onclick="womenApp.toggleWishlist(${product.id})" aria-label="Agregar a favoritos">
+                        <i class="fas fa-heart"></i>
                     </button>
-                </div>
-                
-                <div class="product-info">
-                    <h3 class="product-name">${product.name}</h3>
-                    <p class="product-description">${product.description}</p>
-                    
-                    <div class="product-pricing">
-                        <span class="product-price">$${product.price.toLocaleString()}</span>
-                        ${product.originalPrice ? 
-                            `<span class="original-price">$${product.originalPrice.toLocaleString()}</span>` : ''}
-                    </div>
-                    
-                    <div class="product-colors">
-                        ${product.colors.map(color => `
-                            <span class="color-option" 
-                                  style="background-color: ${this.getColorValue(color)}"
-                                  title="${color}"></span>
-                        `).join('')}
-                    </div>
-                    
-                    <div class="product-sizes">
-                        ${product.sizes.slice(0, 4).map(size => `
-                            <span class="size-option">${size}</span>
-                        `).join('')}
+
+                    <div class="product-overlay">
+                        <div class="product-overlay-details">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-overlay-price">
+                                <span>$${product.price.toLocaleString()}</span>
+                                ${product.originalPrice ? `<span class="product-overlay-original">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                        </div>
+                        <button class="product-add-btn" onclick="womenApp.addToCart(${product.id})" ${!product.inStock ? 'disabled' : ''}>
+                            <i class="fas fa-shopping-bag"></i>
+                            ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+                        </button>
                     </div>
                 </div>
             </article>
@@ -571,7 +780,7 @@ class WomenApp {
 
     updateProductsCount() {
         if (this.elements.productsCount) {
-            this.elements.productsCount.textContent = 
+            this.elements.productsCount.textContent =
                 `${this.state.filteredProducts.length} producto${this.state.filteredProducts.length !== 1 ? 's' : ''}`;
         }
     }
@@ -581,18 +790,18 @@ class WomenApp {
         if (!this.elements.pagination) return;
 
         const totalPages = Math.ceil(this.state.filteredProducts.length / WOMEN_CONFIG.productsPerPage);
-        
+
         if (totalPages <= 1) {
             this.elements.pagination.innerHTML = '';
             return;
         }
 
         let html = '';
-        
+
         // Previous button
         html += `
             <button class="page-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
-                    onclick="app.goToPage(${this.state.currentPage - 1})">
+                    onclick="womenApp.goToPage(${this.state.currentPage - 1})">
                 <i class="fas fa-chevron-left"></i>
             </button>
         `;
@@ -602,7 +811,7 @@ class WomenApp {
             if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
                 html += `
                     <button class="page-btn ${i === this.state.currentPage ? 'active' : ''}" 
-                            onclick="app.goToPage(${i})">
+                            onclick="womenApp.goToPage(${i})">
                         ${i}
                     </button>
                 `;
@@ -614,7 +823,7 @@ class WomenApp {
         // Next button
         html += `
             <button class="page-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
-                    onclick="app.goToPage(${this.state.currentPage + 1})">
+                    onclick="womenApp.goToPage(${this.state.currentPage + 1})">
                 <i class="fas fa-chevron-right"></i>
             </button>
         `;
@@ -634,7 +843,7 @@ class WomenApp {
         if (!product || !product.inStock) return;
 
         const cartItem = this.state.cart.find(item => item.id === productId);
-        
+
         if (cartItem) {
             cartItem.quantity++;
         } else {
@@ -717,16 +926,16 @@ class WomenApp {
                             </div>
                             <div class="cart-item-price">$${item.price.toLocaleString()}</div>
                             <div class="quantity-controls">
-                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, -1)">
+                                <button class="qty-btn" onclick="womenApp.updateQuantity(${item.id}, -1)">
                                     <i class="fas fa-minus"></i>
                                 </button>
                                 <span class="quantity">${item.quantity}</span>
-                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, 1)">
+                                <button class="qty-btn" onclick="womenApp.updateQuantity(${item.id}, 1)">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <button class="remove-item" onclick="app.removeFromCart(${item.id})">
+                        <button class="remove-item" onclick="womenApp.removeFromCart(${item.id})">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
@@ -810,34 +1019,32 @@ class WomenApp {
     }
 
     // Animations
-    setupScrollAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            observer.observe(card);
+    revealVisibleCards() {
+        const cards = document.querySelectorAll('.product-card:not(.revealed)');
+        cards.forEach((card, index) => {
+            setTimeout(() => card.classList.add('revealed'), index * 80);
         });
     }
 
+    setupScrollAnimations() {
+        const check = () => {
+            document.querySelectorAll('.product-card:not(.revealed)').forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+                    setTimeout(() => card.classList.add('revealed'), index * 80);
+                }
+            });
+        };
+        window.addEventListener('scroll', check, { passive: true });
+    }
+
     animateOnLoad() {
-        const cards = document.querySelectorAll('.product-card');
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('fade-in');
-            }, index * WOMEN_CONFIG.animationDelay);
-        });
+        // Handled by revealVisibleCards via .revealed class
     }
 
     animateProducts() {
         this.elements.productsGrid.style.opacity = '0';
-        
+
         setTimeout(() => {
             this.renderProducts();
             this.elements.productsGrid.style.opacity = '1';
@@ -847,7 +1054,7 @@ class WomenApp {
     // Toast notifications
     showToast(message, type = 'info') {
         const toastContainer = document.getElementById('toast-container') || this.createToastContainer();
-        
+
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         toast.innerHTML = `
@@ -945,10 +1152,51 @@ class WomenApp {
 }
 
 // Initialize app
-let app;
+window.womenApp = null;
 document.addEventListener('DOMContentLoaded', () => {
-    app = new WomenApp();
+    window.womenApp = new WomenApp();
 });
+
+// ============================================
+// USER DROPDOWN - Toggle flotante
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const userBtn = document.querySelector('a[href="#account"]');
+    const dropdown = document.getElementById('userDropdown');
+
+    if (userBtn && dropdown) {
+        // Convertir el enlace en botón clickeable
+        userBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && e.target !== userBtn) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // No cerrar al hacer click dentro del dropdown
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Logout
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('¿Cerrar sesión?')) {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            }
+        });
+    }
+})
 
 // Inyectar estilos específicos para Women
 const womenStyles = `
@@ -993,24 +1241,15 @@ body {
     transition: opacity 0.4s ease;
 }
 
-/* Product Card */
+/* Product Card - Lookbook Style */
 .product-card {
     background: var(--pure-white);
     border-radius: 20px;
     overflow: hidden;
-    transition: var(--transition);
-    cursor: pointer;
     box-shadow: var(--shadow-light);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    cursor: pointer;
+    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
@@ -1029,11 +1268,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, filter 0.6s ease;
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: contrast(1.1);
 }
 
 .product-badge {
@@ -1046,7 +1286,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .product-badge.new {
@@ -1065,82 +1305,147 @@ body {
     color: var(--pure-white);
 }
 
-.product-actions {
+/* Wishlist button top-right */
+.product-wishlist-btn {
     position: absolute;
     top: 15px;
     right: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.3s ease;
-    z-index: 3;
-}
-
-.product-card:hover .product-actions {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.action-btn {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
-    background: var(--pure-white);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
     color: var(--primary-black);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
-    box-shadow: var(--shadow-medium);
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    z-index: 4;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-.action-btn:hover {
+.product-card:hover .product-wishlist-btn {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.product-wishlist-btn:hover {
     background: var(--primary-black);
     color: var(--pure-white);
-    transform: scale(1.1);
 }
 
-.add-to-cart-overlay {
+/* Overlay - igual que lookbook */
+.product-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--primary-black);
-    color: var(--pure-white);
-    border: none;
-    padding: 18px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.82) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
     z-index: 2;
 }
 
-.product-card:hover .add-to-cart-overlay {
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-overlay-details {
+    color: var(--pure-white);
+}
+
+.product-overlay-details h3 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-overlay-details h3 {
     transform: translateY(0);
 }
 
-.add-to-cart-overlay:hover:not(:disabled) {
-    background: var(--gray-dark);
+.product-overlay-details p {
+    font-size: 13px;
+    opacity: 0.88;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease 0.05s;
 }
 
-.add-to-cart-overlay:disabled {
+.product-card:hover .product-overlay-details p {
+    transform: translateY(0);
+}
+
+.product-overlay-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease 0.1s;
+}
+
+.product-card:hover .product-overlay-price {
+    transform: translateY(0);
+}
+
+.product-overlay-price span:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.product-overlay-original {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: line-through;
+}
+
+/* Botón agregar al carrito */
+.product-add-btn {
+    background: var(--pure-white);
+    color: var(--primary-black);
+    border: none;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    transform: translateY(40px);
+    transition: transform 0.35s ease 0.12s, background 0.2s ease, color 0.2s ease;
+}
+
+.product-card:hover .product-add-btn {
+    transform: translateY(0);
+}
+
+.product-add-btn:hover {
+    background: var(--primary-black);
+    color: var(--pure-white);
+}
+
+.product-add-btn:disabled {
     background: var(--gray-medium);
+    color: var(--pure-white);
     cursor: not-allowed;
-}
-
-.product-info {
-    padding: 20px;
 }
 
 .product-name {

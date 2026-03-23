@@ -1,4 +1,4 @@
-// Urban Cats - Lookbook JavaScript Completo
+// Urban Cats - Lookbook JavaScript CORREGIDO
 'use strict';
 
 // Configuración del Lookbook
@@ -17,7 +17,7 @@ const looksData = {
     1: {
         id: 1,
         title: "Urban Explorer",
-        description: "Look perfecto para explorar la ciudad con estilo y comodidad",
+        description: "La ciudad es tu pasarela. Cada esquina es una oportunidad de mostrar quién eres con energía y actitud auténtica.",
         category: "street",
         image: "images/look_1.jpg",
         products: [
@@ -30,7 +30,7 @@ const looksData = {
     2: {
         id: 2,
         title: "Zen Mode",
-        description: "Minimalismo japonés en su máxima expresión",
+        description: "El silencio del estilo habla más alto que cualquier tendencia. Menos prendas, más carácter, más tú.",
         category: "minimal",
         image: "images/look_2.jpg",
         products: [
@@ -39,10 +39,23 @@ const looksData = {
         ],
         tags: ["Minimal", "Clean", "Zen"]
     },
+    3: {
+        id: 3,
+        title: "Tokyo Vibes",
+        description: "Tokio habla sin decir nada. El oversized no es una talla, es una filosofía: el nuevo lujo que se lleva desde adentro.",
+        category: "street",
+        image: "images/look_14.jpg",
+        products: [
+            { name: "Chaqueta Oversized", price: 1899, id: 11 },
+            { name: "Crop Top", price: 599, id: 12 },
+            { name: "Joggers", price: 1199, id: 13 }
+        ],
+        tags: ["Destacado", "Street"]
+    },
     4: {
         id: 4,
         title: "Midnight Runner",
-        description: "Para las noches urbanas que nunca terminan",
+        description: "La noche te pertenece. Oscuridad con propósito, movimiento con intención. El mejor look es el que no pide permiso.",
         category: "night",
         image: "images/look_6.jpg",
         products: [
@@ -54,7 +67,7 @@ const looksData = {
     5: {
         id: 5,
         title: "Layer Master",
-        description: "El arte de las capas en la moda urbana",
+        description: "El juego de las capas revela quién eres bajo la superficie. Cada prenda es un trazo, el conjunto es una obra.",
         category: "mix",
         image: "images/look_7.jpg",
         products: [
@@ -67,7 +80,7 @@ const looksData = {
     6: {
         id: 6,
         title: "Pure Lines",
-        description: "Elegancia en la simplicidad absoluta",
+        description: "La elegancia nace de lo que decides no añadir. Una línea limpia, una silueta perfecta, una presencia que no necesita explicación.",
         category: "minimal",
         image: "images/look_8.jpg",
         products: [
@@ -79,7 +92,7 @@ const looksData = {
     7: {
         id: 7,
         title: "Skate Culture",
-        description: "Cultura skate meets moda urbana japonesa",
+        description: "La calle fue tu primera escuela de estilo. El asfalto es tu lienzo y cada look, una declaración de independencia.",
         category: "street",
         image: "images/look_10.jpg",
         products: [
@@ -92,7 +105,7 @@ const looksData = {
     8: {
         id: 8,
         title: "Neon Nights",
-        description: "Futurismo urbano para las noches de neón",
+        description: "Donde la ciudad brilla, tú brillas más. El futurismo urbano no es una tendencia, es una forma de ver el mundo.",
         category: "night",
         image: "images/look_11.jpg",
         products: [
@@ -101,6 +114,17 @@ const looksData = {
             { name: "Jeans Futuristas", price: 1599, id: 22 }
         ],
         tags: ["Futurista", "Urbano", "Tech"]
+    },
+    9: {
+        id: 9,
+        title: "Street Soul",
+        description: "Tu esencia urbana, sin filtros ni límites. El street style no se aprende, se siente. Y tú ya lo traes puesto.",
+        category: "street",
+        image: "images/look_9.jpg",
+        products: [
+            { name: "Conjunto Street", price: 1499, id: 23 }
+        ],
+        tags: ["Street", "Urbano"]
     }
 };
 
@@ -137,29 +161,32 @@ class LookbookApp {
             mobileMenuToggle: document.querySelector('.mobile-menu-toggle'),
             mobileMenu: document.querySelector('.mobile-menu'),
             heroContent: document.querySelector('.hero-content'),
-            scrollIndicator: document.querySelector('.hero-scroll-indicator')
+            scrollIndicator: document.querySelector('.hero-scroll-indicator'),
+            backToTop: document.getElementById('back-to-top')
         };
     }
 
     async initializeApp() {
-        this.showLoadingAnimation();
-        await this.sleep(500); // Simular carga inicial
-        
-        this.setupEventListeners();
-        this.setupScrollAnimations();
-        this.setupIntersectionObserver();
-        this.setupParallaxElements();
-        this.animateOnLoad();
-        this.initializeFilters();
-        
-        setTimeout(() => this.hideLoadingAnimation(), 1000);
+        try {
+            this.showLoadingAnimation();
+            await this.sleep(500);
+            
+            this.setupEventListeners();
+            this.setupScrollAnimations();
+            this.setupIntersectionObserver();
+            this.animateOnLoad();
+            this.initializeFilters();
+            
+            setTimeout(() => this.hideLoadingAnimation(), 1000);
+        } catch (error) {
+            console.error('Error initializing app:', error);
+        }
     }
 
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    // Animaciones de carga
     showLoadingAnimation() {
         document.body.style.overflow = 'hidden';
         const lookCards = document.querySelectorAll('.look-card');
@@ -174,35 +201,41 @@ class LookbookApp {
         this.revealCards();
     }
 
-    // Configurar event listeners
     setupEventListeners() {
-        // Filtros de categoría
-        this.elements.filterTabs.forEach(tab => {
-            tab.addEventListener('click', (e) => this.handleFilterClick(e));
-        });
+        try {
+            // Filtros de categoría
+            this.elements.filterTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => this.handleFilterClick(e));
+            });
 
-        // Load more button
-        if (this.elements.loadMoreBtn) {
-            this.elements.loadMoreBtn.addEventListener('click', () => this.loadMoreLooks());
+            // Load more button
+            if (this.elements.loadMoreBtn) {
+                this.elements.loadMoreBtn.addEventListener('click', () => this.loadMoreLooks());
+            }
+
+            // Modal events
+            this.setupModalEvents();
+
+            // Scroll events con throttle
+            window.addEventListener('scroll', this.throttle(() => {
+                try {
+                    this.handleScroll();
+                } catch (error) {
+                    console.error('Scroll error:', error);
+                }
+            }, 16));
+            
+            // Resize events
+            window.addEventListener('resize', this.debounce(() => this.handleResize(), 250));
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => this.handleKeyboardNav(e));
+
+        } catch (error) {
+            console.error('Error setting up event listeners:', error);
         }
-
-        // Modal events
-        this.setupModalEvents();
-
-        // Scroll events
-        window.addEventListener('scroll', this.throttle(() => this.handleScroll(), 16));
-        
-        // Resize events
-        window.addEventListener('resize', this.debounce(() => this.handleResize(), 250));
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => this.handleKeyboardNav(e));
-
-        // Mouse movement para parallax
-        document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
     }
 
-    // Manejo de filtros con animaciones
     handleFilterClick(e) {
         e.preventDefault();
         const clickedTab = e.currentTarget;
@@ -210,23 +243,17 @@ class LookbookApp {
         
         if (category === this.state.currentFilter) return;
 
-        // Animar tab selection
         this.animateTabSelection(clickedTab);
-        
-        // Filtrar y animar cards
         this.filterLooksWithAnimation(category);
-        
         this.state.currentFilter = category;
     }
 
     animateTabSelection(activeTab) {
-        // Remover active de todos los tabs
         this.elements.filterTabs.forEach(tab => {
             tab.classList.remove('active');
             tab.style.transform = 'scale(1)';
         });
         
-        // Animar el tab seleccionado
         activeTab.classList.add('active');
         activeTab.style.transform = 'scale(1.05)';
         
@@ -238,7 +265,6 @@ class LookbookApp {
     async filterLooksWithAnimation(category) {
         const lookCards = document.querySelectorAll('.look-card');
         
-        // Fade out cards
         lookCards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.opacity = '0';
@@ -246,13 +272,8 @@ class LookbookApp {
             }, index * 50);
         });
 
-        // Esperar que termine la animación de salida
         await this.sleep(500);
-
-        // Filtrar cards
         this.filterCards(category);
-
-        // Fade in cards filtradas
         await this.sleep(100);
         this.revealCards();
     }
@@ -272,39 +293,43 @@ class LookbookApp {
         });
     }
 
-    // Animación de revelado de cards
     revealCards() {
         const visibleCards = document.querySelectorAll('.look-card[style*="display: block"], .look-card:not([style*="display: none"])');
-        
+
         visibleCards.forEach((card, index) => {
+            card.classList.remove('revealed');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+
             setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0) scale(1)';
-                
-                // Efecto de pulso sutil
-                setTimeout(() => {
-                    card.style.transform = 'translateY(0) scale(1.02)';
-                    setTimeout(() => {
-                        card.style.transform = 'translateY(0) scale(1)';
-                    }, 100);
-                }, 200);
-                
+                card.style.opacity = '';
+                card.style.transform = '';
+                card.classList.add('revealed');
             }, index * LOOKBOOK_CONFIG.cardRevealDelay);
         });
     }
 
-    // Configurar modal
     setupModalEvents() {
-        // Cerrar modal
-        document.querySelector('.close-modal')?.addEventListener('click', () => this.closeLookModal());
-        this.elements.overlay?.addEventListener('click', () => this.closeLookModal());
+        const closeBtn = document.querySelector('.close-modal');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.closeLookModal());
+        }
         
-        // Botones del modal
-        document.querySelector('.share-look-btn')?.addEventListener('click', () => this.shareLook());
-        document.querySelector('.shop-look-btn')?.addEventListener('click', () => this.shopLook());
+        if (this.elements.overlay) {
+            this.elements.overlay.addEventListener('click', () => this.closeLookModal());
+        }
+        
+        const shareBtn = document.querySelector('.share-look-btn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => this.shareLook());
+        }
+        
+        const shopBtn = document.querySelector('.shop-look-btn');
+        if (shopBtn) {
+            shopBtn.addEventListener('click', () => this.shopLook());
+        }
     }
 
-    // Abrir modal con animaciones
     openLookModal(lookId) {
         const lookData = looksData[lookId];
         if (!lookData) return;
@@ -312,75 +337,60 @@ class LookbookApp {
         this.state.currentLook = lookData;
         this.state.isModalOpen = true;
         
-        // Poblar contenido del modal
         this.populateModal(lookData);
         
-        // Animar apertura
-        this.elements.overlay.classList.add('active');
-        this.elements.modal.classList.add('show');
+        if (this.elements.overlay) {
+            this.elements.overlay.classList.add('active');
+        }
+        
+        if (this.elements.modal) {
+            this.elements.modal.classList.add('show');
+        }
+        
         document.body.style.overflow = 'hidden';
         
-        // Animación de entrada del contenido
         setTimeout(() => {
-            const modalContent = this.elements.modal.querySelector('.modal-content');
-            modalContent.style.transform = 'scale(1) translateY(0)';
+            const modalContent = this.elements.modal?.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.style.transform = 'scale(1) translateY(0)';
+            }
         }, 50);
     }
 
     populateModal(lookData) {
-        // Actualizar imagen
         const modalImage = document.getElementById('modal-image');
         if (modalImage) {
             modalImage.src = lookData.image;
             modalImage.alt = lookData.title;
         }
         
-        // Actualizar título y descripción
         const modalTitle = document.getElementById('modal-title');
         const modalDescription = document.getElementById('modal-description');
         
         if (modalTitle) modalTitle.textContent = lookData.title;
         if (modalDescription) modalDescription.textContent = lookData.description;
         
-        // Poblar productos
-        this.populateModalProducts(lookData.products);
     }
 
-    populateModalProducts(products) {
-        const productsContainer = document.getElementById('modal-products');
-        if (!productsContainer) return;
-        
-        productsContainer.innerHTML = `
-            <h4>Productos de este look:</h4>
-            <div class="modal-products-list">
-                ${products.map(product => `
-                    <div class="modal-product-item">
-                        <span class="product-name">${product.name}</span>
-                        <span class="product-price">$${product.price.toLocaleString()}</span>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="modal-total">
-                <strong>Total: $${products.reduce((sum, p) => sum + p.price, 0).toLocaleString()}</strong>
-            </div>
-        `;
-    }
-
-    // Cerrar modal
     closeLookModal() {
-        const modalContent = this.elements.modal.querySelector('.modal-content');
-        modalContent.style.transform = 'scale(0.95) translateY(20px)';
+        const modalContent = this.elements.modal?.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.style.transform = 'scale(0.95) translateY(20px)';
+        }
         
         setTimeout(() => {
-            this.elements.modal.classList.remove('show');
-            this.elements.overlay.classList.remove('active');
+            if (this.elements.modal) {
+                this.elements.modal.classList.remove('show');
+            }
+            if (this.elements.overlay) {
+                this.elements.overlay.classList.remove('active');
+            }
             document.body.style.overflow = '';
             this.state.isModalOpen = false;
             this.state.currentLook = null;
         }, LOOKBOOK_CONFIG.modalTransition);
     }
 
-    // Compartir look
     shareLook() {
         if (!this.state.currentLook) return;
         
@@ -391,185 +401,155 @@ class LookbookApp {
         };
         
         if (navigator.share) {
-            navigator.share(shareData);
+            navigator.share(shareData).catch(err => console.log('Error sharing:', err));
         } else {
-            // Fallback
             navigator.clipboard.writeText(window.location.href);
             this.showToast('Enlace copiado al portapapeles', 'success');
         }
     }
 
-    // Comprar look completo
     shopLook() {
         if (!this.state.currentLook) return;
         
-        // Aquí puedes integrar con tu sistema de carrito
         this.showToast(`Look "${this.state.currentLook.title}" agregado al carrito`, 'success');
         this.closeLookModal();
         
-        // Redirect to main store
         setTimeout(() => {
             window.location.href = 'index.html#productos';
         }, 1000);
     }
 
-    // Configurar animaciones de scroll
     setupScrollAnimations() {
-        // Parallax para hero
-        this.state.parallaxElements = [
-            { element: this.elements.heroContent, factor: 0.5 },
-            { element: this.elements.scrollIndicator, factor: 0.3 }
-        ];
+        // Parallax desactivado - causaba problemas visuales
+        this.state.parallaxElements = [];
     }
 
-    // Manejo de scroll con efectos
     handleScroll() {
-        const scrollTop = window.pageYOffset;
-        this.state.scrollPosition = scrollTop;
-        
-        // Navbar effects
-        this.updateNavbar(scrollTop);
-        
-        // Parallax effects
-        this.updateParallax(scrollTop);
-        
-        // Reveal animations
-        this.checkRevealAnimations();
-    }
-
-    updateNavbar(scrollTop) {
-        if (!this.elements.navbar) return;
-        
-        if (scrollTop > 100) {
-            this.elements.navbar.classList.add('scrolled');
-        } else {
-            this.elements.navbar.classList.remove('scrolled');
+        try {
+            const scrollTop = window.pageYOffset;
+            this.state.scrollPosition = scrollTop;
+            
+            // Navbar effects
+            if (this.elements.navbar) {
+                if (scrollTop > 100) {
+                    this.elements.navbar.classList.add('scrolled');
+                } else {
+                    this.elements.navbar.classList.remove('scrolled');
+                }
+            }
+            
+            // Back to top button
+            if (this.elements.backToTop) {
+                if (scrollTop > 300) {
+                    this.elements.backToTop.classList.add('visible');
+                } else {
+                    this.elements.backToTop.classList.remove('visible');
+                }
+            }
+            
+            // Parallax desactivado para evitar que el título se mueva
+            
+        } catch (error) {
+            console.error('Scroll handling error:', error);
         }
     }
 
     updateParallax(scrollTop) {
-        this.state.parallaxElements.forEach(({ element, factor }) => {
-            if (element) {
-                const yPos = scrollTop * factor;
-                element.style.transform = `translateY(${yPos}px)`;
-            }
-        });
+        // Función desactivada - parallax removido
+        return;
     }
 
-    // Intersection Observer para animaciones
     setupIntersectionObserver() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+        const lookCards = Array.from(document.querySelectorAll('.look-card'));
+        const featureItems = Array.from(document.querySelectorAll('.feature-item'));
+        const inspirationText = Array.from(document.querySelectorAll('.inspiration-text'));
+        const inspirationImage = Array.from(document.querySelectorAll('.inspiration-image'));
+
+        const animated = new Set();
+
+        const isVisible = (el) => {
+            const rect = el.getBoundingClientRect();
+            return rect.top < window.innerHeight * 0.88 && rect.bottom > 0;
         };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateElement(entry.target);
+
+        const checkAndAnimate = () => {
+            // Look cards con delay escalonado
+            lookCards.forEach((card, index) => {
+                if (animated.has(card)) return;
+                if (isVisible(card)) {
+                    setTimeout(() => card.classList.add('revealed'), index * 80);
+                    animated.add(card);
                 }
             });
-        }, observerOptions);
-        
-        // Observar elementos que necesitan animación
-        document.querySelectorAll(`
-            .feature-item,
-            .inspiration-text,
-            .inspiration-image,
-            .filter-tab
-        `).forEach(el => {
-            observer.observe(el);
-        });
+
+            // Feature items con delay escalonado (deslizando desde izquierda)
+            featureItems.forEach((item, index) => {
+                if (animated.has(item)) return;
+                if (isVisible(item)) {
+                    setTimeout(() => item.classList.add('revealed'), index * 120);
+                    animated.add(item);
+                }
+            });
+
+            // Inspiration text y image
+            [...inspirationText, ...inspirationImage].forEach(el => {
+                if (animated.has(el)) return;
+                if (isVisible(el)) {
+                    el.classList.add('revealed');
+                    animated.add(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', this.throttle(checkAndAnimate, 50), { passive: true });
+        setTimeout(checkAndAnimate, 300);
     }
 
     animateElement(element) {
-        element.classList.add('animate-in');
-        
-        // Animaciones específicas por tipo
-        if (element.classList.contains('feature-item')) {
-            element.style.transform = 'translateX(0)';
-            element.style.opacity = '1';
-        }
+        element.classList.add('revealed');
     }
 
-    // Configurar elementos parallax
-    setupParallaxElements() {
-        // Agregar más elementos para parallax si es necesario
-        const additionalParallax = document.querySelectorAll('.inspiration-image img');
-        additionalParallax.forEach(img => {
-            img.addEventListener('mousemove', (e) => {
-                const rect = img.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const deltaX = (e.clientX - centerX) * 0.01;
-                const deltaY = (e.clientY - centerY) * 0.01;
-                
-                img.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.05)`;
-            });
-            
-            img.addEventListener('mouseleave', () => {
-                img.style.transform = 'translate(0, 0) scale(1)';
-            });
-        });
-    }
-
-    // Manejo de mouse movement
-    handleMouseMove(e) {
-        // Cursor personalizado o efectos de seguimiento
-        const cursor = document.querySelector('.custom-cursor');
-        if (cursor) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        }
-    }
-
-    // Animaciones de carga inicial
     animateOnLoad() {
-        // Animar hero content
         const heroElements = document.querySelectorAll('.hero-badge, .hero-title-line, .lookbook-hero p');
         heroElements.forEach((el, index) => {
             setTimeout(() => {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
+                if (el && el.style) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
             }, 200 + (index * 200));
         });
         
-        // Animar scroll indicator
         setTimeout(() => {
-            if (this.elements.scrollIndicator) {
+            if (this.elements.scrollIndicator && this.elements.scrollIndicator.style) {
                 this.elements.scrollIndicator.style.opacity = '1';
             }
         }, 1500);
     }
 
-    // Inicializar filtros
     initializeFilters() {
-        // Marcar filtro inicial como activo
         const allFilter = document.querySelector('[data-category="all"]');
         if (allFilter) {
             allFilter.classList.add('active');
         }
     }
 
-    // Cargar más looks con animación
     async loadMoreLooks() {
         if (this.state.isLoading) return;
         
         this.state.isLoading = true;
         const btn = this.elements.loadMoreBtn;
+        if (!btn) return;
+        
         const originalText = btn.innerHTML;
         
-        // Cambiar texto del botón
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
         btn.disabled = true;
         
-        // Simular carga
         await this.sleep(1500);
         
-        // Agregar más looks (simulado)
         this.state.visibleLooks += 4;
         
-        // Restaurar botón
         btn.innerHTML = originalText;
         btn.disabled = false;
         this.state.isLoading = false;
@@ -581,27 +561,16 @@ class LookbookApp {
         }
     }
 
-    // Navegación por teclado
     handleKeyboardNav(e) {
         if (e.key === 'Escape' && this.state.isModalOpen) {
             this.closeLookModal();
         }
-        
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-            // Navegación entre looks en modal
-            if (this.state.isModalOpen) {
-                // Implementar navegación entre looks
-            }
-        }
     }
 
-    // Manejo de resize
     handleResize() {
-        // Recalcular parallax elements
-        this.setupParallaxElements();
+        // Recalcular elementos si es necesario
     }
 
-    // Toast notifications
     showToast(message, type = 'info', duration = 3000) {
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
@@ -631,7 +600,6 @@ class LookbookApp {
         return icons[type] || 'info-circle';
     }
 
-    // Utilidades
     throttle(func, limit) {
         let inThrottle;
         return function() {
@@ -685,18 +653,57 @@ window.shopLook = () => {
 
 // Inicialización cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar aplicación del Lookbook
-    window.lookbookApp = new LookbookApp();
+    try {
+        // Inicializar aplicación del Lookbook
+        window.lookbookApp = new LookbookApp();
+        
+        // Detectar si es mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        document.body.classList.toggle('mobile', isMobile);
+        
+    } catch (error) {
+        console.error('Error initializing lookbook:', error);
+    }
+});
+
+// ============================================
+// USER DROPDOWN - Toggle flotante
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const userBtn = document.querySelector('a[href="#account"]');
+    const dropdown = document.getElementById('userDropdown');
     
-    // Detectar si es mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    document.body.classList.toggle('mobile', isMobile);
+    if (userBtn && dropdown) {
+        // Convertir el enlace en botón clickeable
+        userBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+        
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && e.target !== userBtn) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        // No cerrar al hacer click dentro del dropdown
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
     
-    // Agregar cursor personalizado en desktop
-    if (!isMobile) {
-        const cursor = document.createElement('div');
-        cursor.className = 'custom-cursor';
-        document.body.appendChild(cursor);
+    // Logout
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('¿Cerrar sesión?')) {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            }
+        });
     }
 });
 
@@ -734,19 +741,6 @@ const lookbookStyles = `
     gap: 10px;
 }
 
-.custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-red);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: all 0.1s ease;
-    opacity: 0.8;
-}
-
 .modal-products-list {
     margin: 20px 0;
 }
@@ -775,10 +769,6 @@ const lookbookStyles = `
         right: 20px;
         left: 20px;
         max-width: none;
-    }
-    
-    .custom-cursor {
-        display: none;
     }
 }
 </style>

@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas Especiales - Urban Cats | Descuentos Exclusivos</title>
+    <meta name="description" content="Aprovecha las mejores ofertas en moda urbana. Gira la ruleta y obtÃ©n descuentos de hasta 75% en Urban Cats.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/offers.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="logo" href="index.html">
+                <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats - Moda Urbana" class="logo-img">
+                <span class="logo-text">Urban Cats</span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Nosotros</a>
+                <a href="lookbook.html" class="nav-link">Lookbook</a>
+                <a href="women.html" class="nav-link">Mujer</a>
+                <a href="men.html" class="nav-link">Hombre</a>
+                <a href="accessories.html" class="nav-link">Accesorios</a>
+                <a href="offers.html" class="nav-link ofertas-special">Ofertas</a>
+            </nav>
+            <div class="nav-utilities">
+                <button class="search-btn" aria-label="Buscar productos">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="#account" aria-label="Mi cuenta">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#wishlist" aria-label="Lista de deseos">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </a>
+                <a href="#cart" class="cart-link" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="MenÃº mÃ³vil">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <nav class="mobile-nav">
+                <a href="index.html" class="mobile-nav-link">Inicio</a>
+                <a href="about.html" class="mobile-nav-link">Nosotros</a>
+                <a href="lookbook.html" class="mobile-nav-link">Lookbook</a>
+                <a href="women.html" class="mobile-nav-link">Mujer</a>
+                <a href="men.html" class="mobile-nav-link">Hombre</a>
+                <a href="accessories.html" class="mobile-nav-link">Accesorios</a>
+                <a href="offers.html" class="mobile-nav-link">Ofertas</a>
+            </nav>
+            <div class="mobile-utilities">
+                <a href="#account" class="mobile-utility-link">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#wishlist" class="mobile-utility-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+            </div>
+        </div>
+    </header>
+<div id="userDropdown" class="user-dropdown">
+        <div class="user-info">
+          <i class="fas fa-user-circle"></i>
+          <span id="userNameNav">Usuario</span>
+    </div>
+     <div class="dropdown-divider"></div>
+     <a href="pedidos.html" class="dropdown-item">
+       <i class="fas fa-box"></i> Mis Pedidos
+    </a>
+    <a href="configuracion.html" class="dropdown-item">
+        <i class="fas fa-cog"></i> ConfiguraciÃ³n
+    </a>
+    <div class="dropdown-divider"></div>
+    <a href="#" id="logoutBtn" class="dropdown-item logout">
+       <i class="fas fa-sign-out-alt"></i> Cerrar SesiÃ³n
+    </a>
+  </div>
+
+    <!-- Gift Box Modal (reemplaza Wheel Modal) -->
+<div id="giftModal" class="gift-modal active">
+    <div class="gift-modal-content">
+        <button class="gift-close-btn" id="closeGiftModal">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="gift-header">
+            <h2>Regalo Exclusivo</h2>
+            <p>Abre tu regalo y descubre tu descuento especial</p>
+        </div>
+
+        <!-- Gift Box Animation -->
+        <div class="gift-box-container" id="giftBoxContainer">
+            <div class="gift-box" id="giftBox">
+                <div class="box-lid">
+                    <div class="lid-top"></div>
+                    <div class="ribbon ribbon-horizontal"></div>
+                    <div class="ribbon ribbon-vertical"></div>
+                    <div class="bow">
+                        <div class="bow-left"></div>
+                        <div class="bow-right"></div>
+                        <div class="bow-center"></div>
+                    </div>
+                </div>
+                <div class="box-body"></div>
+            </div>
+            <button class="open-gift-btn" id="openGiftBtn">
+                <span>Abrir Regalo</span>
+                <i class="fas fa-gift"></i>
+            </button>
+        </div>
+
+        <!-- Tickets Container (hidden initially) -->
+        <div class="tickets-container" id="ticketsContainer" style="display: none;">
+            <h3>Elige Tu Descuento</h3>
+            <div class="tickets-grid">
+                <div class="ticket-card" data-discount="25">
+                    <div class="ticket-header">
+                        <span class="ticket-icon">ðŸŽ«</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="discount-value">25%</div>
+                        <div class="discount-label">Descuento</div>
+                    </div>
+                    <button class="claim-ticket-btn">
+                        <span>Obtener</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="ticket-card" data-discount="50">
+                    <div class="ticket-header">
+                        <span class="ticket-icon">ðŸŽ«</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="discount-value">50%</div>
+                        <div class="discount-label">Descuento</div>
+                    </div>
+                    <button class="claim-ticket-btn">
+                        <span>Obtener</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="ticket-card featured" data-discount="75">
+                    <div class="featured-badge">Mejor Oferta</div>
+                    <div class="ticket-header">
+                        <span class="ticket-icon">ðŸŽ«</span>
+                    </div>
+                    <div class="ticket-body">
+                        <div class="discount-value">75%</div>
+                        <div class="discount-label">Descuento</div>
+                    </div>
+                    <button class="claim-ticket-btn">
+                        <span>Obtener</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tickets-footer">
+                <p><i class="fas fa-clock"></i> Tus boletos expiran en <strong><span id="ticketExpiry">24:00:00</span></strong></p>
+            </div>
+        </div>
+
+        <div class="gift-footer">
+            <p>Una oportunidad por dÃ­a â€¢ VÃ¡lido por 7 dÃ­as</p>
+        </div>
+    </div>
+</div>
+
+    <!-- Coupon Display -->
+    <div id="couponBanner" class="coupon-banner">
+        <div class="container">
+            <div class="coupon-content">
+                <i class="fas fa-gift"></i>
+                <span>Tu cupÃ³n: <strong id="couponCode">-</strong> (<span id="couponDiscount">0</span>% OFF)</span>
+                <button class="copy-coupon-btn" id="copyCouponBtn">
+                    <i class="fas fa-copy"></i>
+                    Copiar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="offers-hero">
+         <video class="hero-video" autoplay muted loop playsinline>
+            <source src="images/offers.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-video-overlay"></div>
+
+        <div class="hero-background">
+             <div class="hero-pattern"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i>
+                Hot Deals
+            </div>
+            <h1>
+                <span class="hero-title-line">Ofertas</span>
+                <span class="hero-title-line hero-title-accent">Imperdibles</span>
+            </h1>
+            <p>Descuentos exclusivos en las mejores prendas de moda urbana. Â¡No dejes pasar esta oportunidad!</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+                <div class="timer-label">Oferta termina en:</div>
+                <div class="timer-display">
+                    <div class="timer-unit">
+                        <span class="timer-value" id="days">00</span>
+                        <span class="timer-label-small">DÃ­as</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="hours">00</span>
+                        <span class="timer-label-small">Horas</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="minutes">00</span>
+                        <span class="timer-label-small">Min</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="seconds">00</span>
+                        <span class="timer-label-small">Seg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discount Filters -->
+    <section class="discount-filters-section">
+        <div class="container">
+            <div class="discount-filters">
+                <button class="discount-filter active" data-discount="all">
+                    <i class="fas fa-th"></i>
+                    <span>Todas las Ofertas</span>
+                </button>
+                <button class="discount-filter" data-discount="75">
+                    <i class="fas fa-bolt"></i>
+                    <span>Hasta 75% OFF</span>
+                </button>
+                <button class="discount-filter" data-discount="50">
+                    <i class="fas fa-fire"></i>
+                    <span>Hasta 50% OFF</span>
+                </button>
+                <button class="discount-filter" data-discount="25">
+                    <i class="fas fa-tag"></i>
+                    <span>Hasta 25% OFF</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Deals -->
+    <section class="flash-deals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>âš¡ Flash Deals</h2>
+                <p>Ofertas relÃ¡mpago por tiempo limitado</p>
+            </div>
+            
+            <div class="flash-deals-grid" id="flashDealsGrid">
+                <!-- Los productos se generarÃ¡n dinÃ¡micamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="offers-products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Todas las Ofertas</h2>
+                <p>Los mejores precios en moda urbana</p>
+            </div>
+            
+            <div class="products-grid" id="offersProductsGrid">
+                <!-- Los productos se generarÃ¡n dinÃ¡micamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h2>No Te Pierdas Nuestras Ofertas</h2>
+                <p>SuscrÃ­bete y recibe ofertas exclusivas directamente en tu email</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Tu direcciÃ³n de email" required>
+                        <button type="submit">
+                            <span>Suscribirse</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section brand">
+                    <div class="footer-logo">
+                        <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
+                        <h3>Urban Cats</h3>
+                    </div>
+                    <p>Moda urbana que define tu personalidad. Ãšnete a nuestra comunidad y descubre tu estilo Ãºnico.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" aria-label="TikTok" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                            <span>TikTok</span>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tienda</h4>
+                    <ul>
+                        <li><a href="women.html">Mujer</a></li>
+                        <li><a href="men.html">Hombre</a></li>
+                        <li><a href="accessories.html">Accesorios</a></li>
+                        <li><a href="offers.html">Ofertas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="#guia-tallas">GuÃ­a de Tallas</a></li>
+                        <li><a href="#envios">EnvÃ­os</a></li>
+                        <li><a href="#devoluciones">Devoluciones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
+                    <div class="footer-links">
+                        <a href="#privacidad">Privacidad</a>
+                        <a href="#terminos">TÃ©rminos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carrito lateral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>
+                <i class="fas fa-shopping-bag"></i>
+                Tu Carrito
+            </h3>
+            <button class="close-cart" aria-label="Cerrar carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h4>Tu carrito estÃ¡ vacÃ­o</h4>
+                <p>Agrega algunos productos increÃ­bles a tu carrito</p>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span>$<span id="cart-total">0</span></span>
+                </div>
+            </div>
+            <button class="checkout-btn">
+                <span>Finalizar Compra</span>
+                <i class="fas fa-credit-card"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/offers.js"></script>
+</body>
+</html>
+

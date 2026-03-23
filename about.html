@@ -1,88 +1,136 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Historia - Urban Cats</title>
-    <meta name="description" content="Descubre la historia de Urban Cats, donde la moda urbana japonesa se encuentra con el espíritu latinoamericano.">
+    <meta name="description"
+        content="Descubre la historia de Urban Cats, donde la moda urbana japonesa se encuentra con el espíritu latinoamericano.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/chatbot-urban-cats.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">
+            <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="loading-logo-img">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="logo-img">
-                    <span class="logo-text">Urban Cats</span>
-                </a>
-            </div>
+            <a class="logo" href="index.html">
+                <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats - Moda Urbana" class="logo-img">
+                <span class="logo-text">Urban Cats</span>
+            </a>
             <nav class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Inicio</a>
-                <a href="index.html#productos" class="nav-link">Tienda</a>
+                <a href="about.html" class="nav-link">Nosotros</a>
                 <a href="lookbook.html" class="nav-link">Lookbook</a>
-                <a href="nosotros.html" class="nav-link active">Nosotros</a>
-                <a href="index.html#newsletter" class="nav-link">Contacto</a>
+                <a href="women.html" class="nav-link">Mujer</a>
+                <a href="men.html" class="nav-link">Hombre</a>
+                <a href="accessories.html" class="nav-link">Accesorios</a>
+                <a href="offers.html" class="nav-link ofertas-special">Ofertas</a>
             </nav>
             <div class="nav-utilities">
-                <button class="search-btn" aria-label="Buscar">
+                <button class="search-btn" aria-label="Buscar productos">
                     <i class="fas fa-search"></i>
                 </button>
-                <a href="index.html#cart" aria-label="Carrito">
+                <a href="#account" aria-label="Mi cuenta">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#wishlist" aria-label="Lista de deseos">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </a>
+                <a href="#cart" class="cart-link" aria-label="Carrito de compras">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menú móvil">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu movil">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobile-menu">
             <nav class="mobile-nav">
                 <a href="index.html" class="mobile-nav-link">Inicio</a>
-                <a href="index.html#productos" class="mobile-nav-link">Tienda</a>
+                <a href="about.html" class="mobile-nav-link">Nosotros</a>
                 <a href="lookbook.html" class="mobile-nav-link">Lookbook</a>
-                <a href="nosotros.html" class="mobile-nav-link active">Nosotros</a>
-                <a href="index.html#newsletter" class="mobile-nav-link">Contacto</a>
+                <a href="women.html" class="mobile-nav-link">Mujer</a>
+                <a href="men.html" class="mobile-nav-link">Hombre</a>
+                <a href="accessories.html" class="mobile-nav-link">Accesorios</a>
+                <a href="offers.html" class="mobile-nav-link">Ofertas</a>
             </nav>
+            <div class="mobile-utilities">
+                <a href="#account" class="mobile-utility-link">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="#wishlist" class="mobile-utility-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Favoritos</span>
+                </a>
+            </div>
         </div>
     </header>
 
+    <!-- User Dropdown -->
+    <div id="userDropdown" class="user-dropdown">
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span id="userNameNav">Usuario</span>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a href="pedidos.html" class="dropdown-item">
+            <i class="fas fa-box"></i> Mis Pedidos
+        </a>
+        <a href="configuracion.html" class="dropdown-item">
+            <i class="fas fa-cog"></i> Configuracion
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" id="logoutBtn" class="dropdown-item logout">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesion
+        </a>
+    </div>
+
     <!-- Hero Section -->
-     <section class="about-hero">
-        <!-- ⬇ ESTO ES NUEVO - Video de fondo ⬇ -->
+    <section class="about-hero">
+        <!-- Video de fondo -->
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="images/video_5.mp4" type="video/mp4">
-            
         </video>
-        
-        <!-- ⬇ ESTO ES NUEVO - Overlay oscuro ⬇ -->
+
+        <!-- Overlay oscuro -->
         <div class="hero-video-overlay"></div>
-        
+
         <div class="hero-background">
             <div class="hero-pattern"></div>
         </div>
         <div class="hero-content">
             <div class="hero-badge">Nuestra Historia</div>
             <h1>
-                <span class="hero-title-line">アーバンキャッツ</span>
-                <span class="hero-title-line hero-title-accent">Urban Cats equilibrio entre calma y caos</span>
+                <span class="hero-title-line">アーバンズキャッツ -Urban Cats</span>
+                <span class="hero-title-line hero-title-accent">equilibrio entre calma y caos</span>
             </h1>
-            <p>Un viaje entre dos culturas, una visión de moda</p>
+            <p>Un viaje entre dos culturas, una vision de moda</p>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Descubre nuestra historia</span>
-        </div>
+
     </section>
 
     <!-- Historia Section -->
@@ -92,22 +140,39 @@
                 <div class="story-text">
                     <div class="section-badge">El Comienzo</div>
                     <h2>Una Historia de Dos Mundos</h2>
-                    <p class="lead">En 2019, dos amigos con una pasión compartida por la moda minimalista decidieron crear algo único: una marca que fusionara la estética Urbana de Japón con la energía vibrante de las calles latinoamericanas.</p>
-                    
+                    <p class="lead">En 2019, dos amigos con una pasion compartida por la moda
+                        minimalista decidieron
+                        crear algo unico: una marca que fusionara la estetica Urbana de Japon
+                        con la energia
+                        vibrante de las calles latinoamericanas.</p>
+
                     <div class="story-timeline">
                         <div class="timeline-item">
                             <div class="timeline-year">2019</div>
                             <div class="timeline-content">
                                 <h3>El Origen</h3>
-                                <p>Todo comenzó en un pequeño taller de Ciudad de México, cuando Kenji Matsuda, diseñador japonés radicado en México, y Alejandro R, artista urbano mexicano, se conocieron en una exposición de arte contemporáneo. Compartían una visión: crear ropa que honrara el minimalismo japonés mientras capturaba el espíritu audaz de la cultura urbana latina.</p>
+                                <p>Todo comenzaba en un pequeño taller de Ciudad de
+                                    Mexico, cuando Kenji Matsuda,
+                                    diseñador japonés radicado en Mexico, y
+                                    Alejandro R, artista urbano mexicano, se
+                                    conocieron en una exposición de arte
+                                    contemporáneo. Compartían una visión: crear
+                                    ropa que honrara el minimalismo japonés mientras
+                                    capturaba el espíritu audaz de la
+                                    cultura urbana latina.</p>
                             </div>
                         </div>
 
                         <div class="timeline-item">
                             <div class="timeline-year">2020</div>
                             <div class="timeline-content">
-                                <h3>La Primera Colección</h3>
-                                <p>En medio de la incertidumbre global, lanzaron su primera colección: "Urban Street". Solo 50 piezas hechas a mano, cada una representando la filosofía de "caminan su propio camino" aplicada al streetwear. Se agotó en 48 horas.</p>
+                                <h3>La Primera Coleccion</h3>
+                                <p>En medio de la incertidumbre global, lanzaron su
+                                    primera coleccion: "Urban Street".
+                                    Solo 50 piezas hechas a mano, cada una
+                                    representando la filosofia de "caminan su
+                                    propio camino" aplicada al streetwear. Se agotó
+                                    en 48 horas.</p>
                             </div>
                         </div>
 
@@ -115,7 +180,11 @@
                             <div class="timeline-year">2022</div>
                             <div class="timeline-content">
                                 <h3>Expansión Internacional</h3>
-                                <p>Urban Cats abre su primera tienda virtual en Tokio y México, completando el círculo cultural. La marca se convierte en símbolo de la fusión entre Oriente y Occidente, minimalismo y expresión.</p>
+                                <p>Urban Cats abre su primera tienda virtual en Tokio y
+                                    Mexico, completando el círculo
+                                    cultural. La marca se convierte en símbolo de la
+                                    fusión entre Oriente y Occidente,
+                                    minimalismo y expresión.</p>
                             </div>
                         </div>
 
@@ -123,27 +192,31 @@
                             <div class="timeline-year">2025</div>
                             <div class="timeline-content">
                                 <h3>Presente</h3>
-                                <p>Hoy, Urban Cats es más que una marca de ropa. Es un movimiento que celebra la individualidad a través de la simplicidad, donde cada prenda cuenta una historia de encuentro cultural.</p>
+                                <p>Hoy, Urban Cats es más que una marca de ropa. Es un
+                                    movimiento que celebra la
+                                    individualidad a través de la simplicidad, donde
+                                    cada prenda cuenta una historia de
+                                    encuentro cultural.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="story-images">
                     <div class="story-image-card">
                         <img src="images/abo_6.jpg" alt="Urban Cats Historia" loading="lazy">
-                        <div class="image-caption">Tokio, 2022</div> 
+                        <div class="image-caption">Tokio, 2022</div>
                     </div>
                     <div class="story-image-card offset">
                         <img src="images/abo_5.jpg" alt="Urban Cats Cultura" loading="lazy">
-                        <div class="image-caption">Ciudad de México, 2019</div>
+                        <div class="image-caption">Ciudad de Mexico, 2019</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filosofía Section -->
+    <!-- FilosofÃ­a Section -->
     <section class="philosophy-section">
         <div class="container">
             <div class="philosophy-grid">
@@ -152,7 +225,9 @@
                         <i class="fas fa-yin-yang"></i>
                     </div>
                     <h3>Filosofía Wabi-Sabi</h3>
-                    <p>Encontramos belleza en la imperfección. Cada prenda Urban Cats abraza el concepto japonés de wabi-sabi: la perfección está en lo imperfecto, en lo auténtico.</p>
+                    <p>Encontramos belleza en la imperfección. Cada prenda Urban Cats abraza el
+                        concepto japonés de
+                        wabi-sabi: la perfección está en lo imperfecto, en lo auténtico.</p>
                 </div>
 
                 <div class="philosophy-card">
@@ -160,7 +235,9 @@
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3>Sostenibilidad</h3>
-                    <p>Creemos en la moda consciente. Utilizamos materiales orgánicos y procesos que respetan el planeta, porque el verdadero lujo es cuidar nuestro hogar.</p>
+                    <p>Creemos en la moda consciente. Utilizamos materiales orgánicos y procesos que
+                        respetan el
+                        planeta, porque el verdadero lujo es cuidar nuestro hogar.</p>
                 </div>
 
                 <div class="philosophy-card">
@@ -168,14 +245,20 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Comunidad</h3>
-                    <p>Urban Cats es una comunidad global de individuos que valoran la autenticidad sobre las tendencias, la calidad sobre la cantidad.</p>
+                    <p>Urban Cats es una comunidad global de individuos que valoran la autenticidad
+                        sobre las
+                        tendencias, la calidad sobre la cantidad.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Misión y Visión Section -->
+    <!-- Mision y Vision Section -->
     <section class="mission-vision-section" id="mision">
+        <video class="mv-bg-video" autoplay loop muted playsinline>
+            <source src="images/vision_mission_2.mp4" type="video/mp4">
+        </video>
+        <div class="mv-video-overlay"></div>
         <div class="container">
             <div class="mv-grid">
                 <div class="mv-card mission">
@@ -184,12 +267,19 @@
                             <i class="fas fa-compass"></i>
                         </div>
                         <h2>Nuestra Misión</h2>
-                        <p>Crear ropa que trasciende las fronteras culturales, diseñando piezas minimalistas que permitan a cada persona expresar su individualidad con confianza y autenticidad.</p>
+                        <p>Crear ropa que trasciende las fronteras culturales, diseñando piezas
+                            minimalistas que
+                            permitan a cada persona expresar su individualidad con confianza
+                            y autenticidad.</p>
                         <ul class="mv-list">
-                            <li><i class="fas fa-check"></i> Diseñar con propósito, no solo tendencias</li>
-                            <li><i class="fas fa-check"></i> Fusionar culturas con respeto y admiración</li>
-                            <li><i class="fas fa-check"></i> Promover la moda sostenible y consciente</li>
-                            <li><i class="fas fa-check"></i> Inspirar a través de la simplicidad</li>
+                            <li><i class="fas fa-check"></i> Diseñar con propósito, no solo
+                                tendencias</li>
+                            <li><i class="fas fa-check"></i> Fusionar culturas con respeto y
+                                admiración</li>
+                            <li><i class="fas fa-check"></i> Promover la moda sostenible y
+                                consciente</li>
+                            <li><i class="fas fa-check"></i> Inspirar a través de la
+                                simplicidad</li>
                         </ul>
                     </div>
                 </div>
@@ -200,12 +290,21 @@
                             <i class="fas fa-eye"></i>
                         </div>
                         <h2>Nuestra Visión</h2>
-                        <p>Ser la marca líder en moda urbana minimalista a nivel global, reconocida por nuestra innovación en el diseño intercultural y nuestro compromiso con un futuro más sostenible.</p>
+                        <p>Ser la marca líder en moda urbana minimalista a nivel global,
+                            reconocida por nuestra
+                            innovación en el diseño intercultural y nuestro compromiso con
+                            un futuro más sostenible.
+                        </p>
                         <ul class="mv-list">
-                            <li><i class="fas fa-check"></i> Expandir nuestra presencia en 20 países para 2030</li>
-                            <li><i class="fas fa-check"></i> Lograr 100% de materiales sostenibles para 2027</li>
-                            <li><i class="fas fa-check"></i> Crear una fundación de intercambio cultural</li>
-                            <li><i class="fas fa-check"></i> Ser carbono neutral en toda nuestra cadena de producción</li>
+                            <li><i class="fas fa-check"></i> Expandir nuestra presencia en
+                                20 países para 2030</li>
+                            <li><i class="fas fa-check"></i> Lograr 100% de materiales
+                                sostenibles para 2027</li>
+                            <li><i class="fas fa-check"></i> Crear una fundación de
+                                intercambio cultural</li>
+                            <li><i class="fas fa-check"></i> Ser carbono neutral en toda
+                                nuestra cadena de producción
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -226,37 +325,44 @@
                 <div class="value-card">
                     <div class="value-number">01</div>
                     <h3>Autenticidad</h3>
-                    <p>Ser genuinos en cada diseño, en cada interacción. No seguimos tendencias, creamos identidad.</p>
+                    <p>Ser genuinos en cada diseño, en cada interacción. No seguimos tendencias,
+                        creamos identidad.
+                    </p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-number">02</div>
                     <h3>Calidad</h3>
-                    <p>Cada costura, cada tela, cada detalle importa. La excelencia no es negociable.</p>
+                    <p>Cada costura, cada tela, cada detalle importa. La excelencia no es
+                        negociable.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-number">03</div>
                     <h3>Respeto Cultural</h3>
-                    <p>Honramos ambas culturas que nos inspiran, aprendiendo y creciendo con humildad.</p>
+                    <p>Honramos ambas culturas que nos inspiran, aprendiendo y creciendo con
+                        humildad.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-number">04</div>
                     <h3>Innovación</h3>
-                    <p>Buscamos constantemente nuevas formas de expresión sin perder nuestra esencia.</p>
+                    <p>Buscamos constantemente nuevas formas de expresión sin perder nuestra
+                        esencia.</p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-number">05</div>
                     <h3>Sostenibilidad</h3>
-                    <p>El planeta es nuestro hogar. Cada decisión considera su impacto ambiental.</p>
+                    <p>El planeta es nuestro hogar. Cada decisión considera su impacto ambiental.
+                    </p>
                 </div>
 
                 <div class="value-card">
                     <div class="value-number">06</div>
                     <h3>Comunidad</h3>
-                    <p>Juntos somos más fuertes. Creamos espacios de encuentro y crecimiento mutuo.</p>
+                    <p>Juntos somos más fuertes. Creamos espacios de encuentro y crecimiento mutuo.
+                    </p>
                 </div>
             </div>
         </div>
@@ -276,7 +382,7 @@
                     <div class="team-image">
                         <img src="images/abo_1.jpg" alt="Kenji Matsuda" loading="lazy">
                         <div class="team-social">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Instagram Kenji Matsuda"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="team-info">
@@ -288,9 +394,9 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="images/abo_3.jpg" alt="Carlos Reyes" loading="lazy">
+                        <img src="images/abo_3.jpg" alt="Alejandro R" loading="lazy">
                         <div class="team-social">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Instagram Alejandro R"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="team-info">
@@ -302,9 +408,9 @@
 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="images/abo_4.jpg" alt="María Santos" loading="lazy">
+                        <img src="images/abo_4.jpg" alt="Sofia Mei" loading="lazy">
                         <div class="team-social">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Instagram Sofia Mei"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="team-info">
@@ -322,7 +428,8 @@
         <div class="container">
             <div class="cta-content">
                 <h2>Únete a Nuestra Historia</h2>
-                <p>Cada persona que viste Urban Cats se convierte en parte de nuestra comunidad global</p>
+                <p>Cada persona que viste Urban Cats se convierte en parte de nuestra comunidad global
+                </p>
                 <div class="cta-buttons">
                     <a href="index.html#productos" class="cta-primary">
                         <span>Explorar Colección</span>
@@ -342,76 +449,279 @@
             <div class="footer-content">
                 <div class="footer-section brand">
                     <div class="footer-logo">
-                        <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
+                        <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img"
+                            loading="lazy">
                         <h3>Urban Cats</h3>
                     </div>
-                    <p>Moda urbana que define tu personalidad con la elegancia del minimalismo japonés contemporáneo.</p>
+                    <p>Moda urbana que define tu personalidad. Únete a nuestra comunidad y descubre
+                        tu estilo único
+                        con la elegancia del minimalismo japonés contemporáneo.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link instagram">
+                        <a href="#" aria-label="Síguenos en Instagram" class="social-link instagram">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
-                        <a href="#" class="social-link tiktok">
+                        <a href="#" aria-label="Síguenos en TikTok" class="social-link tiktok">
                             <i class="fab fa-tiktok"></i>
                             <span>TikTok</span>
                         </a>
-                        <a href="#" class="social-link facebook">
+                        <a href="#" aria-label="Síguenos en Facebook" class="social-link facebook">
                             <i class="fab fa-facebook"></i>
                             <span>Facebook</span>
                         </a>
+                        <a href="#" aria-label="Síguenos en Twitter" class="social-link twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" aria-label="Suscríbete a nuestro canal de YouTube" class="social-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Tienda</h4>
                     <ul>
-                        <li><a href="index.html#productos">Mujer</a></li>
-                        <li><a href="index.html#productos">Hombre</a></li>
-                        <li><a href="index.html#productos">Accesorios</a></li>
+                        <li><a href="women.html">Mujer</a></li>
+                        <li><a href="men.html">Hombre</a></li>
+                        <li><a href="accessories.html">Accesorios</a></li>
+                        <li><a href="offers.html">Ofertas</a></li>
                         <li><a href="lookbook.html">Lookbook</a></li>
+                        <li><a href="index.html#productos">Temporada</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Empresa</h4>
                     <ul>
-                        <li><a href="nosotros.html" class="active">Nuestra Historia</a></li>
-                        <li><a href="nosotros.html#mision">Misión y Visión</a></li>
-                        <li><a href="nosotros.html#valores">Valores</a></li>
-                        <li><a href="index.html#newsletter">Contacto</a></li>
+                        <li><a href="about.html">Nuestra Historia</a></li>
+                        <li><a href="about.html#mision">Misión y Visión</a></li>
+                        <li><a href="about.html#valores">Valores</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#trabajo">Trabaja con Nosotros</a></li>
+                        <li><a href="#prensa">Prensa</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Ayuda</h4>
                     <ul>
-                        <li><a href="#">Envíos y Entrega</a></li>
-                        <li><a href="#">Devoluciones</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#envios">Envíos y Entrega</a></li>
+                        <li><a href="#devoluciones">Devoluciones y Cambios</a></li>
+                        <li><a href="#guia-tallas">Guía de Tallas</a></li>
+                        <li><a href="#cuidado">Cuidado de Prendas</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#soporte">Soporte al Cliente</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="copyright">
                         <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
                     </div>
+                    <div class="footer-center">
+                        <div class="visit-counter">
+                            <i class="fas fa-eye"></i>
+                            <span>Visitas: <span id="visit-count">1,234</span></span>
+                        </div>
+                        <div class="footer-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>México City, MX</span>
+                        </div>
+                    </div>
                     <div class="footer-links">
-                        <a href="#">Política de Privacidad</a>
-                        <a href="#">Términos y Condiciones</a>
+                        <a href="#privacidad">Política de Privacidad</a>
+                        <a href="#terminos">Términos y Condiciones</a>
+                        <a href="#cookies">Política de Cookies</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button id="back-to-top" class="back-to-top">
+    <!-- Carrito lateral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>
+                <i class="fas fa-shopping-bag"></i>
+                Tu Carrito
+            </h3>
+            <button class="close-cart" aria-label="Cerrar carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h4>Tu carrito está vacío</h4>
+                <p>Agrega algunos productos increíbles a tu carrito</p>
+                <button class="continue-shopping">
+                    <span>Seguir Comprando</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span>$<span id="cart-subtotal">0</span></span>
+                </div>
+                <div class="cart-shipping">
+                    <span>Envío:</span>
+                    <span class="free-shipping">Gratis</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span>$<span id="cart-total">0</span></span>
+                </div>
+            </div>
+            <button class="checkout-btn">
+                <span>Finalizar Compra</span>
+                <i class="fas fa-credit-card"></i>
+            </button>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-apple-pay"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante del chat -->
+    <div id="chat-button" class="chat-button" aria-label="Abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"            
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="chat-notification-badge">1</span>
+    </div>
+
+    <!-- Ventana del chat -->
+    <div id="chat-window" class="chat-window">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">😸</div>
+                <div class="chat-header-text">
+                    <h3>Urban Cats</h3>
+                    <div class="chat-status">En línea</div>
+                </div>
+            </div>
+            <button id="chat-close-button" class="chat-close-button" aria-label="Cerrar chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"          
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mensajes -->
+        <div id="chat-messages" class="chat-messages">
+            <div class="chat-message bot-message">
+                <div class="chat-message-avatar">😸</div>
+                <div class="chat-message-content">
+                    <div class="chat-message-bubble">
+                        Hola! 🐾 Soy tu asistente virtual de Urban Cats. ¿En qué puedo ayudarte
+                        hoy?
+                    </div>
+                    <div class="chat-message-time">Ahora</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicador de escritura -->
+        <div id="chat-typing-indicator" class="chat-typing-indicator">
+            <span>Escribiendo</span>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+
+        <!-- Input -->
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu mensaje..."
+                    autocomplete="off" aria-label="Mensaje">
+                <button id="chat-send-button" class="chat-send-button" aria-label="Enviar mensaje">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Respuestas rápidas -->
+        <div class="chat-quick-replies">
+            <button class="chat-quick-reply" data-message="Horarios">🐾 Horarios</button>
+            <button class="chat-quick-reply" data-message="Ubicación">📍 Ubicación</button>
+            <button class="chat-quick-reply" data-message="Servicios">📚 Servicios</button>
+            <button class="chat-quick-reply" data-message="Contacto">📞 Contacto</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
         <i class="fas fa-chevron-up"></i>
     </button>
 
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script type="module" src="js/auth-state.js"></script>
+    <script src="js/chatbot-urban-cats.js"></script>
     <script src="js/about.js"></script>
+
+    <!-- Reveal on Scroll: script independiente para animaciones en toda la página -->
+    <script>
+        (function () {
+            var THRESHOLD = 0.90;
+
+            var toReveal = Array.from(document.querySelectorAll(
+                '.timeline-item, .story-image-card, .philosophy-card, .mv-card, .value-card, .team-card'
+            ));
+            var revealed = new Set();
+
+            function revealVisible() {
+                var wh = window.innerHeight;
+                toReveal.forEach(function (el) {
+                    if (revealed.has(el)) return;
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < wh * THRESHOLD && rect.bottom > 0) {
+                        el.classList.add('revealed');
+                        revealed.add(el);
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', revealVisible, { passive: true });
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () {
+                    setTimeout(revealVisible, 200);
+                });
+            } else {
+                setTimeout(revealVisible, 200);
+            }
+        })();
+    </script>
+
 </body>
+
 </html>

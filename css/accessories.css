@@ -1,26 +1,26 @@
-/* Urban Cats - Men Section CSS - Estilo Minimalista Japonés */
+/* Urban Cats - Accessories Section CSS - Estilo Minimalista Japonés */
 
-/* Variables específicas de la sección hombre */
+/* Variables específicas de la sección accesorios */
 :root {
-    --men-accent: #ff0000;
-    --men-soft: #fafafa;
-    --men-gradient: linear-gradient(135deg, var(--pure-white) 0%, var(--off-white) 100%);
+    --accessories-accent: #ff0000;
+    --accessories-soft: #fafafa;
+    --accessories-gradient: linear-gradient(135deg, var(--pure-white) 0%, var(--off-white) 100%);
 }
 
-/* Hero Section Men */
-.men-hero {
+/* Hero Section Accessories */
+.accessories-hero {
     min-height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 60px;
     padding: 120px 40px 60px;
-    background: var(--men-gradient);
+    background: var(--accessories-gradient);
     position: relative;
     overflow: hidden;
 }
 
-.men-hero::before {
+.accessories-hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -51,12 +51,12 @@
     opacity: 0.3;
 }
 
-.men-hero .hero-content {
+.accessories-hero .hero-content {
     z-index: 2;
     max-width: 600px;
 }
 
-.men-hero .hero-badge {
+.accessories-hero .hero-badge {
     display: inline-block;
     background: var(--primary-black);
     color: var(--pure-white);
@@ -71,7 +71,7 @@
     animation: slideInUp 1s ease 0.1s forwards;
 }
 
-.men-hero h1 {
+.accessories-hero h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 300;
     color: var(--primary-black);
@@ -80,25 +80,25 @@
     letter-spacing: -2px;
 }
 
-.men-hero .hero-title-line {
+.accessories-hero .hero-title-line {
     display: block;
     opacity: 0;
     animation: slideInUp 1s ease forwards;
 }
 
-.men-hero .hero-title-line:nth-child(1) {
+.accessories-hero .hero-title-line:nth-child(1) {
     animation-delay: 0.2s;
 }
 
-.men-hero .hero-title-line:nth-child(2) {
+.accessories-hero .hero-title-line:nth-child(2) {
     animation-delay: 0.4s;
 }
 
-.men-hero .hero-title-line:nth-child(3) {
+.accessories-hero .hero-title-line:nth-child(3) {
     animation-delay: 0.6s;
 }
 
-.men-hero .hero-title-accent {
+.accessories-hero .hero-title-accent {
     background: linear-gradient(135deg, var(--primary-black) 0%, var(--soft-black) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -106,18 +106,18 @@
     position: relative;
 }
 
-.men-hero .hero-title-accent::after {
+.accessories-hero .hero-title-accent::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--men-accent);
+    background: var(--accessories-accent);
     opacity: 0.3;
 }
 
-.men-hero p {
+.accessories-hero p {
     font-size: 18px;
     color: var(--gray-medium);
     margin-bottom: 40px;
@@ -126,14 +126,14 @@
     animation: slideInUp 1s ease 0.8s forwards;
 }
 
-.men-hero .hero-stats {
+.accessories-hero .hero-stats {
     display: flex;
     gap: 30px;
     opacity: 0;
     animation: slideInUp 1s ease 1s forwards;
 }
 
-.men-hero .hero-image {
+.accessories-hero .hero-image {
     z-index: 2;
     position: relative;
     height: 600px;
@@ -144,7 +144,7 @@
     animation: slideInRight 1.2s ease 0.5s forwards;
 }
 
-.men-hero .hero-image img {
+.accessories-hero .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -152,7 +152,7 @@
     transition: var(--transition);
 }
 
-.men-hero .hero-image:hover img {
+.accessories-hero .hero-image:hover img {
     transform: scale(1.05);
     filter: grayscale(0%) contrast(1.2);
 }
@@ -390,50 +390,42 @@
 .price-slider {
     width: 100%;
     height: 4px;
+    background: var(--gray-light);
     border-radius: 2px;
-    background: var(--primary-black);
     outline: none;
+    -webkit-appearance: none;
     appearance: none;
-    cursor: pointer;
-    transition: var(--transition);
+    margin-bottom: 15px;
 }
 
 .price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
     background: var(--primary-black);
+    border-radius: 50%;
     cursor: pointer;
-    box-shadow: var(--shadow-light);
     transition: var(--transition);
 }
 
 .price-slider::-webkit-slider-thumb:hover {
     transform: scale(1.2);
-    box-shadow: var(--shadow-heavy);
+    box-shadow: 0 0 0 6px rgba(0,0,0,0.1);
 }
 
 .price-slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    border-radius: 50%;
     background: var(--primary-black);
+    border-radius: 50%;
     cursor: pointer;
-    box-shadow: var(--shadow-light);
-    transition: var(--transition);
     border: none;
-}
-
-.price-slider::-moz-range-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: var(--shadow-heavy);
 }
 
 .price-labels {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
     font-size: 14px;
     color: var(--gray-medium);
 }
@@ -446,10 +438,10 @@
 }
 
 .filter-option {
-    background: var(--pure-white);
-    border: 1px solid var(--gray-light);
+    background: var(--gray-light);
+    border: 1px solid transparent;
     color: var(--primary-black);
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
@@ -461,14 +453,14 @@
 .filter-option.active {
     background: var(--primary-black);
     color: var(--pure-white);
-    border-color: var(--primary-black);
+    transform: translateY(-2px);
 }
 
 /* Color Filters */
 .color-filters {
     display: flex;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 15px;
 }
 
 .color-filter {
@@ -547,7 +539,7 @@
 }
 
 /* Products Section */
-.men-products-section {
+.accessories-products-section {
     padding: 0 0 80px;
     background: var(--off-white);
 }
@@ -757,13 +749,13 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .men-hero {
+    .accessories-hero {
         grid-template-columns: 1fr;
         gap: 40px;
         padding: 100px 30px 40px;
     }
     
-    .men-hero .hero-image {
+    .accessories-hero .hero-image {
         height: 400px;
     }
     
@@ -774,7 +766,7 @@
 }
 
 @media (max-width: 768px) {
-    .men-hero h1 {
+    .accessories-hero h1 {
         font-size: 2.5rem;
     }
     
@@ -813,15 +805,15 @@
 }
 
 @media (max-width: 480px) {
-    .men-hero {
+    .accessories-hero {
         padding: 90px 20px 30px;
     }
     
-    .men-hero h1 {
+    .accessories-hero h1 {
         font-size: 2rem;
     }
     
-    .men-hero .hero-stats {
+    .accessories-hero .hero-stats {
         gap: 15px;
         flex-wrap: wrap;
     }
@@ -869,90 +861,3 @@
     }
 }
 
-/* ============================================
-   ESTILOS COMPARTIDOS - Loading & Footer
-   ============================================ */
-
-/* Loading Screen */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--pure-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loading-screen.fade-out {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.loading-logo {
-    text-align: center;
-}
-
-.loading-logo-img {
-    height: 60px;
-    margin-bottom: 20px;
-    animation: pulse 2s infinite;
-}
-
-.loading-bar {
-    width: 200px;
-    height: 2px;
-    background: var(--gray-light);
-    border-radius: 1px;
-    overflow: hidden;
-}
-
-.loading-progress {
-    height: 100%;
-    background: var(--primary-black);
-    border-radius: 1px;
-    animation: loading 2s ease-in-out infinite;
-}
-
-@keyframes loading {
-    0% { transform: translateX(-100%); }
-    50% { transform: translateX(0%); }
-    100% { transform: translateX(100%); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* Footer mejoras */
-.footer-center {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.visit-counter,
-.footer-location {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .footer-center {
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .visit-counter,
-    .footer-location {
-        font-size: 14px;
-    }
-}

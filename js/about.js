@@ -42,7 +42,8 @@ class AboutPage {
     }
 
     sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+        return new
+            Promise(resolve => setTimeout(resolve, ms));
     }
 
     setupEventListeners() {
@@ -143,7 +144,7 @@ class AboutPage {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
-        
+
         let progressBar = document.getElementById('reading-progress');
         if (!progressBar) {
             progressBar = document.createElement('div');
@@ -213,50 +214,64 @@ class AboutPage {
         });
     }
 
-    // Revelar elementos al cargar
-    async revealElements() {
-        // Timeline items
-        if (this.elements.timelineItems.length > 0) {
-            this.elements.timelineItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                }, index * ABOUT_CONFIG.animationDelay);
-            });
-        }
+    // Revelar elementos al cargar (los que ya están en viewport)
+    revealElements() {
+        // Se maneja ahora por IntersectionObserver
+        // No animamos nada en carga: esperamos scroll
     }
 
-    // Intersection Observer para animaciones
+    // Cascada de scroll: scroll listener directo para máxima compatibilidad
     setupIntersectionObserver() {
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
+        const timelineItems = Array.from(document.querySelectorAll('.timeline-item'));
+        const storyImages = Array.from(document.querySelectorAll('.story-image-card'));
+        const generalCards = Array.from(document.querySelectorAll('.philosophy-card, .mv-card, .value-card, .team-card'));
+
+        // Rastrea cuáles ya fueron animados
+        const animated = new Set();
+
+        const isVisible = (el) => {
+            const rect = el.getBoundingClientRect();
+            // Se activa cuando el elemento está en el 75% inferior del viewport
+            return rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateElement(entry.target);
-                    
-                    // Animar números si es un valor
-                    if (entry.target.classList.contains('value-card')) {
-                        this.animateValueNumber(entry.target);
-                    }
+        const checkAndAnimate = () => {
+            // --- Timeline: cada item aparece individualmente al scrollear ---
+            timelineItems.forEach((item) => {
+                if (animated.has(item)) return;
+                if (isVisible(item)) {
+                    item.classList.add('cascade-in');
+                    animated.add(item);
                 }
             });
-        }, observerOptions);
 
-        // Observar elementos
-        document.querySelectorAll(`
-            .story-image-card,
-            .philosophy-card,
-            .mv-card,
-            .value-card,
-            .team-card,
-            .timeline-item
-        `).forEach(el => {
-            observer.observe(el);
-        });
+            // --- Story images: cada imagen aparece al scrollear ---
+            storyImages.forEach((img) => {
+                if (animated.has(img)) return;
+                if (isVisible(img)) {
+                    img.classList.add('slide-in-right');
+                    animated.add(img);
+                }
+            });
+
+            // --- General cards ---
+            generalCards.forEach(card => {
+                if (animated.has(card)) return;
+                if (isVisible(card)) {
+                    this.animateElement(card);
+                    if (card.classList.contains('value-card')) {
+                        this.animateValueNumber(card);
+                    }
+                    animated.add(card);
+                }
+            });
+        };
+
+        // Ejecutar en scroll (throttled)
+        window.addEventListener('scroll', this.throttle(checkAndAnimate, 50), { passive: true });
+
+        // Ejecutar al cargar para elementos ya visibles
+        setTimeout(checkAndAnimate, 100);
     }
 
     animateElement(element) {
@@ -305,7 +320,7 @@ class AboutPage {
     // Team card effects
     setupTeamCardEffect(card) {
         const image = card.querySelector('.team-image img');
-        
+
         card.addEventListener('mouseenter', () => {
             if (image) {
                 image.style.transform = 'scale(1.1)';
@@ -319,28 +334,16 @@ class AboutPage {
         });
     }
 
-    // Timeline parallax
+    // Sin parallax en story-images (interfiere con la animación de entrada)
     setupScrollAnimations() {
-        // Parallax para imágenes de la historia
-        const storyImages = document.querySelectorAll('.story-image-card');
-        
-        window.addEventListener('scroll', () => {
-            storyImages.forEach((img, index) => {
-                const rect = img.getBoundingClientRect();
-                const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
-                
-                if (scrollPercent > 0 && scrollPercent < 1) {
-                    const offset = (scrollPercent - 0.5) * 50 * (index % 2 === 0 ? 1 : -1);
-                    img.style.transform = `translateY(${offset}px)`;
-                }
-            });
-        });
+        // Parallax desactivado para story-image-card
+        // (el efecto de entrada desde la derecha ya lo maneja el IntersectionObserver)
     }
 
     // Utilidades
     throttle(func, limit) {
         let inThrottle;
-        return function() {
+        return function () {
             const args = arguments;
             const context = this;
             if (!inThrottle) {
@@ -375,10 +378,10 @@ class EasterEgg {
     init() {
         document.addEventListener('keydown', (e) => {
             const requiredKey = this.konamiCode[this.konamiCodePosition];
-            
+
             if (e.key === requiredKey) {
                 this.konamiCodePosition++;
-                
+
                 if (this.konamiCodePosition === this.konamiCode.length) {
                     this.activateEasterEgg();
                     this.konamiCodePosition = 0;
@@ -392,10 +395,10 @@ class EasterEgg {
     activateEasterEgg() {
         // Modo "Neko" (gato en japonés)
         document.body.style.cursor = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 32 32\'%3E%3Ctext y=\'28\' font-size=\'28\'%3E🐱%3C/text%3E%3C/svg%3E"), auto';
-        
+
         // Confetti
         this.createConfetti();
-        
+
         // Mensaje
         this.showEasterEggMessage();
     }
@@ -415,7 +418,7 @@ class EasterEgg {
                     z-index: 9999;
                 `;
                 document.body.appendChild(confetti);
-                
+
                 setTimeout(() => confetti.remove(), 5000);
             }, i * 100);
         }
@@ -436,7 +439,7 @@ class EasterEgg {
             z-index: 99999;
             cursor: pointer;
         `;
-        
+
         modal.innerHTML = `
             <div style="text-align: center; color: white; padding: 40px;">
                 <h2 style="font-size: 3rem; margin-bottom: 20px;">🐱 ¡Modo Urban Cats Activado! 🐱</h2>
@@ -444,15 +447,57 @@ class EasterEgg {
                 <p style="margin-top: 20px; opacity: 0.7;">Haz clic para cerrar</p>
             </div>
         `;
-        
+
         modal.addEventListener('click', () => modal.remove());
         document.body.appendChild(modal);
-        
+
         setTimeout(() => {
             if (modal.parentNode) modal.remove();
         }, 5000);
     }
 }
+
+
+// ============================================
+// USER DROPDOWN - Toggle flotante
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const userBtn = document.querySelector('a[href="#account"]');
+    const dropdown = document.getElementById('userDropdown');
+
+    if (userBtn && dropdown) {
+        // Convertir el enlace en botón clickeable
+        userBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && e.target !== userBtn) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // No cerrar al hacer click dentro del dropdown
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Logout
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('¿Cerrar sesión?')) {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            }
+        });
+    }
+});
 
 // CSS para confetti animation
 const dynamicStyles = `
@@ -521,24 +566,24 @@ const dynamicStyles = `
 `;
 
 // Inicialización
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Inicializar página About
     window.aboutPage = new AboutPage();
-    
+
     // Inicializar Easter Egg
     new EasterEgg();
-    
+
     // Detectar dispositivo móvil
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     document.body.classList.toggle('mobile', isMobile);
-    
+
     // Preload critical images
     const criticalImages = [
         'images/logo_para_video-removebg-preview.png',
         'images/mujer_1.jpg',
         'images/hombre_1.jpg'
     ];
-    
+
     criticalImages.forEach(src => {
         const img = new Image();
         img.src = src;

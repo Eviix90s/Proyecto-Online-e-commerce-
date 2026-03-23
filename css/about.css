@@ -167,6 +167,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -174,9 +175,17 @@
 }
 
 @keyframes scroll {
-    0% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(6px); }
-    100% { transform: translateX(-50%) translateY(0); }
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(6px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 
@@ -247,14 +256,15 @@
     position: relative;
     margin-bottom: 60px;
     opacity: 0;
-    transform: translateX(-30px);
-    animation: slideInLeft 0.8s ease forwards;
+    transform: translateX(-70px);
+    transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.timeline-item:nth-child(1) { animation-delay: 0.2s; }
-.timeline-item:nth-child(2) { animation-delay: 0.4s; }
-.timeline-item:nth-child(3) { animation-delay: 0.6s; }
-.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+/* Clase que agrega JS al detectar el elemento en viewport */
+.timeline-item.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .timeline-item::before {
     content: '';
@@ -301,27 +311,32 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-heavy);
-    transition: var(--transition);
     opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 0.8s ease forwards;
+    transform: translateX(90px);
+    transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
 }
 
-.story-image-card:nth-child(1) { animation-delay: 0.3s; }
-.story-image-card:nth-child(2) { animation-delay: 0.5s; }
+/* Clase que agrega JS al detectar el elemento en viewport */
+.story-image-card.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .story-image-card.offset {
-    margin-left: 100px;
+    margin-left: 0;
+    /* Mismo ancho que la imagen superior */
+    margin-top: 90px;
+    /* Más separación hacia abajo */
 }
 
-.story-image-card:hover {
+.story-image-card.slide-right-visible:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 
 .story-image-card img {
     width: 100%;
-    height: 400px;
+    height: 550px;
     object-fit: cover;
     display: block;
     transition: var(--transition);
@@ -358,10 +373,20 @@
     padding: 50px 40px;
     border-radius: 20px;
     text-align: center;
-    transition: var(--transition);
+    transition: var(--transition), opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: var(--shadow-light);
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(45px);
+}
+
+.philosophy-card.revealed,
+.mv-card.revealed,
+.value-card.revealed,
+.team-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .philosophy-card::before {
@@ -419,6 +444,28 @@
     overflow: hidden;
 }
 
+.mv-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    z-index: 0;
+    filter: brightness(0.75);
+}
+
+.mv-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
 .mission-vision-section::before {
     content: '';
     position: absolute;
@@ -428,6 +475,7 @@
     bottom: 0;
     background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23FFFFFF" fill-opacity="0.02"><circle cx="7" cy="7" r="1"/></g></svg>');
     opacity: 0.5;
+    z-index: 2;
 }
 
 .mv-grid {
@@ -435,7 +483,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 .mv-card {
@@ -444,9 +492,11 @@
     border-radius: 25px;
     padding: 60px 50px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: var(--transition);
+    transition: var(--transition), opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(45px);
 }
 
 .mv-card::before {
@@ -456,7 +506,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
     opacity: 0;
     transition: var(--transition);
 }
@@ -467,7 +517,7 @@
 
 .mv-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -486,7 +536,7 @@
     letter-spacing: -1px;
 }
 
-.mv-card > p {
+.mv-card>p {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.8;
     font-size: 18px;
@@ -538,9 +588,11 @@
     padding: 40px;
     border: 1px solid var(--gray-light);
     border-radius: 20px;
-    transition: var(--transition);
+    transition: var(--transition), opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     background: var(--pure-white);
+    opacity: 0;
+    transform: translateY(45px);
 }
 
 .value-card:hover {
@@ -593,7 +645,9 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-light);
-    transition: var(--transition);
+    transition: var(--transition), opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(45px);
 }
 
 .team-card:hover {
@@ -684,21 +738,36 @@
 /* CTA Section */
 .cta-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, var(--primary-black) 0%, var(--soft-black) 100%);
+    background: url('../images/fondo_CIA.jpg') center center / cover no-repeat;
     color: var(--pure-white);
     text-align: center;
+    position: relative;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+.cta-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .cta-content h2 {
     font-size: 3rem;
     font-weight: 300;
+    color: var(--pure-white);
     margin-bottom: 20px;
     letter-spacing: -1px;
 }
 
 .cta-content p {
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 40px;
 }
 
@@ -722,30 +791,127 @@
     align-items: center;
     gap: 10px;
     text-decoration: none;
-}
-
-.cta-primary {
-    background: var(--pure-white);
-    color: var(--primary-black);
-    border: 2px solid var(--pure-white);
-}
-
-.cta-primary:hover {
-    background: transparent;
+    /* Efecto cristal sobre imagen */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     color: var(--pure-white);
-    transform: translateY(-3px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.cta-secondary {
-    background: transparent;
-    color: var(--pure-white);
-    border: 2px solid var(--pure-white);
-}
-
+.cta-primary:hover,
 .cta-secondary:hover {
-    background: var(--pure-white);
+    background: rgba(255, 255, 255, 0.95);
     color: var(--primary-black);
+    border-color: transparent;
     transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+    ESTILOS COMPARTIDOS CON INDEX
+    (Necesarios para loading, cart, chatbot)
+    ============================================ */
+
+/* Loading Screen - Ya existe en style.css pero por si acaso */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pure-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-logo {
+    text-align: center;
+}
+
+.loading-logo-img {
+    height: 60px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 2px;
+    background: var(--gray-light);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    background: var(--primary-black);
+    border-radius: 1px;
+    animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Footer mejoras para visit counter */
+.footer-center {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.visit-counter,
+.footer-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 25px;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .footer-center {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .visit-counter,
+    .footer-location {
+        font-size: 14px;
+    }
 }
 
 /* Animations */
@@ -754,6 +920,7 @@
         opacity: 0;
         transform: translateX(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -765,6 +932,7 @@
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -777,94 +945,94 @@
         grid-template-columns: 1fr;
         gap: 60px;
     }
-    
+
     .story-text {
         position: static;
     }
-    
+
     .mv-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .story-image-card.offset {
         margin-left: 0;
     }
 }
 
 @media (max-width: 768px) {
-       .hero-video {
-        object-position: center;
-    }
-    
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .about-hero p {
-        font-size: 16px;
-    }
-    
     .hero-video {
         object-position: center;
     }
-    
+
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-hero p {
+        font-size: 16px;
+    }
+
+    .hero-video {
+        object-position: center;
+    }
+
     .story-text h2 {
         font-size: 2rem;
     }
-    
+
     .lead {
         font-size: 18px;
     }
-    
+
     .timeline-item {
         margin-bottom: 40px;
     }
-    
+
     .story-timeline {
         padding-left: 30px;
     }
-    
+
     .story-image-card img {
         height: 300px;
     }
-    
+
     .philosophy-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .philosophy-card {
         padding: 40px 30px;
     }
-    
+
     .mv-card {
         padding: 40px 30px;
     }
-    
+
     .mv-card h2 {
         font-size: 2rem;
     }
-    
+
     .values-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .team-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .cta-content h2 {
         font-size: 2rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .cta-primary,
     .cta-secondary {
         width: 100%;
@@ -877,42 +1045,42 @@
     .hero-video {
         object-position: center;
     }
-    
+
     .about-hero h1 {
         font-size: 2rem;
     }
-    
+
     .about-hero p {
         font-size: 14px;
     }
-    
+
     .hero-video {
         object-position: center;
     }
-    
+
     .hero-video-overlay {
         background: rgba(0, 0, 0, 0.3);
     }
-    
+
     .story-section {
         padding: 80px 0;
     }
-    
+
     .story-section {
         padding: 80px 0;
     }
-    
+
     .story-text h2 {
         font-size: 1.8rem;
     }
-    
+
     .philosophy-section,
     .mission-vision-section,
     .values-section,
     .team-section {
         padding: 80px 0;
     }
-    
+
     .value-number {
         font-size: 48px;
     }

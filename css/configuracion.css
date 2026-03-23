@@ -1,0 +1,1000 @@
+/* Urban Cats - Configuración CSS - Estilo Minimalista Japonés Contemporáneo */
+
+/* ============================================
+   VARIABLES Y BASE
+   ============================================ */
+:root {
+    --primary-black: #1a1a1a;
+    --soft-black: #2a2a2a;
+    --pure-white: #ffffff;
+    --off-white: #fafafa;
+    --gray-light: #f5f5f5;
+    --gray-medium: #888888;
+    --gray-border: #e0e0e0;
+    --accent-red: #ff0000;
+    --success-green: #10B981;
+    --warning-yellow: #F59E0B;
+    --transition: all 0.3s ease;
+    --shadow-light: 0 2px 20px rgba(0,0,0,0.08);
+    --shadow-medium: 0 4px 30px rgba(0,0,0,0.12);
+    --shadow-heavy: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   SETTINGS PAGE LAYOUT
+   ============================================ */
+.settings-page {
+    padding: 120px 0 80px;
+    background: var(--off-white);
+    min-height: 100vh;
+}
+
+.settings-page .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Settings Header */
+.settings-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.settings-header h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--primary-black);
+    margin-bottom: 15px;
+    letter-spacing: -1.5px;
+}
+
+.settings-header p {
+    font-size: 18px;
+    color: var(--gray-medium);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+/* Grid Layout */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ============================================
+   SETTINGS SIDEBAR - MINIMALISTA
+   ============================================ */
+.settings-sidebar {
+    background: var(--pure-white);
+    border: 1px solid var(--gray-border);
+    position: sticky;
+    top: 100px;
+    transition: var(--transition);
+    animation: fadeInLeft 0.6s ease;
+}
+
+.settings-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    color: var(--gray-medium);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+    letter-spacing: 0.3px;
+    position: relative;
+}
+
+.settings-nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--primary-black);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.settings-nav-link:hover {
+    background: var(--off-white);
+    color: var(--primary-black);
+}
+
+.settings-nav-link:hover::before {
+    transform: scaleY(1);
+}
+
+.settings-nav-link.active {
+    background: var(--off-white);
+    color: var(--primary-black);
+    font-weight: 600;
+}
+
+.settings-nav-link.active::before {
+    transform: scaleY(1);
+}
+
+.settings-nav-link i {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.settings-nav-link.active i,
+.settings-nav-link:hover i {
+    opacity: 1;
+}
+
+/* ============================================
+   SETTINGS CONTENT - MINIMALISTA
+   ============================================ */
+.settings-content {
+    background: var(--pure-white);
+    border: 1px solid var(--gray-border);
+    padding: 60px;
+    animation: fadeInRight 0.6s ease;
+}
+
+.settings-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.settings-section.active {
+    display: block;
+}
+
+/* Section Header */
+.section-header {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--primary-black);
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    font-size: 16px;
+    color: var(--gray-medium);
+    font-weight: 400;
+}
+
+/* ============================================
+   FORMS - MINIMALISTA
+   ============================================ */
+.settings-form {
+    max-width: 700px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-black);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid var(--gray-border);
+    border-radius: 0;
+    font-size: 15px;
+    transition: var(--transition);
+    background: var(--pure-white);
+    color: var(--primary-black);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-black);
+    background: var(--off-white);
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.05);
+}
+
+.form-group input::placeholder {
+    color: var(--gray-medium);
+    opacity: 0.6;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* Password Input with Toggle */
+.password-input {
+    position: relative;
+}
+
+.password-input input {
+    padding-right: 50px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-medium);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: var(--primary-black);
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    margin-top: 10px;
+    display: none;
+}
+
+.password-strength.visible {
+    display: block;
+}
+
+.strength-bar {
+    height: 4px;
+    background: var(--gray-light);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.strength-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s ease;
+    background: var(--gray-medium);
+}
+
+.password-strength.weak .strength-bar::before {
+    width: 33%;
+    background: var(--accent-red);
+}
+
+.password-strength.medium .strength-bar::before {
+    width: 66%;
+    background: var(--warning-yellow);
+}
+
+.password-strength.strong .strength-bar::before {
+    width: 100%;
+    background: var(--success-green);
+}
+
+.strength-text {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.password-strength.weak .strength-text {
+    color: var(--accent-red);
+}
+
+.password-strength.weak .strength-text::before {
+    content: 'Débil';
+}
+
+.password-strength.medium .strength-text {
+    color: var(--warning-yellow);
+}
+
+.password-strength.medium .strength-text::before {
+    content: 'Media';
+}
+
+.password-strength.strong .strength-text {
+    color: var(--success-green);
+}
+
+.password-strength.strong .strength-text::before {
+    content: 'Fuerte';
+}
+
+/* ============================================
+   PROFILE PHOTO - MINIMALISTA
+   ============================================ */
+.profile-photo {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    background: var(--off-white);
+    border: 1px solid var(--gray-border);
+    margin-bottom: 30px;
+}
+
+.profile-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 0;
+    object-fit: cover;
+    border: 2px solid var(--gray-border);
+    transition: var(--transition);
+}
+
+.profile-photo:hover img {
+    border-color: var(--primary-black);
+}
+
+.profile-photo-info h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-black);
+    margin-bottom: 15px;
+    letter-spacing: 0.3px;
+}
+
+/* ============================================
+   ADDRESSES & CARDS GRID - MINIMALISTA
+   ============================================ */
+.addresses-grid,
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.address-card,
+.card-item {
+    background: var(--off-white);
+    border: 1px solid var(--gray-border);
+    padding: 30px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.address-card:hover,
+.card-item:hover {
+    border-color: var(--primary-black);
+    box-shadow: var(--shadow-light);
+    transform: translateY(-3px);
+}
+
+.address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.address-label {
+    background: var(--primary-black);
+    color: var(--pure-white);
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--gray-medium);
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    color: var(--primary-black);
+    background: var(--gray-light);
+}
+
+.address-body p {
+    font-size: 14px;
+    color: var(--primary-black);
+    line-height: 1.8;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.address-body p strong {
+    font-weight: 600;
+}
+
+/* Card Item Styles */
+.card-item {
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--gray-light) 100%);
+}
+
+.card-brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-black);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.card-number {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--primary-black);
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.card-expiry {
+    font-size: 13px;
+    color: var(--gray-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* ============================================
+   TOGGLE LIST - NOTIFICACIONES
+   ============================================ */
+.toggle-list {
+    display: grid;
+    gap: 20px;
+}
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: var(--off-white);
+    border: 1px solid var(--gray-border);
+    transition: var(--transition);
+}
+
+.toggle-item:hover {
+    background: var(--pure-white);
+    border-color: var(--primary-black);
+    box-shadow: var(--shadow-light);
+}
+
+.toggle-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-black);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.toggle-info p {
+    font-size: 14px;
+    color: var(--gray-medium);
+    line-height: 1.6;
+}
+
+/* Toggle Switch - Minimalista */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--gray-light);
+    transition: var(--transition);
+    border: 2px solid var(--gray-border);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toggle input:checked + .slider {
+    background-color: var(--primary-black);
+    border-color: var(--primary-black);
+}
+
+.toggle input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.toggle input:focus + .slider {
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+/* ============================================
+   BUTTONS - MINIMALISTA
+   ============================================ */
+.btn-primary,
+.btn-secondary,
+.btn-add,
+.btn-upload {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--primary-black);
+    color: var(--pure-white);
+    padding: 16px 40px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--soft-black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--off-white);
+    color: var(--primary-black);
+    border: 2px solid var(--primary-black);
+    padding: 14px 30px;
+    font-size: 13px;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-black);
+    color: var(--pure-white);
+}
+
+.btn-add,
+.btn-upload {
+    background: var(--primary-black);
+    color: var(--pure-white);
+    padding: 14px 30px;
+    font-size: 13px;
+}
+
+.btn-add {
+    margin-bottom: 30px;
+}
+
+.btn-add:hover,
+.btn-upload:hover {
+    background: var(--soft-black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+/* ============================================
+   SECURITY OPTIONS - MINIMALISTA
+   ============================================ */
+.security-options {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid var(--gray-border);
+}
+
+.security-card {
+    display: flex;
+    gap: 25px;
+    padding: 35px;
+    background: var(--off-white);
+    border: 1px solid var(--gray-border);
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
+
+.security-card:hover {
+    border-color: var(--primary-black);
+    box-shadow: var(--shadow-light);
+}
+
+.security-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-black);
+    color: var(--pure-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.security-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-black);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+}
+
+.security-content p {
+    font-size: 14px;
+    color: var(--gray-medium);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   EMPTY STATES - MINIMALISTA
+   ============================================ */
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--off-white);
+    border: 1px dashed var(--gray-border);
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: var(--gray-medium);
+    opacity: 0.3;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: var(--gray-medium);
+    margin-bottom: 25px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .settings-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .settings-sidebar {
+        position: static;
+        top: auto;
+    }
+
+    .settings-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        border-bottom: 1px solid var(--gray-border);
+        border-left: none;
+    }
+
+    .settings-nav-link {
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px 25px;
+        text-align: center;
+    }
+
+    .settings-nav-link span {
+        font-size: 13px;
+    }
+
+    .settings-nav-link::before {
+        width: 100%;
+        height: 3px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        transform: scaleX(0);
+    }
+
+    .settings-nav-link:hover::before,
+    .settings-nav-link.active::before {
+        transform: scaleX(1);
+    }
+
+    .settings-content {
+        padding: 40px 30px;
+    }
+
+    .settings-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .settings-page {
+        padding: 100px 0 60px;
+    }
+
+    .settings-header {
+        margin-bottom: 40px;
+    }
+
+    .settings-header h1 {
+        font-size: 2rem;
+    }
+
+    .settings-header p {
+        font-size: 16px;
+    }
+
+    .settings-content {
+        padding: 30px 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .addresses-grid,
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .toggle-item {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .profile-photo {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .security-card {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .security-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-page {
+        padding: 90px 0 50px;
+    }
+
+    .settings-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .settings-content {
+        padding: 25px 15px;
+    }
+
+    .section-header {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-header p {
+        font-size: 14px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-add,
+    .btn-upload {
+        padding: 14px 25px;
+        font-size: 12px;
+    }
+
+    .profile-photo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .address-card,
+    .card-item,
+    .toggle-item {
+        padding: 25px 20px;
+    }
+
+    .settings-nav-link {
+        padding: 15px 20px;
+    }
+
+    .settings-nav-link span {
+        font-size: 12px;
+    }
+
+    .settings-nav-link i {
+        font-size: 16px;
+    }
+
+    .empty-state {
+        padding: 60px 20px;
+    }
+
+    .empty-state i {
+        font-size: 48px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-black);
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-black: #000000;
+        --pure-white: #ffffff;
+        --gray-border: #666666;
+    }
+    
+    .settings-sidebar,
+    .settings-content,
+    .address-card,
+    .card-item,
+    .toggle-item,
+    .security-card {
+        border-width: 2px;
+    }
+}
