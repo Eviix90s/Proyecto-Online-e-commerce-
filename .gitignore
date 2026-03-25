@@ -147,6 +147,12 @@ service-account.json
 # VS Code settings locales
 .vscode/
 
+# Videos (demasiado pesados para GitHub, max 50MB)
+images/*.mp4
+images/*.mov
+images/*.avi
+images/*.webm
+
 # Firebase Functions
 functions/node_modules/
 
