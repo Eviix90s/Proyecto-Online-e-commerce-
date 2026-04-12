@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accesorios - Urban Cats | Complementa tu Estilo Urbano</title>
-    <meta name="description" content="Descubre la colecciÃ³n de accesorios urbanos en Urban Cats. Gorras, mochilas, relojes y mÃ¡s con estilo japonÃ©s contemporÃ¡neo.">
+    <meta name="description"
+        content="Descubre la colección de accesorios urbanos en Urban Cats. Gorras, mochilas, relojes y más con estilo japonés contemporáneo.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/accessories.css">
     <link rel="stylesheet" href="css/chatbot-urban-cats.css">
@@ -13,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
+
 <body>
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
@@ -56,13 +59,13 @@
                     <span class="cart-count">0</span>
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="MenÃº mÃ³vil">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menú móvil">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobile-menu">
             <nav class="mobile-nav">
@@ -98,11 +101,11 @@
             <i class="fas fa-box"></i> Mis Pedidos
         </a>
         <a href="configuracion.html" class="dropdown-item">
-            <i class="fas fa-cog"></i> ConfiguraciÃ³n
+            <i class="fas fa-cog"></i> Configuración
         </a>
         <div class="dropdown-divider"></div>
         <a href="#" id="logoutBtn" class="dropdown-item logout">
-            <i class="fas fa-sign-out-alt"></i> Cerrar SesiÃ³n
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
         </a>
     </div>
 
@@ -111,15 +114,15 @@
         <div class="hero-background">
             <div class="hero-pattern"></div>
         </div>
-        
+
         <div class="hero-content">
-            <div class="hero-badge">ColecciÃ³n Accesorios 2025</div>
+            <div class="hero-badge">Colección Accesorios 2026</div>
             <h1>
                 <span class="hero-title-line">Complementa</span>
                 <span class="hero-title-line hero-title-accent">Tu Estilo</span>
                 <span class="hero-title-line">Urbano</span>
             </h1>
-            <p>Descubre accesorios Ãºnicos que definen tu personalidad con el toque minimalista japonÃ©s</p>
+            <p>Descubre accesorios únicos que definen tu personalidad con el toque minimalista japonés</p>
             <div class="hero-stats">
                 <div class="stat-item">
                     <span class="stat-number">40+</span>
@@ -127,7 +130,7 @@
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">6</span>
-                    <span class="stat-label">CategorÃ­as</span>
+                    <span class="stat-label">Categorías</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">New</span>
@@ -135,9 +138,9 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="hero-image">
-            <img src="images/backpack_1.jpg" alt="Accesorios Urbanos" loading="eager">
+            <img src="images/fondo_accesories_1.jpg" alt="Accesorios Urbanos" loading="eager">
         </div>
     </section>
 
@@ -163,7 +166,7 @@
                 </button>
                 <button class="category-tab" data-category="jewelry">
                     <i class="fas fa-gem"></i>
-                    <span>JoyerÃ­a</span>
+                    <span>Joyería</span>
                 </button>
                 <button class="category-tab" data-category="shoes">
                     <i class="fas fa-shoe-prints"></i>
@@ -182,15 +185,15 @@
         <div class="container">
             <div class="filters-header">
                 <div class="results-info">
-                    <span class="results-count">Mostrando <strong id="products-count">40</strong> productos</span>
+                    <span class="results-count">Mostrando <strong id="products-count">0</strong> productos</span>
                 </div>
-                
+
                 <div class="filters-controls">
                     <button class="filter-toggle-btn" id="filterToggle">
                         <i class="fas fa-sliders-h"></i>
                         <span>Filtros</span>
                     </button>
-                    
+
                     <div class="sort-dropdown">
                         <button class="sort-btn" id="sortBtn">
                             <i class="fas fa-sort"></i>
@@ -200,11 +203,11 @@
                             <button class="sort-option active" data-sort="default">Destacados</button>
                             <button class="sort-option" data-sort="price-low">Precio: Menor a Mayor</button>
                             <button class="sort-option" data-sort="price-high">Precio: Mayor a Menor</button>
-                            <button class="sort-option" data-sort="newest">MÃ¡s Recientes</button>
+                            <button class="sort-option" data-sort="newest">Más Recientes</button>
                             <button class="sort-option" data-sort="name">Nombre A-Z</button>
                         </div>
                     </div>
-                    
+
                     <div class="view-toggle">
                         <button class="view-btn active" data-view="grid">
                             <i class="fas fa-th"></i>
@@ -215,7 +218,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Filter Panel -->
             <div class="filter-panel" id="filterPanel">
                 <div class="filter-group">
@@ -228,30 +231,35 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="filter-group">
                     <h4 class="filter-title">Material</h4>
                     <div class="filter-options">
                         <button class="filter-option" data-material="cuero">Cuero</button>
                         <button class="filter-option" data-material="textil">Textil</button>
-                        <button class="filter-option" data-material="sintetico">SintÃ©tico</button>
+                        <button class="filter-option" data-material="sintetico">Sintético</button>
                         <button class="filter-option" data-material="metal">Metal</button>
                     </div>
                 </div>
-                
+
                 <div class="filter-group">
                     <h4 class="filter-title">Color</h4>
                     <div class="color-filters">
-                        <button class="color-filter" data-color="negro" style="background: #000000;" title="Negro"></button>
-                        <button class="color-filter" data-color="blanco" style="background: #FFFFFF; border: 1px solid #ddd;" title="Blanco"></button>
-                        <button class="color-filter" data-color="gris" style="background: #808080;" title="Gris"></button>
-                        <button class="color-filter" data-color="marron" style="background: #8B4513;" title="MarrÃ³n"></button>
-                        <button class="color-filter" data-color="azul" style="background: #2563EB;" title="Azul"></button>
+                        <button class="color-filter" data-color="Negro" style="background: #000000;"
+                            title="Negro"></button>
+                        <button class="color-filter" data-color="Blanco"
+                            style="background: #FFFFFF; border: 1px solid #ddd;" title="Blanco"></button>
+                        <button class="color-filter" data-color="Gris" style="background: #808080;"
+                            title="Gris"></button>
+                        <button class="color-filter" data-color="Marrón" style="background: #8B4513;"
+                            title="Marrón"></button>
+                        <button class="color-filter" data-color="Azul" style="background: #2563EB;"
+                            title="Azul"></button>
                     </div>
                 </div>
-                
+
                 <div class="filter-group">
-                    <h4 class="filter-title">CaracterÃ­sticas</h4>
+                    <h4 class="filter-title">Características</h4>
                     <label class="checkbox-label">
                         <input type="checkbox" value="nuevo" data-filter="nuevo">
                         <span>Nuevo</span>
@@ -265,7 +273,7 @@
                         <span>En Stock</span>
                     </label>
                 </div>
-                
+
                 <button class="clear-filters-btn" id="clearFilters">
                     <i class="fas fa-redo"></i>
                     Limpiar Filtros
@@ -278,21 +286,11 @@
     <section class="accessories-products-section">
         <div class="container">
             <div class="products-grid" id="productsGrid">
-                <!-- Los productos se generarÃ¡n dinÃ¡micamente aquÃ­ -->
+                <!-- Los productos se generan dinámicamente -->
             </div>
-            
+
             <!-- Pagination -->
-            <div class="pagination" id="pagination">
-                <button class="pagination-btn" data-page="prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="pagination-btn active" data-page="1">1</button>
-                <button class="pagination-btn" data-page="2">2</button>
-                <button class="pagination-btn" data-page="3">3</button>
-                <button class="pagination-btn" data-page="next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
+            <div class="pagination" id="pagination"></div>
         </div>
     </section>
 
@@ -301,74 +299,16 @@
         <div class="container">
             <div class="banner-content">
                 <div class="banner-text">
-                    <h2>Nueva ColecciÃ³n Street Accessories</h2>
-                    <p>Encuentra los accesorios perfectos para completar tu look urbano con estilo japonÃ©s</p>
-                    <button class="banner-btn">
-                        <span>Ver ColecciÃ³n</span>
+                    <h2>Nueva Colección Street Accessories</h2>
+                    <p>Encuentra los accesorios perfectos para completar tu look urbano con estilo japonés</p>
+                    <a href="lookbook.html" class="banner-btn">
+                        <span>Ver Lookbook</span>
                         <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                 </div>
                 <div class="banner-image">
-                    <img src="images/snackers_1.jpg" alt="Nueva ColecciÃ³n" loading="lazy">
+                    <img src="images/snackers_1.jpg" alt="Nueva Colección" loading="lazy">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Style Guide -->
-    <section class="style-guide-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>CÃ³mo Combinar</h2>
-                <p>InspÃ­rate con nuestras sugerencias de estilo</p>
-            </div>
-            
-            <div class="style-grid">
-                <div class="style-card">
-                    <img src="images/look_1.jpg" alt="Street Look" loading="lazy">
-                    <div class="style-info">
-                        <h3>Street Essential</h3>
-                        <p>BÃ¡sicos urbanos que nunca fallan</p>
-                    </div>
-                </div>
-                
-                <div class="style-card">
-                    <img src="images/look_7.jpg" alt="Urban Chic" loading="lazy">
-                    <div class="style-info">
-                        <h3>Urban Chic</h3>
-                        <p>Elegancia en cada detalle</p>
-                    </div>
-                </div>
-                
-                <div class="style-card">
-                    <img src="images/look_10.jpg" alt="Minimal Style" loading="lazy">
-                    <div class="style-info">
-                        <h3>Minimal Vibe</h3>
-                        <p>Menos es mÃ¡s con estilo</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h2>SuscrÃ­bete y Recibe Ofertas Exclusivas</h2>
-                <p>SÃ© el primero en conocer nuevos lanzamientos y promociones especiales</p>
-                <form class="newsletter-form" id="newsletter-form">
-                    <div class="input-group">
-                        <input type="email" placeholder="Tu direcciÃ³n de email" required>
-                        <button type="submit">
-                            <span>Suscribirse</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </section>
@@ -382,31 +322,32 @@
                         <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
                         <h3>Urban Cats</h3>
                     </div>
-                    <p>Moda urbana que define tu personalidad. Ãšnete a nuestra comunidad y descubre tu estilo Ãºnico con la elegancia del minimalismo japonÃ©s contemporÃ¡neo.</p>
+                    <p>Moda urbana que define tu personalidad. Únete a nuestra comunidad y descubre tu estilo único con
+                        la elegancia del minimalismo japonés contemporáneo.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="SÃ­guenos en Instagram" class="social-link instagram">
+                        <a href="#" aria-label="Síguenos en Instagram" class="social-link instagram">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
-                        <a href="#" aria-label="SÃ­guenos en TikTok" class="social-link tiktok">
+                        <a href="#" aria-label="Síguenos en TikTok" class="social-link tiktok">
                             <i class="fab fa-tiktok"></i>
                             <span>TikTok</span>
                         </a>
-                        <a href="#" aria-label="SÃ­guenos en Facebook" class="social-link facebook">
+                        <a href="#" aria-label="Síguenos en Facebook" class="social-link facebook">
                             <i class="fab fa-facebook"></i>
                             <span>Facebook</span>
                         </a>
-                        <a href="#" aria-label="SÃ­guenos en Twitter" class="social-link twitter">
+                        <a href="#" aria-label="Síguenos en Twitter" class="social-link twitter">
                             <i class="fab fa-twitter"></i>
                             <span>Twitter</span>
                         </a>
-                        <a href="#" aria-label="SuscrÃ­bete a nuestro canal de YouTube" class="social-link youtube">
+                        <a href="#" aria-label="Suscríbete a nuestro canal de YouTube" class="social-link youtube">
                             <i class="fab fa-youtube"></i>
                             <span>YouTube</span>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Tienda</h4>
                     <ul>
@@ -418,32 +359,32 @@
                         <li><a href="index.html#productos">Temporada</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Empresa</h4>
                     <ul>
                         <li><a href="about.html">Nuestra Historia</a></li>
-                        <li><a href="about.html#mision">MisiÃ³n y VisiÃ³n</a></li>
+                        <li><a href="about.html#mision">Misión y Visión</a></li>
                         <li><a href="about.html#valores">Valores</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                         <li><a href="#trabajo">Trabaja con Nosotros</a></li>
                         <li><a href="#prensa">Prensa</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Ayuda</h4>
                     <ul>
-                        <li><a href="#envios">EnvÃ­os y Entrega</a></li>
+                        <li><a href="#envios">Envíos y Entrega</a></li>
                         <li><a href="#devoluciones">Devoluciones y Cambios</a></li>
-                        <li><a href="#guia-tallas">GuÃ­a de Tallas</a></li>
+                        <li><a href="#guia-tallas">Guía de Tallas</a></li>
                         <li><a href="#cuidado">Cuidado de Prendas</a></li>
                         <li><a href="#faq">Preguntas Frecuentes</a></li>
                         <li><a href="#soporte">Soporte al Cliente</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="copyright">
@@ -456,13 +397,13 @@
                         </div>
                         <div class="footer-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>MÃ©xico City, MX</span>
+                            <span>México City, MX</span>
                         </div>
                     </div>
                     <div class="footer-links">
-                        <a href="#privacidad">PolÃ­tica de Privacidad</a>
-                        <a href="#terminos">TÃ©rminos y Condiciones</a>
-                        <a href="#cookies">PolÃ­tica de Cookies</a>
+                        <a href="#privacidad">Política de Privacidad</a>
+                        <a href="#terminos">Términos y Condiciones</a>
+                        <a href="#cookies">Política de Cookies</a>
                     </div>
                 </div>
             </div>
@@ -480,29 +421,47 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
+
         <div class="cart-items" id="cart-items">
             <div class="empty-cart">
                 <div class="empty-cart-icon">
                     <i class="fas fa-shopping-bag"></i>
                 </div>
-                <h4>Tu carrito estÃ¡ vacÃ­o</h4>
-                <p>Agrega algunos productos increÃ­bles a tu carrito</p>
+                <h4>Tu carrito está vacío</h4>
+                <p>Agrega algunos productos increíbles a tu carrito</p>
                 <button class="continue-shopping">
                     <span>Seguir Comprando</span>
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
         </div>
-        
+
         <div class="cart-footer">
+            <!-- Cupón -->
+            <div class="cart-coupon-section">
+                <div id="cart-coupon-form" class="cart-coupon-form">
+                    <input type="text" id="cart-coupon-input" placeholder="Código de cupón" autocomplete="off">
+                    <button id="cart-coupon-apply" class="cart-coupon-apply-btn">Aplicar</button>
+                </div>
+                <div id="cart-coupon-applied" class="cart-coupon-applied" style="display:none">
+                    <span><i class="fas fa-tag"></i> Cupón: <strong id="cart-coupon-badge"></strong></span>
+                    <button id="cart-coupon-remove" class="cart-coupon-remove-btn" title="Quitar cupón">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Resumen -->
             <div class="cart-summary">
                 <div class="cart-subtotal">
                     <span>Subtotal:</span>
                     <span>$<span id="cart-subtotal">0</span></span>
                 </div>
+                <div id="cart-discount-row" class="cart-discount" style="display:none">
+                    <span>Descuento:</span>
+                    <span class="cart-discount-value">-$<span id="cart-discount-amount">0</span></span>
+                </div>
                 <div class="cart-shipping">
-                    <span>EnvÃ­o:</span>
+                    <span>Envío:</span>
                     <span class="free-shipping">Gratis</span>
                 </div>
                 <div class="cart-total">
@@ -523,9 +482,10 @@
         </div>
     </div>
 
-    <!-- BotÃ³n flotante del chat -->
+    <!-- Botón flotante del chat -->
     <div id="chat-button" class="chat-button" aria-label="Abrir chat">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
         <span class="chat-notification-badge">1</span>
@@ -533,37 +493,35 @@
 
     <!-- Ventana del chat -->
     <div id="chat-window" class="chat-window">
-        <!-- Header -->
         <div class="chat-header">
             <div class="chat-header-info">
-                <div class="chat-avatar">ðŸ±</div>
+                <div class="chat-avatar">🐱</div>
                 <div class="chat-header-text">
                     <h3>Urban Cats</h3>
-                    <div class="chat-status">En lÃ­nea</div>
+                    <div class="chat-status">En línea</div>
                 </div>
             </div>
             <button id="chat-close-button" class="chat-close-button" aria-label="Cerrar chat">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
         </div>
 
-        <!-- Mensajes -->
         <div id="chat-messages" class="chat-messages">
             <div class="chat-message bot-message">
-                <div class="chat-message-avatar">ðŸ±</div>
+                <div class="chat-message-avatar">🐱</div>
                 <div class="chat-message-content">
                     <div class="chat-message-bubble">
-                        Â¡Hola! ðŸ‘‹ Soy tu asistente virtual de Urban Cats. Â¿En quÃ© puedo ayudarte hoy?
+                        ¡Hola! 👋 Soy tu asistente virtual de Urban Cats. ¿En qué puedo ayudarte hoy?
                     </div>
                     <div class="chat-message-time">Ahora</div>
                 </div>
             </div>
         </div>
 
-        <!-- Indicador de escritura -->
         <div id="chat-typing-indicator" class="chat-typing-indicator">
             <span>Escribiendo</span>
             <div class="typing-dot"></div>
@@ -571,19 +529,13 @@
             <div class="typing-dot"></div>
         </div>
 
-        <!-- Input -->
         <div class="chat-input-container">
             <div class="chat-input-wrapper">
-                <input 
-                    type="text" 
-                    id="chat-input" 
-                    class="chat-input" 
-                    placeholder="Escribe tu mensaje..."
-                    autocomplete="off"
-                    aria-label="Mensaje"
-                >
+                <input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu mensaje..."
+                    autocomplete="off" aria-label="Mensaje">
                 <button id="chat-send-button" class="chat-send-button" aria-label="Enviar mensaje">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                     </svg>
@@ -591,12 +543,11 @@
             </div>
         </div>
 
-        <!-- Respuestas rÃ¡pidas -->
         <div class="chat-quick-replies">
-            <button class="chat-quick-reply" data-message="Horarios">ðŸ• Horarios</button>
-            <button class="chat-quick-reply" data-message="UbicaciÃ³n">ðŸ“ UbicaciÃ³n</button>
-            <button class="chat-quick-reply" data-message="Servicios">ðŸ›ï¸ Servicios</button>
-            <button class="chat-quick-reply" data-message="Contacto">ðŸ’¬ Contacto</button>
+            <button class="chat-quick-reply" data-message="Horarios">🕐 Horarios</button>
+            <button class="chat-quick-reply" data-message="Ubicación">📍 Ubicación</button>
+            <button class="chat-quick-reply" data-message="Servicios">🛍️ Servicios</button>
+            <button class="chat-quick-reply" data-message="Contacto">💬 Contacto</button>
         </div>
     </div>
 
@@ -612,10 +563,11 @@
     <div id="toast-container" class="toast-container"></div>
 
     <!-- Scripts -->
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/auth-state.js"></script>
     <script src="js/chatbot-urban-cats.js"></script>
     <script src="js/accessories.js"></script>
 </body>
-</html>
 
+</html>

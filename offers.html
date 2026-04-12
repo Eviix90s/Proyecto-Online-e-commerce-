@@ -1,18 +1,29 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ofertas Especiales - Urban Cats | Descuentos Exclusivos</title>
-    <meta name="description" content="Aprovecha las mejores ofertas en moda urbana. Gira la ruleta y obtÃ©n descuentos de hasta 75% en Urban Cats.">
+    <meta name="description" content="Aprovecha las mejores ofertas en moda urbana. Obtén descuentos de hasta 38% en Urban Cats.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/offers.css">
+    <link rel="stylesheet" href="css/chatbot-urban-cats.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">
+            <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="loading-logo-img">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
@@ -45,13 +56,13 @@
                     <span class="cart-count">0</span>
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="MenÃº mÃ³vil">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menú móvil">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobile-menu">
             <nav class="mobile-nav">
@@ -75,142 +86,105 @@
             </div>
         </div>
     </header>
-<div id="userDropdown" class="user-dropdown">
+
+    <div id="userDropdown" class="user-dropdown">
         <div class="user-info">
-          <i class="fas fa-user-circle"></i>
-          <span id="userNameNav">Usuario</span>
-    </div>
-     <div class="dropdown-divider"></div>
-     <a href="pedidos.html" class="dropdown-item">
-       <i class="fas fa-box"></i> Mis Pedidos
-    </a>
-    <a href="configuracion.html" class="dropdown-item">
-        <i class="fas fa-cog"></i> ConfiguraciÃ³n
-    </a>
-    <div class="dropdown-divider"></div>
-    <a href="#" id="logoutBtn" class="dropdown-item logout">
-       <i class="fas fa-sign-out-alt"></i> Cerrar SesiÃ³n
-    </a>
-  </div>
-
-    <!-- Gift Box Modal (reemplaza Wheel Modal) -->
-<div id="giftModal" class="gift-modal active">
-    <div class="gift-modal-content">
-        <button class="gift-close-btn" id="closeGiftModal">
-            <i class="fas fa-times"></i>
-        </button>
-        
-        <div class="gift-header">
-            <h2>Regalo Exclusivo</h2>
-            <p>Abre tu regalo y descubre tu descuento especial</p>
+            <i class="fas fa-user-circle"></i>
+            <span id="userNameNav">Usuario</span>
         </div>
+        <div class="dropdown-divider"></div>
+        <a href="pedidos.html" class="dropdown-item">
+            <i class="fas fa-box"></i> Mis Pedidos
+        </a>
+        <a href="configuracion.html" class="dropdown-item">
+            <i class="fas fa-cog"></i> Configuración
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="#" id="logoutBtn" class="dropdown-item logout">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </a>
+    </div>
 
-        <!-- Gift Box Animation -->
-        <div class="gift-box-container" id="giftBoxContainer">
-            <div class="gift-box" id="giftBox">
-                <div class="box-lid">
-                    <div class="lid-top"></div>
-                    <div class="ribbon ribbon-horizontal"></div>
-                    <div class="ribbon ribbon-vertical"></div>
-                    <div class="bow">
-                        <div class="bow-left"></div>
-                        <div class="bow-right"></div>
-                        <div class="bow-center"></div>
-                    </div>
-                </div>
-                <div class="box-body"></div>
-            </div>
-            <button class="open-gift-btn" id="openGiftBtn">
-                <span>Abrir Regalo</span>
-                <i class="fas fa-gift"></i>
+    <!-- Gift Box Modal -->
+    <div id="giftModal" class="gift-modal">
+        <div class="gift-modal-content">
+            <button class="gift-close-btn" id="closeGiftModal">
+                <i class="fas fa-times"></i>
             </button>
-        </div>
 
-        <!-- Tickets Container (hidden initially) -->
-        <div class="tickets-container" id="ticketsContainer" style="display: none;">
-            <h3>Elige Tu Descuento</h3>
-            <div class="tickets-grid">
-                <div class="ticket-card" data-discount="25">
-                    <div class="ticket-header">
-                        <span class="ticket-icon">ðŸŽ«</span>
+            <div class="gift-header">
+                <h2>Regalo Exclusivo</h2>
+                <p>Abre tu regalo y descubre tu descuento especial</p>
+            </div>
+
+            <!-- Gift Box Animation -->
+            <div class="gift-box-container" id="giftBoxContainer">
+                <div class="gift-box" id="giftBox">
+                    <img src="images/gif_regalo_1.jpg" alt="Regalo Exclusivo" class="gift-box-img">
+                </div>
+                <button class="open-gift-btn" id="openGiftBtn">
+                    <span>Abrir Regalo</span>
+                    <i class="fas fa-gift"></i>
+                </button>
+            </div>
+
+            <!-- Tickets Container (hidden initially) -->
+            <div class="tickets-container" id="ticketsContainer" style="display: none;">
+                <h3>Tu Descuento Especial</h3>
+                <div class="tickets-grid" style="grid-template-columns: 1fr; max-width: 280px; margin: 0 auto 30px;">
+                    <div class="ticket-card featured" data-discount="75">
+                        <div class="featured-badge">Exclusivo</div>
+                        <div class="ticket-header">
+                            <span class="ticket-icon">🎫</span>
+                        </div>
+                        <div class="ticket-body">
+                            <div class="discount-value">75%</div>
+                            <div class="discount-label">Descuento en Envío</div>
+                        </div>
+                        <button class="claim-ticket-btn">
+                            <span>Obtener</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
-                    <div class="ticket-body">
-                        <div class="discount-value">25%</div>
-                        <div class="discount-label">Descuento</div>
-                    </div>
-                    <button class="claim-ticket-btn">
-                        <span>Obtener</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
                 </div>
 
-                <div class="ticket-card" data-discount="50">
-                    <div class="ticket-header">
-                        <span class="ticket-icon">ðŸŽ«</span>
-                    </div>
-                    <div class="ticket-body">
-                        <div class="discount-value">50%</div>
-                        <div class="discount-label">Descuento</div>
-                    </div>
-                    <button class="claim-ticket-btn">
-                        <span>Obtener</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="ticket-card featured" data-discount="75">
-                    <div class="featured-badge">Mejor Oferta</div>
-                    <div class="ticket-header">
-                        <span class="ticket-icon">ðŸŽ«</span>
-                    </div>
-                    <div class="ticket-body">
-                        <div class="discount-value">75%</div>
-                        <div class="discount-label">Descuento</div>
-                    </div>
-                    <button class="claim-ticket-btn">
-                        <span>Obtener</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
+                <div class="tickets-footer">
+                    <p><i class="fas fa-clock"></i> Expira en <strong><span id="ticketExpiry">24:00:00</span></strong></p>
                 </div>
             </div>
 
-            <div class="tickets-footer">
-                <p><i class="fas fa-clock"></i> Tus boletos expiran en <strong><span id="ticketExpiry">24:00:00</span></strong></p>
+            <div class="gift-footer">
+                <p>Solo para nuevos visitantes &bull; Válido por 7 días</p>
             </div>
-        </div>
-
-        <div class="gift-footer">
-            <p>Una oportunidad por dÃ­a â€¢ VÃ¡lido por 7 dÃ­as</p>
         </div>
     </div>
-</div>
 
     <!-- Coupon Display -->
     <div id="couponBanner" class="coupon-banner">
         <div class="container">
             <div class="coupon-content">
                 <i class="fas fa-gift"></i>
-                <span>Tu cupÃ³n: <strong id="couponCode">-</strong> (<span id="couponDiscount">0</span>% OFF)</span>
+                <span>Tu cupón: <strong id="couponCode">-</strong> (<span id="couponDiscount">0</span>% OFF)</span>
                 <button class="copy-coupon-btn" id="copyCouponBtn">
                     <i class="fas fa-copy"></i>
                     Copiar
                 </button>
             </div>
         </div>
+        <button class="coupon-close-btn" id="closeCouponBanner" aria-label="Cerrar">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
 
     <!-- Hero Section -->
     <section class="offers-hero">
-         <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline>
             <source src="images/offers.mp4" type="video/mp4">
         </video>
-
         <div class="hero-video-overlay"></div>
-
         <div class="hero-background">
-             <div class="hero-pattern"></div>
+            <div class="hero-pattern"></div>
         </div>
-        
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-fire"></i>
@@ -220,15 +194,15 @@
                 <span class="hero-title-line">Ofertas</span>
                 <span class="hero-title-line hero-title-accent">Imperdibles</span>
             </h1>
-            <p>Descuentos exclusivos en las mejores prendas de moda urbana. Â¡No dejes pasar esta oportunidad!</p>
-            
+            <p>¡Descuentos exclusivos en las mejores prendas de moda urbana. No dejes pasar esta oportunidad!</p>
+
             <!-- Countdown Timer -->
             <div class="countdown-timer">
                 <div class="timer-label">Oferta termina en:</div>
                 <div class="timer-display">
                     <div class="timer-unit">
                         <span class="timer-value" id="days">00</span>
-                        <span class="timer-label-small">DÃ­as</span>
+                        <span class="timer-label-small">Días</span>
                     </div>
                     <span class="timer-separator">:</span>
                     <div class="timer-unit">
@@ -258,69 +232,29 @@
                     <i class="fas fa-th"></i>
                     <span>Todas las Ofertas</span>
                 </button>
-                <button class="discount-filter" data-discount="75">
+                <button class="discount-filter" data-discount="27">
                     <i class="fas fa-bolt"></i>
-                    <span>Hasta 75% OFF</span>
-                </button>
-                <button class="discount-filter" data-discount="50">
-                    <i class="fas fa-fire"></i>
-                    <span>Hasta 50% OFF</span>
+                    <span>Mayor descuento</span>
                 </button>
                 <button class="discount-filter" data-discount="25">
+                    <i class="fas fa-fire"></i>
+                    <span>25%+ OFF</span>
+                </button>
+                <button class="discount-filter" data-discount="20">
                     <i class="fas fa-tag"></i>
-                    <span>Hasta 25% OFF</span>
+                    <span>20%+ OFF</span>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Flash Deals -->
-    <section class="flash-deals-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>âš¡ Flash Deals</h2>
-                <p>Ofertas relÃ¡mpago por tiempo limitado</p>
-            </div>
-            
-            <div class="flash-deals-grid" id="flashDealsGrid">
-                <!-- Los productos se generarÃ¡n dinÃ¡micamente -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Grid -->
+    <!-- Products Section -->
     <section class="offers-products-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Todas las Ofertas</h2>
-                <p>Los mejores precios en moda urbana</p>
-            </div>
-            
             <div class="products-grid" id="offersProductsGrid">
-                <!-- Los productos se generarÃ¡n dinÃ¡micamente -->
+                <!-- Generado dinámicamente -->
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h2>No Te Pierdas Nuestras Ofertas</h2>
-                <p>SuscrÃ­bete y recibe ofertas exclusivas directamente en tu email</p>
-                <form class="newsletter-form" id="newsletter-form">
-                    <div class="input-group">
-                        <input type="email" placeholder="Tu direcciÃ³n de email" required>
-                        <button type="submit">
-                            <span>Suscribirse</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <div class="pagination" id="offersPagination"></div>
         </div>
     </section>
 
@@ -333,23 +267,31 @@
                         <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
                         <h3>Urban Cats</h3>
                     </div>
-                    <p>Moda urbana que define tu personalidad. Ãšnete a nuestra comunidad y descubre tu estilo Ãºnico.</p>
+                    <p>Moda urbana que define tu personalidad. Únete a nuestra comunidad y descubre tu estilo único con la elegancia del minimalismo japonés contemporáneo.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Instagram" class="social-link">
+                        <a href="#" aria-label="Síguenos en Instagram" class="social-link instagram">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
-                        <a href="#" aria-label="TikTok" class="social-link">
+                        <a href="#" aria-label="Síguenos en TikTok" class="social-link tiktok">
                             <i class="fab fa-tiktok"></i>
                             <span>TikTok</span>
                         </a>
-                        <a href="#" aria-label="Facebook" class="social-link">
+                        <a href="#" aria-label="Síguenos en Facebook" class="social-link facebook">
                             <i class="fab fa-facebook"></i>
                             <span>Facebook</span>
                         </a>
+                        <a href="#" aria-label="Síguenos en Twitter" class="social-link twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" aria-label="Suscríbete a nuestro canal de YouTube" class="social-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Tienda</h4>
                     <ul>
@@ -357,26 +299,55 @@
                         <li><a href="men.html">Hombre</a></li>
                         <li><a href="accessories.html">Accesorios</a></li>
                         <li><a href="offers.html">Ofertas</a></li>
+                        <li><a href="lookbook.html">Lookbook</a></li>
+                        <li><a href="index.html#productos">Temporada</a></li>
                     </ul>
                 </div>
-                
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Nuestra Historia</a></li>
+                        <li><a href="about.html#mision">Misión y Visión</a></li>
+                        <li><a href="about.html#valores">Valores</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#trabajo">Trabaja con Nosotros</a></li>
+                        <li><a href="#prensa">Prensa</a></li>
+                    </ul>
+                </div>
+
                 <div class="footer-section">
                     <h4>Ayuda</h4>
                     <ul>
-                        <li><a href="#guia-tallas">GuÃ­a de Tallas</a></li>
-                        <li><a href="#envios">EnvÃ­os</a></li>
-                        <li><a href="#devoluciones">Devoluciones</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#envios">Envíos y Entrega</a></li>
+                        <li><a href="#devoluciones">Devoluciones y Cambios</a></li>
+                        <li><a href="#guia-tallas">Guía de Tallas</a></li>
+                        <li><a href="#cuidado">Cuidado de Prendas</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#soporte">Soporte al Cliente</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
+                    <div class="copyright">
+                        <p>&copy; 2026 Urban Cats. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="footer-center">
+                        <div class="visit-counter">
+                            <i class="fas fa-eye"></i>
+                            <span>Visitas: <span id="visit-count">1,234</span></span>
+                        </div>
+                        <div class="footer-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>México City, MX</span>
+                        </div>
+                    </div>
                     <div class="footer-links">
-                        <a href="#privacidad">Privacidad</a>
-                        <a href="#terminos">TÃ©rminos</a>
+                        <a href="#privacidad">Política de Privacidad</a>
+                        <a href="#terminos">Términos y Condiciones</a>
+                        <a href="#cookies">Política de Cookies</a>
                     </div>
                 </div>
             </div>
@@ -394,19 +365,45 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
+
         <div class="cart-items" id="cart-items">
             <div class="empty-cart">
                 <div class="empty-cart-icon">
                     <i class="fas fa-shopping-bag"></i>
                 </div>
-                <h4>Tu carrito estÃ¡ vacÃ­o</h4>
-                <p>Agrega algunos productos increÃ­bles a tu carrito</p>
+                <h4>Tu carrito está vacío</h4>
+                <p>Agrega algunos productos increíbles a tu carrito</p>
             </div>
         </div>
-        
+
         <div class="cart-footer">
+            <!-- Cupón -->
+            <div class="cart-coupon-section">
+                <div id="cart-coupon-form" class="cart-coupon-form">
+                    <input type="text" id="cart-coupon-input" placeholder="Código de cupón" autocomplete="off">
+                    <button id="cart-coupon-apply" class="cart-coupon-apply-btn">Aplicar</button>
+                </div>
+                <div id="cart-coupon-applied" class="cart-coupon-applied" style="display:none">
+                    <span><i class="fas fa-tag"></i> Cupón: <strong id="cart-coupon-badge"></strong></span>
+                    <button id="cart-coupon-remove" class="cart-coupon-remove-btn" title="Quitar cupón">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Resumen -->
             <div class="cart-summary">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span>$<span id="cart-subtotal">0</span></span>
+                </div>
+                <div id="cart-discount-row" class="cart-discount" style="display:none">
+                    <span>Descuento:</span>
+                    <span class="cart-discount-value">-$<span id="cart-discount-amount">0</span></span>
+                </div>
+                <div class="cart-shipping">
+                    <span>Envío:</span>
+                    <span class="free-shipping">Gratis</span>
+                </div>
                 <div class="cart-total">
                     <span>Total:</span>
                     <span>$<span id="cart-total">0</span></span>
@@ -430,8 +427,76 @@
     <!-- Toast Container -->
     <div id="toast-container" class="toast-container"></div>
 
+    <!-- Botón flotante del chat -->
+    <div id="chat-button" class="chat-button" aria-label="Abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="chat-notification-badge">1</span>
+    </div>
+
+    <!-- Ventana del chat -->
+    <div id="chat-window" class="chat-window">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">🐱</div>
+                <div class="chat-header-text">
+                    <h3>Urban Cats</h3>
+                    <div class="chat-status">En línea</div>
+                </div>
+            </div>
+            <button id="chat-close-button" class="chat-close-button" aria-label="Cerrar chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="chat-message bot-message">
+                <div class="chat-message-avatar">🐱</div>
+                <div class="chat-message-content">
+                    <div class="chat-message-bubble">
+                        ¡Hola! 👋 Soy tu asistente virtual de Urban Cats. ¿En qué puedo ayudarte hoy?
+                    </div>
+                    <div class="chat-message-time">Ahora</div>
+                </div>
+            </div>
+        </div>
+        <div id="chat-typing-indicator" class="chat-typing-indicator">
+            <span>Escribiendo</span>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu mensaje..."
+                    autocomplete="off" aria-label="Mensaje">
+                <button id="chat-send-button" class="chat-send-button" aria-label="Enviar mensaje">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="chat-quick-replies">
+            <button class="chat-quick-reply" data-message="Horarios">🕐 Horarios</button>
+            <button class="chat-quick-reply" data-message="Ubicación">📍 Ubicación</button>
+            <button class="chat-quick-reply" data-message="Servicios">🛍️ Servicios</button>
+            <button class="chat-quick-reply" data-message="Contacto">💬 Contacto</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/offers.js"></script>
+    <script type="module" src="js/auth-state.js"></script>
+    <script src="js/chatbot-urban-cats.js"></script>
 </body>
 </html>
-

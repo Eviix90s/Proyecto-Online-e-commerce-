@@ -5,11 +5,11 @@
 // Storage Helper
 const CheckoutStorage = {
     keys: {
-        cart: 'urbanCats_cart',
-        orders: 'urbanCats_orders',
-        user: 'urbanCats_user',
-        addresses: 'urbanCats_addresses',
-        coupon: 'urbanCats_activeCoupon'
+        cart: 'urbanCatsCart',
+        orders: 'urbanCatsOrders',
+        user: 'urbanCatsUser',
+        addresses: 'urbanCatsAddresses',
+        coupon: 'urbanCatsCoupon'
     },
 
     getCart() {

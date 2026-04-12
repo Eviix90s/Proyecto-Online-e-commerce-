@@ -155,11 +155,6 @@ class OrdersApp {
     }
 
     async init() {
-        // Si no hay pedidos, crear algunos de ejemplo
-        if (this.orders.length === 0) {
-            this.createSampleOrders();
-        }
-
         this.setupEventListeners();
         this.updateStats();
         this.renderOrders();
@@ -521,7 +516,8 @@ class OrdersApp {
 
         // Redirect after a delay
         setTimeout(() => {
-            window.location.href = 'index.html';
+            if (typeof cartSystem !== 'undefined') cartSystem.goBack();
+            else window.location.href = 'index.html';
         }, 2000);
     }
 
@@ -548,134 +544,6 @@ class OrdersApp {
         `;
     }
 
-    createSampleOrders() {
-        const sampleOrders = [
-            {
-                orderNumber: '#UC-000123',
-                date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
-                status: 'delivered',
-                items: [
-                    {
-                        id: 1,
-                        name: 'Sudadera Urban Cats',
-                        price: 899,
-                        image: 'images/sudadera_1.jpg',
-                        quantity: 1,
-                        size: 'M',
-                        subtotal: 899
-                    }
-                ],
-                shipping: {
-                    name: 'Ale IT',
-                    address: 'Calle Principal 123, Col. Centro',
-                    city: 'Ciudad de México',
-                    postalCode: '06000',
-                    cost: 150
-                },
-                payment: { method: 'card' },
-                coupon: null,
-                subtotal: 899,
-                discount: 0,
-                total: 1049
-            },
-            {
-                orderNumber: '#UC-000124',
-                date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-                status: 'shipped',
-                items: [
-                    {
-                        id: 2,
-                        name: 'Jeans Streetwear',
-                        price: 1299,
-                        image: 'images/jeans_1.jpg',
-                        quantity: 1,
-                        size: '32',
-                        subtotal: 1299
-                    },
-                    {
-                        id: 3,
-                        name: 'Crop Top Street',
-                        price: 599,
-                        image: 'images/crop_top_1.jpg',
-                        quantity: 2,
-                        size: 'S',
-                        subtotal: 1198
-                    }
-                ],
-                shipping: {
-                    name: 'Ale IT',
-                    address: 'Calle Principal 123, Col. Centro',
-                    city: 'Ciudad de México',
-                    postalCode: '06000',
-                    cost: 150
-                },
-                payment: { method: 'paypal' },
-                coupon: { code: 'UC25OFF', discount: 25 },
-                subtotal: 2497,
-                discount: 624,
-                total: 2023
-            },
-            {
-                orderNumber: '#UC-000125',
-                date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
-                status: 'processing',
-                items: [
-                    {
-                        id: 4,
-                        name: 'Chaqueta Denim',
-                        price: 1599,
-                        image: 'images/chaqueta_denim_1.jpg',
-                        quantity: 1,
-                        size: 'L',
-                        subtotal: 1599
-                    }
-                ],
-                shipping: {
-                    name: 'Ale IT',
-                    address: 'Calle Principal 123, Col. Centro',
-                    city: 'Ciudad de México',
-                    postalCode: '06000',
-                    cost: 150
-                },
-                payment: { method: 'card' },
-                coupon: null,
-                subtotal: 1599,
-                discount: 0,
-                total: 1749
-            },
-            {
-                orderNumber: '#UC-000126',
-                date: new Date().toISOString(),
-                status: 'pending',
-                items: [
-                    {
-                        id: 7,
-                        name: 'Sneakers Street',
-                        price: 1899,
-                        image: 'images/snackers_1.jpg',
-                        quantity: 1,
-                        size: '39',
-                        subtotal: 1899
-                    }
-                ],
-                shipping: {
-                    name: 'Ale IT',
-                    address: 'Calle Principal 123, Col. Centro',
-                    city: 'Ciudad de México',
-                    postalCode: '06000',
-                    cost: 150
-                },
-                payment: { method: 'card' },
-                coupon: null,
-                subtotal: 1899,
-                discount: 0,
-                total: 2049
-            }
-        ];
-
-        OrderStorage.saveOrders(sampleOrders);
-        this.orders = sampleOrders;
-    }
 }
 
 // ============================================

@@ -103,26 +103,40 @@
     line-height: 1.6;
 }
 
-/* Gift Box Container - Mejorado */
+/* Gift Box Container */
 .gift-box-container {
     position: relative;
-    width: 280px;
-    height: 320px;
+    width: 220px;
+    height: 260px;
     margin: 0 auto 30px;
-    perspective: 1000px;
 }
 
 .gift-box {
     position: relative;
-    width: 220px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease;
+    animation: giftFloat 3s ease-in-out infinite;
+    cursor: pointer;
+}
+
+.gift-box-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .gift-box.opening {
     animation: shake 0.5s ease;
+}
+
+.gift-box.open {
+    animation: giftPop 0.8s ease forwards;
+}
+
+@keyframes giftFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
 }
 
 @keyframes shake {
@@ -132,238 +146,10 @@
     75% { transform: translateX(-8px) rotate(-3deg); }
 }
 
-/* Box Body - Más realista */
-.box-body {
-    position: absolute;
-    width: 220px;
-    height: 160px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-    border-radius: 8px;
-    bottom: 0;
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.4),
-        inset 0 -5px 15px rgba(0, 0, 0, 0.3),
-        inset 0 5px 15px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.box-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-}
-
-.box-body::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
-}
-
-/* Box Lid - Mejor proporción */
-.box-lid {
-    position: absolute;
-    width: 240px;
-    height: 50px;
-    top: 110px;
-    left: -10px;
-    transform-origin: bottom;
-    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 10;
-}
-
-.gift-box.open .box-lid {
-    transform: rotateX(-130deg) translateY(-20px);
-}
-
-.lid-top {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-    border-radius: 8px 8px 0 0;
-    box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.4),
-        inset 0 -3px 10px rgba(0, 0, 0, 0.3),
-        inset 0 3px 10px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-}
-
-.lid-top::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-    border-radius: 8px 8px 0 0;
-}
-
-/* Ribbon - Listón mejorado */
-.ribbon {
-    position: absolute;
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%);
-    box-shadow: 
-        0 2px 8px rgba(0, 0, 0, 0.3),
-        inset 0 1px 2px rgba(255, 255, 255, 0.5),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.ribbon-horizontal {
-    width: 100%;
-    height: 25px;
-    top: 12.5px;
-    left: 0;
-    border-radius: 2px;
-}
-
-.ribbon-horizontal::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.ribbon-vertical {
-    width: 25px;
-    height: 240px;
-    top: -95px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
-
-.ribbon-vertical::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-}
-
-/* Bow - Moño más elegante */
-.bow {
-    position: absolute;
-    top: -55px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 70px;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-}
-
-.bow-left,
-.bow-right {
-    position: absolute;
-    width: 35px;
-    height: 45px;
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);
-    border-radius: 50% 50% 50% 0;
-    box-shadow: 
-        0 3px 10px rgba(0, 0, 0, 0.25),
-        inset 0 2px 5px rgba(255, 255, 255, 0.5),
-        inset 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.bow-left {
-    left: 0;
-    transform: rotate(-45deg);
-}
-
-.bow-left::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 100%);
-    border-radius: 50% 50% 50% 0;
-}
-
-.bow-right {
-    right: 0;
-    transform: rotate(45deg) scaleX(-1);
-}
-
-.bow-right::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 100%);
-    border-radius: 50% 50% 50% 0;
-}
-
-.bow-center {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 
-        0 3px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 5px rgba(255, 255, 255, 0.6),
-        inset 0 -2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 5;
-}
-
-.bow-center::before {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent 60%);
-    border-radius: 50%;
-}
-
-/* Ribbon Tails - Colitas del listón */
-.bow::after {
-    content: '';
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-top: 25px solid #f5f5f5;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
-}
-
-.bow::before {
-    content: '';
-    position: absolute;
-    bottom: -25px;
-    left: 35%;
-    transform: translateX(-50%) rotate(-15deg);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 20px solid #e8e8e8;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+@keyframes giftPop {
+    0%   { transform: scale(1);   opacity: 1; }
+    40%  { transform: scale(1.25); opacity: 1; }
+    100% { transform: scale(0);   opacity: 0; }
 }
 
 /* Open Gift Button */
@@ -778,23 +564,13 @@
     }
 
     .gift-box-container {
-        width: 240px;
-        height: 280px;
+        width: 180px;
+        height: 220px;
     }
 
     .gift-box {
-        width: 160px;
-        height: 160px;
-    }
-
-    .box-body {
-        width: 160px;
-        height: 150px;
-    }
-
-    .box-lid {
-        width: 180px;
-        top: 110px;
+        width: 140px;
+        height: 140px;
     }
 }
 
@@ -1214,9 +990,10 @@
     background: var(--pure-white);
     border-radius: 20px;
     overflow: hidden;
-    transition: var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     box-shadow: var(--shadow-light);
+    opacity: 1;
 }
 
 .product-card:hover {
@@ -1858,24 +1635,31 @@ input:focus {
    ESTILOS FALTANTES - Coupon Banner, Loading & Footer
    ============================================ */
 
-/* Coupon Banner - FALTABA EN EL CSS */
+/* Coupon Banner - Barra de anuncio fija en el tope */
 .coupon-banner {
     position: fixed;
-    top: 70px;
+    top: 0;
     left: 0;
     right: 0;
     background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%);
-    padding: 12px 0;
-    z-index: 1500;
-    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
-    transform: translateY(-100%);
+    padding: 0;
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(255, 107, 0, 0.3);
+    height: 0;
+    overflow: hidden;
     opacity: 0;
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: height 0.4s ease, opacity 0.4s ease;
 }
 
 .coupon-banner.active {
-    transform: translateY(0);
+    height: 46px;
+    padding: 0;
     opacity: 1;
+}
+
+/* Bajar el navbar cuando el banner está activo */
+body.has-coupon-banner #navbar {
+    top: 46px;
 }
 
 .coupon-content {
@@ -1883,9 +1667,33 @@ input:focus {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    height: 46px;
     color: var(--pure-white);
     font-weight: 500;
     font-size: 16px;
+}
+
+.coupon-close-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: background 0.2s ease;
+}
+
+.coupon-close-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .coupon-content i {
@@ -2001,8 +1809,8 @@ input:focus {
 }
 
 @media (max-width: 768px) {
-    .coupon-banner {
-        top: 60px;
+    .coupon-banner.active {
+        max-height: 70px;
     }
     
     .coupon-content {

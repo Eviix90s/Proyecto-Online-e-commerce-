@@ -11,51 +11,107 @@ const MEN_CONFIG = {
 
 // Datos de productos de hombre
 const menProducts = [
+
+    // TOPS (IDs 701-799)
     {
-        id: 201,
-        name: "Camiseta Oversized",
-        price: 599,
-        originalPrice: 799,
-        image: "images/camiseta_oversized.jpg",
+        id: 701,
+        name: "Camisa Urban Crop",
+        price: 699,
+        originalPrice: 899,
+        image: "images/men_camisa_1.jpg",
+        category: "tops",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Camisa urbana con diseño minimalista japonés"
+    },
+    {
+        id: 702,
+        name: "Camisa Oversize Street",
+        price: 799,
+        originalPrice: null,
+        image: "images/men_camisa_2.jpg",
         category: "tops",
         sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["Negro", "Blanco"],
+        colors: ["Blanco"],
         isNew: true,
         inStock: true,
-        description: "Camiseta oversized minimalista con diseño japonés"
+        description: "Camisa oversized con actitud callejera"
     },
     {
-        id: 202,
-        name: "Chaqueta Bomber",
-        price: 1899,
-        originalPrice: null,
-        image: "images/bomber_1.jpg",
-        category: "outerwear",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Verde Oliva"],
-        isNew: true,
-        inStock: true,
-        description: "Chaqueta bomber con inspiración urbana"
-    },
-    {
-        id: 203,
-        name: "Sudadera Oversized",
-        price: 899,
-        originalPrice: 1199,
-        image: "images/sudadera_hombre.jpg",
+        id: 703,
+        name: "Camisa Minimal Tokyo",
+        price: 649,
+        originalPrice: 899,
+        image: "images/men_camisa_3.jpg",
         category: "tops",
-        sizes: ["M", "L", "XL", "XXL"],
-        colors: ["Negro", "Gris", "Beige"],
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro", "Gris"],
         isNew: false,
         inStock: true,
-        description: "Sudadera oversized perfecta para el día a día"
+        description: "Inspirada en las calles de Shibuya. Simple, directa, auténtica."
     },
     {
-        id: 204,
-        name: "Jeans Slim Fit",
+        id: 704,
+        name: "Camisa Clean Cut",
+        price: 599,
+        originalPrice: null,
+        image: "images/men_camisa_4.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Blanco", "Negro"],
+        isNew: false,
+        inStock: true,
+        description: "Líneas limpias para un look urbano impecable"
+    },
+    {
+        id: 705,
+        name: "Camisa Classic Urban",
+        price: 549,
+        originalPrice: null,
+        image: "images/men_camisa_5.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Blanco", "Gris", "Beige"],
+        isNew: true,
+        inStock: true,
+        description: "Lo esencial nunca pasa de moda. La base perfecta de cualquier look."
+    },
+    {
+        id: 706,
+        name: "Top Oversized Zen",
+        price: 799,
+        originalPrice: null,
+        image: "images/men_camisa_6.jpg",
+        category: "tops",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Beige", "Negro"],
+        isNew: false,
+        inStock: true,
+        description: "El oversize no es una talla, es una actitud."
+    },
+    {
+        id: 707,
+        name: "Camiseta Urban Core",
+        price: 499,
+        originalPrice: 699,
+        image: "images/men_camisa_7.jpg",
+        category: "tops",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Cultura urbana tejida en cada fibra"
+    },
+
+    // BOTTOMS (IDs 801-899)
+    {
+        id: 801,
+        name: "Jeans Slim Urban",
         price: 1299,
         originalPrice: null,
-        image: "images/jeans_hombre.jpg",
+        image: "images/pantalon_men_1.jpg",
         category: "bottoms",
         sizes: ["30", "32", "34", "36"],
         colors: ["Azul", "Negro"],
@@ -64,108 +120,283 @@ const menProducts = [
         description: "Jeans con corte slim fit y estilo urbano"
     },
     {
-        id: 205,
-        name: "Chaqueta Denim",
+        id: 802,
+        name: "Pantalón Deportivo",
+        price: 1599,
+        originalPrice: 1999,
+        image: "images/pantalon_men_2.jpg",
+        category: "bottoms",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Pantalón deportivo negro rayado urban cats"
+    },
+    {
+        id: 803,
+        name: "Pantalón Wide Leg",
+        price: 1199,
+        originalPrice: null,
+        image: "images/pantalon_men_3.jpg",
+        category: "bottoms",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Azul"],
+        isNew: false,
+        inStock: true,
+        description: "Pantalón acampanado con caída perfecta"
+    },
+
+    // HOODIES (IDs 901-999)
+    {
+        id: 901,
+        name: "Hoodie Básico Urban",
+        price: 899,
+        originalPrice: 1199,
+        image: "images/hoddie_men1.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        colors: ["Negro", "Gris"],
+        isNew: false,
+        inStock: true,
+        description: "Hoodie básico esencial. Comodidad y estilo sin esfuerzo."
+    },
+    {
+        id: 902,
+        name: "Hoodie Street Style",
+        price: 1099,
+        originalPrice: null,
+        image: "images/hoddie_men2.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Hoodie con energía callejera y actitud urbana"
+    },
+    {
+        id: 903,
+        name: "Hoodie Minimal",
+        price: 999,
+        originalPrice: 1299,
+        image: "images/hoddie_men3.jpg",
+        category: "hoodies",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Beige", "Gris"],
+        isNew: false,
+        inStock: true,
+        description: "Minimalismo japonés en cada costura"
+    },
+    {
+        id: 904,
+        name: "Hoodie Classic Dark",
+        price: 1199,
+        originalPrice: null,
+        image: "images/hoddie_men4.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "El negro absoluto. El hoodie para quien domina la calle."
+    },
+    {
+        id: 905,
+        name: "Hoodie Oversized Tokyo",
+        price: 1299,
+        originalPrice: 1699,
+        image: "images/hoddie_men5.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Gris", "Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Oversized de Shibuya. Silueta amplia con caída perfecta."
+    },
+    {
+        id: 906,
+        name: "Hoodie Urban Canvas",
+        price: 1099,
+        originalPrice: null,
+        image: "images/hoddie_men6.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        colors: ["Blanco", "Beige"],
+        isNew: false,
+        inStock: true,
+        description: "Lienzo urbano. El blanco como declaración."
+    },
+    {
+        id: 907,
+        name: "Hoodie Night City",
+        price: 1499,
+        originalPrice: null,
+        image: "images/hoddie_men7.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Para las noches donde la ciudad no duerme."
+    },
+    {
+        id: 908,
+        name: "Hoodie Clean Line",
+        price: 899,
+        originalPrice: 1199,
+        image: "images/hoddie_men8.jpg",
+        category: "hoodies",
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Blanco", "Gris"],
+        isNew: false,
+        inStock: true,
+        description: "Líneas limpias que hablan por sí solas."
+    },
+    {
+        id: 909,
+        name: "Hoodie Zen Culture",
+        price: 1199,
+        originalPrice: null,
+        image: "images/hoddie_men9.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Beige", "Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Cultura zen en forma de sudadera. Serenidad urbana."
+    },
+    {
+        id: 910,
+        name: "Hoodie Premium Noir",
         price: 1799,
         originalPrice: 2299,
-        image: "images/chaqueta_denim.jpg",
+        image: "images/hoddie_men10.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L"],
+        colors: ["Negro"],
+        isNew: true,
+        inStock: true,
+        description: "Premium. Negro absoluto. Para quien no negocia el estilo."
+    },
+    {
+        id: 911,
+        name: "Hoodie Limited Edition",
+        price: 1999,
+        originalPrice: null,
+        image: "images/hoddie_men11.jpg",
+        category: "hoodies",
+        sizes: ["S", "M", "L"],
+        colors: ["Negro", "Gris"],
+        isNew: true,
+        inStock: true,
+        description: "Edición limitada. Una pieza, un statement."
+    },
+
+    // OUTERWEAR (IDs 1001-1099)
+    {
+        id: 1001,
+        name: "Chaqueta Denim Urban",
+        price: 1799,
+        originalPrice: 2299,
+        image: "images/abrigo_men_1.jpg",
         category: "outerwear",
         sizes: ["S", "M", "L", "XL"],
         colors: ["Azul", "Negro"],
         isNew: true,
         inStock: true,
-        description: "Chaqueta de mezclilla con líneas limpias"
+        description: "Chaqueta de mezclilla con líneas limpias y actitud urbana"
     },
     {
-        id: 206,
-        name: "Pantalón Cargo",
-        price: 1099,
-        originalPrice: null,
-        image: "images/cargo_1.jpg",
-        category: "bottoms",
+        id: 1002,
+        name: "Abrigo Clásico Urban",
+        price: 2499,
+        originalPrice: 3199,
+        image: "images/abrigo_men_2.jpg",
+        category: "outerwear",
         sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Verde Militar"],
-        isNew: false,
+        colors: ["Negro", "Beige"],
+        isNew: true,
         inStock: true,
-        description: "Pantalón cargo con inspiración japonesa"
+        description: "Abrigo clásico con corte moderno para la ciudad"
     },
     {
-        id: 207,
-        name: "Camiseta Básica",
-        price: 499,
+        id: 1003,
+        name: "Abrigo Oversize",
+        price: 2199,
         originalPrice: null,
-        image: "images/basic_tee.jpg",
-        category: "tops",
-        sizes: ["S", "M", "L", "XL", "XXL"],
-        colors: ["Blanco", "Negro", "Gris", "Beige"],
-        isNew: false,
-        inStock: true,
-        description: "Camiseta básica esencial de alta calidad"
-    },
-    {
-        id: 208,
-        name: "Conjunto Deportivo",
-        price: 1599,
-        originalPrice: 1999,
-        image: "images/conjunto_deportivo.jpg",
-        category: "sets",
+        image: "images/abrigo_men_3.jpg",
+        category: "outerwear",
         sizes: ["S", "M", "L", "XL"],
         colors: ["Negro", "Gris"],
-        isNew: true,
-        inStock: true,
-        description: "Set completo deportivo urbano"
-    },
-    {
-        id: 209,
-        name: "Chamarra Larga",
-        price: 2299,
-        originalPrice: null,
-        image: "images/chamarra_larga.jpg",
-        category: "outerwear",
-        sizes: ["M", "L", "XL"],
-        colors: ["Negro", "Beige"],
-        isNew: true,
-        inStock: true,
-        description: "Chamarra larga con estilo minimalista"
-    },
-    {
-        id: 210,
-        name: "Pantalón Wide Leg",
-        price: 1199,
-        originalPrice: null,
-        image: "images/wide_leg.jpg",
-        category: "bottoms",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Beige"],
         isNew: false,
         inStock: true,
-        description: "Pantalón ancho con caída perfecta"
+        description: "Silueta oversized que redefine la elegancia urbana masculina"
     },
     {
-        id: 211,
-        name: "Polo Slim",
+        id: 1004,
+        name: "Trench Minimal",
+        price: 1899,
+        originalPrice: 2499,
+        image: "images/abrigo_men_4.jpg",
+        category: "outerwear",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Beige", "Negro"],
+        isNew: false,
+        inStock: true,
+        description: "Trench minimalista atemporal para cualquier temporada"
+    },
+
+    // SETS / CONJUNTOS (IDs 1101-1199)
+    {
+        id: 1101,
+        name: "Conjunto ADIDAS Urban",
+        price: 599,
+        originalPrice: 799,
+        image: "images/conjunto_men_1.jpg",
+        category: "sets",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Naranja"],
+        isNew: true,
+        inStock: true,
+        description: "Conjunto ADIDAS con diseño urbano"
+    },
+    {
+        id: 1102,
+        name: "Conjunto Skate Rojo",
+        price: 499,
+        originalPrice: 799,
+        image: "images/conjunto_men_2.jpg",
+        category: "sets",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Rojo"],
+        isNew: true,
+        inStock: true,
+        description: "Conjunto rojo con diseño urbano skate"
+    },
+    {
+        id: 1103,
+        name: "Conjunto Skate Gris",
         price: 699,
-        originalPrice: 899,
-        image: "images/polo_1.jpg",
-        category: "tops",
+        originalPrice: 799,
+        image: "images/conjunto_men_3.jpg",
+        category: "sets",
         sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Blanco"],
-        isNew: false,
-        inStock: true,
-        description: "Polo con diseño moderno"
-    },
-    {
-        id: 212,
-        name: "Chamarra Bomber Premium",
-        price: 2499,
-        originalPrice: null,
-        image: "images/bomber_premium.jpg",
-        category: "outerwear",
-        sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Azul Marino"],
+        colors: ["Gris"],
         isNew: true,
         inStock: true,
-        description: "Chamarra bomber elegante y versátil"
+        description: "Conjunto gris con diseño urbano skate"
+    },
+    {
+        id: 1104,
+        name: "Conjunto Blanco Skate",
+        price: 760,
+        originalPrice: 999,
+        image: "images/conjunto_men_4.jpg",
+        category: "sets",
+        sizes: ["S", "M", "L", "XL"],
+        colors: ["Blanco"],
+        isNew: true,
+        inStock: true,
+        description: "Conjunto blanco con diseño urbano skate"
     }
 ];
 
@@ -284,14 +515,7 @@ class MenApp {
             checkbox.addEventListener('change', (e) => this.handleFeatureFilter(e));
         });
 
-        // Cart
-        document.querySelector('.cart-link')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.toggleCart();
-        });
-
-        document.querySelector('.close-cart')?.addEventListener('click', () => this.closeCart());
-        this.elements.overlay?.addEventListener('click', () => this.closeCart());
+        // Carrito – manejado por cartSystem (cart.js)
 
         // Mobile menu
         this.elements.mobileMenuToggle?.addEventListener('click', () => this.toggleMobileMenu());
@@ -412,10 +636,10 @@ class MenApp {
 
     handleSortChange(e) {
         const sortType = e.currentTarget.dataset.sort;
-        
+
         this.elements.sortOptions.forEach(opt => opt.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
+
         this.state.currentSort = sortType;
         this.sortProducts();
         this.renderProducts();
@@ -423,7 +647,7 @@ class MenApp {
     }
 
     sortProducts() {
-        switch(this.state.currentSort) {
+        switch (this.state.currentSort) {
             case 'price-low':
                 this.state.filteredProducts.sort((a, b) => a.price - b.price);
                 break;
@@ -433,21 +657,21 @@ class MenApp {
             case 'name':
                 this.state.filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
                 break;
-            case 'new':
+            case 'newest':
                 this.state.filteredProducts.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
                 break;
             default:
-                this.state.filteredProducts = [...menProducts];
+                break;
         }
     }
 
     // View handling
     handleViewChange(e) {
         const view = e.currentTarget.dataset.view;
-        
+
         this.elements.viewBtns.forEach(btn => btn.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
+
         this.state.currentView = view;
         this.elements.productsGrid.className = `products-grid ${view}-view`;
     }
@@ -456,9 +680,17 @@ class MenApp {
     applyFilters() {
         let filtered = [...menProducts];
 
-        // Category filter
-        if (this.state.currentCategory !== 'all') {
-            filtered = filtered.filter(p => p.category === this.state.currentCategory);
+        // Category filter — each section has an exclusive ID range
+        const categoryIdRanges = {
+            'tops': { min: 701, max: 799 },
+            'bottoms': { min: 801, max: 899 },
+            'hoodies': { min: 901, max: 999 },
+            'outerwear': { min: 1001, max: 1099 },
+            'sets': { min: 1101, max: 1199 }
+        };
+        const range = categoryIdRanges[this.state.currentCategory];
+        if (range) {
+            filtered = filtered.filter(p => p.id >= range.min && p.id <= range.max);
         }
 
         // Price filter
@@ -466,23 +698,23 @@ class MenApp {
 
         // Size filter
         if (this.state.filters.sizes.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 this.state.filters.sizes.some(size => p.sizes.includes(size))
             );
         }
 
         // Color filter
         if (this.state.filters.colors.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 this.state.filters.colors.some(color => p.colors.includes(color))
             );
         }
 
-        // Feature filters
-        if (this.state.filters.features.includes('new')) {
+        // Feature filters (values match HTML checkbox values)
+        if (this.state.filters.features.includes('nuevo')) {
             filtered = filtered.filter(p => p.isNew);
         }
-        if (this.state.filters.features.includes('sale')) {
+        if (this.state.filters.features.includes('oferta')) {
             filtered = filtered.filter(p => p.originalPrice);
         }
         if (this.state.filters.features.includes('stock')) {
@@ -494,7 +726,7 @@ class MenApp {
         this.renderProducts();
     }
 
-    // Product rendering
+    // Product rendering — Lookbook overlay style
     renderProducts() {
         if (!this.elements.productsGrid) return;
 
@@ -512,54 +744,31 @@ class MenApp {
             return;
         }
 
-        this.elements.productsGrid.innerHTML = pageProducts.map(product => `
-            <article class="product-card" data-product-id="${product.id}">
+        this.elements.productsGrid.innerHTML = pageProducts.map((product) => `
+            <article class="product-card" data-product-id="${product.id}" onclick="menApp.openProductModal(${product.id})">
                 <div class="product-image-container">
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     ${product.isNew ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.originalPrice ? '<span class="product-badge sale">Oferta</span>' : ''}
                     ${!product.inStock ? '<span class="product-badge out-of-stock">Agotado</span>' : ''}
-                    
-                    <div class="product-actions">
-                        <button class="action-btn wishlist-btn" onclick="app.toggleWishlist(${product.id})" 
-                                aria-label="Agregar a favoritos">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="action-btn quick-view-btn" onclick="app.quickView(${product.id})"
-                                aria-label="Vista rápida">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    
-                    <button class="add-to-cart-overlay" onclick="app.addToCart(${product.id})"
-                            ${!product.inStock ? 'disabled' : ''}>
-                        <i class="fas fa-shopping-bag"></i>
-                        ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+
+                    <button class="product-wishlist-btn ${this.state.wishlist.some(w => (w?.id ?? w) === product.id) ? 'active' : ''}" onclick="event.stopPropagation(); menApp.toggleWishlist(${product.id})" aria-label="Agregar a favoritos">
+                        <i class="fas fa-heart"></i>
                     </button>
-                </div>
-                
-                <div class="product-info">
-                    <h3 class="product-name">${product.name}</h3>
-                    <p class="product-description">${product.description}</p>
-                    
-                    <div class="product-pricing">
-                        <span class="product-price">$${product.price.toLocaleString()}</span>
-                        ${product.originalPrice ? 
-                            `<span class="original-price">$${product.originalPrice.toLocaleString()}</span>` : ''}
-                    </div>
-                    
-                    <div class="product-colors">
-                        ${product.colors.map(color => `
-                            <span class="color-option" 
-                                  style="background-color: ${this.getColorValue(color)}"
-                                  title="${color}"></span>
-                        `).join('')}
-                    </div>
-                    
-                    <div class="product-sizes">
-                        ${product.sizes.slice(0, 4).map(size => `
-                            <span class="size-option">${size}</span>
-                        `).join('')}
+
+                    <div class="product-overlay">
+                        <div class="product-overlay-details">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-overlay-price">
+                                <span>$${product.price.toLocaleString()}</span>
+                                ${product.originalPrice ? `<span class="product-overlay-original">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                        </div>
+                        <button class="product-add-btn" onclick="event.stopPropagation(); menApp.openProductModal(${product.id})">
+                            <i class="fas fa-eye"></i>
+                            Ver
+                        </button>
                     </div>
                 </div>
             </article>
@@ -567,11 +776,12 @@ class MenApp {
 
         this.updateProductsCount();
         this.renderPagination();
+        this.revealVisibleCards();
     }
 
     updateProductsCount() {
         if (this.elements.productsCount) {
-            this.elements.productsCount.textContent = 
+            this.elements.productsCount.textContent =
                 `${this.state.filteredProducts.length} producto${this.state.filteredProducts.length !== 1 ? 's' : ''}`;
         }
     }
@@ -581,18 +791,18 @@ class MenApp {
         if (!this.elements.pagination) return;
 
         const totalPages = Math.ceil(this.state.filteredProducts.length / MEN_CONFIG.productsPerPage);
-        
+
         if (totalPages <= 1) {
             this.elements.pagination.innerHTML = '';
             return;
         }
 
         let html = '';
-        
+
         // Previous button
         html += `
-            <button class="page-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
-                    onclick="app.goToPage(${this.state.currentPage - 1})">
+            <button class="pagination-btn pagination-arrow ${this.state.currentPage === 1 ? 'disabled' : ''}"
+                    ${this.state.currentPage === 1 ? 'disabled' : `onclick="menApp.goToPage(${this.state.currentPage - 1})"`}>
                 <i class="fas fa-chevron-left"></i>
             </button>
         `;
@@ -601,20 +811,20 @@ class MenApp {
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
                 html += `
-                    <button class="page-btn ${i === this.state.currentPage ? 'active' : ''}" 
-                            onclick="app.goToPage(${i})">
+                    <button class="pagination-btn ${i === this.state.currentPage ? 'active' : ''}"
+                            onclick="menApp.goToPage(${i})">
                         ${i}
                     </button>
                 `;
             } else if (i === this.state.currentPage - 2 || i === this.state.currentPage + 2) {
-                html += '<span class="page-dots">...</span>';
+                html += '<span class="pagination-dots">·····</span>';
             }
         }
 
         // Next button
         html += `
-            <button class="page-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
-                    onclick="app.goToPage(${this.state.currentPage + 1})">
+            <button class="pagination-btn pagination-arrow ${this.state.currentPage === totalPages ? 'disabled' : ''}"
+                    ${this.state.currentPage === totalPages ? 'disabled' : `onclick="menApp.goToPage(${this.state.currentPage + 1})"`}>
                 <i class="fas fa-chevron-right"></i>
             </button>
         `;
@@ -625,129 +835,54 @@ class MenApp {
     goToPage(page) {
         this.state.currentPage = page;
         this.renderProducts();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const nav = document.querySelector('.category-navigation');
+        if (nav) nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Cart functionality
+    // Cart functionality – delega a cartSystem (cart.js)
     addToCart(productId) {
         const product = menProducts.find(p => p.id === productId);
         if (!product || !product.inStock) return;
-
-        const cartItem = this.state.cart.find(item => item.id === productId);
-        
-        if (cartItem) {
-            cartItem.quantity++;
-        } else {
-            this.state.cart.push({
-                ...product,
-                quantity: 1,
-                selectedSize: product.sizes[0],
-                selectedColor: product.colors[0]
-            });
-        }
-
-        this.state.saveCart();
-        this.updateCartUI();
+        cartSystem.addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            selectedSize: product.sizes && product.sizes[0] ? product.sizes[0] : 'Único',
+            selectedColor: product.colors && product.colors[0] ? product.colors[0] : ''
+        });
         this.showToast(`${product.name} agregado al carrito`, 'success');
     }
 
     removeFromCart(productId) {
-        const index = this.state.cart.findIndex(item => item.id === productId);
-        if (index !== -1) {
-            const product = this.state.cart[index];
-            this.state.cart.splice(index, 1);
-            this.state.saveCart();
-            this.updateCartUI();
-            this.showToast(`${product.name} eliminado del carrito`, 'info');
-        }
+        cartSystem.removeFromCart(productId);
     }
 
     updateQuantity(productId, change) {
-        const cartItem = this.state.cart.find(item => item.id === productId);
-        if (!cartItem) return;
-
-        cartItem.quantity += change;
-
-        if (cartItem.quantity <= 0) {
-            this.removeFromCart(productId);
-        } else {
-            this.state.saveCart();
-            this.updateCartUI();
-        }
+        cartSystem.updateQuantity(productId, change);
     }
 
     toggleCart() {
-        this.elements.cartSidebar?.classList.toggle('open');
-        this.elements.overlay?.classList.toggle('show');
-        document.body.style.overflow = this.elements.cartSidebar?.classList.contains('open') ? 'hidden' : '';
+        cartSystem.toggleCart();
     }
 
     closeCart() {
-        this.elements.cartSidebar?.classList.remove('open');
-        this.elements.overlay?.classList.remove('show');
-        document.body.style.overflow = '';
+        cartSystem.closeCart();
     }
 
     updateCartUI() {
-        // Update cart count
-        const totalItems = this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
-        if (this.elements.cartCount) {
-            this.elements.cartCount.textContent = totalItems;
-            this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        }
-
-        // Update cart items
-        if (this.elements.cartItems) {
-            if (this.state.cart.length === 0) {
-                this.elements.cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <i class="fas fa-shopping-bag"></i>
-                        <p>Tu carrito está vacío</p>
-                    </div>
-                `;
-            } else {
-                this.elements.cartItems.innerHTML = this.state.cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                        <div class="cart-item-info">
-                            <h4>${item.name}</h4>
-                            <div class="cart-item-details">
-                                <span>Talla: ${item.selectedSize}</span>
-                                <span>Color: ${item.selectedColor}</span>
-                            </div>
-                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
-                            <div class="quantity-controls">
-                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, -1)">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity">${item.quantity}</span>
-                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, 1)">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <button class="remove-item" onclick="app.removeFromCart(${item.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-        }
-
-        // Update cart total
-        const total = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        if (this.elements.cartTotal) {
-            this.elements.cartTotal.textContent = `$${total.toLocaleString()}`;
-        }
+        cartSystem.refresh();
     }
 
     // Wishlist functionality
     toggleWishlist(productId) {
-        const index = this.state.wishlist.indexOf(productId);
+        const index = this.state.wishlist.findIndex(item => (item?.id ?? item) === productId);
         const product = menProducts.find(p => p.id === productId);
 
         if (index === -1) {
-            this.state.wishlist.push(productId);
+            this.state.wishlist.push({ id: product.id, name: product.name, price: product.price, image: product.image,
+                description: product.description || '', sizes: product.sizes || [], colors: product.colors || [],
+                originalPrice: product.originalPrice || null, isNew: !!product.isNew, inStock: product.inStock !== false });
             this.showToast(`${product.name} agregado a favoritos`, 'success');
         } else {
             this.state.wishlist.splice(index, 1);
@@ -756,22 +891,137 @@ class MenApp {
 
         this.state.saveWishlist();
         this.updateWishlistUI();
+        cartSystem.refreshWishlist();
+        const btn = document.querySelector(`[data-product-id="${productId}"] .product-wishlist-btn`);
+        if (btn) btn.classList.toggle('active', index === -1);
     }
 
     updateWishlistUI() {
         if (this.elements.wishlistCount) {
-            this.elements.wishlistCount.textContent = this.state.wishlist.length;
-            this.elements.wishlistCount.style.display = this.state.wishlist.length > 0 ? 'flex' : 'none';
+            const count = this.state.wishlist.filter(i => i && typeof i === 'object' && i.id).length;
+            this.elements.wishlistCount.textContent = count;
+            this.elements.wishlistCount.style.display = count > 0 ? 'flex' : 'none';
         }
+    }
+
+    // ── Product Quick Modal ──────────────────────────────────
+    openProductModal(productId) {
+        const product = menProducts.find(p => p.id === productId);
+        if (!product) return;
+
+        const existing = document.getElementById('product-quick-modal');
+        if (existing) existing.remove();
+
+        this._modalSelectedSize = product.sizes && product.sizes[0] ? product.sizes[0] : 'Único';
+        const isInWishlist = this.state.wishlist.some(item => (item?.id ?? item) === productId);
+        const discountPct = product.originalPrice
+            ? Math.round((1 - product.price / product.originalPrice) * 100)
+            : 0;
+
+        const modal = document.createElement('div');
+        modal.id = 'product-quick-modal';
+        modal.className = 'pqm-overlay';
+        modal.innerHTML = `
+            <div class="pqm-modal" role="dialog" aria-modal="true">
+                <button class="pqm-close" id="pqm-close-btn" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="pqm-image">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="pqm-badges">
+                        ${product.isNew ? '<span class="pqm-badge pqm-badge--new">Nuevo</span>' : ''}
+                        ${product.originalPrice ? `<span class="pqm-badge pqm-badge--sale">-${discountPct}%</span>` : ''}
+                    </div>
+                </div>
+                <div class="pqm-details">
+                    <h2 class="pqm-name">${product.name}</h2>
+                    <p class="pqm-desc">${product.description}</p>
+                    <div class="pqm-price">
+                        <span class="pqm-price-current">$${product.price.toLocaleString('es-MX')}</span>
+                        ${product.originalPrice ? `<span class="pqm-price-original">$${product.originalPrice.toLocaleString('es-MX')}</span>` : ''}
+                    </div>
+                    <div class="pqm-sizes-section">
+                        <p class="pqm-sizes-label">Talla: <strong id="pqm-selected-size">${this._modalSelectedSize}</strong></p>
+                        <div class="pqm-sizes-grid">
+                            ${product.sizes.map(size => `
+                                <button class="pqm-size-btn ${size === this._modalSelectedSize ? 'active' : ''}"
+                                        data-size="${size}"
+                                        onclick="menApp._selectModalSize('${size}')">
+                                    ${size}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="pqm-actions">
+                        <button class="pqm-add-cart-btn ${!product.inStock ? 'disabled' : ''}"
+                                ${!product.inStock ? 'disabled' : ''}
+                                onclick="menApp._modalAddToCart(${product.id})">
+                            <i class="fas fa-shopping-bag"></i>
+                            ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+                        </button>
+                        <button class="pqm-wishlist-btn ${isInWishlist ? 'active' : ''}"
+                                onclick="menApp._modalToggleWishlist(${product.id})"
+                                aria-label="${isInWishlist ? 'Quitar de favoritos' : 'Agregar a favoritos'}">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => modal.classList.add('active'), 10);
+
+        document.getElementById('pqm-close-btn').addEventListener('click', () => this.closeProductModal());
+        modal.addEventListener('click', e => { if (e.target === modal) this.closeProductModal(); });
+    }
+
+    _selectModalSize(size) {
+        this._modalSelectedSize = size;
+        const label = document.getElementById('pqm-selected-size');
+        if (label) label.textContent = size;
+        document.querySelectorAll('.pqm-size-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.size === size);
+        });
+    }
+
+    _modalAddToCart(productId) {
+        const product = menProducts.find(p => p.id === productId);
+        if (!product || !product.inStock) return;
+        cartSystem.addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            selectedSize: this._modalSelectedSize || (product.sizes[0] || 'Único'),
+            selectedColor: product.colors && product.colors[0] ? product.colors[0] : ''
+        });
+        this.showToast(`${product.name} agregado al carrito`, 'success');
+        this.closeProductModal();
+    }
+
+    _modalToggleWishlist(productId) {
+        this.toggleWishlist(productId);
+        const btn = document.querySelector('.pqm-wishlist-btn');
+        if (btn) btn.classList.toggle('active', this.state.wishlist.some(item => (item?.id ?? item) === productId));
+    }
+
+    closeProductModal() {
+        const modal = document.getElementById('product-quick-modal');
+        if (!modal) return;
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.remove();
+            if (!document.getElementById('cart-sidebar')?.classList.contains('open')) {
+                document.body.style.overflow = '';
+            }
+        }, 300);
     }
 
     // Quick view
     quickView(productId) {
-        const product = menProducts.find(p => p.id === productId);
-        if (!product) return;
-
-        // Aquí puedes implementar un modal de vista rápida
-        this.showToast('Vista rápida disponible próximamente', 'info');
+        this.openProductModal(productId);
     }
 
     // Mobile menu
@@ -783,7 +1033,6 @@ class MenApp {
 
     // Scroll handling
     handleScroll() {
-        // Sticky navbar
         if (this.elements.navbar) {
             if (window.scrollY > 100) {
                 this.elements.navbar.classList.add('scrolled');
@@ -792,7 +1041,6 @@ class MenApp {
             }
         }
 
-        // Back to top button
         if (this.elements.backToTop) {
             if (window.scrollY > 500) {
                 this.elements.backToTop.classList.add('show');
@@ -803,41 +1051,36 @@ class MenApp {
     }
 
     scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Animations
-    setupScrollAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            observer.observe(card);
+    revealVisibleCards() {
+        const cards = document.querySelectorAll('.product-card:not(.revealed)');
+        cards.forEach((card, index) => {
+            setTimeout(() => card.classList.add('revealed'), index * 80);
         });
     }
 
+    setupScrollAnimations() {
+        const check = () => {
+            document.querySelectorAll('.product-card:not(.revealed)').forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+                    setTimeout(() => card.classList.add('revealed'), index * 80);
+                }
+            });
+        };
+        window.addEventListener('scroll', check, { passive: true });
+    }
+
     animateOnLoad() {
-        const cards = document.querySelectorAll('.product-card');
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('fade-in');
-            }, index * MEN_CONFIG.animationDelay);
-        });
+        // Handled by revealVisibleCards via .revealed class
     }
 
     animateProducts() {
         this.elements.productsGrid.style.opacity = '0';
-        
+
         setTimeout(() => {
             this.renderProducts();
             this.elements.productsGrid.style.opacity = '1';
@@ -847,7 +1090,7 @@ class MenApp {
     // Toast notifications
     showToast(message, type = 'info') {
         const toastContainer = document.getElementById('toast-container') || this.createToastContainer();
-        
+
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         toast.innerHTML = `
@@ -901,9 +1144,9 @@ class MenApp {
             'Gris': '#808080',
             'Beige': '#F5F5DC',
             'Azul': '#4A90E2',
-            'Verde Oliva': '#556B2F',
-            'Verde Militar': '#4B5320',
-            'Azul Marino': '#001F3F'
+            'Verde': '#2ECC71',
+            'Rojo': '#E74C3C',
+            'Naranja': '#FF6B00'
         };
         return colors[colorName] || '#000000';
     }
@@ -925,6 +1168,7 @@ class MenApp {
 
     handleKeyboard(e) {
         if (e.key === 'Escape') {
+            this.closeProductModal();
             this.closeCart();
             this.elements.sortMenu?.classList.remove('show');
             this.elements.filterPanel?.classList.remove('open');
@@ -945,53 +1189,27 @@ class MenApp {
 }
 
 // Initialize app
-let app;
+window.menApp = null;
 document.addEventListener('DOMContentLoaded', () => {
-    app = new MenApp();
+    window.menApp = new MenApp();
+    if (typeof cartSystem !== 'undefined') cartSystem.registerSearchProducts(menProducts, 'men.html');
 });
 
-// ============================================
-// USER DROPDOWN - Toggle flotante
-// ============================================
+// Logout (dropdown manejado por cart.js)
 document.addEventListener('DOMContentLoaded', () => {
-    const userBtn = document.querySelector('a[href="#account"]');
-    const dropdown = document.getElementById('userDropdown');
-    
-    if (userBtn && dropdown) {
-        // Convertir el enlace en botón clickeable
-        userBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown.classList.toggle('active');
-        });
-        
-        // Cerrar dropdown al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target) && e.target !== userBtn) {
-                dropdown.classList.remove('active');
-            }
-        });
-        
-        // No cerrar al hacer click dentro del dropdown
-        dropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    }
-    
-    // Logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('¿Cerrar sesión?')) {
-                localStorage.clear();
+                ['userId', 'userEmail', 'userName'].forEach(k => localStorage.removeItem(k));
                 window.location.href = 'index.html';
             }
         });
     }
 });
 
-// Inyectar estilos específicos para Men
+// Inyectar estilos específicos para Men (Lookbook style)
 const menStyles = `
 <style>
 /* Men Section Specific Styles */
@@ -1033,24 +1251,15 @@ body {
     transition: opacity 0.4s ease;
 }
 
-/* Product Card */
+/* Product Card - Lookbook Style */
 .product-card {
     background: var(--pure-white);
     border-radius: 20px;
     overflow: hidden;
-    transition: var(--transition);
-    cursor: pointer;
     box-shadow: var(--shadow-light);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    cursor: pointer;
+    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
@@ -1069,11 +1278,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, filter 0.6s ease;
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: contrast(1.1);
 }
 
 .product-badge {
@@ -1086,7 +1296,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .product-badge.new {
@@ -1105,163 +1315,152 @@ body {
     color: var(--pure-white);
 }
 
-.product-actions {
+/* Wishlist button top-right */
+.product-wishlist-btn {
     position: absolute;
     top: 15px;
     right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--primary-black);
+    cursor: pointer;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(10px);
     transition: all 0.3s ease;
-    z-index: 3;
+    z-index: 4;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-.product-card:hover .product-actions {
+.product-card:hover .product-wishlist-btn {
     opacity: 1;
     transform: translateX(0);
 }
 
-.action-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    background: var(--pure-white);
-    color: var(--primary-black);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    box-shadow: var(--shadow-medium);
-}
-
-.action-btn:hover {
+.product-wishlist-btn:hover {
     background: var(--primary-black);
     color: var(--pure-white);
-    transform: scale(1.1);
 }
 
-.add-to-cart-overlay {
+.product-wishlist-btn.active {
+    opacity: 1;
+    background: #fff0f0;
+    color: #e74c3c;
+}
+
+/* Overlay */
+.product-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--primary-black);
-    color: var(--pure-white);
-    border: none;
-    padding: 18px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.82) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
     z-index: 2;
 }
 
-.product-card:hover .add-to-cart-overlay {
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.product-overlay-details {
+    color: var(--pure-white);
+}
+
+.product-overlay-details h3 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-overlay-details h3 {
     transform: translateY(0);
 }
 
-.add-to-cart-overlay:hover:not(:disabled) {
-    background: var(--gray-dark);
-}
-
-.add-to-cart-overlay:disabled {
-    background: var(--gray-medium);
-    cursor: not-allowed;
-}
-
-.product-info {
-    padding: 20px;
-}
-
-.product-name {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--primary-black);
-    margin-bottom: 8px;
-}
-
-.product-description {
+.product-overlay-details p {
     font-size: 13px;
-    color: var(--gray-medium);
-    margin-bottom: 12px;
-    line-height: 1.4;
+    opacity: 0.88;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease 0.05s;
 }
 
-.product-pricing {
+.product-card:hover .product-overlay-details p {
+    transform: translateY(0);
+}
+
+.product-overlay-price {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 15px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease 0.1s;
 }
 
-.product-price {
+.product-card:hover .product-overlay-price {
+    transform: translateY(0);
+}
+
+.product-overlay-price span:first-child {
     font-size: 20px;
     font-weight: 600;
-    color: var(--primary-black);
+    color: #ffffff;
 }
 
-.original-price {
-    text-decoration: line-through;
-    color: var(--gray-medium);
+.product-overlay-original {
     font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: line-through;
 }
 
-.product-colors {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.color-option {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--gray-light);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.color-option:hover {
-    transform: scale(1.2);
-    border-color: var(--primary-black);
-}
-
-.product-sizes {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.size-option {
-    padding: 8px 16px;
-    border: 1px solid var(--gray-light);
-    background: transparent;
+/* Botón agregar al carrito */
+.product-add-btn {
+    background: var(--pure-white);
     color: var(--primary-black);
-    border-radius: 20px;
-    font-size: 13px;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: center;
+    transform: translateY(40px);
+    transition: transform 0.35s ease 0.12s, background 0.2s ease, color 0.2s ease;
 }
 
-.size-option:hover:not(.disabled) {
+.product-card:hover .product-add-btn {
+    transform: translateY(0);
+}
+
+.product-add-btn:hover {
     background: var(--primary-black);
     color: var(--pure-white);
-    border-color: var(--primary-black);
 }
 
-.size-option.disabled {
-    opacity: 0.3;
+.product-add-btn:disabled {
+    background: var(--gray-medium);
+    color: var(--pure-white);
     cursor: not-allowed;
 }
 
@@ -1371,21 +1570,10 @@ body {
     opacity: 1;
 }
 
-.toast-success {
-    background: #10B981;
-}
-
-.toast-error {
-    background: var(--accent-red);
-}
-
-.toast-warning {
-    background: #F59E0B;
-}
-
-.toast-info {
-    background: #3B82F6;
-}
+.toast-success { background: #10B981; }
+.toast-error   { background: var(--accent-red); }
+.toast-warning { background: #F59E0B; }
+.toast-info    { background: #3B82F6; }
 
 .toast-content {
     display: flex;
@@ -1403,9 +1591,7 @@ body {
     transition: var(--transition);
 }
 
-.toast-close:hover {
-    opacity: 1;
-}
+.toast-close:hover { opacity: 1; }
 
 /* No Products Message */
 .no-products {
@@ -1422,11 +1608,7 @@ body {
     font-weight: 500;
 }
 
-.no-products p {
-    font-size: 16px;
-}
-
-/* List View Styles */
+/* List View */
 .products-grid.list-view .product-card {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -1437,60 +1619,17 @@ body {
     aspect-ratio: 1;
 }
 
-.products-grid.list-view .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-    .cart-item {
-        padding: 15px;
-    }
-
-    .cart-item-image {
-        width: 60px;
-        height: 60px;
-    }
-
-    .cart-item-details {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .products-grid.list-view .product-card {
-        grid-template-columns: 1fr;
-    }
-
-    .toast {
-        right: 20px;
-        left: 20px;
-        max-width: none;
-    }
+    .cart-item { padding: 15px; }
+    .cart-item-image { width: 60px; height: 60px; }
+    .cart-item-details { flex-direction: column; gap: 5px; }
+    .products-grid.list-view .product-card { grid-template-columns: 1fr; }
+    .toast { right: 20px; left: 20px; max-width: none; }
 }
 
 @media (max-width: 480px) {
-    .product-card {
-        border-radius: 15px;
-    }
-
-    .product-info {
-        padding: 15px;
-    }
-
-    .product-name {
-        font-size: 16px;
-    }
-
-    .product-price {
-        font-size: 18px;
-    }
-
-    .action-btn {
-        width: 40px;
-        height: 40px;
-    }
+    .product-card { border-radius: 15px; }
 }
 </style>
 `;

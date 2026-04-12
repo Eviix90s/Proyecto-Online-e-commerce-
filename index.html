@@ -321,40 +321,6 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="productos" class="products-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Colección 2026</div>
-                <h2>Nuestra Colección</h2>
-                <p>Encuentra tu estilo perfecto en nuestra selección curada de moda urbana contemporánea</p>
-            </div>
-
-            <!-- Filtro simplificado - Solo "Todos" -->
-            <div class="product-filters">
-                <button class="filter-btn active" data-filter="all">
-                    <span>Nuevo Urbans Cats</span>
-                    <span class="filter-count">7</span>
-                </button>
-            </div>
-
-            <div class="products-grid" id="products-grid">
-                <!-- Los productos se generarÃ¡n dinÃ¡micamente aquÃ­ -->
-                <div class="products-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Cargando productos...</p>
-                </div>
-            </div>
-
-            <div class="load-more">
-                <button class="load-more-btn">
-                    <span>Ver Más Productos</span>
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Featured Collections -->
     <section class="featured-collections">
         <!-- Video de fondo en loop -->
@@ -378,10 +344,6 @@
                             <div class="collection-meta">
                                 <span class="collection-items">10 productos</span>
                             </div>
-                            <button class="collection-btn">
-                                <span>Ver Colección</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -395,10 +357,6 @@
                             <div class="collection-meta">
                                 <span>5 productos</span>
                             </div>
-                            <button class="collection-btn">
-                                <span>Explorar</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -412,10 +370,6 @@
                             <div class="collection-meta">
                                 <span>5 productos</span>
                             </div>
-                            <button class="collection-btn">
-                                <span>Descubrir</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -679,13 +633,31 @@
         </div>
 
         <div class="cart-footer">
+            <!-- Cupón -->
+            <div class="cart-coupon-section">
+                <div id="cart-coupon-form" class="cart-coupon-form">
+                    <input type="text" id="cart-coupon-input" placeholder="Código de cupón" autocomplete="off">
+                    <button id="cart-coupon-apply" class="cart-coupon-apply-btn">Aplicar</button>
+                </div>
+                <div id="cart-coupon-applied" class="cart-coupon-applied" style="display:none">
+                    <span><i class="fas fa-tag"></i> Cupón: <strong id="cart-coupon-badge"></strong></span>
+                    <button id="cart-coupon-remove" class="cart-coupon-remove-btn" title="Quitar cupón">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Resumen -->
             <div class="cart-summary">
                 <div class="cart-subtotal">
                     <span>Subtotal:</span>
                     <span>$<span id="cart-subtotal">0</span></span>
                 </div>
+                <div id="cart-discount-row" class="cart-discount" style="display:none">
+                    <span>Descuento:</span>
+                    <span class="cart-discount-value">-$<span id="cart-discount-amount">0</span></span>
+                </div>
                 <div class="cart-shipping">
-                    <span>Envio:</span>
+                    <span>Envío:</span>
                     <span class="free-shipping">Gratis</span>
                 </div>
                 <div class="cart-total">
@@ -775,7 +747,7 @@
         <!-- Respuestas rapidas -->
         <div class="chat-quick-replies">
             <button class="chat-quick-reply" data-message="Horarios">🕜 Horarios</button>
-            <button class="chat-quick-reply" data-message="UbicaciÃ³n">📍 Ubicacion</button>
+            <button class="chat-quick-reply" data-message="Ubicación">📍 Ubicación</button>
             <button class="chat-quick-reply" data-message="Servicios">🛒 Servicios</button>
             <button class="chat-quick-reply" data-message="Contacto">📞 Contacto</button>
         </div>
@@ -795,6 +767,7 @@
     <div id="toast-container" class="toast-container"></div>
 
     <!-- Scripts -->
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/auth-state.js"></script>
     <script src="js/chatbot-urban-cats.js"></script>
@@ -802,7 +775,7 @@
     <!-- Reveal on Scroll -->
     <script>
         (function () {
-            var THRESHOLD = 0.90;
+            var THRESHOLD = 1.1;
             var revealed = new Set();
 
             function isVisible(el) {
@@ -824,21 +797,23 @@
                 ).forEach(revealEl);
             }
 
+            function revealAll() {
+                document.querySelectorAll(
+                    '.category-card, .collection-card, .product-card'
+                ).forEach(function (el) {
+                    el.classList.add('revealed');
+                    revealed.add(el);
+                });
+            }
+
             // Escuchar scroll
             window.addEventListener('scroll', checkAll, { passive: true });
 
             // Check inicial
             setTimeout(checkAll, 300);
 
-            // MutationObserver: detecta product-cards creadas dinamicamente por main.js
-            var grid = document.getElementById('products-grid');
-            if (grid) {
-                var observer = new MutationObserver(function () {
-                    // Pequeño delay para que el DOM se estabilice
-                    setTimeout(checkAll, 100);
-                });
-                observer.observe(grid, { childList: true, subtree: true });
-            }
+            // Forzar reveal de todas las cards después de que el loading screen desaparece
+            setTimeout(revealAll, 2300);
         })();
     </script>
 </body>

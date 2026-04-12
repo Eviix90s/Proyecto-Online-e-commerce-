@@ -75,6 +75,10 @@
     <!-- Checkout Page -->
     <main class="checkout-page">
         <div class="container">
+            <!-- Back link -->
+            <a class="checkout-back-link" href="#" onclick="event.preventDefault();typeof cartSystem!=='undefined'?cartSystem.goBack():history.back()">
+                <i class="fas fa-arrow-left"></i> Volver a la tienda
+            </a>
             <!-- Progress Steps -->
             <div class="checkout-progress">
                 <div class="progress-step active">

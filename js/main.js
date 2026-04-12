@@ -208,16 +208,7 @@ class UrbanCatsApp {
             btn.addEventListener('click', (e) => this.handleFilterClick(e));
         });
 
-        // Carrito
-        if (this.elements.cartSidebar) {
-            document.querySelector('.cart-link')?.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.toggleCart();
-            });
-
-            document.querySelector('.close-cart')?.addEventListener('click', () => this.closeCart());
-            this.elements.overlay?.addEventListener('click', () => this.closeCart());
-        }
+        // Carrito – manejado por cartSystem (cart.js)
 
         // Mobile menu
         if (this.elements.mobileMenuToggle) {
@@ -517,140 +508,53 @@ class UrbanCatsApp {
         });
     }
 
-    // Funciones del carrito mejoradas
+    // Funciones del carrito – delegan a cartSystem (cart.js)
     addToCart(productId, size) {
         const producto = productos.find(p => p.id === productId);
         if (!producto || !producto.inStock) {
             this.showToast('Producto no disponible', 'error');
             return;
         }
-
-        const existingItem = appState.carritoItems.find(item => item.id === productId && item.size === size);
-
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            appState.carritoItems.push({
-                id: productId,
-                name: producto.name,
-                price: producto.price,
-                image: producto.image,
-                size: size,
-                quantity: 1,
-                color: producto.colors[0] // Default al primer color
-            });
-        }
-
-        appState.saveCart();
-        this.updateCartUI();
+        cartSystem.addToCart({
+            id: productId,
+            name: producto.name,
+            price: producto.price,
+            image: producto.image,
+            selectedSize: size || (producto.sizes && producto.sizes[0]) || 'Único',
+            selectedColor: (producto.colors && producto.colors[0]) || ''
+        });
         this.showToast('Producto agregado al carrito', 'success');
-
-        // Efecto visual en el botón
         this.animateAddToCart();
     }
 
     removeFromCart(productId, size) {
-        appState.carritoItems = appState.carritoItems.filter(item => !(item.id === productId && item.size === size));
-        appState.saveCart();
-        this.updateCartUI();
-        this.renderCartItems();
+        cartSystem.removeFromCart(productId);
     }
 
     updateQuantity(productId, size, newQuantity) {
         if (newQuantity <= 0) {
-            this.removeFromCart(productId, size);
+            cartSystem.removeFromCart(productId);
             return;
         }
-
-        const item = appState.carritoItems.find(item => item.id === productId && item.size === size);
-        if (item) {
-            item.quantity = newQuantity;
-            appState.saveCart();
-            this.updateCartUI();
-            this.renderCartItems();
-        }
+        const cart = cartSystem.getCart();
+        const item = cart.find(i => i.id === productId);
+        if (item) cartSystem.updateQuantity(productId, newQuantity - item.quantity);
     }
 
     updateCartUI() {
-        const totalItems = appState.carritoItems.reduce((sum, item) => sum + item.quantity, 0);
-        const totalPrice = appState.carritoItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-        if (this.elements.cartCount) {
-            this.elements.cartCount.textContent = totalItems;
-            this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        }
-
-        if (this.elements.cartTotal) {
-            this.elements.cartTotal.textContent = totalPrice.toLocaleString();
-        }
-
-        if (this.elements.cartSubtotal) {
-            this.elements.cartSubtotal.textContent = totalPrice.toLocaleString();
-        }
-
-        this.renderCartItems();
+        cartSystem.refresh();
     }
 
     renderCartItems() {
-        if (!this.elements.cartItems) return;
-
-        if (appState.carritoItems.length === 0) {
-            this.elements.cartItems.innerHTML = `
-                <div class="empty-cart">
-                    <div class="empty-cart-icon">
-                        <i class="fas fa-shopping-bag"></i>
-                    </div>
-                    <h4>Tu carrito está vacío</h4>
-                    <p>Agrega algunos productos increíbles a tu carrito</p>
-                    <button class="continue-shopping" onclick="app.closeCart()">
-                        <span>Seguir Comprando</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            `;
-            return;
-        }
-
-        this.elements.cartItems.innerHTML = appState.carritoItems.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <div class="cart-item-details">
-                        <span>Talla: ${item.size}</span>
-                        ${item.color ? `<span>Color: ${item.color}</span>` : ''}
-                    </div>
-                    <div class="cart-item-price">$${item.price.toLocaleString()}</div>
-                    <div class="quantity-controls">
-                        <button onclick="app.updateQuantity(${item.id}, '${item.size}', ${item.quantity - 1})" 
-                                class="qty-btn" ${item.quantity <= 1 ? 'disabled' : ''}>
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button onclick="app.updateQuantity(${item.id}, '${item.size}', ${item.quantity + 1})" 
-                                class="qty-btn">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-                <button onclick="app.removeFromCart(${item.id}, '${item.size}')" 
-                        class="remove-item" title="Eliminar producto">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-        `).join('');
+        cartSystem.refresh();
     }
 
     toggleCart() {
-        this.elements.cartSidebar.classList.toggle('open');
-        this.elements.overlay.classList.toggle('active');
-        document.body.style.overflow = this.elements.cartSidebar.classList.contains('open') ? 'hidden' : '';
+        cartSystem.toggleCart();
     }
 
     closeCart() {
-        this.elements.cartSidebar.classList.remove('open');
-        this.elements.overlay.classList.remove('active');
-        document.body.style.overflow = '';
+        cartSystem.closeCart();
     }
 
     // Funciones de wishlist
@@ -678,7 +582,7 @@ class UrbanCatsApp {
 
     updateWishlistUI() {
         if (this.elements.wishlistCount) {
-            const count = appState.wishlistItems.length;
+            const count = appState.wishlistItems.filter(i => i && typeof i === 'object' && i.id).length;
             this.elements.wishlistCount.textContent = count;
             this.elements.wishlistCount.style.display = count > 0 ? 'flex' : 'none';
         }
@@ -1081,15 +985,6 @@ class UrbanCatsApp {
         };
     }
 
-    // Search functionality (preparado para implementación futura)
-    initializeSearch() {
-        const searchBtn = document.querySelector('.search-btn');
-        if (searchBtn) {
-            searchBtn.addEventListener('click', () => {
-                this.showToast('Funcionalidad de búsqueda próximamente', 'info');
-            });
-        }
-    }
 }
 
 // Función throttle para optimizar scroll
@@ -1202,34 +1097,7 @@ window.addEventListener('offline', function () {
 });
 
 
-// Conectar botón de checkout
-document.addEventListener('DOMContentLoaded', () => {
-    const checkoutBtn = document.querySelector('.checkout-btn');
-
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', goToCheckout);
-    }
-});
-
-function goToCheckout(e) {
-    e?.preventDefault();
-
-    const cart = JSON.parse(localStorage.getItem('urbanCats_cart') || '[]');
-
-    if (cart.length === 0) {
-        alert('Tu carrito está vacío');
-        return;
-    }
-
-    // Cerrar carrito sidebar
-    document.getElementById('cart-sidebar')?.classList.remove('active');
-    document.getElementById('overlay')?.classList.remove('active');
-
-    // Ir a checkout
-    setTimeout(() => {
-        window.location.href = 'checkout.html';
-    }, 300);
-}
+// Checkout – manejado por cartSystem
 
 document.addEventListener('DOMContentLoaded', () => {
     // User Dropdown Toggle
@@ -1301,47 +1169,6 @@ function updateUserUI() {
     }
 }
 
-// ============================================
-// FUNCIÓN PARA CONECTAR CARRITO CON CHECKOUT
-// (También debes tener esto en tu main.js)
-// ============================================
-
-function goToCheckout(e) {
-    if (e) e.preventDefault();
-
-    // Verificar si hay productos en el carrito
-    const cart = JSON.parse(localStorage.getItem('urbanCats_cart') || '[]');
-
-    if (cart.length === 0) {
-        alert('Tu carrito está vacío. Agrega productos antes de continuar.');
-        return;
-    }
-
-    // Cerrar el carrito sidebar
-    const cartSidebar = document.getElementById('cart-sidebar');
-    const overlay = document.getElementById('overlay');
-
-    if (cartSidebar) {
-        cartSidebar.classList.remove('active');
-    }
-    if (overlay) {
-        overlay.classList.remove('active');
-    }
-
-    // Pequeño delay para animación
-    setTimeout(() => {
-        window.location.href = 'checkout.html';
-    }, 300);
-}
-
-// Asignar función al botón de checkout
-document.addEventListener('DOMContentLoaded', () => {
-    const checkoutBtn = document.querySelector('.checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.removeEventListener('click', goToCheckout);
-        checkoutBtn.addEventListener('click', goToCheckout);
-    }
-});
 
 // CSS dinámico para componentes creados por JS
 const dynamicStyles = `
@@ -1672,7 +1499,7 @@ const dynamicStyles = `
 }
 
 .toast {
-    background: var(--primary-black);
+    background: #FF6B35;
     color: var(--pure-white);
     padding: 15px 20px;
     border-radius: 10px;
@@ -1692,20 +1519,24 @@ const dynamicStyles = `
     opacity: 1;
 }
 
-.toast.success {
+.toast.success,
+.toast-success {
     background: #10B981;
 }
 
-.toast.error {
-    background: var(--accent-red);
+.toast.error,
+.toast-error {
+    background: #E74C3C;
 }
 
-.toast.warning {
+.toast.warning,
+.toast-warning {
     background: #F59E0B;
 }
 
-.toast.info {
-    background: #3B82F6;
+.toast.info,
+.toast-info {
+    background: #FF6B35;
 }
 
 .toast-content {

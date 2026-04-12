@@ -29,6 +29,19 @@
     padding: 0 20px;
 }
 
+/* Back link */
+.checkout-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color 0.2s;
+}
+.checkout-back-link:hover { color: #1a1a1a; }
+
 /* Progress Steps */
 .checkout-progress {
     display: flex;

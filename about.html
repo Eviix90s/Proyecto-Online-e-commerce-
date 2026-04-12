@@ -569,10 +569,26 @@
         </div>
 
         <div class="cart-footer">
+            <div class="cart-coupon-section">
+                <div id="cart-coupon-form" class="cart-coupon-form">
+                    <input type="text" id="cart-coupon-input" placeholder="Código de cupón" autocomplete="off">
+                    <button id="cart-coupon-apply" class="cart-coupon-apply-btn">Aplicar</button>
+                </div>
+                <div id="cart-coupon-applied" class="cart-coupon-applied" style="display:none">
+                    <span><i class="fas fa-tag"></i> Cupón: <strong id="cart-coupon-badge"></strong></span>
+                    <button id="cart-coupon-remove" class="cart-coupon-remove-btn" title="Quitar cupón">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
             <div class="cart-summary">
                 <div class="cart-subtotal">
                     <span>Subtotal:</span>
                     <span>$<span id="cart-subtotal">0</span></span>
+                </div>
+                <div id="cart-discount-row" class="cart-discount" style="display:none">
+                    <span>Descuento:</span>
+                    <span class="cart-discount-value">-$<span id="cart-discount-amount">0</span></span>
                 </div>
                 <div class="cart-shipping">
                     <span>Envío:</span>
@@ -683,6 +699,7 @@
     <div id="toast-container" class="toast-container"></div>
 
     <!-- Scripts -->
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script type="module" src="js/auth-state.js"></script>
     <script src="js/chatbot-urban-cats.js"></script>

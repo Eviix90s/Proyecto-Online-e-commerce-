@@ -1,24 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Cuenta - Urban Cats</title>
-    <meta name="description" content="Configura tu cuenta de Urban Cats. Gestiona tu perfil, direcciones, mÃ©todos de pago y preferencias.">
-    
-    <!-- Preconnect para optimizaciÃ³n -->
+    <meta name="description" content="Configura tu cuenta de Urban Cats. Gestiona tu perfil, direcciones, métodos de pago y preferencias.">
+
+    <!-- Preconnect para optimización -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/configuracion.css">
+    <link rel="stylesheet" href="css/chatbot-urban-cats.css">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -35,11 +36,9 @@
     <header class="navbar" id="navbar">
         <div class="nav-container">
             <a class="logo" href="index.html">
-                <a href="index.html">
-                    <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats - Moda Urbana" class="logo-img">
-                    <span class="logo-text">Urban Cats</span>
-                </a>
-            </div>
+                <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats - Moda Urbana" class="logo-img">
+                <span class="logo-text">Urban Cats</span>
+            </a>
             <nav class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Inicio</a>
                 <a href="about.html" class="nav-link">Nosotros</a>
@@ -64,13 +63,13 @@
                     <span class="cart-count">0</span>
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="MenÃº mÃ³vil">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menú móvil">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobile-menu">
             <nav class="mobile-nav">
@@ -100,7 +99,7 @@
             <!-- Page Header -->
             <div class="settings-header">
                 <h1>Mi Cuenta</h1>
-                <p>Gestiona tu informaciÃ³n personal y preferencias</p>
+                <p>Gestiona tu información personal y preferencias</p>
             </div>
 
             <div class="settings-grid">
@@ -117,7 +116,7 @@
                         </a>
                         <a href="#pagos" class="settings-nav-link" data-section="pagos">
                             <i class="fas fa-credit-card"></i>
-                            <span>MÃ©todos de Pago</span>
+                            <span>Métodos de Pago</span>
                         </a>
                         <a href="#notificaciones" class="settings-nav-link" data-section="notificaciones">
                             <i class="fas fa-bell"></i>
@@ -132,11 +131,11 @@
 
                 <!-- Content -->
                 <div class="settings-content">
-                    <!-- SecciÃ³n: Mi Perfil -->
+                    <!-- Sección: Mi Perfil -->
                     <section id="perfil" class="settings-section active">
                         <div class="section-header">
                             <h2>Mi Perfil</h2>
-                            <p>Actualiza tu informaciÃ³n personal</p>
+                            <p>Actualiza tu información personal</p>
                         </div>
 
                         <form class="settings-form" id="profile-form">
@@ -171,7 +170,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="profile-telefono">TelÃ©fono</label>
+                                <label for="profile-telefono">Teléfono</label>
                                 <input type="tel" id="profile-telefono" placeholder="+52 555 123 4567">
                             </div>
 
@@ -187,35 +186,35 @@
                         </form>
                     </section>
 
-                    <!-- SecciÃ³n: Direcciones -->
+                    <!-- Sección: Direcciones -->
                     <section id="direcciones" class="settings-section">
                         <div class="section-header">
                             <h2>Mis Direcciones</h2>
-                            <p>Gestiona tus direcciones de envÃ­o</p>
+                            <p>Gestiona tus direcciones de envío</p>
                         </div>
 
                         <button class="btn-add" id="btn-add-address">
                             <i class="fas fa-plus"></i>
-                            Agregar Nueva DirecciÃ³n
+                            Agregar Nueva Dirección
                         </button>
 
                         <div class="addresses-grid" id="addresses-grid">
-                            <!-- Las direcciones se cargarÃ¡n aquÃ­ dinÃ¡micamente -->
+                            <!-- Las direcciones se cargarán aquí dinámicamente -->
                             <div class="empty-state">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <p>No tienes direcciones guardadas</p>
                                 <button class="btn-secondary" onclick="document.getElementById('btn-add-address').click()">
-                                    Agregar tu primera direcciÃ³n
+                                    Agregar tu primera dirección
                                 </button>
                             </div>
                         </div>
                     </section>
 
-                    <!-- SecciÃ³n: MÃ©todos de Pago -->
+                    <!-- Sección: Métodos de Pago -->
                     <section id="pagos" class="settings-section">
                         <div class="section-header">
-                            <h2>MÃ©todos de Pago</h2>
-                            <p>Gestiona tus tarjetas y mÃ©todos de pago</p>
+                            <h2>Métodos de Pago</h2>
+                            <p>Gestiona tus tarjetas y métodos de pago</p>
                         </div>
 
                         <button class="btn-add" id="btn-add-card">
@@ -224,10 +223,10 @@
                         </button>
 
                         <div class="cards-grid" id="cards-grid">
-                            <!-- Las tarjetas se cargarÃ¡n aquÃ­ dinÃ¡micamente -->
+                            <!-- Las tarjetas se cargarán aquí dinámicamente -->
                             <div class="empty-state">
                                 <i class="fas fa-credit-card"></i>
-                                <p>No tienes mÃ©todos de pago guardados</p>
+                                <p>No tienes métodos de pago guardados</p>
                                 <button class="btn-secondary" onclick="document.getElementById('btn-add-card').click()">
                                     Agregar tu primera tarjeta
                                 </button>
@@ -235,11 +234,11 @@
                         </div>
                     </section>
 
-                    <!-- SecciÃ³n: Notificaciones -->
+                    <!-- Sección: Notificaciones -->
                     <section id="notificaciones" class="settings-section">
                         <div class="section-header">
                             <h2>Notificaciones</h2>
-                            <p>Controla cÃ³mo te comunicamos con informaciÃ³n relevante</p>
+                            <p>Controla cómo te comunicamos con información relevante</p>
                         </div>
 
                         <div class="toggle-list">
@@ -257,7 +256,7 @@
                             <div class="toggle-item">
                                 <div class="toggle-info">
                                     <h3>Actualizaciones de Pedidos</h3>
-                                    <p>Notificaciones sobre el estado de tus compras y envÃ­os</p>
+                                    <p>Notificaciones sobre el estado de tus compras y envíos</p>
                                 </div>
                                 <label class="toggle">
                                     <input type="checkbox" id="notif-pedidos" checked>
@@ -268,7 +267,7 @@
                             <div class="toggle-item">
                                 <div class="toggle-info">
                                     <h3>Nuevas Colecciones</h3>
-                                    <p>SÃ© el primero en conocer nuevos productos y lanzamientos</p>
+                                    <p>Sé el primero en conocer nuevos productos y lanzamientos</p>
                                 </div>
                                 <label class="toggle">
                                     <input type="checkbox" id="notif-colecciones">
@@ -289,18 +288,18 @@
                         </div>
                     </section>
 
-                    <!-- SecciÃ³n: Seguridad -->
+                    <!-- Sección: Seguridad -->
                     <section id="seguridad" class="settings-section">
                         <div class="section-header">
                             <h2>Seguridad</h2>
-                            <p>Protege tu cuenta con una contraseÃ±a segura</p>
+                            <p>Protege tu cuenta con una contraseña segura</p>
                         </div>
 
                         <form class="settings-form" id="security-form">
                             <div class="form-group">
-                                <label for="current-password">ContraseÃ±a Actual</label>
+                                <label for="current-password">Contraseña Actual</label>
                                 <div class="password-input">
-                                    <input type="password" id="current-password" placeholder="Ingresa tu contraseÃ±a actual">
+                                    <input type="password" id="current-password" placeholder="Ingresa tu contraseña actual">
                                     <button type="button" class="toggle-password">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -308,9 +307,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="new-password">Nueva ContraseÃ±a</label>
+                                <label for="new-password">Nueva Contraseña</label>
                                 <div class="password-input">
-                                    <input type="password" id="new-password" placeholder="MÃ­nimo 8 caracteres">
+                                    <input type="password" id="new-password" placeholder="Mínimo 8 caracteres">
                                     <button type="button" class="toggle-password">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -322,9 +321,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="confirm-password">Confirmar Nueva ContraseÃ±a</label>
+                                <label for="confirm-password">Confirmar Nueva Contraseña</label>
                                 <div class="password-input">
-                                    <input type="password" id="confirm-password" placeholder="Repite la nueva contraseÃ±a">
+                                    <input type="password" id="confirm-password" placeholder="Repite la nueva contraseña">
                                     <button type="button" class="toggle-password">
                                         <i class="fas fa-eye"></i>
                                     </button>
@@ -333,7 +332,7 @@
 
                             <button type="submit" class="btn-primary">
                                 <i class="fas fa-lock"></i>
-                                Cambiar ContraseÃ±a
+                                Cambiar Contraseña
                             </button>
                         </form>
 
@@ -343,8 +342,8 @@
                                     <i class="fas fa-mobile-alt"></i>
                                 </div>
                                 <div class="security-content">
-                                    <h3>AutenticaciÃ³n en Dos Pasos</h3>
-                                    <p>Agrega una capa extra de seguridad a tu cuenta mediante verificaciÃ³n por SMS o aplicaciÃ³n de autenticaciÃ³n</p>
+                                    <h3>Autenticación en Dos Pasos</h3>
+                                    <p>Agrega una capa extra de seguridad a tu cuenta mediante verificación por SMS o aplicación de autenticación</p>
                                     <button class="btn-secondary" id="btn-setup-2fa">
                                         <i class="fas fa-shield-alt"></i>
                                         Configurar 2FA
@@ -358,7 +357,7 @@
                                 </div>
                                 <div class="security-content">
                                     <h3>Actividad de la Cuenta</h3>
-                                    <p>Revisa los dispositivos y ubicaciones donde has iniciado sesiÃ³n recientemente</p>
+                                    <p>Revisa los dispositivos y ubicaciones donde has iniciado sesión recientemente</p>
                                     <button class="btn-secondary" id="btn-view-activity">
                                         <i class="fas fa-eye"></i>
                                         Ver Actividad
@@ -381,23 +380,31 @@
                         <img src="images/logo_para_video-removebg-preview.png" alt="Urban Cats" class="footer-logo-img">
                         <h3>Urban Cats</h3>
                     </div>
-                    <p>Moda urbana que define tu personalidad. Ãšnete a nuestra comunidad y descubre tu estilo Ãºnico con la elegancia del minimalismo japonÃ©s contemporÃ¡neo.</p>
+                    <p>Moda urbana que define tu personalidad. Únete a nuestra comunidad y descubre tu estilo único con la elegancia del minimalismo japonés contemporáneo.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="SÃ­guenos en Instagram" class="social-link instagram">
+                        <a href="#" aria-label="Síguenos en Instagram" class="social-link instagram">
                             <i class="fab fa-instagram"></i>
                             <span>Instagram</span>
                         </a>
-                        <a href="#" aria-label="SÃ­guenos en TikTok" class="social-link tiktok">
+                        <a href="#" aria-label="Síguenos en TikTok" class="social-link tiktok">
                             <i class="fab fa-tiktok"></i>
                             <span>TikTok</span>
                         </a>
-                        <a href="#" aria-label="SÃ­guenos en Facebook" class="social-link facebook">
+                        <a href="#" aria-label="Síguenos en Facebook" class="social-link facebook">
                             <i class="fab fa-facebook"></i>
                             <span>Facebook</span>
                         </a>
+                        <a href="#" aria-label="Síguenos en Twitter" class="social-link twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" aria-label="Suscríbete a nuestro canal de YouTube" class="social-link youtube">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Tienda</h4>
                     <ul>
@@ -405,36 +412,62 @@
                         <li><a href="men.html">Hombre</a></li>
                         <li><a href="accessories.html">Accesorios</a></li>
                         <li><a href="offers.html">Ofertas</a></li>
+                        <li><a href="lookbook.html">Lookbook</a></li>
+                        <li><a href="index.html#productos">Temporada</a></li>
                     </ul>
                 </div>
-                
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="about.html">Nuestra Historia</a></li>
+                        <li><a href="about.html#mision">Misión y Visión</a></li>
+                        <li><a href="about.html#valores">Valores</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#trabajo">Trabaja con Nosotros</a></li>
+                        <li><a href="#prensa">Prensa</a></li>
+                    </ul>
+                </div>
+
                 <div class="footer-section">
                     <h4>Ayuda</h4>
                     <ul>
-                        <li><a href="#envios">EnvÃ­os y Entrega</a></li>
-                        <li><a href="#devoluciones">Devoluciones</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#envios">Envíos y Entrega</a></li>
+                        <li><a href="#devoluciones">Devoluciones y Cambios</a></li>
+                        <li><a href="#guia-tallas">Guía de Tallas</a></li>
+                        <li><a href="#cuidado">Cuidado de Prendas</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#soporte">Soporte al Cliente</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="copyright">
-                        <p>&copy; 2025 Urban Cats. Todos los derechos reservados.</p>
+                        <p>&copy; 2026 Urban Cats. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="footer-center">
+                        <div class="visit-counter">
+                            <i class="fas fa-eye"></i>
+                            <span>Visitas: <span id="visit-count">1,234</span></span>
+                        </div>
+                        <div class="footer-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mexico City, MX</span>
+                        </div>
                     </div>
                     <div class="footer-links">
-                        <a href="#privacidad">Privacidad</a>
-                        <a href="#terminos">TÃ©rminos</a>
-                        <a href="#cookies">Cookies</a>
+                        <a href="#privacidad">Política de Privacidad</a>
+                        <a href="#terminos">Términos y Condiciones</a>
+                        <a href="#cookies">Política de Cookies</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Carrito sidebar (reutilizado del index) -->
+    <!-- Carrito sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
             <h3>
@@ -445,21 +478,21 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
+
         <div class="cart-items" id="cart-items">
             <div class="empty-cart">
                 <div class="empty-cart-icon">
                     <i class="fas fa-shopping-bag"></i>
                 </div>
-                <h4>Tu carrito estÃ¡ vacÃ­o</h4>
-                <p>Agrega algunos productos increÃ­bles</p>
+                <h4>Tu carrito está vacío</h4>
+                <p>Agrega algunos productos increíbles</p>
                 <button class="continue-shopping" onclick="window.location.href='index.html'">
                     <span>Seguir Comprando</span>
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
         </div>
-        
+
         <div class="cart-footer">
             <div class="cart-summary">
                 <div class="cart-subtotal">
@@ -478,6 +511,71 @@
         </div>
     </div>
 
+    <!-- Botón flotante del chat -->
+    <div id="chat-button" class="chat-button" aria-label="Abrir chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="chat-notification-badge">1</span>
+    </div>
+
+    <!-- Ventana del chat -->
+    <div id="chat-window" class="chat-window">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">😸</div>
+                <div class="chat-header-text">
+                    <h3>Urban Cats</h3>
+                    <div class="chat-status">En línea</div>
+                </div>
+            </div>
+            <button id="chat-close-button" class="chat-close-button" aria-label="Cerrar chat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="chat-message bot-message">
+                <div class="chat-message-avatar">😸</div>
+                <div class="chat-message-content">
+                    <div class="chat-message-bubble">
+                        ¡Hola! 😸 Soy tu asistente virtual de Urban Cats. ¿En qué puedo ayudarte hoy?
+                    </div>
+                    <div class="chat-message-time">Ahora</div>
+                </div>
+            </div>
+        </div>
+        <div id="chat-typing-indicator" class="chat-typing-indicator">
+            <span>Escribiendo</span>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+        <div class="chat-input-container">
+            <div class="chat-input-wrapper">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu mensaje..."
+                    autocomplete="off" aria-label="Mensaje">
+                <button id="chat-send-button" class="chat-send-button" aria-label="Enviar mensaje">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="chat-quick-replies">
+            <button class="chat-quick-reply" data-message="Horarios">🕐 Horarios</button>
+            <button class="chat-quick-reply" data-message="Ubicación">📍 Ubicación</button>
+            <button class="chat-quick-reply" data-message="Servicios">🛒 Servicios</button>
+            <button class="chat-quick-reply" data-message="Contacto">📞 Contacto</button>
+        </div>
+    </div>
+
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
@@ -490,8 +588,10 @@
     <div id="toast-container" class="toast-container"></div>
 
     <!-- Scripts -->
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
     <script src="js/configuracion.js"></script>
+    <script type="module" src="js/auth-state.js"></script>
+    <script src="js/chatbot-urban-cats.js"></script>
 </body>
 </html>
-

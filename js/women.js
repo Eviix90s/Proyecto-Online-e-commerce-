@@ -11,6 +11,7 @@ const WOMEN_CONFIG = {
 
 // Datos de productos de mujer
 const womenProducts = [
+
     {
         id: 101,
         name: "Crop Top Minimal",
@@ -19,168 +20,168 @@ const womenProducts = [
         image: "images/tops_cami_1.jpg",
         category: "tops",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Blanco"],
+        colors: ["Blanco"],
         isNew: true,
         inStock: true,
         description: "Crop top minimalista con diseño japonés"
     },
     {
         id: 102,
-        name: "Vestido Urban Chic",
+        name: "Crop top dragon japones",
         price: 1099,
         originalPrice: null,
         image: "images/tops_cami_2.jpg",
         category: "tops",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Gris"],
+        colors: ["Blanco",],
         isNew: true,
         inStock: true,
-        description: "Vestido elegante con inspiración urbana"
+        description: "crop top dragon japones urbana"
     },
     {
         id: 103,
-        name: "Sudadera Oversized",
+        name: "Crop Top negro dragon",
         price: 899,
         originalPrice: 1199,
         image: "images/tops_cami_3.jpg",
         category: "tops",
         sizes: ["S", "M", "L", "XL"],
-        colors: ["Negro", "Gris", "Beige"],
+        colors: ["Negro"],
         isNew: false,
         inStock: true,
-        description: "Sudadera oversized perfecta para el día a día"
+        description: "Crop top negro japones dragon animalista"
     },
     {
         id: 104,
-        name: "Jeans Mom Fit",
+        name: "Top rojo dragon japones estilo minimalista",
         price: 1299,
         originalPrice: null,
         image: "images/tops_cami_4.jpg",
         category: "tops",
         sizes: ["26", "28", "30", "32"],
-        colors: ["Azul", "Negro"],
+        colors: ["Rojo"],
         isNew: false,
         inStock: true,
-        description: "Jeans con corte mom fit y estilo urbano"
+        description: "Top rojo dragon japones estilo minimalisto urbnano"
     },
     {
         id: 105,
-        name: "Blazer Minimal",
+        name: "Crop Bratz",
         price: 1799,
         originalPrice: 2299,
         image: "images/tops_cami_5.jpg",
         category: "tops",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Beige"],
+        colors: ["Negro"],
         isNew: true,
         inStock: true,
-        description: "Blazer minimalista con líneas limpias"
+        description: "Crop top bratz"
     },
     {
         id: 111,
-        name: "Blazer Minimal",
+        name: "Camisa estilo chica anime",
         price: 1799,
         originalPrice: 2299,
         image: "images/tops_cami_11.jpg",
         category: "tops",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Beige"],
+        colors: ["Negro"],
         isNew: true,
         inStock: true,
-        description: "Blazer minimalista con líneas limpias"
+        description: "Camisa estilo chica japonesa"
     },
 
     {
         id: 112,
-        name: "Blazer Minimal",
+        name: "Camisa kuromi",
         price: 1799,
         originalPrice: 2299,
         image: "images/tops_cami_12.jpg",
         category: "tops",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Beige"],
+        colors: ["Negro"],
         isNew: true,
         inStock: true,
-        description: "Blazer minimalista con líneas limpias"
+        description: "Camisa kuromi urban cats x hello kitty"
     },
 
     {
         id: 201,
-        name: "Falda Plisada",
+        name: "Pantalon Mom",
         price: 799,
         originalPrice: null,
         image: "images/pantalones_1.jpg",
         category: "bottoms",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Gris"],
+        colors: ["Azul"],
         isNew: false,
         inStock: true,
-        description: "Falda plisada con inspiración japonesa"
+        description: "Pantalon estilo Mom mezclilla color azul"
     },
     {
         id: 202,
-        name: "Camiseta Básica",
+        name: "Pantalon Mom vintage",
         price: 499,
         originalPrice: null,
         image: "images/pantalones_2.jpg",
         category: "bottoms",
         sizes: ["XS", "S", "M", "L", "XL"],
-        colors: ["Blanco", "Negro", "Gris", "Beige"],
+        colors: ["Azul"],
         isNew: false,
         inStock: true,
-        description: "Camiseta básica esencial de alta calidad"
+        description: "Pantalon de mezclilla vintage color azul"
     },
     {
         id: 203,
-        name: "Conjunto Deportivo",
+        name: "Pans deportivo",
         price: 1599,
         originalPrice: 1999,
         image: "images/pantalones_3.jpg",
         category: "bottoms",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Gris"],
+        colors: ["Negro"],
         isNew: true,
         inStock: true,
-        description: "Set completo deportivo urbano"
+        description: "Pans deportivo color negro rayado urban cats"
     },
     {
         id: 204,
-        name: "Abrigo Largo",
+        name: "Pans casual",
         price: 2299,
         originalPrice: null,
         image: "images/pantalones_4.jpg",
         category: "bottoms",
         sizes: ["S", "M", "L"],
-        colors: ["Negro", "Beige"],
+        colors: ["Rosa"],
         isNew: true,
         inStock: true,
-        description: "Abrigo largo con estilo minimalista"
+        description: "Pans casual color rosa estilo casual urban cats "
     },
     {
         id: 205,
-        name: "Pantalón Wide Leg",
+        name: "Pantalon Acampanado vintage",
         price: 1199,
         originalPrice: null,
         image: "images/pantalones_5.jpg",
         category: "bottoms",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Beige"],
+        colors: ["Azul"],
         isNew: false,
         inStock: true,
-        description: "Pantalón ancho con caída perfecta"
+        description: "Pantalon acampanado vintage estilo urban cats"
     },
     {
         id: 401,
-        name: "Top Halter",
+        name: "Vestido negro",
         price: 699,
         originalPrice: 899,
         image: "images/vestidos_1.jpg",
         category: "tops",
         sizes: ["XS", "S", "M"],
-        colors: ["Negro", "Blanco"],
+        colors: ["Negro"],
         isNew: false,
         inStock: true,
-        description: "Top halter con diseño moderno"
+        description: "Vestido minimalista estilo urban cats "
     },
     {
         id: 402,
@@ -197,13 +198,13 @@ const womenProducts = [
     },
     {
         id: 403,
-        name: "Vestido Floral Minimal",
+        name: "Vestido negro Minimal",
         price: 1199,
         originalPrice: 1599,
         image: "images/vestidos_3.jpg",
         category: "dresses",
         sizes: ["XS", "S", "M", "L"],
-        colors: ["Negro", "Blanco"],
+        colors: ["Negro",],
         isNew: true,
         inStock: true,
         description: "Vestido floral con estética minimalista urbana"
@@ -229,7 +230,7 @@ const womenProducts = [
         image: "images/vestidos_5.jpg",
         category: "dresses",
         sizes: ["XS", "S", "M"],
-        colors: ["Negro", "Beige"],
+        colors: ["Rosa"],
         isNew: false,
         inStock: true,
         description: "Slip dress con caída perfecta para el día y la noche"
@@ -300,11 +301,11 @@ const womenProducts = [
         description: "El negro absoluto. Abrigo premium para quien domina la noche"
     },
     {
-        id: 404,
+        id: 406,
         name: "Vestido Maxi Flow",
         price: 1399,
         originalPrice: null,
-        image: "images/vestidos_4.jpg",
+        image: "images/vestido_6.jpg",
         category: "dresses",
         sizes: ["S", "M", "L", "XL"],
         colors: ["Negro", "Gris"],
@@ -313,11 +314,11 @@ const womenProducts = [
         description: "Maxi vestido fluido con actitud urbana y femenina"
     },
     {
-        id: 405,
+        id: 407,
         name: "Vestido Mini Street",
         price: 799,
         originalPrice: 999,
-        image: "images/vestidos_5.jpg",
+        image: "images/vestido_7.jpg",
         category: "dresses",
         sizes: ["XS", "S", "M", "L"],
         colors: ["Negro", "Blanco", "Gris"],
@@ -389,6 +390,62 @@ const womenProducts = [
         isNew: true,
         inStock: true,
         description: "Lo esencial nunca pasa de moda. La base perfecta de cualquier look."
+    },
+
+    {
+        id: 601,
+        name: "Conjunto ADIDAS",
+        price: 599,
+        originalPrice: 799,
+        image: "images/all_1.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Naranjan"],
+        isNew: true,
+        inStock: true,
+        description: "Sudadera ADIDAS con diseño urbano"
+    },
+
+    {
+        id: 602,
+        name: "Conjunto skate rojo",
+        price: 499,
+        originalPrice: 799,
+        image: "images/all_2.jpg",
+        category: "conjunto",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Rojo"],
+        isNew: true,
+        inStock: true,
+        description: "Sudadera roja con diseño urbano skate"
+    },
+
+    {
+        id: 603,
+        name: "Conjunto skate gris",
+        price: 699,
+        originalPrice: 799,
+        image: "images/all_3.jpg",
+        category: "Conjunto",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Gris"],
+        isNew: true,
+        inStock: true,
+        description: "Sudadera Gris con diseño urbano"
+    },
+
+    {
+        id: 604,
+        name: "Conjunto blanco skate",
+        price: 760,
+        originalPrice: 999,
+        image: "images/all_4.jpg",
+        category: "tops",
+        sizes: ["XS", "S", "M", "L"],
+        colors: ["Blanco"],
+        isNew: true,
+        inStock: true,
+        description: "Sudadera blanco con diseño urbano skate"
     }
 ];
 
@@ -507,14 +564,7 @@ class WomenApp {
             checkbox.addEventListener('change', (e) => this.handleFeatureFilter(e));
         });
 
-        // Cart
-        document.querySelector('.cart-link')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.toggleCart();
-        });
-
-        document.querySelector('.close-cart')?.addEventListener('click', () => this.closeCart());
-        this.elements.overlay?.addEventListener('click', () => this.closeCart());
+        // Carrito – manejado por cartSystem (cart.js)
 
         // Mobile menu
         this.elements.mobileMenuToggle?.addEventListener('click', () => this.toggleMobileMenu());
@@ -681,12 +731,11 @@ class WomenApp {
 
         // Category filter — each section has an exclusive ID range
         const categoryIdRanges = {
-            'all':       { min: 1,   max: 99  },
-            'tops':      { min: 101, max: 199 },
-            'bottoms':   { min: 201, max: 299 },
-            'dresses':   { min: 401, max: 499 },
+            'tops': { min: 101, max: 199 },
+            'bottoms': { min: 201, max: 299 },
+            'dresses': { min: 401, max: 499 },
             'outerwear': { min: 501, max: 599 },
-            'sets':      { min: 601, max: 699 }
+            'sets': { min: 601, max: 699 }
         };
         const range = categoryIdRanges[this.state.currentCategory];
         if (range) {
@@ -710,11 +759,11 @@ class WomenApp {
             );
         }
 
-        // Feature filters
-        if (this.state.filters.features.includes('new')) {
+        // Feature filters (values match HTML checkbox values)
+        if (this.state.filters.features.includes('nuevo')) {
             filtered = filtered.filter(p => p.isNew);
         }
-        if (this.state.filters.features.includes('sale')) {
+        if (this.state.filters.features.includes('oferta')) {
             filtered = filtered.filter(p => p.originalPrice);
         }
         if (this.state.filters.features.includes('stock')) {
@@ -745,14 +794,14 @@ class WomenApp {
         }
 
         this.elements.productsGrid.innerHTML = pageProducts.map((product) => `
-            <article class="product-card" data-product-id="${product.id}">
+            <article class="product-card" data-product-id="${product.id}" onclick="womenApp.openProductModal(${product.id})">
                 <div class="product-image-container">
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     ${product.isNew ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.originalPrice ? '<span class="product-badge sale">Oferta</span>' : ''}
                     ${!product.inStock ? '<span class="product-badge out-of-stock">Agotado</span>' : ''}
 
-                    <button class="product-wishlist-btn" onclick="womenApp.toggleWishlist(${product.id})" aria-label="Agregar a favoritos">
+                    <button class="product-wishlist-btn ${this.state.wishlist.some(w => (w?.id ?? w) === product.id) ? 'active' : ''}" onclick="event.stopPropagation(); womenApp.toggleWishlist(${product.id})" aria-label="Agregar a favoritos">
                         <i class="fas fa-heart"></i>
                     </button>
 
@@ -765,9 +814,9 @@ class WomenApp {
                                 ${product.originalPrice ? `<span class="product-overlay-original">$${product.originalPrice.toLocaleString()}</span>` : ''}
                             </div>
                         </div>
-                        <button class="product-add-btn" onclick="womenApp.addToCart(${product.id})" ${!product.inStock ? 'disabled' : ''}>
-                            <i class="fas fa-shopping-bag"></i>
-                            ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+                        <button class="product-add-btn" onclick="event.stopPropagation(); womenApp.openProductModal(${product.id})">
+                            <i class="fas fa-eye"></i>
+                            Ver
                         </button>
                     </div>
                 </div>
@@ -800,8 +849,8 @@ class WomenApp {
 
         // Previous button
         html += `
-            <button class="page-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
-                    onclick="womenApp.goToPage(${this.state.currentPage - 1})">
+            <button class="pagination-btn pagination-arrow ${this.state.currentPage === 1 ? 'disabled' : ''}"
+                    ${this.state.currentPage === 1 ? 'disabled' : `onclick="womenApp.goToPage(${this.state.currentPage - 1})"`}>
                 <i class="fas fa-chevron-left"></i>
             </button>
         `;
@@ -810,20 +859,20 @@ class WomenApp {
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
                 html += `
-                    <button class="page-btn ${i === this.state.currentPage ? 'active' : ''}" 
+                    <button class="pagination-btn ${i === this.state.currentPage ? 'active' : ''}"
                             onclick="womenApp.goToPage(${i})">
                         ${i}
                     </button>
                 `;
             } else if (i === this.state.currentPage - 2 || i === this.state.currentPage + 2) {
-                html += '<span class="page-dots">...</span>';
+                html += '<span class="pagination-dots">·····</span>';
             }
         }
 
         // Next button
         html += `
-            <button class="page-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
-                    onclick="womenApp.goToPage(${this.state.currentPage + 1})">
+            <button class="pagination-btn pagination-arrow ${this.state.currentPage === totalPages ? 'disabled' : ''}"
+                    ${this.state.currentPage === totalPages ? 'disabled' : `onclick="womenApp.goToPage(${this.state.currentPage + 1})"`}>
                 <i class="fas fa-chevron-right"></i>
             </button>
         `;
@@ -834,129 +883,54 @@ class WomenApp {
     goToPage(page) {
         this.state.currentPage = page;
         this.renderProducts();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const nav = document.querySelector('.category-navigation');
+        if (nav) nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Cart functionality
+    // Cart functionality – delega a cartSystem (cart.js)
     addToCart(productId) {
         const product = womenProducts.find(p => p.id === productId);
         if (!product || !product.inStock) return;
-
-        const cartItem = this.state.cart.find(item => item.id === productId);
-
-        if (cartItem) {
-            cartItem.quantity++;
-        } else {
-            this.state.cart.push({
-                ...product,
-                quantity: 1,
-                selectedSize: product.sizes[0],
-                selectedColor: product.colors[0]
-            });
-        }
-
-        this.state.saveCart();
-        this.updateCartUI();
+        cartSystem.addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            selectedSize: product.sizes && product.sizes[0] ? product.sizes[0] : 'Único',
+            selectedColor: product.colors && product.colors[0] ? product.colors[0] : ''
+        });
         this.showToast(`${product.name} agregado al carrito`, 'success');
     }
 
     removeFromCart(productId) {
-        const index = this.state.cart.findIndex(item => item.id === productId);
-        if (index !== -1) {
-            const product = this.state.cart[index];
-            this.state.cart.splice(index, 1);
-            this.state.saveCart();
-            this.updateCartUI();
-            this.showToast(`${product.name} eliminado del carrito`, 'info');
-        }
+        cartSystem.removeFromCart(productId);
     }
 
     updateQuantity(productId, change) {
-        const cartItem = this.state.cart.find(item => item.id === productId);
-        if (!cartItem) return;
-
-        cartItem.quantity += change;
-
-        if (cartItem.quantity <= 0) {
-            this.removeFromCart(productId);
-        } else {
-            this.state.saveCart();
-            this.updateCartUI();
-        }
+        cartSystem.updateQuantity(productId, change);
     }
 
     toggleCart() {
-        this.elements.cartSidebar?.classList.toggle('open');
-        this.elements.overlay?.classList.toggle('show');
-        document.body.style.overflow = this.elements.cartSidebar?.classList.contains('open') ? 'hidden' : '';
+        cartSystem.toggleCart();
     }
 
     closeCart() {
-        this.elements.cartSidebar?.classList.remove('open');
-        this.elements.overlay?.classList.remove('show');
-        document.body.style.overflow = '';
+        cartSystem.closeCart();
     }
 
     updateCartUI() {
-        // Update cart count
-        const totalItems = this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
-        if (this.elements.cartCount) {
-            this.elements.cartCount.textContent = totalItems;
-            this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        }
-
-        // Update cart items
-        if (this.elements.cartItems) {
-            if (this.state.cart.length === 0) {
-                this.elements.cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <i class="fas fa-shopping-bag"></i>
-                        <p>Tu carrito está vacío</p>
-                    </div>
-                `;
-            } else {
-                this.elements.cartItems.innerHTML = this.state.cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                        <div class="cart-item-info">
-                            <h4>${item.name}</h4>
-                            <div class="cart-item-details">
-                                <span>Talla: ${item.selectedSize}</span>
-                                <span>Color: ${item.selectedColor}</span>
-                            </div>
-                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
-                            <div class="quantity-controls">
-                                <button class="qty-btn" onclick="womenApp.updateQuantity(${item.id}, -1)">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity">${item.quantity}</span>
-                                <button class="qty-btn" onclick="womenApp.updateQuantity(${item.id}, 1)">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <button class="remove-item" onclick="womenApp.removeFromCart(${item.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-        }
-
-        // Update cart total
-        const total = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        if (this.elements.cartTotal) {
-            this.elements.cartTotal.textContent = `$${total.toLocaleString()}`;
-        }
+        cartSystem.refresh();
     }
 
     // Wishlist functionality
     toggleWishlist(productId) {
-        const index = this.state.wishlist.indexOf(productId);
+        const index = this.state.wishlist.findIndex(item => (item?.id ?? item) === productId);
         const product = womenProducts.find(p => p.id === productId);
 
         if (index === -1) {
-            this.state.wishlist.push(productId);
+            this.state.wishlist.push({ id: product.id, name: product.name, price: product.price, image: product.image,
+                description: product.description || '', sizes: product.sizes || [], colors: product.colors || [],
+                originalPrice: product.originalPrice || null, isNew: !!product.isNew, inStock: product.inStock !== false });
             this.showToast(`${product.name} agregado a favoritos`, 'success');
         } else {
             this.state.wishlist.splice(index, 1);
@@ -965,22 +939,137 @@ class WomenApp {
 
         this.state.saveWishlist();
         this.updateWishlistUI();
+        cartSystem.refreshWishlist();
+        const btn = document.querySelector(`[data-product-id="${productId}"] .product-wishlist-btn`);
+        if (btn) btn.classList.toggle('active', index === -1);
     }
 
     updateWishlistUI() {
         if (this.elements.wishlistCount) {
-            this.elements.wishlistCount.textContent = this.state.wishlist.length;
-            this.elements.wishlistCount.style.display = this.state.wishlist.length > 0 ? 'flex' : 'none';
+            const count = this.state.wishlist.filter(i => i && typeof i === 'object' && i.id).length;
+            this.elements.wishlistCount.textContent = count;
+            this.elements.wishlistCount.style.display = count > 0 ? 'flex' : 'none';
         }
+    }
+
+    // ── Product Quick Modal ──────────────────────────────────
+    openProductModal(productId) {
+        const product = womenProducts.find(p => p.id === productId);
+        if (!product) return;
+
+        const existing = document.getElementById('product-quick-modal');
+        if (existing) existing.remove();
+
+        this._modalSelectedSize = product.sizes && product.sizes[0] ? product.sizes[0] : 'Único';
+        const isInWishlist = this.state.wishlist.some(item => (item?.id ?? item) === productId);
+        const discountPct = product.originalPrice
+            ? Math.round((1 - product.price / product.originalPrice) * 100)
+            : 0;
+
+        const modal = document.createElement('div');
+        modal.id = 'product-quick-modal';
+        modal.className = 'pqm-overlay';
+        modal.innerHTML = `
+            <div class="pqm-modal" role="dialog" aria-modal="true">
+                <button class="pqm-close" id="pqm-close-btn" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="pqm-image">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="pqm-badges">
+                        ${product.isNew ? '<span class="pqm-badge pqm-badge--new">Nuevo</span>' : ''}
+                        ${product.originalPrice ? `<span class="pqm-badge pqm-badge--sale">-${discountPct}%</span>` : ''}
+                    </div>
+                </div>
+                <div class="pqm-details">
+                    <h2 class="pqm-name">${product.name}</h2>
+                    <p class="pqm-desc">${product.description}</p>
+                    <div class="pqm-price">
+                        <span class="pqm-price-current">$${product.price.toLocaleString('es-MX')}</span>
+                        ${product.originalPrice ? `<span class="pqm-price-original">$${product.originalPrice.toLocaleString('es-MX')}</span>` : ''}
+                    </div>
+                    <div class="pqm-sizes-section">
+                        <p class="pqm-sizes-label">Talla: <strong id="pqm-selected-size">${this._modalSelectedSize}</strong></p>
+                        <div class="pqm-sizes-grid">
+                            ${product.sizes.map(size => `
+                                <button class="pqm-size-btn ${size === this._modalSelectedSize ? 'active' : ''}"
+                                        data-size="${size}"
+                                        onclick="womenApp._selectModalSize('${size}')">
+                                    ${size}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="pqm-actions">
+                        <button class="pqm-add-cart-btn ${!product.inStock ? 'disabled' : ''}"
+                                ${!product.inStock ? 'disabled' : ''}
+                                onclick="womenApp._modalAddToCart(${product.id})">
+                            <i class="fas fa-shopping-bag"></i>
+                            ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+                        </button>
+                        <button class="pqm-wishlist-btn ${isInWishlist ? 'active' : ''}"
+                                onclick="womenApp._modalToggleWishlist(${product.id})"
+                                aria-label="${isInWishlist ? 'Quitar de favoritos' : 'Agregar a favoritos'}">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => modal.classList.add('active'), 10);
+
+        document.getElementById('pqm-close-btn').addEventListener('click', () => this.closeProductModal());
+        modal.addEventListener('click', e => { if (e.target === modal) this.closeProductModal(); });
+    }
+
+    _selectModalSize(size) {
+        this._modalSelectedSize = size;
+        const label = document.getElementById('pqm-selected-size');
+        if (label) label.textContent = size;
+        document.querySelectorAll('.pqm-size-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.size === size);
+        });
+    }
+
+    _modalAddToCart(productId) {
+        const product = womenProducts.find(p => p.id === productId);
+        if (!product || !product.inStock) return;
+        cartSystem.addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            selectedSize: this._modalSelectedSize || (product.sizes[0] || 'Único'),
+            selectedColor: product.colors && product.colors[0] ? product.colors[0] : ''
+        });
+        this.showToast(`${product.name} agregado al carrito`, 'success');
+        this.closeProductModal();
+    }
+
+    _modalToggleWishlist(productId) {
+        this.toggleWishlist(productId);
+        const btn = document.querySelector('.pqm-wishlist-btn');
+        if (btn) btn.classList.toggle('active', this.state.wishlist.some(item => (item?.id ?? item) === productId));
+    }
+
+    closeProductModal() {
+        const modal = document.getElementById('product-quick-modal');
+        if (!modal) return;
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.remove();
+            if (!document.getElementById('cart-sidebar')?.classList.contains('open')) {
+                document.body.style.overflow = '';
+            }
+        }, 300);
     }
 
     // Quick view
     quickView(productId) {
-        const product = womenProducts.find(p => p.id === productId);
-        if (!product) return;
-
-        // Aquí puedes implementar un modal de vista rápida
-        this.showToast('Vista rápida disponible próximamente', 'info');
+        this.openProductModal(productId);
     }
 
     // Mobile menu
@@ -1132,6 +1221,7 @@ class WomenApp {
 
     handleKeyboard(e) {
         if (e.key === 'Escape') {
+            this.closeProductModal();
             this.closeCart();
             this.elements.sortMenu?.classList.remove('show');
             this.elements.filterPanel?.classList.remove('open');
@@ -1155,43 +1245,17 @@ class WomenApp {
 window.womenApp = null;
 document.addEventListener('DOMContentLoaded', () => {
     window.womenApp = new WomenApp();
+    if (typeof cartSystem !== 'undefined') cartSystem.registerSearchProducts(womenProducts, 'women.html');
 });
 
-// ============================================
-// USER DROPDOWN - Toggle flotante
-// ============================================
+// Logout (dropdown manejado por cart.js)
 document.addEventListener('DOMContentLoaded', () => {
-    const userBtn = document.querySelector('a[href="#account"]');
-    const dropdown = document.getElementById('userDropdown');
-
-    if (userBtn && dropdown) {
-        // Convertir el enlace en botón clickeable
-        userBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown.classList.toggle('active');
-        });
-
-        // Cerrar dropdown al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target) && e.target !== userBtn) {
-                dropdown.classList.remove('active');
-            }
-        });
-
-        // No cerrar al hacer click dentro del dropdown
-        dropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    }
-
-    // Logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('¿Cerrar sesión?')) {
-                localStorage.clear();
+                ['userId', 'userEmail', 'userName'].forEach(k => localStorage.removeItem(k));
                 window.location.href = 'index.html';
             }
         });
@@ -1338,6 +1402,12 @@ body {
     color: var(--pure-white);
 }
 
+.product-wishlist-btn.active {
+    opacity: 1;
+    background: #fff0f0;
+    color: #e74c3c;
+}
+
 /* Overlay - igual que lookbook */
 .product-overlay {
     position: absolute;
@@ -1428,7 +1498,8 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    align-self: flex-start;
+    align-self: center;
+    width: fit-content;
     transform: translateY(40px);
     transition: transform 0.35s ease 0.12s, background 0.2s ease, color 0.2s ease;
 }

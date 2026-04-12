@@ -12,7 +12,7 @@ const ACCESSORIES_CONFIG = {
 // Datos de productos de accesorios
 const accessoriesProducts = [
     {
-        id: 201,
+        id: 1201,
         name: "Mochila Urban Black",
         price: 899,
         originalPrice: 1199,
@@ -20,41 +20,125 @@ const accessoriesProducts = [
         category: "bags",
         sizes: ["Único"],
         colors: ["Negro", "Gris"],
-        materials: ["Textil"],
+        materials: ["textil"],
         isNew: true,
         inStock: true,
         description: "Mochila urbana minimalista con compartimentos inteligentes"
     },
     {
-        id: 202,
+        id: 1202,
+        name: "Bolso Crossbody Urban",
+        price: 799,
+        originalPrice: null,
+        image: "images/acceso_back_1.jpg",
+        category: "bags",
+        sizes: ["Único"],
+        colors: ["Negro", "Marrón"],
+        materials: ["cuero"],
+        isNew: false,
+        inStock: true,
+        description: "Bolso cruzado con estilo urbano versátil"
+    },
+    {
+        id: 1301,
         name: "Gorra Snapback Street",
         price: 399,
         originalPrice: null,
-        image: "images/snackers_1.jpg",
+        image: "images/acceso_pacs_2.jpg",
         category: "caps",
         sizes: ["Único"],
         colors: ["Negro", "Blanco"],
-        materials: ["Textil"],
+        materials: ["textil"],
         isNew: true,
         inStock: true,
         description: "Gorra ajustable con estilo urbano japonés"
     },
     {
-        id: 203,
+        id: 1302,
+        name: "Gorra Dad Hat Clean",
+        price: 349,
+        originalPrice: 449,
+        image: "images/acceso_pacs_1.jpg",
+        category: "caps",
+        sizes: ["Único"],
+        colors: ["Blanco", "Negro", "Gris"],
+        materials: ["textil"],
+        isNew: false,
+        inStock: true,
+        description: "Gorra dad hat con diseño limpio y minimalista"
+    },
+    {
+        id: 1303,
+        name: "Gorra Bucket Urban",
+        price: 449,
+        originalPrice: 599,
+        image: "images/acceso_pacs_3.jpg",
+        category: "caps",
+        sizes: ["Único"],
+        colors: ["Negro", "Gris"],
+        materials: ["textil"],
+        isNew: true,
+        inStock: true,
+        description: "Bucket hat urbano con espíritu callejero"
+    },
+    {
+        id: 1401,
         name: "Reloj Minimal Digital",
         price: 1599,
         originalPrice: 1999,
-        image: "images/look_1.jpg",
+        image: "images/acceso_watch_1.jpg",
         category: "watches",
         sizes: ["Único"],
         colors: ["Negro", "Gris"],
-        materials: ["Metal"],
+        materials: ["metal"],
         isNew: false,
         inStock: true,
         description: "Reloj digital con diseño minimalista contemporáneo"
     },
     {
-        id: 204,
+        id: 1402,
+        name: "Reloj Análogo Leather",
+        price: 2199,
+        originalPrice: null,
+        image: "images/acceso_watch_2.jpg",
+        category: "watches",
+        sizes: ["Único"],
+        colors: ["Marrón", "Negro"],
+        materials: ["cuero", "metal"],
+        isNew: true,
+        inStock: true,
+        description: "Reloj análogo con correa de cuero premium"
+    },
+    {
+        id: 1501,
+        name: "Collar Chain Minimal",
+        price: 499,
+        originalPrice: null,
+        image: "images/acceso_collar_1.jpg",
+        category: "jewelry",
+        sizes: ["Único"],
+        colors: ["Gris"],
+        materials: ["metal"],
+        isNew: true,
+        inStock: true,
+        description: "Collar minimalista con cadena urbana"
+    },
+    {
+        id: 1502,
+        name: "Anillo Urban Minimal",
+        price: 299,
+        originalPrice: null,
+        image: "images/acceso_collar_2.jpg",
+        category: "jewelry",
+        sizes: ["S", "M", "L"],
+        colors: ["Gris"],
+        materials: ["metal"],
+        isNew: false,
+        inStock: true,
+        description: "Anillo minimalista con acabado mate"
+    },
+    {
+        id: 1601,
         name: "Sneakers Urban White",
         price: 1899,
         originalPrice: null,
@@ -62,119 +146,49 @@ const accessoriesProducts = [
         category: "shoes",
         sizes: ["36", "37", "38", "39", "40", "41", "42"],
         colors: ["Blanco", "Negro"],
-        materials: ["Sintético"],
+        materials: ["sintetico"],
         isNew: true,
         inStock: true,
         description: "Zapatillas urbanas con diseño contemporáneo"
     },
     {
-        id: 205,
-        name: "Lentes de Sol Classic",
-        price: 699,
-        originalPrice: 899,
-        image: "images/look_2.jpg",
-        category: "sunglasses",
-        sizes: ["Único"],
-        colors: ["Negro"],
-        materials: ["Metal"],
-        isNew: false,
-        inStock: true,
-        description: "Lentes de sol con protección UV y estilo minimalista"
-    },
-    {
-        id: 206,
-        name: "Collar Chain Minimal",
-        price: 499,
-        originalPrice: null,
-        image: "images/look_7.jpg",
-        category: "jewelry",
-        sizes: ["Único"],
-        colors: ["Gris"],
-        materials: ["Metal"],
-        isNew: true,
-        inStock: true,
-        description: "Collar minimalista con cadena urbana"
-    },
-    {
-        id: 207,
-        name: "Bolso Crossbody Urban",
-        price: 799,
-        originalPrice: null,
-        image: "images/look_8.jpg",
-        category: "bags",
-        sizes: ["Único"],
-        colors: ["Negro", "Marrón"],
-        materials: ["Cuero"],
-        isNew: false,
-        inStock: true,
-        description: "Bolso cruzado con estilo urbano versátil"
-    },
-    {
-        id: 208,
-        name: "Gorra Dad Hat Clean",
-        price: 349,
-        originalPrice: 449,
-        image: "images/look_10.jpg",
-        category: "caps",
-        sizes: ["Único"],
-        colors: ["Blanco", "Negro", "Gris"],
-        materials: ["Textil"],
-        isNew: false,
-        inStock: true,
-        description: "Gorra dad hat con diseño limpio y minimalista"
-    },
-    {
-        id: 209,
-        name: "Reloj Análogo Leather",
-        price: 2199,
-        originalPrice: null,
-        image: "images/look_14.jpg",
-        category: "watches",
-        sizes: ["Único"],
-        colors: ["Marrón", "Negro"],
-        materials: ["Cuero", "Metal"],
-        isNew: true,
-        inStock: true,
-        description: "Reloj análogo con correa de cuero premium"
-    },
-    {
-        id: 210,
+        id: 1602,
         name: "Sneakers High Top Black",
         price: 2099,
         originalPrice: 2599,
-        image: "images/casual_2.jpg",
+        image: "images/acceso_snecker_1.jpg",
         category: "shoes",
         sizes: ["37", "38", "39", "40", "41", "42"],
         colors: ["Negro"],
-        materials: ["Textil", "Sintético"],
+        materials: ["textil", "sintetico"],
         isNew: true,
         inStock: true,
         description: "Zapatillas botín urbanas con diseño contemporáneo"
     },
     {
-        id: 211,
-        name: "Anillo Urban Minimal",
-        price: 299,
-        originalPrice: null,
-        image: "images/coleccion_1.jpg",
-        category: "jewelry",
-        sizes: ["S", "M", "L"],
-        colors: ["Gris"],
-        materials: ["Metal"],
+        id: 1701,
+        name: "Lentes de Sol Classic",
+        price: 699,
+        originalPrice: 899,
+        image: "images/acceso_glass_1.jpg",
+        category: "sunglasses",
+        sizes: ["Único"],
+        colors: ["Negro"],
+        materials: ["metal"],
         isNew: false,
         inStock: true,
-        description: "Anillo minimalista con acabado mate"
+        description: "Lentes de sol con protección UV y estilo minimalista"
     },
     {
-        id: 212,
+        id: 1702,
         name: "Lentes Clear Frame",
         price: 599,
         originalPrice: null,
-        image: "images/coleccion_3.jpg",
+        image: "images/acceso_glass_2.jpg",
         category: "sunglasses",
         sizes: ["Único"],
         colors: ["Negro", "Blanco"],
-        materials: ["Metal"],
+        materials: ["metal"],
         isNew: true,
         inStock: true,
         description: "Lentes con montura transparente y estilo urbano"
@@ -296,14 +310,7 @@ class AccessoriesApp {
             checkbox.addEventListener('change', (e) => this.handleFeatureFilter(e));
         });
 
-        // Cart
-        document.querySelector('.cart-link')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.toggleCart();
-        });
-
-        document.querySelector('.close-cart')?.addEventListener('click', () => this.closeCart());
-        this.elements.overlay?.addEventListener('click', () => this.closeCart());
+        // Carrito – manejado por cartSystem (cart.js)
 
         // Mobile menu
         this.elements.mobileMenuToggle?.addEventListener('click', () => this.toggleMobileMenu());
@@ -326,15 +333,12 @@ class AccessoriesApp {
         const tab = e.currentTarget;
         const category = tab.dataset.category;
 
-        // Update active state
         this.elements.categoryTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
 
-        // Update state
         this.state.currentCategory = category;
         this.state.currentPage = 1;
 
-        // Filter and render
         this.applyFilters();
         this.animateProducts();
     }
@@ -353,7 +357,6 @@ class AccessoriesApp {
             features: []
         };
 
-        // Reset UI
         if (this.elements.priceSlider) {
             this.elements.priceSlider.value = 5000;
             this.elements.maxPrice.textContent = '$5,000';
@@ -424,10 +427,10 @@ class AccessoriesApp {
 
     handleSortChange(e) {
         const sortType = e.currentTarget.dataset.sort;
-        
+
         this.elements.sortOptions.forEach(opt => opt.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
+
         this.state.currentSort = sortType;
         this.sortProducts();
         this.renderProducts();
@@ -435,7 +438,7 @@ class AccessoriesApp {
     }
 
     sortProducts() {
-        switch(this.state.currentSort) {
+        switch (this.state.currentSort) {
             case 'price-low':
                 this.state.filteredProducts.sort((a, b) => a.price - b.price);
                 break;
@@ -449,17 +452,17 @@ class AccessoriesApp {
                 this.state.filteredProducts.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
                 break;
             default:
-                this.state.filteredProducts = [...accessoriesProducts];
+                break;
         }
     }
 
     // View handling
     handleViewChange(e) {
         const view = e.currentTarget.dataset.view;
-        
+
         this.elements.viewBtns.forEach(btn => btn.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        
+
         this.state.currentView = view;
         this.elements.productsGrid.className = `products-grid ${view}-view`;
     }
@@ -468,9 +471,18 @@ class AccessoriesApp {
     applyFilters() {
         let filtered = [...accessoriesProducts];
 
-        // Category filter
-        if (this.state.currentCategory !== 'all') {
-            filtered = filtered.filter(p => p.category === this.state.currentCategory);
+        // Category filter — each section has an exclusive ID range
+        const categoryIdRanges = {
+            'bags': { min: 1201, max: 1299 },
+            'caps': { min: 1301, max: 1399 },
+            'watches': { min: 1401, max: 1499 },
+            'jewelry': { min: 1501, max: 1599 },
+            'shoes': { min: 1601, max: 1699 },
+            'sunglasses': { min: 1701, max: 1799 }
+        };
+        const range = categoryIdRanges[this.state.currentCategory];
+        if (range) {
+            filtered = filtered.filter(p => p.id >= range.min && p.id <= range.max);
         }
 
         // Price filter
@@ -478,14 +490,14 @@ class AccessoriesApp {
 
         // Material filter
         if (this.state.filters.materials.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 this.state.filters.materials.some(material => p.materials.includes(material))
             );
         }
 
         // Color filter
         if (this.state.filters.colors.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 this.state.filters.colors.some(color => p.colors.includes(color))
             );
         }
@@ -524,54 +536,31 @@ class AccessoriesApp {
             return;
         }
 
-        this.elements.productsGrid.innerHTML = pageProducts.map(product => `
-            <article class="product-card" data-product-id="${product.id}">
+        this.elements.productsGrid.innerHTML = pageProducts.map((product) => `
+            <article class="product-card" data-product-id="${product.id}" onclick="accessoriesApp.openProductModal(${product.id})">
                 <div class="product-image-container">
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                     ${product.isNew ? '<span class="product-badge new">Nuevo</span>' : ''}
                     ${product.originalPrice ? '<span class="product-badge sale">Oferta</span>' : ''}
                     ${!product.inStock ? '<span class="product-badge out-of-stock">Agotado</span>' : ''}
-                    
-                    <div class="product-actions">
-                        <button class="action-btn wishlist-btn" onclick="app.toggleWishlist(${product.id})" 
-                                aria-label="Agregar a favoritos">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                        <button class="action-btn quick-view-btn" onclick="app.quickView(${product.id})"
-                                aria-label="Vista rápida">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    
-                    <button class="add-to-cart-overlay" onclick="app.addToCart(${product.id})"
-                            ${!product.inStock ? 'disabled' : ''}>
-                        <i class="fas fa-shopping-bag"></i>
-                        ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+
+                    <button class="product-wishlist-btn ${this.state.wishlist.some(w => (w?.id ?? w) === product.id) ? 'active' : ''}" onclick="event.stopPropagation(); accessoriesApp.toggleWishlist(${product.id})" aria-label="Agregar a favoritos">
+                        <i class="fas fa-heart"></i>
                     </button>
-                </div>
-                
-                <div class="product-info">
-                    <h3 class="product-name">${product.name}</h3>
-                    <p class="product-description">${product.description}</p>
-                    
-                    <div class="product-pricing">
-                        <span class="product-price">$${product.price.toLocaleString()}</span>
-                        ${product.originalPrice ? 
-                            `<span class="original-price">$${product.originalPrice.toLocaleString()}</span>` : ''}
-                    </div>
-                    
-                    <div class="product-colors">
-                        ${product.colors.map(color => `
-                            <span class="color-option" 
-                                  style="background-color: ${this.getColorValue(color)}"
-                                  title="${color}"></span>
-                        `).join('')}
-                    </div>
-                    
-                    <div class="product-sizes">
-                        ${product.sizes.slice(0, 4).map(size => `
-                            <span class="size-option">${size}</span>
-                        `).join('')}
+
+                    <div class="product-overlay">
+                        <div class="product-overlay-details">
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                            <div class="product-overlay-price">
+                                <span>$${product.price.toLocaleString()}</span>
+                                ${product.originalPrice ? `<span class="product-overlay-original">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                        </div>
+                        <button class="product-add-btn" onclick="event.stopPropagation(); accessoriesApp.openProductModal(${product.id})">
+                            <i class="fas fa-eye"></i>
+                            Ver
+                        </button>
                     </div>
                 </div>
             </article>
@@ -583,7 +572,8 @@ class AccessoriesApp {
 
     updateProductsCount() {
         if (this.elements.productsCount) {
-            this.elements.productsCount.textContent = this.state.filteredProducts.length;
+            this.elements.productsCount.textContent =
+                `${this.state.filteredProducts.length} producto${this.state.filteredProducts.length !== 1 ? 's' : ''}`;
         }
     }
 
@@ -592,40 +582,37 @@ class AccessoriesApp {
         if (!this.elements.pagination) return;
 
         const totalPages = Math.ceil(this.state.filteredProducts.length / ACCESSORIES_CONFIG.productsPerPage);
-        
+
         if (totalPages <= 1) {
             this.elements.pagination.innerHTML = '';
             return;
         }
 
         let html = '';
-        
-        // Previous button
+
         html += `
-            <button class="pagination-btn" ${this.state.currentPage === 1 ? 'disabled' : ''} 
-                    onclick="app.goToPage(${this.state.currentPage - 1})">
+            <button class="pagination-btn pagination-arrow ${this.state.currentPage === 1 ? 'disabled' : ''}"
+                    ${this.state.currentPage === 1 ? 'disabled' : `onclick="accessoriesApp.goToPage(${this.state.currentPage - 1})"`}>
                 <i class="fas fa-chevron-left"></i>
             </button>
         `;
 
-        // Page numbers
         for (let i = 1; i <= totalPages; i++) {
             if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
                 html += `
-                    <button class="pagination-btn ${i === this.state.currentPage ? 'active' : ''}" 
-                            onclick="app.goToPage(${i})">
+                    <button class="pagination-btn ${i === this.state.currentPage ? 'active' : ''}"
+                            onclick="accessoriesApp.goToPage(${i})">
                         ${i}
                     </button>
                 `;
             } else if (i === this.state.currentPage - 2 || i === this.state.currentPage + 2) {
-                html += '<span class="page-dots">...</span>';
+                html += '<span class="pagination-dots">·····</span>';
             }
         }
 
-        // Next button
         html += `
-            <button class="pagination-btn" ${this.state.currentPage === totalPages ? 'disabled' : ''} 
-                    onclick="app.goToPage(${this.state.currentPage + 1})">
+            <button class="pagination-btn pagination-arrow ${this.state.currentPage === totalPages ? 'disabled' : ''}"
+                    ${this.state.currentPage === totalPages ? 'disabled' : `onclick="accessoriesApp.goToPage(${this.state.currentPage + 1})"`}>
                 <i class="fas fa-chevron-right"></i>
             </button>
         `;
@@ -636,132 +623,54 @@ class AccessoriesApp {
     goToPage(page) {
         this.state.currentPage = page;
         this.renderProducts();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const nav = document.querySelector('.category-navigation');
+        if (nav) nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Cart functionality
+    // Cart functionality – delega a cartSystem (cart.js)
     addToCart(productId) {
         const product = accessoriesProducts.find(p => p.id === productId);
         if (!product || !product.inStock) return;
-
-        const cartItem = this.state.cart.find(item => item.id === productId);
-        
-        if (cartItem) {
-            cartItem.quantity++;
-        } else {
-            this.state.cart.push({
-                ...product,
-                quantity: 1,
-                selectedSize: product.sizes[0],
-                selectedColor: product.colors[0]
-            });
-        }
-
-        this.state.saveCart();
-        this.updateCartUI();
+        cartSystem.addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            selectedSize: product.sizes && product.sizes[0] ? product.sizes[0] : 'Único',
+            selectedColor: product.colors && product.colors[0] ? product.colors[0] : ''
+        });
         this.showToast(`${product.name} agregado al carrito`, 'success');
     }
 
     removeFromCart(productId) {
-        const index = this.state.cart.findIndex(item => item.id === productId);
-        if (index !== -1) {
-            const product = this.state.cart[index];
-            this.state.cart.splice(index, 1);
-            this.state.saveCart();
-            this.updateCartUI();
-            this.showToast(`${product.name} eliminado del carrito`, 'info');
-        }
+        cartSystem.removeFromCart(productId);
     }
 
     updateQuantity(productId, change) {
-        const cartItem = this.state.cart.find(item => item.id === productId);
-        if (!cartItem) return;
-
-        cartItem.quantity += change;
-
-        if (cartItem.quantity <= 0) {
-            this.removeFromCart(productId);
-        } else {
-            this.state.saveCart();
-            this.updateCartUI();
-        }
+        cartSystem.updateQuantity(productId, change);
     }
 
     toggleCart() {
-        this.elements.cartSidebar?.classList.toggle('open');
-        this.elements.overlay?.classList.toggle('show');
-        document.body.style.overflow = this.elements.cartSidebar?.classList.contains('open') ? 'hidden' : '';
+        cartSystem.toggleCart();
     }
 
     closeCart() {
-        this.elements.cartSidebar?.classList.remove('open');
-        this.elements.overlay?.classList.remove('show');
-        document.body.style.overflow = '';
+        cartSystem.closeCart();
     }
 
     updateCartUI() {
-        // Update cart count
-        const totalItems = this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
-        if (this.elements.cartCount) {
-            this.elements.cartCount.textContent = totalItems;
-            this.elements.cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        }
-
-        // Update cart items
-        if (this.elements.cartItems) {
-            if (this.state.cart.length === 0) {
-                this.elements.cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <div class="empty-cart-icon">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <h4>Tu carrito está vacío</h4>
-                        <p>Agrega algunos productos increíbles a tu carrito</p>
-                    </div>
-                `;
-            } else {
-                this.elements.cartItems.innerHTML = this.state.cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                        <div class="cart-item-info">
-                            <h4>${item.name}</h4>
-                            <div class="cart-item-details">
-                                <span>Talla: ${item.selectedSize}</span>
-                                <span>Color: ${item.selectedColor}</span>
-                            </div>
-                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
-                            <div class="quantity-controls">
-                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, -1)">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <span class="quantity">${item.quantity}</span>
-                                <button class="qty-btn" onclick="app.updateQuantity(${item.id}, 1)">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <button class="remove-item" onclick="app.removeFromCart(${item.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-        }
-
-        // Update cart total
-        const total = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        if (this.elements.cartTotal) {
-            this.elements.cartTotal.textContent = total.toLocaleString();
-        }
+        cartSystem.refresh();
     }
 
     // Wishlist functionality
     toggleWishlist(productId) {
-        const index = this.state.wishlist.indexOf(productId);
+        const index = this.state.wishlist.findIndex(item => (item?.id ?? item) === productId);
         const product = accessoriesProducts.find(p => p.id === productId);
 
         if (index === -1) {
-            this.state.wishlist.push(productId);
+            this.state.wishlist.push({ id: product.id, name: product.name, price: product.price, image: product.image,
+                description: product.description || '', sizes: product.sizes || [], colors: product.colors || [],
+                originalPrice: product.originalPrice || null, isNew: !!product.isNew, inStock: product.inStock !== false });
             this.showToast(`${product.name} agregado a favoritos`, 'success');
         } else {
             this.state.wishlist.splice(index, 1);
@@ -770,21 +679,137 @@ class AccessoriesApp {
 
         this.state.saveWishlist();
         this.updateWishlistUI();
+        cartSystem.refreshWishlist();
+        const btn = document.querySelector(`[data-product-id="${productId}"] .product-wishlist-btn`);
+        if (btn) btn.classList.toggle('active', index === -1);
     }
 
     updateWishlistUI() {
         if (this.elements.wishlistCount) {
-            this.elements.wishlistCount.textContent = this.state.wishlist.length;
-            this.elements.wishlistCount.style.display = this.state.wishlist.length > 0 ? 'flex' : 'none';
+            const count = this.state.wishlist.filter(i => i && typeof i === 'object' && i.id).length;
+            this.elements.wishlistCount.textContent = count;
+            this.elements.wishlistCount.style.display = count > 0 ? 'flex' : 'none';
         }
+    }
+
+    // ── Product Quick Modal ──────────────────────────────────
+    openProductModal(productId) {
+        const product = accessoriesProducts.find(p => p.id === productId);
+        if (!product) return;
+
+        const existing = document.getElementById('product-quick-modal');
+        if (existing) existing.remove();
+
+        this._modalSelectedSize = product.sizes && product.sizes[0] ? product.sizes[0] : 'Único';
+        const isInWishlist = this.state.wishlist.some(item => (item?.id ?? item) === productId);
+        const discountPct = product.originalPrice
+            ? Math.round((1 - product.price / product.originalPrice) * 100)
+            : 0;
+
+        const modal = document.createElement('div');
+        modal.id = 'product-quick-modal';
+        modal.className = 'pqm-overlay';
+        modal.innerHTML = `
+            <div class="pqm-modal" role="dialog" aria-modal="true">
+                <button class="pqm-close" id="pqm-close-btn" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="pqm-image">
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="pqm-badges">
+                        ${product.isNew ? '<span class="pqm-badge pqm-badge--new">Nuevo</span>' : ''}
+                        ${product.originalPrice ? `<span class="pqm-badge pqm-badge--sale">-${discountPct}%</span>` : ''}
+                    </div>
+                </div>
+                <div class="pqm-details">
+                    <h2 class="pqm-name">${product.name}</h2>
+                    <p class="pqm-desc">${product.description}</p>
+                    <div class="pqm-price">
+                        <span class="pqm-price-current">$${product.price.toLocaleString('es-MX')}</span>
+                        ${product.originalPrice ? `<span class="pqm-price-original">$${product.originalPrice.toLocaleString('es-MX')}</span>` : ''}
+                    </div>
+                    <div class="pqm-sizes-section">
+                        <p class="pqm-sizes-label">Talla: <strong id="pqm-selected-size">${this._modalSelectedSize}</strong></p>
+                        <div class="pqm-sizes-grid">
+                            ${product.sizes.map(size => `
+                                <button class="pqm-size-btn ${size === this._modalSelectedSize ? 'active' : ''}"
+                                        data-size="${size}"
+                                        onclick="accessoriesApp._selectModalSize('${size}')">
+                                    ${size}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="pqm-actions">
+                        <button class="pqm-add-cart-btn ${!product.inStock ? 'disabled' : ''}"
+                                ${!product.inStock ? 'disabled' : ''}
+                                onclick="accessoriesApp._modalAddToCart(${product.id})">
+                            <i class="fas fa-shopping-bag"></i>
+                            ${product.inStock ? 'Agregar al carrito' : 'Agotado'}
+                        </button>
+                        <button class="pqm-wishlist-btn ${isInWishlist ? 'active' : ''}"
+                                onclick="accessoriesApp._modalToggleWishlist(${product.id})"
+                                aria-label="${isInWishlist ? 'Quitar de favoritos' : 'Agregar a favoritos'}">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => modal.classList.add('active'), 10);
+
+        document.getElementById('pqm-close-btn').addEventListener('click', () => this.closeProductModal());
+        modal.addEventListener('click', e => { if (e.target === modal) this.closeProductModal(); });
+    }
+
+    _selectModalSize(size) {
+        this._modalSelectedSize = size;
+        const label = document.getElementById('pqm-selected-size');
+        if (label) label.textContent = size;
+        document.querySelectorAll('.pqm-size-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.size === size);
+        });
+    }
+
+    _modalAddToCart(productId) {
+        const product = accessoriesProducts.find(p => p.id === productId);
+        if (!product || !product.inStock) return;
+        cartSystem.addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            selectedSize: this._modalSelectedSize || (product.sizes[0] || 'Único'),
+            selectedColor: product.colors && product.colors[0] ? product.colors[0] : ''
+        });
+        this.showToast(`${product.name} agregado al carrito`, 'success');
+        this.closeProductModal();
+    }
+
+    _modalToggleWishlist(productId) {
+        this.toggleWishlist(productId);
+        const btn = document.querySelector('.pqm-wishlist-btn');
+        if (btn) btn.classList.toggle('active', this.state.wishlist.some(item => (item?.id ?? item) === productId));
+    }
+
+    closeProductModal() {
+        const modal = document.getElementById('product-quick-modal');
+        if (!modal) return;
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.remove();
+            if (!document.getElementById('cart-sidebar')?.classList.contains('open')) {
+                document.body.style.overflow = '';
+            }
+        }, 300);
     }
 
     // Quick view
     quickView(productId) {
-        const product = accessoriesProducts.find(p => p.id === productId);
-        if (!product) return;
-
-        this.showToast('Vista rápida disponible próximamente', 'info');
+        this.openProductModal(productId);
     }
 
     // Mobile menu
@@ -796,7 +821,6 @@ class AccessoriesApp {
 
     // Scroll handling
     handleScroll() {
-        // Sticky navbar
         if (this.elements.navbar) {
             if (window.scrollY > 100) {
                 this.elements.navbar.classList.add('scrolled');
@@ -805,7 +829,6 @@ class AccessoriesApp {
             }
         }
 
-        // Back to top button
         if (this.elements.backToTop) {
             if (window.scrollY > 500) {
                 this.elements.backToTop.classList.add('visible');
@@ -816,41 +839,29 @@ class AccessoriesApp {
     }
 
     scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Animations
     setupScrollAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
+        const check = () => {
+            document.querySelectorAll('.product-card:not(.revealed)').forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+                    setTimeout(() => card.classList.add('revealed'), index * 80);
                 }
             });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            observer.observe(card);
-        });
+        };
+        window.addEventListener('scroll', check, { passive: true });
     }
 
     animateOnLoad() {
-        const cards = document.querySelectorAll('.product-card');
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('fade-in');
-            }, index * ACCESSORIES_CONFIG.animationDelay);
-        });
+        // Handled by revealVisibleCards via .revealed class
     }
 
     animateProducts() {
         this.elements.productsGrid.style.opacity = '0';
-        
+
         setTimeout(() => {
             this.renderProducts();
             this.elements.productsGrid.style.opacity = '1';
@@ -860,7 +871,7 @@ class AccessoriesApp {
     // Toast notifications
     showToast(message, type = 'info') {
         const toastContainer = document.getElementById('toast-container') || this.createToastContainer();
-        
+
         const toast = document.createElement('div');
         toast.className = `toast toast-${type}`;
         toast.innerHTML = `
@@ -906,7 +917,6 @@ class AccessoriesApp {
         return icons[type] || icons.info;
     }
 
-    // Utility functions
     getColorValue(colorName) {
         const colors = {
             'Negro': '#000000',
@@ -935,6 +945,7 @@ class AccessoriesApp {
 
     handleKeyboard(e) {
         if (e.key === 'Escape') {
+            this.closeProductModal();
             this.closeCart();
             this.elements.sortMenu?.classList.remove('active');
             this.elements.filterPanel?.classList.remove('active');
@@ -955,48 +966,20 @@ class AccessoriesApp {
 }
 
 // Initialize app
-let app;
+window.accessoriesApp = null;
 document.addEventListener('DOMContentLoaded', () => {
-    app = new AccessoriesApp();
+    window.accessoriesApp = new AccessoriesApp();
+    if (typeof cartSystem !== 'undefined') cartSystem.registerSearchProducts(accessoriesProducts, 'accessories.html');
 });
 
-
-
-// ============================================
-// USER DROPDOWN - Toggle flotante
-// ============================================
+// Logout (dropdown manejado por cart.js)
 document.addEventListener('DOMContentLoaded', () => {
-    const userBtn = document.querySelector('a[href="#account"]');
-    const dropdown = document.getElementById('userDropdown');
-    
-    if (userBtn && dropdown) {
-        // Convertir el enlace en botón clickeable
-        userBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown.classList.toggle('active');
-        });
-        
-        // Cerrar dropdown al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target) && e.target !== userBtn) {
-                dropdown.classList.remove('active');
-            }
-        });
-        
-        // No cerrar al hacer click dentro del dropdown
-        dropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    }
-    
-    // Logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('¿Cerrar sesión?')) {
-                localStorage.clear();
+                ['userId', 'userEmail', 'userName'].forEach(k => localStorage.removeItem(k));
                 window.location.href = 'index.html';
             }
         });
@@ -1022,11 +1005,7 @@ const accessoriesStyles = `
     --transition: all 0.3s ease;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -1045,24 +1024,15 @@ body {
     transition: opacity 0.4s ease;
 }
 
-/* Product Card */
+/* Product Card - Lookbook Style */
 .product-card {
     background: var(--pure-white);
     border-radius: 20px;
     overflow: hidden;
-    transition: var(--transition);
-    cursor: pointer;
     box-shadow: var(--shadow-light);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    cursor: pointer;
+    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
@@ -1081,11 +1051,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s ease, filter 0.6s ease;
 }
 
 .product-card:hover .product-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: contrast(1.1);
 }
 
 .product-badge {
@@ -1098,170 +1069,149 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    z-index: 2;
-}
-
-.product-badge.new {
-    background: var(--accent-gold);
-    color: var(--primary-black);
-}
-
-.product-badge.sale {
-    background: var(--accent-red);
-    color: var(--pure-white);
-    top: 50px;
-}
-
-.product-badge.out-of-stock {
-    background: var(--gray-medium);
-    color: var(--pure-white);
-}
-
-.product-actions {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.3s ease;
     z-index: 3;
 }
 
-.product-card:hover .product-actions {
+.product-badge.new { background: var(--accent-gold); color: var(--primary-black); }
+.product-badge.sale { background: var(--accent-red); color: var(--pure-white); top: 50px; }
+.product-badge.out-of-stock { background: var(--gray-medium); color: var(--pure-white); }
+
+/* Wishlist button top-right */
+.product-wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--primary-black);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    z-index: 4;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.product-card:hover .product-wishlist-btn {
     opacity: 1;
     transform: translateX(0);
 }
 
-.action-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: none;
-    background: var(--pure-white);
-    color: var(--primary-black);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    box-shadow: var(--shadow-medium);
-}
-
-.action-btn:hover {
+.product-wishlist-btn:hover {
     background: var(--primary-black);
     color: var(--pure-white);
-    transform: scale(1.1);
 }
 
-.add-to-cart-overlay {
+.product-wishlist-btn.active {
+    opacity: 1;
+    background: #fff0f0;
+    color: #e74c3c;
+}
+
+/* Overlay - lookbook style */
+.product-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--primary-black);
-    color: var(--pure-white);
-    border: none;
-    padding: 18px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.82) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
     z-index: 2;
 }
 
-.product-card:hover .add-to-cart-overlay {
-    transform: translateY(0);
-}
+.product-card:hover .product-overlay { opacity: 1; }
 
-.add-to-cart-overlay:hover:not(:disabled) {
-    background: var(--gray-dark);
-}
+.product-overlay-details { color: var(--pure-white); }
 
-.add-to-cart-overlay:disabled {
-    background: var(--gray-medium);
-    cursor: not-allowed;
-}
-
-.product-info {
-    padding: 20px;
-}
-
-.product-name {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--primary-black);
+.product-overlay-details h3 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
     margin-bottom: 8px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease;
 }
 
-.product-description {
+.product-card:hover .product-overlay-details h3 { transform: translateY(0); }
+
+.product-overlay-details p {
     font-size: 13px;
-    color: var(--gray-medium);
-    margin-bottom: 12px;
-    line-height: 1.4;
+    opacity: 0.88;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease 0.05s;
 }
 
-.product-pricing {
+.product-card:hover .product-overlay-details p { transform: translateY(0); }
+
+.product-overlay-price {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 15px;
+    transform: translateY(20px);
+    transition: transform 0.35s ease 0.1s;
 }
 
-.product-price {
+.product-card:hover .product-overlay-price { transform: translateY(0); }
+
+.product-overlay-price span:first-child {
     font-size: 20px;
     font-weight: 600;
-    color: var(--primary-black);
+    color: #ffffff;
 }
 
-.original-price {
-    text-decoration: line-through;
-    color: var(--gray-medium);
+.product-overlay-original {
     font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: line-through;
 }
 
-.product-colors {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.color-option {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--gray-light);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.color-option:hover {
-    transform: scale(1.2);
-    border-color: var(--primary-black);
-}
-
-.product-sizes {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.size-option {
-    padding: 8px 16px;
-    border: 1px solid var(--gray-light);
-    background: transparent;
+/* Botón Ver */
+.product-add-btn {
+    background: var(--pure-white);
     color: var(--primary-black);
-    border-radius: 20px;
-    font-size: 13px;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: center;
+    width: fit-content;
+    transform: translateY(40px);
+    transition: transform 0.35s ease 0.12s, background 0.2s ease, color 0.2s ease;
+}
+
+.product-card:hover .product-add-btn { transform: translateY(0); }
+
+.product-add-btn:hover {
+    background: var(--primary-black);
+    color: var(--pure-white);
+}
+
+.product-add-btn:disabled {
+    background: var(--gray-medium);
+    color: var(--pure-white);
+    cursor: not-allowed;
 }
 
 /* Cart Item Styles */
@@ -1273,22 +1223,9 @@ body {
     align-items: center;
 }
 
-.cart-item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.cart-item-info {
-    flex: 1;
-}
-
-.cart-item-info h4 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
+.cart-item-image { width: 80px; height: 80px; object-fit: cover; border-radius: 10px; }
+.cart-item-info { flex: 1; }
+.cart-item-info h4 { font-size: 16px; font-weight: 500; margin-bottom: 5px; }
 
 .cart-item-details {
     display: flex;
@@ -1298,16 +1235,8 @@ body {
     margin-bottom: 10px;
 }
 
-.cart-item-price {
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.cart-item-price { font-weight: 600; margin-bottom: 10px; }
+.quantity-controls { display: flex; align-items: center; gap: 10px; }
 
 .qty-btn {
     width: 28px;
@@ -1322,16 +1251,8 @@ body {
     transition: var(--transition);
 }
 
-.qty-btn:hover {
-    background: var(--primary-black);
-    color: var(--pure-white);
-}
-
-.quantity {
-    font-weight: 600;
-    min-width: 25px;
-    text-align: center;
-}
+.qty-btn:hover { background: var(--primary-black); color: var(--pure-white); }
+.quantity { font-weight: 600; min-width: 25px; text-align: center; }
 
 .remove-item {
     background: none;
@@ -1343,10 +1264,7 @@ body {
     transition: var(--transition);
 }
 
-.remove-item:hover {
-    color: var(--accent-red);
-    background: rgba(255, 0, 0, 0.1);
-}
+.remove-item:hover { color: var(--accent-red); background: rgba(255, 0, 0, 0.1); }
 
 /* Toast Styles */
 .toast {
@@ -1365,32 +1283,12 @@ body {
     justify-content: space-between;
 }
 
-.toast.show {
-    transform: translateX(0);
-    opacity: 1;
-}
-
-.toast-success {
-    background: #10B981;
-}
-
-.toast-error {
-    background: var(--accent-red);
-}
-
-.toast-warning {
-    background: #F59E0B;
-}
-
-.toast-info {
-    background: #3B82F6;
-}
-
-.toast-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+.toast.show { transform: translateX(0); opacity: 1; }
+.toast-success { background: #10B981; }
+.toast-error { background: var(--accent-red); }
+.toast-warning { background: #F59E0B; }
+.toast-info { background: #3B82F6; }
+.toast-content { display: flex; align-items: center; gap: 10px; }
 
 .toast-close {
     background: none;
@@ -1402,11 +1300,9 @@ body {
     transition: var(--transition);
 }
 
-.toast-close:hover {
-    opacity: 1;
-}
+.toast-close:hover { opacity: 1; }
 
-/* No Products Message */
+/* No Products */
 .no-products {
     grid-column: 1 / -1;
     text-align: center;
@@ -1414,65 +1310,234 @@ body {
     color: var(--gray-medium);
 }
 
-.no-products h3 {
-    font-size: 24px;
-    color: var(--primary-black);
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.no-products p {
-    font-size: 16px;
-}
+.no-products h3 { font-size: 24px; color: var(--primary-black); margin-bottom: 10px; font-weight: 500; }
+.no-products p { font-size: 16px; }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .cart-item {
-        padding: 15px;
-    }
-
-    .cart-item-image {
-        width: 60px;
-        height: 60px;
-    }
-
-    .cart-item-details {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .products-grid.list-view .product-card {
-        grid-template-columns: 1fr;
-    }
-
-    .toast {
-        right: 20px;
-        left: 20px;
-        max-width: none;
-    }
+    .cart-item { padding: 15px; }
+    .cart-item-image { width: 60px; height: 60px; }
+    .cart-item-details { flex-direction: column; gap: 5px; }
+    .toast { right: 20px; left: 20px; max-width: none; }
 }
 
 @media (max-width: 480px) {
-    .product-card {
-        border-radius: 15px;
-    }
+    .product-card { border-radius: 15px; }
+}
 
-    .product-info {
-        padding: 15px;
-    }
+/* ── Product Quick Modal (pqm) ── */
+.pqm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-    .product-name {
-        font-size: 16px;
-    }
+.pqm-overlay.active { opacity: 1; }
 
-    .product-price {
-        font-size: 18px;
-    }
+.pqm-modal {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    transform: translateY(30px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
 
-    .action-btn {
-        width: 40px;
-        height: 40px;
+.pqm-overlay.active .pqm-modal { transform: translateY(0); }
+
+.pqm-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.pqm-close:hover { background: rgba(0,0,0,0.15); }
+
+.pqm-image {
+    position: relative;
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+}
+
+.pqm-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pqm-badges {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pqm-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pqm-badge--new { background: #D4AF37; color: #0a0a0a; }
+.pqm-badge--sale { background: #E74C3C; color: #fff; }
+
+.pqm-details {
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pqm-name {
+    font-size: 22px;
+    font-weight: 500;
+    color: #0a0a0a;
+    line-height: 1.3;
+}
+
+.pqm-desc {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.pqm-price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pqm-price-current {
+    font-size: 26px;
+    font-weight: 600;
+    color: #0a0a0a;
+}
+
+.pqm-price-original {
+    font-size: 16px;
+    color: #bbb;
+    text-decoration: line-through;
+}
+
+.pqm-sizes-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.pqm-sizes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pqm-size-btn {
+    padding: 8px 16px;
+    border: 1.5px solid #e5e5e5;
+    background: transparent;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #0a0a0a;
+}
+
+.pqm-size-btn:hover,
+.pqm-size-btn.active {
+    background: #0a0a0a;
+    color: #fff;
+    border-color: #0a0a0a;
+}
+
+.pqm-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: auto;
+}
+
+.pqm-add-cart-btn {
+    flex: 1;
+    padding: 14px 20px;
+    background: #0a0a0a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+}
+
+.pqm-add-cart-btn:hover { background: #333; }
+.pqm-add-cart-btn.disabled { background: #999; cursor: not-allowed; }
+
+.pqm-wishlist-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1.5px solid #e5e5e5;
+    background: transparent;
+    color: #0a0a0a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.pqm-wishlist-btn:hover,
+.pqm-wishlist-btn.active {
+    background: #0a0a0a;
+    color: #fff;
+    border-color: #0a0a0a;
+}
+
+@media (max-width: 640px) {
+    .pqm-modal {
+        grid-template-columns: 1fr;
+        max-height: 95vh;
     }
+    .pqm-image {
+        border-radius: 20px 20px 0 0;
+        aspect-ratio: 4/3;
+    }
+    .pqm-details { padding: 25px 20px; }
 }
 </style>
 `;

@@ -20,46 +20,13 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// Click en ícono de usuario (desktop)
-const userIconDesktop = document.querySelector('.nav-utilities a[href="#account"]');
-if (userIconDesktop) {
-    userIconDesktop.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (!isLoggedIn) {
-            window.location.href = 'login.html';
-        } else {
-            userDropdown.classList.toggle('active');
-        }
-    });
-}
-
-// Click en ícono de usuario (mobile)
-const userIconMobile = document.querySelector('.mobile-utilities a[href="#account"]');
-if (userIconMobile) {
-    userIconMobile.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (!isLoggedIn) {
-            window.location.href = 'login.html';
-        } else {
-            alert('Cuenta: ' + (auth.currentUser?.email || 'Usuario'));
-        }
-    });
-}
-
-// Cerrar dropdown al hacer click fuera
-document.addEventListener('click', (e) => {
-    if (userDropdown && !userDropdown.contains(e.target) && !userIconDesktop?.contains(e.target)) {
-        userDropdown.classList.remove('active');
-    }
-});
-
 // Logout
 if (logoutBtn) {
     logoutBtn.addEventListener('click', async (e) => {
         e.preventDefault();
         try {
             await signOut(auth);
-            localStorage.clear();
+            ['userId', 'userEmail', 'userName'].forEach(k => localStorage.removeItem(k));
             window.location.reload();
         } catch (error) {
             console.error('Error:', error);

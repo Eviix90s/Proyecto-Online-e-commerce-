@@ -14,7 +14,7 @@
     --off-white: #fafafa;
     --gray-light: #f5f5f5;
     --gray-medium: #888888;
-    --accent-red: #ff0000;
+    --accent-red: #fd4a09;
     --transition: all 0.3s ease;
     --shadow-light: 0 2px 20px rgba(0, 0, 0, 0.1);
     --shadow-heavy: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -466,8 +466,8 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--accent-red);
-    opacity: 0.3;
+    background: #FF6B35;
+    opacity: 1;
 }
 
 .hero-text p {
@@ -1142,6 +1142,7 @@ body {
 
 /* Featured Collections con imagen de fondo */
 .featured-collections {
+    margin-top: 5px;
     padding: 40px 0 100px;
     background: var(--primary-black);
     color: var(--pure-white);
@@ -1865,6 +1866,224 @@ body {
     padding: 25px;
 }
 
+/* ── Sección cupón ── */
+.cart-coupon-section {
+    margin-bottom: 16px;
+}
+
+.cart-coupon-form {
+    display: flex;
+    gap: 8px;
+}
+
+.cart-coupon-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 13px;
+    background: var(--pure-white);
+    color: var(--primary-black);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.cart-coupon-form input:focus {
+    border-color: var(--primary-black);
+}
+
+.cart-coupon-apply-btn {
+    padding: 8px 14px;
+    background: var(--primary-black);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.cart-coupon-apply-btn:hover {
+    background: var(--soft-black);
+}
+
+.cart-coupon-applied {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 200, 100, 0.1);
+    border: 1px solid rgba(0, 200, 100, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #0a7a42;
+}
+
+.cart-coupon-applied .fa-tag {
+    margin-right: 4px;
+}
+
+.cart-coupon-remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+
+.cart-coupon-remove-btn:hover {
+    color: var(--accent-red);
+}
+
+/* ── Fila de descuento ── */
+.cart-discount {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #0a7a42;
+    font-weight: 500;
+}
+
+.cart-discount-value {
+    color: #0a7a42;
+    font-weight: 600;
+}
+
+/* ── Modal de autenticación requerida ───────────────────── */
+.auth-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+
+.auth-modal-overlay.active {
+    opacity: 1;
+}
+
+.auth-modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 36px 36px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.auth-modal-overlay.active .auth-modal {
+    transform: translateY(0);
+}
+
+.auth-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #999;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.auth-modal-close:hover {
+    background: #f5f5f5;
+    color: #1a1a1a;
+}
+
+.auth-modal-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #FF6B35, #ff8c5a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.auth-modal-icon i {
+    font-size: 28px;
+    color: #fff;
+}
+
+.auth-modal h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.auth-modal p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.auth-modal-buttons {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.auth-modal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.auth-modal-btn--primary {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.auth-modal-btn--secondary {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    border: 1px solid #e0e0e0;
+}
+
+@media (max-width: 480px) {
+    .auth-modal {
+        padding: 32px 24px 28px;
+    }
+}
+
 .cart-summary {
     margin-bottom: 20px;
 }
@@ -1998,7 +2217,7 @@ body {
 }
 
 .toast {
-    background: var(--primary-black);
+    background: #FF6B35;
     color: var(--pure-white);
     padding: 15px 20px;
     border-radius: 10px;
@@ -2014,12 +2233,24 @@ body {
     opacity: 1;
 }
 
-.toast.success {
+.toast.success,
+.toast-success {
     background: #10B981;
 }
 
-.toast.error {
-    background: var(--accent-red);
+.toast.error,
+.toast-error {
+    background: #E74C3C;
+}
+
+.toast.warning,
+.toast-warning {
+    background: #F59E0B;
+}
+
+.toast.info,
+.toast-info {
+    background: #FF6B35;
 }
 
 

@@ -458,41 +458,14 @@ class EasterEgg {
 }
 
 
-// ============================================
-// USER DROPDOWN - Toggle flotante
-// ============================================
+// Logout (dropdown manejado por cart.js)
 document.addEventListener('DOMContentLoaded', () => {
-    const userBtn = document.querySelector('a[href="#account"]');
-    const dropdown = document.getElementById('userDropdown');
-
-    if (userBtn && dropdown) {
-        // Convertir el enlace en botón clickeable
-        userBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown.classList.toggle('active');
-        });
-
-        // Cerrar dropdown al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target) && e.target !== userBtn) {
-                dropdown.classList.remove('active');
-            }
-        });
-
-        // No cerrar al hacer click dentro del dropdown
-        dropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    }
-
-    // Logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('¿Cerrar sesión?')) {
-                localStorage.clear();
+                ['userId', 'userEmail', 'userName'].forEach(k => localStorage.removeItem(k));
                 window.location.href = 'index.html';
             }
         });
