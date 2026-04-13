@@ -400,9 +400,16 @@ class OrdersApp {
             <div class="detail-section">
                 <h3><i class="fas fa-box-open"></i> Productos</h3>
                 ${order.items.map(item => `
-                    <div class="detail-row">
-                        <span class="detail-label">${item.name} x ${item.quantity}</span>
-                        <span class="detail-value">${OrderUtils.formatPrice(item.subtotal)}</span>
+                    <div class="order-item" style="margin-bottom:12px">
+                        <img src="${item.image}" alt="${item.name}" loading="lazy">
+                        <div class="item-details">
+                            <h3>${item.name}</h3>
+                            <p>
+                                <i class="fas fa-box"></i> Cantidad: ${item.quantity}
+                                ${item.selectedSize || item.size ? ` • Talla: ${item.selectedSize || item.size}` : ''}
+                            </p>
+                        </div>
+                        <span class="item-price">${OrderUtils.formatPrice(item.subtotal)}</span>
                     </div>
                 `).join('')}
             </div>

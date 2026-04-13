@@ -251,20 +251,35 @@ class OffersApp {
         document.body.style.overflow = '';
     }
 
-    // Countdown
+    // Countdown — siempre 4 horas, se reinicia solo al llegar a 0
     startCountdown() {
+        const KEY = 'ucOffersEnd';
+        const DURATION = 4 * 60 * 60 * 1000;
+
+        let endTime = parseInt(sessionStorage.getItem(KEY) || '0');
+        if (!endTime || endTime <= Date.now()) {
+            endTime = Date.now() + DURATION;
+            sessionStorage.setItem(KEY, endTime);
+        }
+
         const updateTimer = () => {
-            const distance = OFFERS_CONFIG.offerEndDate - Date.now();
-            if (distance < 0) {
-                ['days','hours','minutes','seconds'].forEach(id => {
-                    document.getElementById(id).textContent = '00';
-                });
-                return;
+            let distance = endTime - Date.now();
+            if (distance <= 0) {
+                endTime = Date.now() + DURATION;
+                sessionStorage.setItem(KEY, endTime);
+                distance = DURATION;
             }
-            document.getElementById('days').textContent    = String(Math.floor(distance / (1000*60*60*24))).padStart(2,'0');
-            document.getElementById('hours').textContent   = String(Math.floor((distance % (1000*60*60*24)) / (1000*60*60))).padStart(2,'0');
-            document.getElementById('minutes').textContent = String(Math.floor((distance % (1000*60*60)) / (1000*60))).padStart(2,'0');
-            document.getElementById('seconds').textContent = String(Math.floor((distance % (1000*60)) / 1000)).padStart(2,'0');
+            const h = Math.floor(distance / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+            const dEl = document.getElementById('days');
+            const hEl = document.getElementById('hours');
+            const mEl = document.getElementById('minutes');
+            const sEl = document.getElementById('seconds');
+            if (dEl) dEl.textContent = '00';
+            if (hEl) hEl.textContent = String(h).padStart(2, '0');
+            if (mEl) mEl.textContent = String(m).padStart(2, '0');
+            if (sEl) sEl.textContent = String(s).padStart(2, '0');
         };
         updateTimer();
         setInterval(updateTimer, 1000);
