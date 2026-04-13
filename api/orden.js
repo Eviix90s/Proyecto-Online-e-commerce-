@@ -277,9 +277,13 @@ module.exports = async function handler(req, res) {
 
     if (req.method !== 'GET') return res.status(405).end();
 
-    const orden_id = req.query && req.query.id
-        ? req.query.id
-        : (req.url ? new URL('https://x.x' + req.url).searchParams.get('id') : null);
+    let orden_id = (req.query && req.query.id) || null;
+    if (!orden_id && req.url) {
+        try {
+            const u = new URL(req.url.startsWith('http') ? req.url : `https://x.x${req.url}`);
+            orden_id = u.searchParams.get('id');
+        } catch {}
+    }
 
     if (!orden_id) {
         res.setHeader('Content-Type', 'text/html; charset=utf-8');

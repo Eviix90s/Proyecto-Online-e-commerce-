@@ -111,7 +111,10 @@ module.exports = async function handler(req, res) {
     const items         = d.items         || [];
     const orden_id      = d.orden_id      || 'UC-' + randomUUID().slice(0, 8).toUpperCase();
 
-    const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    const reqHost = (req.headers && (req.headers['x-forwarded-host'] || req.headers.host)) || '';
+    const siteUrl = reqHost
+        ? `https://${reqHost}`
+        : process.env.VERCEL_PROJECT_PRODUCTION_URL
         ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
         : process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}`
