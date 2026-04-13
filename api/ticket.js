@@ -109,7 +109,7 @@ module.exports = async function handler(req, res) {
     const metodo_pago   = d.metodo_pago   || 'card';
     const total         = d.total         || 0;
     const items         = d.items         || [];
-    const orden_id      = d.orden_id      || 'UC-' + randomUUID().slice(0, 8).toUpperCase();
+    const orden_id      = (d.orden_id || 'UC-' + randomUUID().slice(0, 8).toUpperCase()).replace(/^#/, '');
 
     const reqHost = (req.headers && (req.headers['x-forwarded-host'] || req.headers.host)) || '';
     const siteUrl = reqHost
@@ -120,7 +120,7 @@ module.exports = async function handler(req, res) {
         ? `https://${process.env.VERCEL_URL}`
         : '';
     const qrData = siteUrl
-        ? `${siteUrl}/api/orden?id=${orden_id}`
+        ? `${siteUrl}/api/orden?id=${encodeURIComponent(orden_id)}`
         : `Urban Cats | Orden: ${orden_id} | Total: $${total} | PAGADO`;
     const qrUrl  = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
 
