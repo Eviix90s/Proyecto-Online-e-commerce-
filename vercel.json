@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/ticket.py": {
+      "runtime": "python3.9"
+    }
+  }
+}

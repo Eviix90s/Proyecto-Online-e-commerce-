@@ -158,3 +158,6 @@ firebase-debug.log
 firestore-debug.log
 ui-debug.log
 firebase-debug.*.log
+
+#base de datos 
+*firebase-adminsdk*.json

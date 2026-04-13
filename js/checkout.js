@@ -188,6 +188,7 @@ class CheckoutApp {
         this.renderSavedAddresses();
         this.setupEventListeners();
         this.prefillUserData();
+        this.prefillCoupon();
         this.hideLoadingScreen();
     }
 
@@ -331,18 +332,51 @@ class CheckoutApp {
             this.elements.summaryItemsCount.textContent = `${totalItems} producto${totalItems !== 1 ? 's' : ''}`;
         }
 
-        this.elements.summaryItems.innerHTML = this.cart.map(item => `
-            <div class="summary-item">
+        this.elements.summaryItems.innerHTML = this.cart.map((item, idx) => {
+            const sizeLabel = item.selectedSize || item.size;
+            return `
+            <div class="summary-item" data-idx="${idx}">
                 <img src="${item.image}" alt="${item.name}" loading="lazy">
                 <div class="summary-item-details">
                     <h4>${item.name}</h4>
-                    <p>Cant: ${item.quantity} ${item.size ? `• Talla: ${item.size}` : ''}</p>
+                    ${sizeLabel ? `<p class="summary-item-size">Talla: ${sizeLabel}</p>` : ''}
+                    <div class="summary-qty-controls">
+                        <button class="summary-qty-btn" onclick="checkoutApp.changeItemQty(${idx},-1)">−</button>
+                        <span class="summary-qty-val">${item.quantity}</span>
+                        <button class="summary-qty-btn" onclick="checkoutApp.changeItemQty(${idx},1)">+</button>
+                    </div>
                 </div>
-                <span class="summary-item-price">${CheckoutUtils.formatPrice(item.price * item.quantity)}</span>
-            </div>
-        `).join('');
+                <div class="summary-item-right">
+                    <span class="summary-item-price">${CheckoutUtils.formatPrice(item.price * item.quantity)}</span>
+                    <button class="summary-item-remove" onclick="checkoutApp.removeItem(${idx})" title="Eliminar">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>`;
+        }).join('');
 
         this.updateTotals();
+    }
+
+    changeItemQty(idx, delta) {
+        if (!this.cart[idx]) return;
+        const newQty = this.cart[idx].quantity + delta;
+        if (newQty < 1) { this.removeItem(idx); return; }
+        this.cart[idx].quantity = newQty;
+        localStorage.setItem('urbanCatsCart', JSON.stringify(this.cart));
+        this.renderSummary();
+        if (typeof cartSystem !== 'undefined') cartSystem.refresh();
+    }
+
+    removeItem(idx) {
+        if (!this.cart[idx]) return;
+        const name = this.cart[idx].name;
+        this.cart.splice(idx, 1);
+        localStorage.setItem('urbanCatsCart', JSON.stringify(this.cart));
+        if (this.cart.length === 0) { this.showEmptyCart(); return; }
+        this.renderSummary();
+        if (typeof cartSystem !== 'undefined') cartSystem.refresh();
+        CheckoutToast.show(`"${name}" eliminado del carrito`, 'info');
     }
 
     updateTotals() {
@@ -404,6 +438,15 @@ class CheckoutApp {
         }
     }
 
+    prefillCoupon() {
+        if (!this.activeCoupon) return;
+        const input = this.elements.couponInput;
+        const btn = this.elements.couponApplyBtn;
+        if (input) { input.value = this.activeCoupon.code; input.disabled = true; }
+        if (btn) btn.disabled = true;
+        this.showCouponMessage(`¡Cupón "${this.activeCoupon.code}" aplicado desde tu carrito!`, 'success');
+    }
+
     showCouponMessage(message, type) {
         if (!this.elements.couponMessage) return;
         
@@ -459,20 +502,112 @@ class CheckoutApp {
             CheckoutToast.show('Por favor completa todos los campos correctamente', 'error');
             return;
         }
+        this._openPaymentModal();
+    }
 
-        const confirmed = confirm('¿Confirmar pedido y proceder al pago?');
-        if (!confirmed) return;
+    _openPaymentModal() {
+        const modal = document.getElementById('payment-modal');
+        if (!modal) return;
 
-        const order = this.createOrder();
-        CheckoutStorage.addOrder(order);
-        CheckoutStorage.clearCart();
-        CheckoutStorage.clearCoupon();
+        // Resetear estados
+        document.getElementById('pm-processing').style.display = 'block';
+        document.getElementById('pm-success').style.display = 'none';
+        document.getElementById('pm-error').style.display = 'none';
+        document.getElementById('pm-progress-fill').style.width = '0%';
+        document.getElementById('pm-step-text').textContent = 'Verificando información...';
+        document.querySelectorAll('.pm-payment-icons i').forEach(i => i.classList.remove('active-icon'));
 
-        CheckoutToast.show('¡Pedido realizado con éxito!', 'success');
+        modal.classList.add('active');
 
+        // Secuencia de pasos animados
+        const steps = [
+            { text: 'Verificando información...', progress: '28%', iconIdx: 0 },
+            { text: 'Procesando pago...',          progress: '62%', iconIdx: 1 },
+            { text: 'Confirmando pedido...',        progress: '88%', iconIdx: 2 }
+        ];
+        const stepTextEl    = document.getElementById('pm-step-text');
+        const progressFill  = document.getElementById('pm-progress-fill');
+        const icons         = document.querySelectorAll('.pm-payment-icons i');
+
+        let stepIdx = 0;
+        const applyStep = () => {
+            if (stepIdx >= steps.length) return;
+            const s = steps[stepIdx++];
+            stepTextEl.style.opacity = '0';
+            setTimeout(() => { stepTextEl.textContent = s.text; stepTextEl.style.opacity = '1'; }, 180);
+            progressFill.style.width = s.progress;
+            icons.forEach((ic, i) => ic.classList.toggle('active-icon', i === s.iconIdx));
+        };
+
+        applyStep();
+        const interval = setInterval(() => { applyStep(); if (stepIdx >= steps.length) clearInterval(interval); }, 950);
+
+        // Después de ~3s → procesar y mostrar resultado
         setTimeout(() => {
-            window.location.href = 'pedidos.html';
-        }, 2000);
+            clearInterval(interval);
+            progressFill.style.width = '100%';
+            setTimeout(() => {
+                try {
+                    const order = this.createOrder();
+                    CheckoutStorage.addOrder(order);
+                    CheckoutStorage.clearCart();
+                    CheckoutStorage.clearCoupon();
+
+                    // Llamar API ticket (fire & forget)
+                    const form = this.elements.shippingForm;
+                    fetch('/api/ticket', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            orden_id:    order.orderNumber,
+                            nombre:      form.querySelector('#shipping-name').value,
+                            email:       form.querySelector('#shipping-email').value,
+                            telefono:    form.querySelector('#shipping-phone').value,
+                            direccion:   form.querySelector('#shipping-address').value,
+                            ciudad:      form.querySelector('#shipping-city').value,
+                            codigo_postal: form.querySelector('#shipping-postal').value,
+                            notas:       form.querySelector('#shipping-notes')?.value || '',
+                            metodo_pago: order.payment?.method || 'card',
+                            total:       order.total,
+                            items:       order.items
+                        })
+                    }).catch(() => {});
+
+                    this._showPaymentSuccess(order.orderNumber);
+                } catch (e) {
+                    this._showPaymentError('No pudimos procesar tu pedido. Por favor intenta de nuevo.');
+                }
+            }, 350);
+        }, 2950);
+    }
+
+    _showPaymentSuccess(orderNumber) {
+        document.getElementById('pm-processing').style.display = 'none';
+        document.getElementById('pm-success').style.display = 'block';
+        document.getElementById('pm-order-num').textContent = orderNumber;
+
+        let count = 4;
+        const countEl = document.getElementById('pm-countdown');
+        if (countEl) countEl.textContent = count;
+        const timer = setInterval(() => {
+            count--;
+            if (countEl) countEl.textContent = count;
+            if (count <= 0) { clearInterval(timer); window.location.href = 'pedidos.html'; }
+        }, 1000);
+    }
+
+    _showPaymentError(message) {
+        document.getElementById('pm-processing').style.display = 'none';
+        document.getElementById('pm-error').style.display = 'block';
+        document.getElementById('pm-error-msg').textContent = message;
+
+        const modal = document.getElementById('payment-modal');
+        document.getElementById('pm-retry-btn').onclick = () => {
+            modal.classList.remove('active');
+        };
+        document.getElementById('pm-close-btn').onclick = () => {
+            modal.classList.remove('active');
+        };
     }
 
     createOrder() {
