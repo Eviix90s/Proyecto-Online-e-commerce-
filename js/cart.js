@@ -905,9 +905,12 @@ const cartSystem = {
             const overlay = document.getElementById('overlay');
             if (overlay) overlay.addEventListener('click', () => { this.closeCart(); this.closeWishlist(); });
 
-            // Botón finalizar compra
-            const checkoutBtn = document.querySelector('.checkout-btn');
-            if (checkoutBtn) checkoutBtn.addEventListener('click', () => this.goToCheckout());
+            // Botón finalizar compra (solo en páginas fuera de checkout.html)
+            // checkout.html tiene su propio handler en checkout.js
+            if (!window.location.pathname.includes('checkout')) {
+                const checkoutBtn = document.querySelector('.checkout-btn, .cart-checkout-btn');
+                if (checkoutBtn) checkoutBtn.addEventListener('click', () => this.goToCheckout());
+            }
 
             // Aplicar cupón
             const applyBtn = document.getElementById('cart-coupon-apply');

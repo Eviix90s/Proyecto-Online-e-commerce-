@@ -136,6 +136,7 @@ module.exports = async function handler(req, res) {
 
     const metodoPagoLabel = metodo_pago === 'card' ? 'Tarjeta de crédito/débito'
         : metodo_pago === 'paypal' ? 'PayPal'
+        : metodo_pago === 'oxxo' ? 'OXXO (Efectivo)'
         : metodo_pago === 'transfer' ? 'Transferencia bancaria'
         : metodo_pago;
 

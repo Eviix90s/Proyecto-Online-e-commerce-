@@ -794,8 +794,9 @@ class UrbanCatsApp {
 
     // Navegación y scroll mejorados
     handleSmoothScroll(e) {
-        e.preventDefault();
         const targetId = e.currentTarget.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        e.preventDefault();
         const targetElement = document.querySelector(targetId);
 
         if (targetElement) {
