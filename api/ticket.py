@@ -1,11 +1,9 @@
 import os
 import json
 import uuid
-import qrcode
-import base64
 import datetime
 import urllib.request
-from io import BytesIO
+import urllib.parse
 from http.server import BaseHTTPRequestHandler
 
 from google.oauth2 import service_account
@@ -40,15 +38,13 @@ def _save_firestore(token, project_id, collection, doc_id, data):
     urllib.request.urlopen(req)
 
 
-def _send_resend(api_key, to_email, subject, html, attachments=None):
+def _send_resend(api_key, to_email, subject, html):
     payload = {
         "from": "Urban Cats <onboarding@resend.dev>",
         "to": [to_email],
         "subject": subject,
         "html": html,
     }
-    if attachments:
-        payload["attachments"] = attachments
     body = json.dumps(payload).encode()
     req = urllib.request.Request("https://api.resend.com/emails", data=body, method='POST')
     req.add_header('Authorization', f'Bearer {api_key}')
@@ -84,12 +80,9 @@ class handler(BaseHTTPRequestHandler):
         items         = datos.get("items", [])
         orden_id      = datos.get("orden_id") or "UC-" + str(uuid.uuid4())[:8].upper()
 
-        # --- A. GENERAR EL QR ---
+        # --- A. QR via API (sin librerías de imagen) ---
         qr_texto = f"Urban Cats | Orden: {orden_id} | Cliente: {nombre} | Total: ${total} | Estado: PAGADO"
-        qr = qrcode.make(qr_texto)
-        buf = BytesIO()
-        qr.save(buf, format='PNG')
-        img_bytes = buf.getvalue()
+        qr_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + urllib.parse.quote(qr_texto)
 
         # --- B. GUARDAR EN FIREBASE FIRESTORE (REST API) ---
         token, project_id = _get_token_and_project()
@@ -109,7 +102,7 @@ class handler(BaseHTTPRequestHandler):
             'fecha':         datetime.datetime.utcnow().isoformat()
         })
 
-        # --- C. ENVIAR CORREO CON RESEND (urllib) ---
+        # --- C. ENVIAR CORREO CON RESEND ---
         items_html = "".join([
             f"<tr><td>{i.get('name','')}</td><td>x{i.get('quantity',1)}</td>"
             f"<td>${i.get('price',0)*i.get('quantity',1)}</td></tr>"
@@ -127,19 +120,21 @@ class handler(BaseHTTPRequestHandler):
                     </thead>
                     <tbody>{items_html}</tbody>
                 </table>
-                <p>Adjunto encontrarás tu código QR de verificación.</p>
-                <p style="color:#888;font-size:12px">Urban Cats — Moda urbana con estilo japonés</p>
+                <p style="text-align:center">
+                    <strong>Tu código QR de verificación:</strong><br>
+                    <img src="{qr_url}" alt="QR Orden {orden_id}"
+                         style="margin-top:10px;border:1px solid #eee;padding:8px;border-radius:8px">
+                </p>
+                <p style="color:#888;font-size:12px;text-align:center">
+                    Urban Cats — Moda urbana con estilo japonés
+                </p>
             </div>
         """
         _send_resend(
             os.environ.get('RESEND_API_KEY'),
             email,
             f"Tu ticket de compra - {orden_id} | Urban Cats",
-            html_body,
-            attachments=[{
-                "filename": f"ticket_{orden_id}.png",
-                "content": base64.b64encode(img_bytes).decode()
-            }]
+            html_body
         )
 
         self.send_response(200)
