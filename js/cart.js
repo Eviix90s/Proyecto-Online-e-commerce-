@@ -1178,7 +1178,8 @@ const cartSystem = {
                 contBtn.className = 'continue-shopping-btn';
                 contBtn.innerHTML = '<i class="fas fa-arrow-left"></i> <span id="cart-continue-text">Seguir Comprando</span>';
                 contBtn.addEventListener('click', () => this._handleContinueShopping());
-                if (checkoutBtn) cartFooter.insertBefore(contBtn, checkoutBtn);
+                const cartCheckoutBtn = cartFooter.querySelector('.cart-checkout-btn');
+                if (cartCheckoutBtn) cartFooter.insertBefore(contBtn, cartCheckoutBtn);
                 else cartFooter.appendChild(contBtn);
                 document.head.insertAdjacentHTML('beforeend', `<style>
                     .continue-shopping-btn {
