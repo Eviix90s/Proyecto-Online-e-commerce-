@@ -7,8 +7,8 @@
 // ============================================
 const OrderStorage = {
     keys: {
-        orders: 'urbanCats_orders',
-        cart: 'urbanCats_cart'
+        orders: 'urbanCatsOrders',
+        cart: 'urbanCatsCart'
     },
 
     getOrders() {
@@ -99,7 +99,7 @@ const OrderUtils = {
     getStatusLabel(status) {
         const labels = {
             pending: 'Pendiente',
-            processing: 'Procesando',
+            processing: 'En camino',
             shipped: 'Enviado',
             delivered: 'Entregado',
             cancelled: 'Cancelado'

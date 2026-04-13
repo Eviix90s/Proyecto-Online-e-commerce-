@@ -628,7 +628,7 @@ class CheckoutApp {
         return {
             orderNumber: CheckoutUtils.generateOrderNumber(),
             date: new Date().toISOString(),
-            status: 'pending',
+            status: 'processing',
             items: this.cart.map(item => ({
                 ...item,
                 subtotal: item.price * item.quantity
