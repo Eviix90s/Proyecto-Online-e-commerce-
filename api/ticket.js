@@ -111,7 +111,14 @@ module.exports = async function handler(req, res) {
     const items         = d.items         || [];
     const orden_id      = d.orden_id      || 'UC-' + randomUUID().slice(0, 8).toUpperCase();
 
-    const qrData = `Urban Cats | Orden: ${orden_id} | Cliente: ${nombre} | Total: $${total} | Estado: PAGADO`;
+    const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : '';
+    const qrData = siteUrl
+        ? `${siteUrl}/api/orden?id=${orden_id}`
+        : `Urban Cats | Orden: ${orden_id} | Total: $${total} | PAGADO`;
     const qrUrl  = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}`;
 
     const creds = JSON.parse(process.env.FIREBASE_JSON_KEY);
